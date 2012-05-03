@@ -85,13 +85,6 @@
 - [[Tutorials | Grails Tutorials]]
 - [[Known Issues | Grails - Known Issues]]
 
-### [[FAQ]]
-
-### [[Appendix]]
-- [[Extension Quick Reference]]
-- [[IntelliJ Setup]]
-- [[Changelog]]
-
 ### [[Third Party Modules]]
 - [[USPS]]
 - [[PayPal]]
@@ -99,3 +92,10 @@
 - [[CyberSource Tax]]
     - [[Configuration | CyberSource Tax#wiki-configuration]]
     - [[Running Tests | CyberSource Tax#wiki-tests]]
+
+### [[FAQ]]
+
+### [[Appendix]]
+- [[Extension Quick Reference]]
+- [[IntelliJ Setup]]
+- [[Changelog]]
