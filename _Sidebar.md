@@ -65,8 +65,8 @@
     - [[Customizing Payment Tutorial]]
     - [[Customizing Checkout Tutorial]]
     - [[Customizing Pricing Tutorial]]
-        - [[Shipping - Customizing Pricing Tutorial#wiki-shipping]]
-        - [[Tax - Customizing Pricing Tutorial#wiki-tax]]
+        - [[Shipping | Customizing Pricing Tutorial#wiki-shipping]]
+        - [[Tax | Customizing Pricing Tutorial#wiki-tax]]
 
 - [[Admin | Admin Tutorials]]
 
