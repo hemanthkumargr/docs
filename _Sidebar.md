@@ -83,7 +83,7 @@
 ### [[Grails]]
 - [[Getting Started | Grails Getting Started]]
 - [[Tutorials | Grails Tutorials]]
-- [[Known Issues | Grails - Known Issues]]
+- [[Known Issues | Grails Known Issues]]
 
 ### [[Third Party Modules]]
 - [[USPS]]
