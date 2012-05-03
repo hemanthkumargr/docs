@@ -20,7 +20,6 @@
     - [[Configuration Files | Running the Application#wiki-configuration]]
     - [[How to run | Running the Application#wiki-howtorun]]
     - [[How to debug | Running the Application#wiki-howtodebug]]
-    - [[JRebel debugging | Running the Application#wiki-jrebel]]
 
 - [[Things to Try Out]]
     - [[Extending Product | Things to Try Out#wiki-extendingproduct]]
@@ -98,4 +97,5 @@
 ### [[Appendix]]
 - [[Extension Quick Reference]]
 - [[IntelliJ Setup]]
+- [[JRebel Setup]]
 - [[Changelog]]
