@@ -27,8 +27,7 @@
 ### [[Broadleaf Concepts]]
 
 - [[Key Aspects]]
-    - [[Features | Key Aspects#wiki-features]]
-    - [[Frameworks Utilized | Key Aspects#wiki-frameworks]]
+    - [[Features and Frameworks]] (Done)
     - [[Project Modules and Package Structure]]
     - [[Merge Configuration]]
     - [[Persistence Configuration]]
