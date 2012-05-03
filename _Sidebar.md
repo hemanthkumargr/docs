@@ -38,7 +38,7 @@
 
 - [[Data and Service Models]]
     - [[Main Entities]]
-    - [[Main Servies]]
+    - [[Main Services]]
 
 - [[Workflows and Activities]]
     - [[Pricing | Pricing Workflow]]
