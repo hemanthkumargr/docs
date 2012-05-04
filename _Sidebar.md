@@ -50,6 +50,7 @@
     - [[CMS | CMS Configuration]]
     - [[Caching | Caching Configuration]]
     - [[QoS | QoS Configuration]]
+    - [[Dynamic Pricing | Dynamic Pricing Configuration]]
 
 - [[Presentation Layer]]
 
@@ -75,11 +76,11 @@
 
 - [[Admin | Admin Tutorials]]
 
-### [[Contributing to Broadleaf]]
+### [[Contributing to Broadleaf]] (done)
 
-- [[Obtaining the Source Code | Contributing to Broadleaf#wiki-obtaining-source]]
-- [[Submitting Bugs and Patches | Contributing to Broadleaf#wiki-submitting-bugs]]
-- [[Eclipse Setup | Contributing to Broadleaf#wiki-eclipse-setup]]
+- [[Obtaining the Source Code | Contributing to Broadleaf#wiki-obtaining-source]] (done)
+- [[Submitting Bugs and Patches | Contributing to Broadleaf#wiki-submitting-bugs]] (done)
+- [[Becoming an Official Contributor | Contributing to Broadleaf#wiki-official-contributor]] (done)
 
 ### [[Appendix]]
 
