@@ -22,7 +22,7 @@
 
 - [[Key Aspects]]
     - [[Features and Architecture]] (Done)
-    - [[Project Modules and Package Structure]]
+    - [[Project Modules and Package Structure]] (Jeff)
     - [[Merge Configuration]]
     - [[Persistence Configuration]]
     - [[Database Configuration]]
@@ -84,9 +84,10 @@
 ### [[Appendix]]
 
 - [[Extension Quick Reference]]
-- [[IntelliJ Setup]]
-- [[Eclipse Setup]]
-- [[JRebel Setup]]
+- [[Environment Setup]]
+    - [[IntelliJ Setup]]
+    - [[Eclipse Setup]]
+    - [[JRebel Setup]]
 - [[Grails Plugin]]
 - [[Changelog]]
 - [[FAQ]]
