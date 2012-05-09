@@ -5,15 +5,49 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ wiki.base_path }}css/syntax.css" type="text/css" charset="utf-8" />    
+    <link rel="stylesheet" href="{{ wiki.base_path }}css/wiki.css" type="text/css" charset="utf-8" />    
   </head>
 
   <body>
-    <div style="float: right; width: 29%;">
+    <div class="sidebar">
       {{ page.sidebar }}
     </div>
-    <div style="float: left; width: 65%;">
+    <div class="content">
       <h1>{{ page.title }}</h1>
       {{ page.content }}
     </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).on('click', '.inline-links a', (function(event) {
+            if ($(this).parent().attr('class') != 'inline-links') {
+                return true;
+            }
+
+            event.preventDefault();
+
+            $link = $(this);
+            $ajax = $link.next();
+
+            if (!$ajax.hasClass('ajax')) {
+                $ajax = $('<div>').addClass('ajax').hide();
+                $link.after($ajax);
+            }
+
+            if ($ajax.is(':visible')) {
+                $ajax.hide();
+                return false;
+            } else {
+                if ($ajax.html().length == 0) {
+                    $.get($link.attr('href'), function(data) {
+                        $ajax.html($(data).filter('.content'));
+                    });
+                }
+                $ajax.show();
+            }
+        }));
+    </script>
+
+
   </body>
 </html>

@@ -1,0 +1,14 @@
+div.content {
+    float: left; 
+    width: 65%;
+}
+
+div.sidebar {
+    float: right; 
+    width: 29%;
+}
+
+.inline-links .content {
+    width: 98%;
+    background-color: #EEE;
+}
