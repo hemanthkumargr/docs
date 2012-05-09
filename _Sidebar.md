@@ -26,7 +26,7 @@
     - [[Merge Configuration]] (Done)
     - [[Persistence Configuration]] (Done)
         - [[Persistence Unit | Persistence Configuration#wiki-pu-config]]
-        - [[Persistence XML | Persistence Configuration#wiki-xml-config]]
+        - [[Persistence XML | Persistence Configuration#wiki-pxml-config]]
         - [[Ehcache | Persistence Configuration#wiki-ehcache-config]]
     - [[Database Configuration]]
     - [[App Server Configuration]]
@@ -49,7 +49,15 @@
 
 - [[Additional Configuration]]
     - [[Email | Email Configuration]]
-        - [[Email | Email Configuration#wiki-async-distribution]]
+        - [[Basic | Email Configuration#wiki-basic]]
+        - [[Preparing Code | Email Configuration#wiki-prep-code]]
+        - [[Preparing the Template | Email Configuration#wiki-prep-template]]
+        - [[Async. Distribution | Email Configuration#wiki-async-distribution]]
+        - [[Synchronous Distribution | Email Configuration#wiki-sync-distribution]]
+        - [[Non-Template Emails | Email Configuration#wiki-non-template-emails]]
+        - [[File Attachments | Email Configuration#wiki-file-attachments]]
+        - [[Property Reference | Email Configuration#wiki-prop-ref]]
+        - [[Template Reference | Email Configuration#wiki-template-ref]]
     - [[Offers | Offers Configuration]]
     - [[CMS | CMS Configuration]]
     - [[Caching | Caching Configuration]]
