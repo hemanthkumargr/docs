@@ -44,7 +44,7 @@ You'll likely want to establish your own service class that's responsible for se
 
 ```java
 public interface MyEmailWebService {
-	void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException;
+    void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException;
 }
 ```
 
@@ -54,26 +54,26 @@ and an implementation:
 @Service("myEmailService")
 public class MyEmailServiceImpl implements ApplicationContextAware, MyEmailWebService {
 
-	@Resource(name="blEmailService")
-	protected EmailService emailService;
+    @Resource(name="blEmailService")
+    protected EmailService emailService;
 
-	protected ApplicationContext applicationContext;
+    protected ApplicationContext applicationContext;
 
-	public void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException {
+    public void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException {
         HashMap<String, Object> props = new HashMap<String, Object>();
         props.put("orderDate", orderDate);
         props.put("orderId", orderId);
         emailService.sendTemplateEmail(emailAddress, getOrderConfirmationEmailInfo(), props);
     }
 
-	// Method based injection because we need to reference prototype scoped beans in a singleton bean
-	protected EmailInfo getOrderConfirmationEmailInfo() {
+    // Method based injection because we need to reference prototype scoped beans in a singleton bean
+    protected EmailInfo getOrderConfirmationEmailInfo() {
         return (EmailInfo) applicationContext.getBean("orderConfirmationEmailInfo");
     }
 
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-	    this.applicationContext = applicationContext;
-	}
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
 }
 ```
 
@@ -93,7 +93,7 @@ Now that you have a service to initiate the sending of your email, you'll want t
             <bean class="org.broadleafcommerce.core.offer.service.workflow.VerifyCustomerMaxOfferUsesActivity"/>
             <bean class="org.broadleafcommerce.core.checkout.service.workflow.PaymentServiceActivity"/>
             <bean class="org.broadleafcommerce.core.offer.service.workflow.RecordOfferUsageActivity"/>
-			<bean class="com.mycompany.checkout.service.workflow.MyCompleteOrderActivity"/>
+            <bean class="com.mycompany.checkout.service.workflow.MyCompleteOrderActivity"/>
         </list>
     </property>
     <property name="defaultErrorHandler" ref="blDefaultErrorHandler"/>
@@ -109,16 +109,16 @@ We'll also need to implement our new custom activity:
 ```java
 public class MyCompleteOrderActivity extends CompleteOrderActivity {
 
-	@Resource(name="myEmailService")
-	MyEmailService myEmailService;
+    @Resource(name="myEmailService")
+    MyEmailService myEmailService;
 
-	@Override
-	public ProcessContext execute(ProcessContext context) throws Exception {
-		CheckoutSeed seed = ((CheckoutContext) context).getSeedData();
-		Order order = seed.getOrder();
-		myEmailService.sendOrderConfirmation(order.getSubmitDate(), order.getId().toString(), order.getCustomer().getEmailAddress());
-		return super.execute(context);
-	}
+    @Override
+    public ProcessContext execute(ProcessContext context) throws Exception {
+        CheckoutSeed seed = ((CheckoutContext) context).getSeedData();
+        Order order = seed.getOrder();
+        myEmailService.sendOrderConfirmation(order.getSubmitDate(), order.getId().toString(), order.getCustomer().getEmailAddress());
+        return super.execute(context);
+    }
 }
 ```
 
@@ -132,11 +132,11 @@ We also need a [Velocity](http://velocity.apache.org/engine/releases/velocity-1.
 <html>
   <head><title>Order Confirmation Email</title></head>
   <body background="#FFFFFF">
-	<h1>Thank You For Your Order!</h1>
-	<table>
-	  <tr><td>Order Date:</td><td>$date.format('h:mm a',$orderDate)</td></tr>
-	  <tr><td>Order Id:</td><td>$orderId</td></tr>
-	</table>
+    <h1>Thank You For Your Order!</h1>
+    <table>
+      <tr><td>Order Date:</td><td>$date.format('h:mm a',$orderDate)</td></tr>
+      <tr><td>Order Id:</td><td>$orderId</td></tr>
+    </table>
   </body>
 </html>
 ```
@@ -149,8 +149,8 @@ Note, if you wish to use the serverinfo variable, you should override the bean d
 
 ```xml
 <bean id="blServerInfo" class="org.broadleafcommerce.email.service.info.ServerInfo">
-	<property name="serverName" value="myHost.com"/>
-	<property name="serverPort" value="80"/>
+    <property name="serverName" value="myHost.com"/>
+    <property name="serverPort" value="80"/>
 </bean>
 ```
 

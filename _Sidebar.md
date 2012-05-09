@@ -48,7 +48,7 @@
         - [[Braintree]]
 
 - [[Additional Configuration]]
-    - [[Email | Email Configuration]]
+    - [[Email | Email Configuration]] (Done)
         - [[Basic | Email Configuration#wiki-basic]]
         - [[Preparing Code | Email Configuration#wiki-prep-code]]
         - [[Preparing the Template | Email Configuration#wiki-prep-template]]
