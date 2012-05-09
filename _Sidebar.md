@@ -16,7 +16,7 @@
     - [[Configuring Checkout | Next Steps#wiki-configuring-checkout]]
     - [[Switching Databases | Next Steps#wiki-switching-db]]
     - [[Adding Your Data | Next Steps#wiki-adding-data]]
-    - [[Switching App Server | Next Steps#wiki-switching-app-server]]
+    - [[Switching App Servers | Next Steps#wiki-switching-app-servers]]
 
 ### [[Broadleaf Concepts]]
 
