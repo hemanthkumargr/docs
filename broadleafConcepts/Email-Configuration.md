@@ -102,7 +102,7 @@ Now that you have a service to initiate the sending of your email, you'll want t
 
 In this workflow configuration, we've changed the last activity to a new custom activity we've developed. 
 
->Please refer to the [[checkout workflow configuration | Checkout Workflow]] guide and the general [[workflow and activities]] guide for more information.
+>Please refer to the [[checkout workflow configuration | Checkout Workflow]] guide and the general [[workflow and activities | Workflow and Activities]] guide for more information.
 
 We'll also need to implement our new custom activity:
 
@@ -238,7 +238,7 @@ Broadleaf Commerce achieves asynchronous sending via a JMS (Java Message Service
 
 Most of the items exhibited here are boilerplate configuration for [Spring and JMS/ActiveMQ](http://activemq.apache.org/spring-support.html). We configure the connection factory, queue and listener container much like any other Spring JMS configuration. The key configuration items from a Broadleaf Commerce perspective are the `emailServiceProducer`, `emailServiceMessageListener` and `blEmailService` beans. These beans are primarily responsible for posting messages to and reading messages from a queue. The configuration for the emailServiceProducer beans requires a `org.springframework.jms.core.JmsTemplate` and a `javax.jms.Destination` (provided by the JndiObjectFactoryBean) instance. The emailServiceMessageListener bean has no direct requirements and should be set to `org.broadleafcommerce.common.email.service.jms.EmailServiceMDP`, unless additional behavior is required at the moment of delivery, which would require an override or new version of EmailServiceMDP. Finally, for asynchronous configuration, the key bean id must be overridden with an instance of EmailServiceImpl providing our EmailServiceProducer instance to the emailServiceProducer property.
 
-## <a name="wiki-sync-distribution"> Synchronous Distribution
+## <a name="wiki-sync-distribution" /> Synchronous Distribution
 
 Some users will not require asynchronous email sending. If time spent sending an email is not important to your process and if guaranteed delivery is not a requirement, then synchronous email is the right choice for you. Synchronous sending does not require the presence or configuration for a JMS message broker. Instead, only a simple alteration to our earlier configuration is required. Recall our configuration for baseEmailInfo:
 
@@ -324,7 +324,7 @@ In this example, we've created a theoretical CSV file attachment by building a p
 
 ## <a name="wiki-prop-ref" />Email Property Reference
 
-| Property | Description | Programmatic or XML config |
+| Property | Description | Java / XML config |
 |:---------|:------------|:--------------------------:|
 | emailType | Arbitrary name given to this type of email. Useful when grouping emails. | Both |
 | emailTemplate | Fully-qualified path to a Velocity template used to generate the email presentation | Both |
