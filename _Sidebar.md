@@ -22,9 +22,12 @@
 
 - [[Key Aspects]]
     - [[Features and Architecture]] (Done)
-    - [[Project Modules and Package Structure]] (Jeff)
-    - [[Merge Configuration]]
-    - [[Persistence Configuration]]
+    - [[Project Modules and Package Structure]] (Done)
+    - [[Merge Configuration]] (Done)
+    - [[Persistence Configuration]] (Done)
+        - [[Persistence Unit | Persistence Configuration#wiki-pu-config]]
+        - [[Persistence XML | Persistence Configuration#wiki-xml-config]]
+        - [[Ehcache | Persistence Configuration#wiki-ehcache-config]]
     - [[Database Configuration]]
     - [[App Server Configuration]]
 
@@ -34,23 +37,23 @@
 
 - [[Workflows and Activities]]
     - [[Pricing | Pricing Workflow]]
+        - [[Dynamic Pricing | Dynamic Pricing Configuration]]
         - [[Shipping | Pricing Workflow#wiki-shipping]]
             - [[USPS]]
-        - [[Payment | Pricing Workflow#wiki-payment]]
-            - [[PayPal]]
-            - [[Braintree]]
         - [[Tax | Tax Workflow#wiki-tax]]
             - [[CyberSource Tax]]
     - [[Checkout | Checkout Workflow]]
     - [[Payment | Payment Workflow]]
+        - [[PayPal]]
+        - [[Braintree]]
 
 - [[Additional Configuration]]
     - [[Email | Email Configuration]]
+        - [[Email | Email Configuration#wiki-async-distribution]]
     - [[Offers | Offers Configuration]]
     - [[CMS | CMS Configuration]]
     - [[Caching | Caching Configuration]]
     - [[QoS | QoS Configuration]]
-    - [[Dynamic Pricing | Dynamic Pricing Configuration]]
 
 - [[Presentation Layer]]
 
@@ -85,6 +88,7 @@
 ### [[Appendix]]
 
 - [[Extension Quick Reference]]
+- [[Runtime Environment Configuration]] (Done)
 - [[Environment Setup]]
     - [[IntelliJ Setup]]
     - [[Eclipse Setup]]
