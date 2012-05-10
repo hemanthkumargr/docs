@@ -62,6 +62,8 @@
     - [[CMS | CMS Configuration]]
     - [[Caching | Caching Configuration]]
     - [[QoS | QoS Configuration]]
+        - [[Configuration | QoS Configuration#wiki-config]]
+        - [[Customization | QoS Configuration#wiki-customization]]
 
 - [[Presentation Layer]]
 
