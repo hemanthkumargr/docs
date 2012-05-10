@@ -324,16 +324,16 @@ In this example, we've created a theoretical CSV file attachment by building a p
 
 ## <a name="wiki-prop-ref" />Email Property Reference
 
-| Property | Description | Java / XML config |
-|:---------|:------------|:--------------------------:|
-| emailType | Arbitrary name given to this type of email. Useful when grouping emails. | Both |
-| emailTemplate | Fully-qualified path to a Velocity template used to generate the email presentation | Both |
-| subject | The subject for the email | Both |
-| fromAddress | The fromAddress for the email | Both |
-| messageBody | Set messageBody for emails that are not template driven. | Both |
-| attachments | File attachments associated with the email | Programmatic |
-| sendEmailReliableAsync | Use JMS to execute the distribution of this email. Otherwise, emails are sent in the calling thread. | Both |
-| sendAsyncPriority | Assign the relative JMS priority for this email. Applies only to asynchronous email distribution. | Both |
+| Property               | Description                                                                                          | Java / XML config |
+| :--------------------- | :--------------------------------------------------------------------------------------------------- | :---------------: |
+| emailType              | Arbitrary name given to this type of email. Useful when grouping emails.                             | Both              |
+| emailTemplate          | Fully-qualified path to a Velocity template used to generate the email presentation                  | Both              |
+| subject                | The subject for the email                                                                            | Both              |
+| fromAddress            | The fromAddress for the email                                                                        | Both              |
+| messageBody            | Set messageBody for emails that are not template driven.                                             | Both              |
+| attachments            | File attachments associated with the email                                                           | Programmatic      |
+| sendEmailReliableAsync | Use JMS to execute the distribution of this email. Otherwise, emails are sent in the calling thread. | Both              |
+| sendAsyncPriority      | Assign the relative JMS priority for this email. Applies only to asynchronous email distribution.    | Both              |
 
 ## <a name="wiki-template-ref" />Template Tool Reference
 
