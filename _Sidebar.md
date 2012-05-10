@@ -21,10 +21,10 @@
 ### [[Broadleaf Concepts]]
 
 - [[Key Aspects]]
-    - [[Features and Architecture]] (Done)
-    - [[Project Modules and Package Structure]] (Done)
-    - [[Merge Configuration]] (Done)
-    - [[Persistence Configuration]] (Done)
+    - [[Features and Architecture]]
+    - [[Project Modules and Package Structure]]
+    - [[Merge Configuration]]
+    - [[Persistence Configuration]]
         - [[Persistence Unit | Persistence Configuration#wiki-pu-config]]
         - [[Persistence XML | Persistence Configuration#wiki-pxml-config]]
         - [[Ehcache | Persistence Configuration#wiki-ehcache-config]]
@@ -32,23 +32,29 @@
     - [[App Server Configuration]]
 
 - [[Data and Service Models]]
-    - [[Main Entities]]
-    - [[Main Services]]
+    - [[Main Entities | Data and Service Models#wiki-entities]]
+    - [[Main Services | Data and Service Models#wiki-services]]
 
 - [[Workflows and Activities]]
     - [[Pricing | Pricing Workflow]]
-        - [[Dynamic Pricing | Dynamic Pricing Configuration]]
+        - [[Configuration | Pricing Workflow#wiki-config]]
+            - [[Dynamic Pricing | Dynamic Pricing Configuration]]
+        - [[Customization | Pricing Workflow#wiki-customization]]
         - [[Shipping | Pricing Workflow#wiki-shipping]]
             - [[USPS]]
         - [[Tax | Tax Workflow#wiki-tax]]
             - [[CyberSource Tax]]
     - [[Checkout | Checkout Workflow]]
+        - [[Configuration | Checkout Workflow#wiki-config]]
+        - [[Customization | Checkout Workflow#wiki-customization]]
     - [[Payment | Payment Workflow]]
-        - [[PayPal]]
-        - [[Braintree]]
+        - [[Configuration | Payment Workflow#wiki-config]]
+            - [[PayPal]]
+            - [[Braintree]]
+        - [[Customization | Payment Workflow#wiki-customization]]
 
 - [[Additional Configuration]]
-    - [[Email | Email Configuration]] (Done)
+    - [[Email | Email Configuration]]
         - [[Basic | Email Configuration#wiki-basic]]
         - [[Preparing Code | Email Configuration#wiki-prep-code]]
         - [[Preparing the Template | Email Configuration#wiki-prep-template]]
@@ -66,6 +72,7 @@
         - [[Customization | QoS Configuration#wiki-customization]]
 
 - [[Presentation Layer]]
+- [[Adding Modules]]
 
 - [[REST]]
     - [[Endpoints | REST Endpoints]]
@@ -82,23 +89,21 @@
     - [[Customizing Shipping Tutorial]]
     - [[Customizing Tax Tutorial]]
 
-    - [[Switching Databases Tutorial]]
     - [[Adding Data Tutorial]]
-    - [[Switching App Server Tutorial]]
     - [[Preparing for Production Tutorial]]
 
 - [[Admin | Admin Tutorials]]
 
-### [[Contributing to Broadleaf]] (done)
+### [[Contributing to Broadleaf]]
 
-- [[Obtaining the Source Code | Contributing to Broadleaf#wiki-obtaining-source]] (done)
-- [[Submitting Bugs and Patches | Contributing to Broadleaf#wiki-submitting-bugs]] (done)
-- [[Becoming an Official Contributor | Contributing to Broadleaf#wiki-official-contributor]] (done)
+- [[Obtaining the Source Code | Contributing to Broadleaf#wiki-obtaining-source]]
+- [[Submitting Bugs and Patches | Contributing to Broadleaf#wiki-submitting-bugs]]
+- [[Becoming an Official Contributor | Contributing to Broadleaf#wiki-official-contributor]]
 
 ### [[Appendix]]
 
 - [[Extension Quick Reference]]
-- [[Runtime Environment Configuration]] (Done)
+- [[Runtime Environment Configuration]]
 - [[Environment Setup]]
     - [[IntelliJ Setup]]
     - [[Eclipse Setup]]
