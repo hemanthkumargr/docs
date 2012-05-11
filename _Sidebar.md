@@ -33,7 +33,9 @@
 
 - [[Data and Service Models]]
     - [[Main Entities | Data and Service Models#wiki-entities]]
+        - [[Extending Entities]]
     - [[Main Services | Data and Service Models#wiki-services]]
+        - [[Extending Services]]
 
 - [[Workflows and Activities]]
 
@@ -52,7 +54,6 @@
 
 - [[Payment]]
     - [[Workflow | Payment Workflow]]
-    - [[Custom Payments]]
     - [[PayPal Module]]
     - [[Braintree Module]]
     - [[Creating a Payment Module]]

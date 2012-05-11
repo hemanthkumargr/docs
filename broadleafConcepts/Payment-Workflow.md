@@ -203,16 +203,54 @@ For example, you may wish for some orders to be paid for partially with a gift c
 </bean>
 ```
 
-In cases where you need finer control over when debit and/or authorize transactions are called, you will need to add some business logic to your own PaymentService override, which we cover below in the [[Custom Payments]] section.
+## Business Rule Customization
 
-## Supporting more than gift card, credit card, and bank account
+In cases where you need finer control over when debit and/or authorize transactions are called, you will need to add some business logic to your own PaymentService override. Broadleaf Commerce has three payment services configured by default: Gift Card, Bank Account and Credit Card. Their internal bean ids are as follows:
 
-The final scenario arises when you want to support a payment type that is not already supported by Broadleaf out-of-the-box. For example, you may want to use Broadleaf to setup an internal company store and support employee payroll deduction as a method of payment. Refer to [[Creating a Payment Module]] for instructions on creating entirely new payment types.
+```xml
+<bean id="blGiftCardService" class="org.broadleafcommerce.core.payment.service.PaymentServiceImpl">
+    <property name="paymentModule" ref="blGiftCardModule"/>
+</bean>
+
+<bean id="blCreditCardService" class="org.broadleafcommerce.core.payment.service.PaymentServiceImpl">
+    <property name="paymentModule" ref="blCreditCardModule"/>
+</bean>
+
+<bean id="blBankAccountService" class="org.broadleafcommerce.core.payment.service.PaymentServiceImpl">
+    <property name="paymentModule" ref="blBankAccountModule"/>
+</bean>
+```
+
+As you would expect, the first step is to create a new bean definition for the service you would like to override in your own application context. We'll continue with the credit card example and override that service.
+
+```xml
+<bean id="blCreditCardService" class="com.mycompany.payment.service.MyPaymentServiceImpl">
+    <property name="paymentModule" ref="blCreditCardModule"/>
+</bean>
+```
+
+We've taken over the bean id "blCreditCardService" and have pointed it at our service implementation. Now, we'll need to implement MyPaymentServiceImpl.
+
+```java
+public class MyPaymentServiceImpl extends PaymentServiceImpl {
+
+    @Override
+    public PaymentResponseItem authorize(PaymentContext paymentContext) throws PaymentException {
+        // Only perform a credit card authorize for orders with totals greater than $50
+        if (paymentContext.getPaymentInfo().getAmount().doubleValue() > 50D) {
+             return super.authorize(paymentContext);
+        }
+        return null;
+    }
+}
+```
+
+For this example, we've simply changed the business rules to only authorize credit cards when the PaymentInfo amount is over $50.00. Through the PaymentContext instance, you have access to the entire order, so the sky's the limit on the factors you can use to drive your business logic.
 
 ## Explicit execution of payment
 
 The payment workflow is called automatically from several locations in the Broadleaf codebase. However, you may find from time to time that you need to call payment explicitly from your own custom code. This is easily accomplished by injecting the `CompositePaymentService` into your custom class by referencing the key id `blCompositePaymentService`.
 
+## Supporting more than gift card, credit card, and bank account
 
-
-
+The final scenario arises when you want to support a payment type that is not already supported by Broadleaf out-of-the-box. For example, you may want to use Broadleaf to setup an internal company store and support employee payroll deduction as a method of payment. We've written a [[Customizing Payment Tutorial]] that will guide you in this effort.
