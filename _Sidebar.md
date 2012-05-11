@@ -48,6 +48,7 @@
     - [[Tax]]
         - [[CyberSource Tax Module]]
         - [[Creating a Tax Module]]
+    - [[Custom Pricing Activities]]
     - [[Dynamic Pricing | Dynamic Pricing Configuration]]
 
 - [[Checkout]]
