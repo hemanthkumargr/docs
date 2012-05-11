@@ -56,6 +56,7 @@
 
 - [[Payment]]
     - [[Workflow | Payment Workflow]]
+    - [[CyberSource Payment Module]]
     - [[PayPal Module]]
     - [[Braintree Module]]
     - [[Creating a Payment Module]]
@@ -110,10 +111,12 @@
 
 - [[Extension Quick Reference]]
 - [[Runtime Environment Configuration]]
+- [[CyberSource Runtime Setup]]
 - [[Environment Setup]]
     - [[IntelliJ Setup]]
     - [[Eclipse Setup]]
     - [[JRebel Setup]]
+- [[Dealing With Money]]
 - [[Grails Plugin]]
 - [[Changelog]]
 - [[FAQ]]
