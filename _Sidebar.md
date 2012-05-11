@@ -36,6 +36,7 @@
         - [[Extending Entities]]
     - [[Main Services | Data and Service Models#wiki-services]]
         - [[Extending Services]]
+    - [[Database Model]]
 
 - [[Workflows and Activities]]
 
