@@ -40,47 +40,43 @@ If your project is based on the Broadleaf archetype, you'll find multiple dataso
 
 | Broadleaf File Name                                                      | DataSource Name | Purpose
 | :----------------------------------------------------------------------- | :-------------- | :---------------------------------------------------------------------------------------------------------- |
-| site-war/src/main/webapp/WEB-INF/applicationContext.xml                  | webDS           | This is the primary datasource used to view and modify Broadleaf entities from the site web application.    |
-| ""                                                                       | webStorageDS    | Images are stored in this datasource.   This configuration is used by the web-app to access the images..    |
-| admin-war/src/main/webapp/WEB-INF/applicationContext-admin.xml           | webDS           | This is the primary datasource used by the Broadleaf Commerce admin.                                        |
-| ""                                                                       | webStorageDS    | Images are stored in this datasource.   This configuration is used by the admin to access and store images. |
+| site-war/src/main/webapp/WEB-INF/applicationContext.xml                  | webDS           | The primary datasource used to view and modify Broadleaf entities from the site web application.    |
+| ""                                                                       | webStorageDS    | Images are stored in this datasource. This configuration is used by the web-app to access the images..    |
+| admin-war/src/main/webapp/WEB-INF/applicationContext-admin.xml           | webDS           | The primary datasource used by the Broadleaf Commerce admin.                                        |
+| ""                                                                       | webStorageDS    | Images are stored in this datasource. This configuration is used by the admin to access and store images. |
 | admin-war/src/main/webapp/WEB-INF/ mycompany-applicationContext-text.xml | blDS            | Datasource used for automated integration testing.                                                          |
 
-If modifying the demo or other distribution of a Broadleaf Commerce project the files may be different.  You can search for XML files that contain "BasicDataSource" to find the list of files you'll need to modify.
+> Note: If modifying a distribution other than the Broadleaf archetype, the files may be different. You can search for XML files that contain `BasicDataSource` to find the list of files you'll need to modify.
 
-A common requirement is to setup your datasources using JNDI instead of supplying the connection information here.   This configuration is supported.
+A common requirement is to setup your datasources using JNDI instead of supplying the connection information here. This configuration is also supported, and can be achieved by following this example:
 
-{code:XML|borderStyle=solid|title=Sample JNDI Datasource Configuration}
-TODO: Provide JNDI Example
-{code}
+```xml
+<bean id="myDS" class="org.springframework.jndi.JndiObjectFactoryBean">
+    <property name="jndiName" value="java:/comp/env/jdbc/mydatasource"/>
+</bean>
+```
 
+## Configuring Broadleaf Persistence Units
 
-h5. Configure Broadleaf Persistence Units
+For each persistence unit in the application, you'll need to modify the `hibernate.dialect` property to point the database that you're using. See the [Hibernate API documentation](http://docs.jboss.org/hibernate/stable/annotations/api/org/hibernate/dialect/package-summary.html) for available dialects.
 
-For each of the files below, you'll need to modify the hibernate.dialect property to point to the database you are using.  See the [hibernate API documentation|http://docs.jboss.org/hibernate/stable/annotations/api/org/hibernate/dialect/package-summary.html] for available dialects.
+| Broadleaf File Name                                            | Persistence Unit Name | Purpose                                                                                                     |
+| :------------------------------------------------------------- | :-------------------- | :---------------------------------------------------------------------------------------------------------- |
+| site-war/META-INF/ persistence-mycompany.xml                   | blPU                  | This is the primary persistence unit for Broadleaf.                                                         |
+| ""                                                             | blSecurePU            | In support of PCI compliance, some payment attributes are written to an alternate schema.                   |
+| ""                                                             | blCMSStorage          | Assets managed through the Broadleaf CMS are written to this persistence unit.                              |
+| admin-war/META-INF/ persistence-mycompany-admin.xml            | blPU                  | This is the primary persistence unit for Broadleaf for ADMIN.                                               |
+| ""                                                             | blSecurePU            | In support of PCI compliance, some payment attributes are written to an alternate schema for ADMIN.         |
+| ""                                                             | blCMSStorage          | Assets managed through the Broadleaf CMS are written to this persistence unit for ADMIN.                    |
+| admin-war/src/main/webapp/WEB-INF/applicationContext-admin.xml | webDS                 | This is the primary datasource used by the Broadleaf Commerce admin.                                        |
+| ""                                                             | webStorageDS          | Images are stored in this datasource.   This configuration is used by the admin to access and store images. |
+| test/META-INF/persistence-mycompany-test.xml                   | blPU                  | Persistence unit used for integration testing.                                                              |
 
-||             Broadleaf File Name             || Persistence Unit Name || Purpose ||
-| site-war/META-INF/ persistence-mycompany.xml | blPU | This is the primary persistence unit for Broadleaf. |
-| "" | blSecurePU | In support of PCI compliance, some payment attributes are written to an alternate schema. |
-| "" | blCMSStorage | Assets managed through the Broadleaf CMS are written to this persistence unit. |
-| admin-war/META-INF/ persistence-mycompany-admin.xml | blPU | This is the primary persistence unit for Broadleaf for ADMIN. |
-| "" | blSecurePU | In support of PCI compliance, some payment attributes are written to an alternate schema for ADMIN. |
-| "" | blCMSStorage | Assets managed through the Broadleaf CMS are written to this persistence unit for ADMIN. |
-| admin-war/src/main/webapp/WEB-INF \\
-applicationContext-admin.xml | webDS | This is the primary datasource used by the Broadleaf Commerce admin. |
-| "" | webStorageDS | Images are stored in this datasource.   This configuration is used by the admin to access and store images. |
-| test/META-INF/ \\
-persistence-mycompany-test.xml | blPU | Persistence unit used for integration testing. |
+> Note: If modifying a distribution other than the Broadleaf archetype, the files may be different. You can search for XML files that contain `hibernate.dialect` to find the list of files you'll need to modify.
 
-If modifying the demo or other distribution of a Broadleaf Commerce project the files may be different.  You can search for XML files that contain "hibernate.dialect" to find the list of files you'll need to modify.
+## Specific Database Instructions
 
-
-Still have questions, try asking in the [BLC forum|http://www.broadleafcommerce.org/forum]?
-
-* [PostgreSQL instructions]
-* [MySQL instructions]
-* [Oracle instructions]
-* [Microsoft SQLServer Instructions]
-
-[Return to Getting Started|BLC15:Getting Started]
-
+- [[MS SQL Server]]
+- [[MySQL]]
+- [[PostgreSQL]]
+- [[Oracle DB]]
