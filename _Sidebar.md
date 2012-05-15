@@ -29,6 +29,10 @@
         - [[Persistence XML | Persistence Configuration#wiki-pxml-config]]
         - [[Ehcache | Persistence Configuration#wiki-ehcache-config]]
     - [[Database Configuration]]
+        - [[MS SQL Server]]
+        - [[MySQL]]
+        - [[PostgreSQL]]
+        - [[Oracle DB]]
     - [[App Server Configuration]]
 
 - [[Data and Service Models]]
@@ -78,6 +82,8 @@
     - [[QoS | QoS Configuration]]
         - [[Configuration | QoS Configuration#wiki-config]]
         - [[Customization | QoS Configuration#wiki-customization]]
+
+- [[Admin]]
 
 - [[Presentation Layer]]
 
