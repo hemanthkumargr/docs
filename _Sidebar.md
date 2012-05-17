@@ -34,6 +34,7 @@
         - [[PostgreSQL]]
         - [[Oracle DB]]
     - [[App Server Configuration]]
+        - [[Tomcat]]
 
 - [[Data and Service Models]]
     - [[Main Entities | Data and Service Models#wiki-entities]]
@@ -103,7 +104,6 @@
     - [[Customizing Tax Tutorial]]
 
     - [[Adding Data Tutorial]]
-    - [[Preparing for Production Tutorial]]
 
 - [[Admin | Admin Tutorials]]
 
@@ -117,6 +117,7 @@
 
 - [[Extension Quick Reference]]
 - [[Runtime Environment Configuration]]
+- [[Preparing for Production]]
 - [[CyberSource Runtime Setup]]
 - [[Environment Setup]]
     - [[IntelliJ Setup]]
