@@ -18,6 +18,8 @@ Page templates and structured content for a Broadleaf instance are data driven.
 
 The following tables define the structure of your CMS data.
 
+| Field                   | Description                                                                                                                                  |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------- |
 | BLC_PAGE_TMPLT          | Your page template name and association to underlying JSP file                                                                               |
 | BLC_PGTMPLT_FLDGRP_XREF | Custom fields used by your page template                                                                                                     |
 | BLC_SC_TYPE             | Your structured content types (e.g. Homepage Ad).   Typically used to define specific content placement.                                     |
