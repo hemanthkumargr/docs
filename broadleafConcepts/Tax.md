@@ -16,17 +16,18 @@ The following example provides a
   
 
 `SimpleTaxModule` supports the following configurable attributes:
-**||Property Name||Purpose||Default Value||**
-||defaultTaxRate||A rate that would apply to every item in an order.  Useful for a point-of-sale application.||0||
-||defaultFulfillmentGroupTaxRate||Default rate to apply to shipping costs.  Not typically used.||0||
-||itemPostalCodeTaxRateMap||A map of postal code to rate.||n/a||
-||itemCityTaxRateMap||A map of city to rate.||n/a||
-||itemStateTaxRateMap||A map of state to rate||n/a||
-||itemCountryTaxRateMap||A map of country to rate||n/a||
-||fulfillmentGroupPostalCodeTaxRateMap||A map of postal code to rate.||n/a||
-||fulfillmentGroupCityTaxRateMap||A map of city to rate.||n/a||
-||fulfillmentGroupStateTaxRateMap||A map of state to rate||n/a||
-||fulfillmentGroupCountryTaxRateMap||A map of country to rate||n/a||
+|Property Name|Purpose|Default Value|
+|-------------|--------------------|-------------|
+|defaultTaxRate|A rate that would apply to every item in an order.  Useful for a point-of-sale application.|0|
+|defaultFulfillmentGroupTaxRate|Default rate to apply to shipping costs.  Not typically used.|0|
+|itemPostalCodeTaxRateMap|A map of postal code to rate.|n/a|
+|itemCityTaxRateMap|A map of city to rate.|n/a|
+|itemStateTaxRateMap|A map of state to rate|n/a|
+|itemCountryTaxRateMap|A map of country to rate|n/a|
+|fulfillmentGroupPostalCodeTaxRateMap|A map of postal code to rate.|n/a|
+|fulfillmentGroupCityTaxRateMap|A map of city to rate.|n/a|
+|fulfillmentGroupStateTaxRateMap|A map of state to rate|n/a|
+|fulfillmentGroupCountryTaxRateMap|A map of country to rate|n/a|
 
 
 
