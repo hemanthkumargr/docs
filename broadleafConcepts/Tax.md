@@ -4,7 +4,7 @@ Broadleaf Commerce can be configured for tax calculation in a number of ways. Yo
 
 The simple tax module is a good option for companies with simple tax needs.   It allows you to configure a tax rate that applies to an entire site or a tax rate for specific postal-codes, cities, states, or countries.
 
-To find out more about the `SimpleTaxModule`, see the [[SimpleTaxModule Configuration |Simple Tax Module]] section.
+To find out more about the `SimpleTaxModule`, see the [[Simple Tax Module Configuration |Simple Tax Module]] section.
 
 ## CyberSource Tax Module
 
