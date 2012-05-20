@@ -6,10 +6,11 @@ The simple tax module is a good option for companies with simple tax needs.   It
 
 To configure your site to use `SimpleTaxModule`, include the following bean definition within your Spring application context file.   
 
-`<bean id="blTaxModule" class="org.broadleafcommerce.core.pricing.service.module.SimpleTaxModule">
+```xml
+<bean id="blTaxModule" class="org.broadleafcommerce.core.pricing.service.module.SimpleTaxModule">
    <!-- Set properties for your specific tax configuration.  -->
 </bean>
-`
+```
 
 The following example provides a 
   
