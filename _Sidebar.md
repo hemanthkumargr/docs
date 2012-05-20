@@ -51,6 +51,7 @@
         - [[USPS Module]]
         - [[Creating a Shipping Module]]
     - [[Tax]]
+        - [[Simple Tax Module]]
         - [[CyberSource Tax Module]]
         - [[Creating a Tax Module]]
     - [[Custom Pricing Activities]]
