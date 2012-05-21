@@ -20,9 +20,9 @@ In the following  example, the `SimpleTaxModule` is configured to charge 8.5% fo
       <entry key="75034" value="8.5" />
     </map>
   </property>
-  <property name="itemPostalCodeTaxRateMap">
+  <property name="itemStateTaxRateMap">
     <map>
-      <entry key="state" value="TX" />  
+      <entry key="TX" value="8.25" />  
     </map>
   </property>
 </bean>
