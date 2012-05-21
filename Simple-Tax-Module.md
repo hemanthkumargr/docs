@@ -33,13 +33,13 @@ The simple tax module supports the following properties.    Only one rate will b
 
 |Property                              |Description                                                  | 
 |:-------------------------------------|:------------------------------------------------------------|
-|`defaultTaxRate`                      |A rate that would apply to every item in an order.           |
-|`defaultFulfillmentGroupTaxRate`      |Default rate to apply to shipping costs.  Not typically used.|
-|`itemPostalCodeTaxRateMap`            |A map of postal code to rate.                                |
-|`itemCityTaxRateMap`                  |A map of city to rate.                                       |
-|`itemStateTaxRateMap`                 |A map of state to rate.  System will match on the name or code.|
-|`itemCountryTaxRateMap`               |A map of country to rate.  System will match on name or code.|
-|`fulfillmentGroupPostalCodeTaxRateMap`|A map of postal code to rate.|
-|`fulfillmentGroupCityTaxRateMap`      |A map of city to rate.|
-|`fulfillmentGroupStateTaxRateMap`     |A map of state to rate.|
-|`fulfillmentGroupCountryTaxRateMap`   |A map of country to rate.|
+|defaultTaxRate                        |A rate that would apply to every item in an order.           |
+|defaultFulfillmentGroupTaxRate        |Default rate to apply to shipping costs.  Not typically used.|
+|itemPostalCodeTaxRateMap              |A map of postal code to rate.                                |
+|itemCityTaxRateMap                    |A map of city to rate.                                       |
+|itemStateTaxRateMap                   |A map of state to rate.  System will match on the name or code.|
+|itemCountryTaxRateMap                 |A map of country to rate.  System will match on name or code.|
+|fulfillmentGroupPostalCodeTaxRateMap  |A map of postal code to rate.|
+|fulfillmentGroupCityTaxRateMap        |A map of city to rate.|
+|fulfillmentGroupStateTaxRateMap       |A map of state to rate.|
+|fulfillmentGroupCountryTaxRateMap     |A map of country to rate.|
