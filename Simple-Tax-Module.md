@@ -30,14 +30,16 @@ In the following  example, the `SimpleTaxModule` is configured to charge 8.5% fo
 
 ## Other Properties
 The simple tax module supports the following properties.    Only one rate will be applied for an item.   The precedence is postal-code then city then state then country then default rate.   When configuring cities, states, and countries, the value must be uppercase.
- 
-`defaultTaxRate` - A rate that would apply to every item in an order.
-`defaultFulfillmentGroupTaxRate` - Default rate to apply to shipping costs.  Not typically used.
-`itemPostalCodeTaxRateMap` - A map of postal code to rate.
-`itemCityTaxRateMap` - A map of city to rate.
-`itemStateTaxRateMap` - A map of state to rate.  System will match on the name or code.
-`itemCountryTaxRateMap` - A map of country to rate.  System will match on name or code.
-`fulfillmentGroupPostalCodeTaxRateMap` - A map of postal code to rate.
-`fulfillmentGroupCityTaxRateMap` - A map of city to rate.
-`fulfillmentGroupStateTaxRateMap` - A map of state to rate.
-`fulfillmentGroupCountryTaxRateMap` - A map of country to rate|n/a|
+
+|Property                              |Description                                                  | 
+|:-------------------------------------|:------------------------------------------------------------|
+|`defaultTaxRate`                      |A rate that would apply to every item in an order.           |
+|`defaultFulfillmentGroupTaxRate`      |Default rate to apply to shipping costs.  Not typically used.|
+|`itemPostalCodeTaxRateMap`            |A map of postal code to rate.                                |
+|`itemCityTaxRateMap`                  |A map of city to rate.                                       |
+|`itemStateTaxRateMap`                 |A map of state to rate.  System will match on the name or code.|
+|`itemCountryTaxRateMap`               |A map of country to rate.  System will match on name or code.|
+|`fulfillmentGroupPostalCodeTaxRateMap`|A map of postal code to rate.|
+|`fulfillmentGroupCityTaxRateMap`      |A map of city to rate.|
+|`fulfillmentGroupStateTaxRateMap`     |A map of state to rate.|
+|`fulfillmentGroupCountryTaxRateMap`   |A map of country to rate.|
