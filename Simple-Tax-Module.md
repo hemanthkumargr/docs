@@ -16,13 +16,13 @@ In the following  example, the `SimpleTaxModule` is configured to charge 8.5% fo
 <bean id="blTaxModule" class="org.broadleafcommerce.core.pricing.service.module.SimpleTaxModule">
   <property name="itemPostalCodeTaxRateMap">
     <map>
-      <entry key="75033" value="8.5" />
-      <entry key="75034" value="8.5" />
+      <entry key="75033" value=".085" />
+      <entry key="75034" value=".085" />
     </map>
   </property>
   <property name="itemStateTaxRateMap">
     <map>
-      <entry key="TX" value="8.25" />  
+      <entry key="TX" value=".0825" />  
     </map>
   </property>
 </bean>
