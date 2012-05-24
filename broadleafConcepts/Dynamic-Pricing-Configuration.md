@@ -7,6 +7,11 @@
 		<param-value>myCompanyDynamicSkuPricingFilter</param-value>
 	</init-param>
 </filter>
+
+<filter-mapping>
+	<filter-name>dynamicSkuPricingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
 ```
 
 Add that to `web.xml`
