@@ -197,5 +197,47 @@ The following provides a list of current RESTful endpoints provided with Broadle
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>/cart/items/{itemId}</td>
+    <td>Updates the quantity of an item and optionally reprices the cart
+    <td>PUT</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/offer</td>
+    <td>Adds a promotional code to an order</td>
+    <td>POST</td>
+    <td>
+      <ul>
+      <li>promoCode</li>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/offer</td>
+    <td>Deletes a promotional code from an order</td>
+    <td>DELETE</td>
+    <td>
+      <ul>
+      <li>promoCode</li>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/offers</td>
+    <td>Deletes all promotional codes from an order and optionally reprices</td>
+    <td>DELETE</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 ### Checkout ###
