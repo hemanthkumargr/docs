@@ -1,1 +1,1 @@
-`
+Broadleaf Commerce exposes a set of functional APIs as _RESTful_ services. These services are designed using JAX-RS, JAXB, and Jersey.
