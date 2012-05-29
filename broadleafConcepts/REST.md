@@ -83,7 +83,7 @@ The following provides a list of current RESTful endpoints provided with Broadle
   </tr>
   <tr>
     <td>/catalog/category/{id}/proucts</td>
-    <td></td>
+    <td>Returns a list of products for a particular category</td>
     <td>GET</td>
     <td>
       <ul>
@@ -92,6 +92,70 @@ The following provides a list of current RESTful endpoints provided with Broadle
         <li>activeOnly (default true)</li>
       </ul>
     </td>
+  </tr>
+  <tr>
+    <td>/catalog/product/{id}/related-products/upsale</td>
+    <td>Returns a list of related upsale products for a particular catalog product</td>
+    <td>GET</td>
+    <td>
+      <ul>
+        <li>limit (default 20)</li>
+        <li>offset (default 0)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/product/{id}/related-products/crosssale</td>
+    <td>Returns a list of related cross sell products for a particular catalog product</td>
+    <td>GET</td>
+    <td>
+      <ul>
+        <li>limit (default 20)</li>
+        <li>offset (default 0)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/product/{id}/product-attributes</td>
+    <td>Returns a list of product attributes for a particular catalog product</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/sku/{id}/sku-attributes</td>
+    <td>Returns a list of sku attributes for a particular catalog sku</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/sku/{id}</td>
+    <td>Returns a representation of a particular catalog sku</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/sku/{id}/media</td>
+    <td>Returns a list of media items for a particular catalog sku</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/product/{id}/media</td>
+    <td>Returns a list of media items for a particular catalog product</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/category/{id}/media</td>
+    <td>Returns a list of media items for a particular product category</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/catalog/product/{id}/categories</td>
+    <td>Returns a list of categories for a particular product</td>
+    <td>GET</td>
+    <td>None</td>
   </tr>
 </table>
 ### Order ###
