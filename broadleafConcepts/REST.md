@@ -275,5 +275,15 @@ The following provides a list of current RESTful endpoints provided with Broadle
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>/orders</td>
+    <td>Returns a list of orders. The order history is for the customer who's ID is passed in.</td>
+    <td>GET</td>
+    <td>
+      <ul>
+      <li>orderStatus (default SUBMITTED)</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 ### Checkout ###
