@@ -287,3 +287,20 @@ The following provides a list of current RESTful endpoints provided with Broadle
   </tr>
 </table>
 ### Checkout ###
+<table>
+  <tr>
+    <th>URI</th><td>Description</td><th>Method</th><th>Query Parameters</th>
+  </tr>
+  <tr>
+    <td>/cart/checkout</td>
+    <td>Accepts a list of PaymentMapWrapper representations in JSON or XML format. Returns a completed order.</td>
+    <td>POST</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/cart/checkout/payment/response</td>
+    <td>This should only be called for modules that need to engage the workflow directly without doing a complete checkout. For example, when using PayPal for doing an authorize and retrieving the redirect: url to PayPal. This takes in a single PaymentReferenceMap representation. Returns a PaymentResponseItem representation.</td>
+    <td>POST</td>
+    <td>None</td>
+  </tr>
+</table>
