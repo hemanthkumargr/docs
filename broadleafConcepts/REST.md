@@ -49,7 +49,49 @@ The following provides a list of current RESTful endpoints provided with Broadle
     <td>/catalog/category/{id}/categories</td>
     <td>Returns a list of subcategories for a particular product category</td>
     <td>GET</td>
-    <td>None</td>
+    <td>
+       <ul>
+       <li>active (default true)</li>
+       <li>limit (default 20)</li>
+       <li>offset (default 0)</li>
+       </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/category/{id}/activeSubcategories</td>
+    <td>Returns a list of active subcategories for a particular product category</td>
+    <td>GET</td>
+    <td>
+       <ul>
+       <li>limit (default 20)</li>
+       <li>offset (default 0)</li>
+       </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/category/{id}</td>
+    <td>Returns a representation of a product category, keyed by ID. Parameters allow one to control how much additional, nested data is returned.</td>
+    <td>GET</td>
+    <td>
+      <ul>
+      <li>productLimit (default 20)</li>
+      <li>productOffset (default 0)</li>
+      <li>subcategoryOffset (default 0)</li>
+      <li>subcategoryDepth (default 1)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/category/{id}/proucts</td>
+    <td></td>
+    <td>GET</td>
+    <td>
+      <ul>
+        <li>limit (default 20)</li>
+        <li>offset (default 0)</li>
+        <li>activeOnly (default true)</li>
+      </ul>
+    </td>
   </tr>
 </table>
 ### Order ###
