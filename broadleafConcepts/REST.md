@@ -159,6 +159,43 @@ The following provides a list of current RESTful endpoints provided with Broadle
   </tr>
 </table>
 ### Order ###
-
-### Customer ###
-
+**NOTE: The customer ID must be passed on each request. It can be passed on a query parameter or a request header. But it must be keyed as "customerId"**
+<table>
+  <tr>
+    <th>URI</th><td>Description</td><th>Method</th><th>Query Parameters</th>
+  </tr>
+  <tr>
+    <td>/cart</td>
+    <td>Returns a representation of the customer's shopping cart.</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/cart</td>
+    <td>Creates a new cart for the customer. If the customer ID is unknown because a customer record does not yet exist, it need not be passed in. A new customer will be created. The new cart along with the customer will be returned.</td>
+    <td>POST</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/cart/{categoryId}/{productId}/{skuId}</td>
+    <td>Adds the sku and its associated category and product references to the shopping cart. Optionally reprices the order. Returns a representation of the cart.</td>
+    <td>POST</td>
+    <td>
+      <ul>
+      <li>quantity (default 1)</li>
+      <li>priceOrder (default true)</li>
+      <ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/items/{itemId}</td>
+    <td>Deletes the item from the cart and optionally reprices the order</td>
+    <td>DELETE</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+### Checkout ###
