@@ -239,5 +239,41 @@ The following provides a list of current RESTful endpoints provided with Broadle
       </ul>
     </td>
   </tr>
+  <tr>
+    <td>/cart/fulfillment/groups</td>
+    <td>Returns a list of fulfillment groups for a particular order</td>
+    <td>GET</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td>/cart/fulfillment/groups</td>
+    <td>Deletes all fulfillment groups from an order</td>
+    <td>DELETE</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/fulfillment/group</td>
+    <td>Adds a new fulfillment group to the order. Accepts a fulfillment group representation in JSON or XML format.</td>
+    <td>POST</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>/cart/fulfillment/group/{fulfillmentGroupId}</td>
+    <td>Updates the fulfillment group identified by the ID in the URI. Accepts a fulfillment group representation in JSON or XML format.</td>
+    <td>PUT</td>
+    <td>
+      <ul>
+      <li>priceOrder (default true)</li>
+      </ul>
+    </td>
+  </tr>
 </table>
 ### Checkout ###
