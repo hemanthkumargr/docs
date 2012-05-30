@@ -21,6 +21,6 @@ In order to use Broadleaf's default RESTful services, all that is required is so
 You'll notice several things here. First, the Servlet is a Jersey class that allows Spring Beans to be discovered and used as REST resources.  All of the dependency injection and AOP that that Spring components enjoy can be extended to Jersey-managed endpoints. Also, notice the Servlet mapping. It must be different than the Servlet mapping associated with the controller servlet (e.g. the Spring DispatcherServlet in the case of Spring MVC).  This configuration is required to use Broadleaf's RESTful services and the most basic way to simply get Broadleaf's RESTful services working out of the box.
 
 ## Extending Broadleaf RESTful services ##
-Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on Extending Product or Extending Service.
+Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on [[Extending Product | Next-Steps#wiki-extending-product]] or Extending Service.
 
 ## Creating your own RESTful services ##
