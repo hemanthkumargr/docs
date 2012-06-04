@@ -136,7 +136,8 @@ public class MyResourceWrapper implements APIWrapper<MyEntity>  {
         this.name = model.getName();
         
         //Notice here we use an injected Broadleaf service to create the appropriate URL
-        this.mediaUrl = staticAssetService.convertAssetPath(model.getMediaUrl(), request.getContextPath(), request.isSecure()));
+        this.mediaUrl = staticAssetService.
+            convertAssetPath(model.getMediaUrl(), request.getContextPath(), request.isSecure()));
     }
 }
 ```
