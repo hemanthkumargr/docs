@@ -37,6 +37,66 @@ This configuration is required to use Broadleaf's RESTful services and the most 
 ## Extending Broadleaf RESTful services ##
 Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on [[Extending Product | Next-Steps#wiki-extending-product]] or [[Extending Service | Next-Steps#wiki-extending-service]] for more information on generally extending Broadleaf's domain and service objects.  After extending the domain and/or services, you may want to expose the new data and/or functionality to clients of your RESTful API.  Broadleaf provides a mechanism for this and attempts to be as flexible as possible.
 
+Perhaps the best way to describe how this works is to use an example.  Catalog-related entities are among the Broadleaf entities most often extended.  Broadleaf, for example, provides a entities for Category, Product, and Sku.  Let's assume that you are developing an eCommerce store to sell hot sauce.  You want to extend Broadleaf's Product to include the [[Scoville Heat Units | http://en.wikipedia.org/wiki/Scoville_scale]].  Again, you can find details on how to extend a Product [[here | Next-Steps#wiki-extending-product]].  So, you create a new class called HotSauce:
+
+```java
+import org.broadleafcommerce.core.catalog.domain.ProductImpl;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Column;
+
+@Entity
+@Table("HOT_SAUCE")
+public class HotSauce extends ProductImpl {
+
+    @Column(name="SCOVILLE_UNITS")
+    private Integer scovilleUnits;
+
+    public void setScovilleUnits(Integer units) {
+        this.scovilleUnits = units;
+    }
+
+    public Integer getScovilleUnits() {
+        return this.scovilleUnits;
+    }
+}
+```
+
+Assuming that you have your JPA and necessary Spring configurations correct, your HotSauce class can be used as Broadleaf's "Product".  Let's assume that you want to expose the Scoville Units to Broadleaf's RESTful catalog API.  Let's also assume that you want to suppress the active start date and active end date that are exposed by default.  The key is to override the ProductWrapper that provides the data serialization:
+
+```java
+package com.mycompany;
+
+import org.broadleafcommerce.core.web.api.wrapper.ProductWrapper;
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "hotSauce")
+@XmlAccessorType(value = XmlAccessType.FIELD)
+public class HotSauceWrapper extends ProductWrapper {
+    @XMLElement
+    private Integer scovilleUnits;
+
+    @Override
+    public void wrap(Product model, HttpServletRequest request) {
+        //First, call the super method to get the default behavior
+        super.wrap(model, request);
+        //Next, cast the product passed in to HotSauce and use it to set the Scoville Units
+        this.scovilleUnits = ((HotSauce)model).getScovilleUnits();
+        //Last, suppress the active dates by setting them to null. Null values will not be serialized.
+        super.activeStartDate = null;
+        super.activeEndDate = null;
+    }
+}
+```
+
+In the merge configuration, you will also need to override the definition of this bean:
+
+```xml
+<bean id="org.broadleafcommerce.core.web.api.wrapper.ProductWrapper" class="com.mycompany.HotSauceWrapper" scope="prototype"/>
+```
+
+And that's it! Broadleaf's merge process will replace the default wrapper implementation with your HotSauceWrapper implementation.  Your wrap logic will control what gets serialized and what doesn't.  Any calls to get a HotSauce product will result in your wrapper class being instantiated and your wrap method being called. The Scoville Units will be returned as part of the message, and the active start and end dates will be suppressed.
+
 ## Creating your own RESTful services ##
 In order to create a net new RESTful service, you simply need to implement an endpoint.  More information about JAX-RS is available [[here | http://docs.oracle.com/javaee/6/tutorial/doc/giepu.html]]. The important things to note are:
 
