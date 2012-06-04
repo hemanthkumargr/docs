@@ -38,3 +38,67 @@ This configuration is required to use Broadleaf's RESTful services and the most 
 Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on [[Extending Product | Next-Steps#wiki-extending-product]] or [[Extending Service | Next-Steps#wiki-extending-service]] for more information on generally extending Broadleaf's domain and service objects.  After extending the domain and/or services, you may want to expose the new data and/or functionality to clients of your RESTful API.  Broadleaf provides a mechanism for this and attempts to be as flexible as possible.
 
 ## Creating your own RESTful services ##
+In order to create a net new RESTful service, you simply need to implement an endpoint.  More information about JAX-RS is available [[here | http://docs.oracle.com/javaee/6/tutorial/doc/giepu.html]]. The important things to note are:
+
+1. Make sure that your RESTful endpoint is a Spring-managed bean. This can be accomplished by using the @Component or @Service annotations, or by adding the bean to the merged application context via XML configuration.
+
+2. Ensure that that the Spring-managed endpoint contains
+
+Here is an example:
+```java
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+
+// The Java class will be hosted at the URI path "/myresource"
+@Component("myEndpoint")
+@Scope("singleton")
+@Path("/myresource")
+@Produces(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Consumes(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+public class MyNewEndpoint {
+
+    @Resource(name = "myEntityService")
+    private MyEntityService myEntityService;
+    
+    @GET
+    @Path("/{id}")
+    public MyResourceWrapper findMyResourceById(@PathParam("id") Long id) {
+        MyResourceWrapper wrapper = new MyResourceWrapper();
+        MyEntity myEntity = myEntityService.findById(id);
+        wrapper.wrap(myEntity);
+        return wrapper;
+    }
+}
+```
+That is all that is required.  If this bean is registered with the Spring application context, either using a component scan or defining it directly in the merge application context XML file, and the web.xml file is modified as described above, then the new endpoint will be exposed as a RESTful service.
+
+Here is the resource class that defines the object being returned:
+
+```java
+import javax.xml.bind.annotation.*;
+import org.broadleafcommerce.core.web.api.wrapper.APIWrapper;
+
+@XmlRootElement(name = "myResource")
+@XmlAccessorType(value = XmlAccessType.FIELD)
+public class MyResourceWrapper implements APIWrapper<MyEntity>  {
+
+    @XMLAttribute
+    private Long id;
+
+    @XMLElement
+    private String name;
+
+    @Override
+    public void wrap(MyEntity model, HttpServletRequest request) {
+        this.id = model.getId();
+        this.name = model.getName();
+    }
+}
+```
+The key here is that the wrap method allows you to set the properties that are required to be serialized. Since they are annotated with JAXB annotations, they will be serialized as XML or JSON, depending on the Content-Type header of the request.
