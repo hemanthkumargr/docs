@@ -40,10 +40,13 @@ Lastly, it is recommended that you configure a filter to set the customer state,
 <bean id="blRestCustomerStateFilter"
           class="org.broadleafcommerce.profile.web.core.security.RestApiCustomerStateFilter"/>
 
+<bean id="blRequestWrapperFilter"
+	  class="org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter" />
+
 <bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
     <sec:filter-chain pattern="/api/**" 
                 filters="blRequestWrapperFilter,
-                    blRestCustomerStateFilter"/>
+                         blRestCustomerStateFilter"/>
     ...
 </bean>
 ```
