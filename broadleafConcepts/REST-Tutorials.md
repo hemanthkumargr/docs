@@ -34,6 +34,20 @@ In addition, you will have to make Broadleaf's default endpoints available to th
 
 This configuration is required to use Broadleaf's RESTful services and the most basic way to simply get Broadleaf's RESTful services working out of the box.
 
+Lastly, it is recommended that you configure a filter to set the customer state, if known, on each request.  Broadleaf has a default filter that handles this.  You might want to replace it with your own implementation, especially if implementing some kind of security filter. To use Broadleaf's default filter out of the box, you must configure this filter in the merged application context.  Typically, we recommend using applicationContext-security.xml, if you are using the application as it is created with the Broadleaf Maven archetype.
+
+```xml
+<bean id="blRestCustomerStateFilter"
+          class="org.broadleafcommerce.profile.web.core.security.RestApiCustomerStateFilter"/>
+
+<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
+    <sec:filter-chain pattern="/api/**" 
+                filters="blRequestWrapperFilter,
+                    blRestCustomerStateFilter"/>
+    ...
+</bean>
+```
+
 ## Extending Broadleaf RESTful services ##
 Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on [[Extending Product | Next-Steps#wiki-extending-product]] or [[Extending Service | Next-Steps#wiki-extending-service]] for more information on generally extending Broadleaf's domain and service objects.  After extending the domain and/or services, you may want to expose the new data and/or functionality to clients of your RESTful API.  Broadleaf provides a mechanism for this and attempts to be as flexible as possible.
 
