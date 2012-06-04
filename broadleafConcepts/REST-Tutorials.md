@@ -51,6 +51,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
@@ -68,10 +70,10 @@ public class MyNewEndpoint {
     
     @GET
     @Path("/{id}")
-    public MyResourceWrapper findMyResourceById(@PathParam("id") Long id) {
+    public MyResourceWrapper findMyResourceById(@Context HttpServletRequest req, @PathParam("id") Long id) {
         MyResourceWrapper wrapper = new MyResourceWrapper();
         MyEntity myEntity = myEntityService.findById(id);
-        wrapper.wrap(myEntity);
+        wrapper.wrap(myEntity, req);
         return wrapper;
     }
 }
@@ -101,4 +103,40 @@ public class MyResourceWrapper implements APIWrapper<MyEntity>  {
     }
 }
 ```
-The key here is that the wrap method allows you to set the properties that are required to be serialized. Since they are annotated with JAXB annotations, they will be serialized as XML or JSON, depending on the Content-Type header of the request.
+The key here is that the wrap method allows you to set the properties that are required to be serialized. Since they are annotated with JAXB annotations, they will be serialized as XML or JSON, depending on the Accept header of the request. Also notice that the HttpServletRequest is passed to the endpoint method and is made available to the wrap method. This is important if there is something from the request that is required to build the response (e.g. request URI used to build a new URL for content or media). In this example, we simply ignore the HttpServletRequest in the wrap method.  Also, if you make the wrapper class a Spring-managed prototype bean, you can have a number of additional benefits such as making it ApplicationContextAware, injecting services into it for further processing during wrapping, etc. If you do this, be sure it is prototype scoped, and that anything you do not wish to serialize is annotated as XMLTransient:
+
+```java
+import javax.xml.bind.annotation.*;
+import org.broadleafcommerce.core.web.api.wrapper.APIWrapper;
+import org.broadleafcommerce.cms.file.service.StaticAssetService;
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+
+@Component("myResourceWrapper")
+@XmlRootElement(name = "myResource")
+@XmlAccessorType(value = XmlAccessType.FIELD)
+public class MyResourceWrapper implements APIWrapper<MyEntity>  {
+
+    @XMLTransient //We don't want to serialize this so we make it XMLTransient
+    @Resource(name="blStaticAssetService")
+    private transient StaticAssetService staticAssetService;
+
+    @XMLAttribute
+    private Long id;
+
+    @XMLElement
+    private String name;
+
+    @XMLElement
+    private String mediaUrl;
+
+    @Override
+    public void wrap(MyEntity model, HttpServletRequest request) {
+        this.id = model.getId();
+        this.name = model.getName();
+        
+        //Notice here we use an injected Broadleaf service to create the appropriate URL
+        this.mediaUrl = staticAssetService.convertAssetPath(model.getMediaUrl(), request.getContextPath(), request.isSecure()));
+    }
+}
+```
