@@ -42,7 +42,7 @@ In order to create a net new RESTful service, you simply need to implement an en
 
 1. Make sure that your RESTful endpoint is a Spring-managed bean. This can be accomplished by using the @Component or @Service annotations, or by adding the bean to the merged application context via XML configuration.
 
-2. Ensure that that the Spring-managed endpoint contains
+2. Ensure that that the Spring-managed endpoint contains the necessary @Scope, @Path, @Produces, @Consumes annotations.
 
 Here is an example:
 ```java
@@ -103,16 +103,63 @@ public class MyResourceWrapper implements APIWrapper<MyEntity>  {
     }
 }
 ```
-The key here is that the wrap method allows you to set the properties that are required to be serialized. Since they are annotated with JAXB annotations, they will be serialized as XML or JSON, depending on the Accept header of the request. Also notice that the HttpServletRequest is passed to the endpoint method and is made available to the wrap method. This is important if there is something from the request that is required to build the response (e.g. request URI used to build a new URL for content or media). In this example, we simply ignore the HttpServletRequest in the wrap method.  Also, if you make the wrapper class a Spring-managed prototype bean, you can have a number of additional benefits such as making it ApplicationContextAware, injecting services into it for further processing during wrapping, etc. If you do this, be sure it is prototype scoped, and that anything you do not wish to serialize is annotated as XMLTransient:
+The key here is that the wrap method allows you to set the properties that are required to be serialized. Since they are annotated with JAXB annotations, they will be serialized as XML or JSON, depending on the Accept header of the request. Also notice that the HttpServletRequest is passed to the endpoint method and is made available to the wrap method. This is important if there is something from the request that is required to build the response (e.g. request URI used to build a new URL for content or media). In this example, we simply ignore the HttpServletRequest in the wrap method.  Also, if you make the wrapper class a Spring-managed prototype bean, you can have a number of additional benefits such as making it ApplicationContextAware, injecting services into it for further processing during wrapping, etc. If you do this, be sure it is prototype scoped, and that anything you do not wish to serialize is annotated as XMLTransient. Also be sure to use the application context to retrieve an instance. This is important because the endpoint is a singleton and the wrapper bean is a prototype:
+
+```java
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Context;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import javax.annotation.Resource;
+
+// The Java class will be hosted at the URI path "/myresource"
+@Component("myEndpoint")
+@Scope("singleton")
+@Path("/myresource")
+@Produces(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+@Consumes(value={MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+public class MyNewEndpoint implements ApplicationContextAware {
+
+    private ApplicationContext context;
+
+    @Resource(name = "myEntityService")
+    private MyEntityService myEntityService;
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.context = applicationContext;
+    }
+    
+    @GET
+    @Path("/{id}")
+    public MyResourceWrapper findMyResourceById(@Context HttpServletRequest req, @PathParam("id") Long id) {
+        //Notice here that we use the application context to get the bean instance.  See the bean 
+        //definition below. Notice the dependency injection.
+        MyResourceWrapper wrapper = (MyResourceWrapper)context.getBean("myResourceWrapper");
+        MyEntity myEntity = myEntityService.findById(id);
+        wrapper.wrap(myEntity, req);
+        return wrapper;
+    }
+}
+```
 
 ```java
 import javax.xml.bind.annotation.*;
 import org.broadleafcommerce.core.web.api.wrapper.APIWrapper;
 import org.broadleafcommerce.cms.file.service.StaticAssetService;
 import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Scope;
 import javax.annotation.Resource;
 
 @Component("myResourceWrapper")
+@Scope("prototype")
 @XmlRootElement(name = "myResource")
 @XmlAccessorType(value = XmlAccessType.FIELD)
 public class MyResourceWrapper implements APIWrapper<MyEntity>  {
