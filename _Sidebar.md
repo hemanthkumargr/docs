@@ -62,6 +62,7 @@
 
 - [[Payment]]
     - [[Workflow | Payment Workflow]]
+    - [[Payment Security and PCI Compliance]]
     - [[CyberSource Payment Module]]
     - [[PayPal Module]]
     - [[Braintree Module]]
