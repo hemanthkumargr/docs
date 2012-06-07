@@ -8,10 +8,10 @@ Once you have established an account with PayPal, begin by including the PayPal 
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
+    <groupId>org.broadleafcommerce</groupId>
     <artifactId>broadleaf-paypal</artifactId>
     <version>${broadleaf.thirdparty.version}</version>
-	<type>jar</type>
+    <type>jar</type>
     <scope>compile</scope>
 </dependency>
 ```
