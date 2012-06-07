@@ -50,4 +50,4 @@ Now that you have given Broadleaf Commerce the new path to search for your parti
 
 Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
 
-The api.url, user.redirect.url and version properties are all already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. We'll cover the PayPal payment configuration in the [PayPal Module] section.
+The api.url, user.redirect.url and version properties are all already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. We'll cover the PayPal payment configuration in the [[PayPal Module]] section.
