@@ -3,6 +3,7 @@
 - Users must establish their own sandbox accounts with PayPal in order to use the BroadleafCommerce PayPal payment functionality in a test environment. This can be done here: https://developer.paypal.com/devscr?cmd=_signup-run
 - Users must also establish PayPal API Credentials in order perform various operations on the PayPal Express API. The API credentials for your business account (api username, api password, signature) are obtained via the steps mentioned on this page: https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECAPICredentials
 - Note: Users must sign up for an actual Business Account to start accepting transactions on a production site. This can be done here: https://merchant.paypal.com/cgi-bin/marketingweb?cmd=_render-content&content_ID=merchant/express_checkout&nav=2.1.5
+- Please familiarize yourself with the PayPal Express Checkout Prerequisites before proceeding. https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted
 
 Once you have established an account with PayPal, begin by including the PayPal Module dependency to your pom.xml.
 
