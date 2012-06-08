@@ -46,8 +46,9 @@ Hibernate automatically uses the primary key of ProductImpl as the primary key o
 ```
 2. Broadleaf's Entity Configuration needs to be aware of the new implementation, which can be done by modifying the application context for the entity configuration:
 ```xml
-<!-- Note that this will replace Broadleaf's internal representation of "Product" with your HotSauce representation -->
-<bean id="org.broadleafcommerce.core.catalog.domain.Product" class="com.mycompany.core.catalog.domain.HotSauceImpl"/>
+<!-- Note that this will replace Broadleaf's internal representation of "Product" with your HotSauce representation. Also notice that it is prototype scoped. This MUST NOT be a singleton since it represents 
+particular state. -->
+<bean id="org.broadleafcommerce.core.catalog.domain.Product" class="com.mycompany.core.catalog.domain.HotSauceImpl" scope="prototye"/>
 ```
 
 ### Polymorphic Relationships ###
@@ -56,9 +57,53 @@ In some cases, you may want more than one representation of a particular interfa
 //Note that the item returned may be either a DiscreteOrderItem or a BundleOrderItem
 //because Hibernate issues the proper outer joins and instantiates the appropriate objects
 //Type checking and casting will likely be required to operate on these specific types
-OrderItem item = (OrderItem)em.find(OrderItemImpl.class, id);
+public OrderItem readOrderItemById(final Long orderItemId) {
+    return em.find(OrderItemImpl.class, orderItemId);
+}
+```
+To create a new instance of OrderItem, you need to tell Broadleaf what kind of OrderItem you want. Broadleaf provides an enumeration to do this.  The DAOs provide a method for this. Here's how it works in the OrderItemDaoImpl:
+```java
+public OrderItem create(final OrderItemType orderItemType) {
+    final OrderItem item = (OrderItem) entityConfiguration.createEntityInstance(orderItemType.getType());
+    item.setOrderItemType(orderItemType);
+    return item;
+}
+```
+The OrderItemType is an enumeration whose getType() method returns the name of the interface (e.g. either DiscreteOrderItem or BundleOrderItem).  The entityConfiguration is a Spring Bean, injected into the DAO, that acts as an entity object factory.  It returns the correct implementation of the specified interface.  So, if you extend DiscreteOrderItemImpl, you would modify the entity configuration, modify the persistence unit configuration, and Broadleaf would happily continue to work with your custom entity extension.  Your UI and/or service extension(s) would simply have to cast the returned object to your custom type to get/set custom values.
+
+To take this discussion a little bit further, let's discuss polymorphic catalog extensions.  Broadleaf has a single representation of Product - ProductImpl.  Above, we discussed how you could extend ProductImpl to create a custom HotSauce product.  But what if you have multiple product types (e.g. Hot Sauce, T-Shirts, Gift Baskets, and Cooking Classes), which are different enough that they require their own entities?  The answer is that they can each have their own entities:
+```java
+@Entity
+@Table("GIFT_BASKET")
+public class GiftBasketImpl extends ProductImpl implements GiftBaset {
+    ...
+}
+
+@Entity
+@Table("T_SHIRT")
+public class TShirtImpl extends ProductImpl implements TShirt {
+    ...
+}
+
+@Entity
+@Table("COOKING_CLASS")
+public class CookingClassImpl extends ProductImpl implements CookingClass {
+    ...
+}
+```
+As long as the base class (ProductImpl) is queried via JPA, the correct instances of the subclasses will be returned.  Hibernate automatically issues outer joins to the database to get the correct data and instantiates the correct objects.
+
+In addition, you should also add these to the entity configuration:
+```xml
+<bean id="com.mycompany.core.catalog.domain.TShirt" class="com.mycompany.core.catalog.domain.TShirt" scope="prototype"/>
+
+<bean id="com.mycompany.core.catalog.domain.GiftBasket" class="com.mycompany.core.catalog.domain.GiftBasketImpl" scope="prototype"/>
+
+<bean id="com.mycompany.core.catalog.domain.CookingClass" class="com.mycompany.core.catalog.domain.CookingClassImpl" scope="prototype"/>
 ```
 
-
 ### Single table inheritance ###
-Broadleaf's default behavior for inheritance is to use a table per subclass (i.e. a joined inheritance strategy).
+Broadleaf's default behavior for inheritance is to use a table per subclass (i.e. a joined inheritance strategy).  This is usually preferable for smaller numbers of product types.  However, when you have dozens or hundreds of product types this can cause problems.  The reason is that when a query for a product is done, Hibernate issues an outer join on each subclass of ProductImpl.  Besides being a potential performance problem, there are limitations to what the database will allow you to do. For example, MySQL has a limit of 61 on the number of joins that can be done in a single query.  If you have more than 61 products types, joined inheritance won't work with MySQL.  The solution is to use single table inheritance.
+
+### Admin Considerations ###
+Jeff, please add some commentary to this.
