@@ -1,4 +1,5 @@
 **NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
+> Note - Please familiarize yourself with [[Workflows and Activities]] before proceeding.
 
 ## Overview
 
