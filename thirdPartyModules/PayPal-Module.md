@@ -49,4 +49,13 @@ You will need to declare the following Spring beans in your application context:
 </bean>
 ```
 
-Pay attention to the returnUrl value and cancelUrl value in the `blPayPalVendorOrientedPaymentService` bean declaration. The `returnUrl` is the destination in your app you want the user to come to after he/she has completed their experience on the PayPal side. The `cancelUrl` is where you want the user to go if he/she cancels the payment on the PayPal side. Also review the `additionalConfig` property here. You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on the PayPal side.
+* `serverUrl` - the PayPal API URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+* `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
+* `libVersion` - the PayPal API lib version. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+* `password` - the PayPal API password. See [[PayPal Environment Setup]]
+* `user` - the PayPal API username. See [[PayPal Environment Setup]]
+* `signature` - the PayPal API signature. See [[PayPal Environment Setup]]
+* `returnUrl` - the destination in your app you want the user to come to after he/she has completed their experience on PayPal's site.
+* `cancelUrl` - the destination in your app if he/she cancels the payment on PayPal's site.
+* `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
+* `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
