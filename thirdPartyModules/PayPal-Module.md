@@ -154,7 +154,7 @@ In this example, we will show you how a Spring MVC Controller might be structure
     }
 ```
 
-Now let's add a method to our controller to handle the callback from PayPal back to Broadleaf.
+Now let's add a method to our controller to handle the callback from PayPal back to Broadleaf. Notice that the callback from PayPal will have a request parameters called `PayerID` and `token`
 
 ```java
     @RequestMapping(value="/paypal/process", method = {RequestMethod.GET})
