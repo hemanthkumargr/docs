@@ -92,8 +92,7 @@ you will be required at some point to compile the [[PaymentInfo | https://github
 to the order before calling performCheckout on the CheckoutService. 
 Most Broadleaf Commerce users will choose Spring MVC and will likely implement their own CheckoutController. 
 
-Begin by adding the PayPal Checkout button to your shopping cart page following the guidelines outlined here: [[Express Checkout User Interface Requirements | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECUIRequirements]]
-In this example, we will show you how a Spring MVC Controller might be structured to handle calling the PayPal Module (have the button on your page link to "/paypal/checkout").
+In this example, we will show you how a Spring MVC Controller might be structured to handle calling the PayPal Module. Begin by adding the PayPal Checkout button to your shopping cart page following the guidelines outlined here: [[Express Checkout User Interface Requirements | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECUIRequirements]] (have the button on your page link to "/paypal/checkout").
 
 ```java
 
