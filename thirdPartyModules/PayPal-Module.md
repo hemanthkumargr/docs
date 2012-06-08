@@ -1,4 +1,4 @@
-Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This allows users to add the following button to their existing eCommerce checkout workflow:
+Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This module allows users to add the following button to their existing eCommerce checkout workflow:
 
 ![Checkout with PayPal](https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif)
  
@@ -59,3 +59,71 @@ You will need to declare the following Spring beans in your application context:
 * `cancelUrl` - the destination in your app if he/she cancels the payment on PayPal's site.
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
 * `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+
+## Setting up the Presentation Layer
+
+It is up to you to choose the presentation layer approach that best fits your needs, but regardless of the approach, 
+you will be required at some point to compile the [[PaymentInfo | https://github.com/BroadleafCommerce/BroadleafCommerce/blob/master/core/broadleaf-framework/src/main/java/org/broadleafcommerce/core/payment/domain/PaymentInfo.java]] information 
+to the order before calling performCheckout on the CheckoutService. 
+Most Broadleaf Commerce users will choose Spring MVC and will likely implement their own CheckoutController. In this example, we
+will show you how a Spring MVC Controller might be structured to handle calling the PayPal Module.
+
+```java
+
+    //this service is backed by the entire payment workflow configured in application context
+    //it is the entry point for engaging the payment workflow
+    @Resource(name="blCompositePaymentService")
+    protected CompositePaymentService compositePaymentService;
+    
+    @SuppressWarnings("unchecked")
+    @RequestMapping(value = "/paypal/checkout", method = {RequestMethod.GET})
+    public String paypalCheckout(@ModelAttribute CheckoutForm checkoutForm,
+                           BindingResult errors,
+                           ModelMap model,
+                           HttpServletRequest request,
+                           HttpServletResponse response) throws IOException {
+        Customer currentCustomer = customerState.getCustomer(request);                   
+        final Order order = cartService.findCartForCustomer(currentCustomer);
+        Map<PaymentInfo, Referenced> payments = new HashMap<PaymentInfo, Referenced>();
+
+        PaymentInfoImpl paymentInfo = new PaymentInfoImpl();
+        paymentInfo.setOrder(order);
+        paymentInfo.setType(PaymentInfoType.PAYPAL);
+        paymentInfo.setReferenceNumber(String.valueOf(order.getId()));
+        paymentInfo.setAmount(order.getTotal());
+        paymentInfo.getAdditionalFields().put(MessageConstants.SUBTOTAL, order.getSubTotal().toString());
+        paymentInfo.getAdditionalFields().put(MessageConstants.TOTALSHIPPING, order.getTotalShipping().toString());
+        paymentInfo.getAdditionalFields().put(MessageConstants.TOTALTAX, order.getTotalTax().toString());
+        for (OrderItem orderItem : order.getOrderItems()) {
+            AmountItem amountItem = new AmountItemImpl();
+            if (DiscreteOrderItem.class.isAssignableFrom(orderItem.getClass())) {
+                amountItem.setDescription(((DiscreteOrderItem)orderItem).getSku().getDescription());
+                amountItem.setSystemId(String.valueOf(((DiscreteOrderItem) orderItem).getSku().getId()));
+            } else if (BundleOrderItem.class.isAssignableFrom(orderItem.getClass()) {
+                amountItem.setDescription(((BundleOrderItem)orderItem).getSku().getDescription());
+                amountItem.setSystemId(String.valueOf(((BundleOrderItem) orderItem).getSku().getId()));
+            }
+            amountItem.setShortDescription(orderItem.getName());
+            amountItem.setPaymentInfo(paymentInfo);
+            amountItem.setQuantity((long) orderItem.getQuantity());
+            amountItem.setUnitPrice(orderItem.getPrice().getAmount());
+            paymentInfo.getAmountItems().add(amountItem);
+        }
+        payments.put(paymentInfo, paymentInfo.createEmptyReferenced());
+        List<PaymentInfo> paymentInfos = new ArrayList<PaymentInfo>();
+        paymentInfos.add(paymentInfo);
+        order.setPaymentInfos(paymentInfos);
+
+        try {
+            CompositePaymentResponse compositePaymentResponse = compositePaymentService.executePayment(order, payments);
+            PaymentResponseItem responseItem = compositePaymentResponse.getPaymentResponse().getResponseItems().get(paymentInfo);
+            if (responseItem.getTransactionSuccess()) {
+                return "redirect:" + responseItem.getAdditionalFields().get(MessageConstants.REDIRECTURL);
+            }
+        } catch (PaymentException e) {
+            LOG.error("Cannot perform checkout", e);
+        }
+
+        return null;
+    }
+```
