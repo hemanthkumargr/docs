@@ -103,7 +103,74 @@ In addition, you should also add these to the entity configuration:
 ```
 
 ### Single table inheritance ###
-Broadleaf's default behavior for inheritance is to use a table per subclass (i.e. a joined inheritance strategy).  This is usually preferable for smaller numbers of product types.  However, when you have dozens or hundreds of product types this can cause problems.  The reason is that when a query for a product is done, Hibernate issues an outer join on each subclass of ProductImpl.  Besides being a potential performance problem, there are limitations to what the database will allow you to do. For example, MySQL has a limit of 61 on the number of joins that can be done in a single query.  If you have more than 61 products types, joined inheritance won't work with MySQL.  The solution is to use single table inheritance.
+Broadleaf's default behavior for inheritance is to use a table per subclass (i.e. a joined inheritance strategy).  This is usually preferable for smaller numbers of product types.  However, when you have dozens or hundreds of product types this can cause problems.  The reason is that when a query for a product is done, Hibernate issues an outer join on each subclass of ProductImpl.  Besides being a potential performance problem, there are limitations to what the database will allow you to do. For example, MySQL has a limit of 61 joins that can be done in a single query.  If you have more than 61 products types, joined inheritance won't work with MySQL.  The solution is to use single table inheritance. More information on JPA inheritance can be found [[here | http://docs.oracle.com/cd/B32110_01/web.1013/b28221/cmp30cfg016.htm]].
+
+Broadleaf's entities are annotated with:
+```java
+@Inheritance(strategy = InheritanceType.JOINED)
+```
+Since you aren't changing core Broadleaf code to accomplish this, how can you change a class definition or a compiled core Broadleaf entity?  Broadleaf provides a Java agent that has a hook to allow byte code transformation on JPA entities. The agent is provided as a standard jar file whose Maven artifact id is "broadleaf-instrument". This must be added to the command to start the JVM.  For example, in Tomcat's catalina.sh, you can add the following line:
+```java
+JAVA_OPTS=-javaagent:/path/to/broadleaf-instrument.jar
+```
+In this case, when Tomcat starts, the instrumentation jar will be registered with the JVM. You must also modify the bean definition of the MergePersistenceUnitManager:
+```xml
+<bean id="blPersistenceUnitManager" class="org.broadleafcommerce.common.extensibility.jpa.MergePersistenceUnitManager">
+    ...
+    <property name="loadTimeWeaver">
+        <bean class="org.broadleafcommerce.common.extensibility.jpa.BroadleafLoadTimeWeaver"/>
+    </property>
+</bean>
+```
+
+You also have to specify properties in your merged persistence.xml file:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+        <!-- Note that this XML will get merged with Broadleaf's internal persistence unit, and your new HotSauceImpl will be added to the managed entities -->
+	<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
+        <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
+        <class>com.mycompany.core.catalog.domain.CookingClassImpl</class>
+        <class>com.mycompany.core.catalog.domain.TShirtImpl</class>
+        <class>com.mycompany.core.catalog.domain.GiftBasketImpl</class>
+        <exclude-unlisted-classes/>
+        <properties>
+            ...
+            <property name="broadleaf.ejb.entities.override_single_table" 
+                value="com.mycompany.core.catalog.domain.HotSauceImpl,
+                       com.mycompany.core.catalog.domain.CookingClassImpl,
+                       com.mycompany.core.catalog.domain.TShirtImpl,
+                       com.mycompany.core.catalog.domain.GiftBasketImpl"/>
+            <property name="broadleaf.ejb.ProductImpl.discriminator.name" value="PRODUCT_TYPE"/>
+            <property name="broadleaf.ejb.ProductImpl.discriminator.type" value="STRING"/>
+            <property name="broadleaf.ejb.ProductImpl.discriminator.length" value="10"/>
+        </properties>
+</persistence>
+```
+Finally, you configure your entities without a table name and you will have to put an additional annotation on your extended entities:
+```java
+@Entity
+@Inheritance(discriminatorValue="GIFT_BASKET")
+public class GiftBasketImpl extends ProductImpl implements GiftBaset {
+    ...
+}
+
+@Entity
+@Inheritance(discriminatorValue="T_SHIRT")
+public class TShirtImpl extends ProductImpl implements TShirt {
+    ...
+}
+
+@Entity
+@Inheritance(discriminatorValue="COOKING_CLASS")
+public class CookingClassImpl extends ProductImpl implements CookingClass {
+    ...
+}
+```
+Now, at runtime, the ProductImpl class will be transformed at load time, and its inheritance annotations will be changed to single table with all of the configurations provided in the persistence.xml file. All of your products will now go in the same table, and a column called "PRODUCT_TYPE" will be used to differentiate them. Remember, with this strategy, your subclasses cannot define non-nullable columns. The reason is that they share this table with other subclasses who may not use those columns.
 
 ### Admin Considerations ###
 Jeff, please add some commentary to this.
