@@ -51,6 +51,13 @@ Hibernate automatically uses the primary key of ProductImpl as the primary key o
 ```
 
 ### Polymorphic Relationships ###
+In some cases, you may want more than one representation of a particular interface.  Broadleaf provides an example of this out of the box.  OrderItem (representing a line item in an order) is an entity in Broadleaf.  However, there are really two useful extensions of OrderItem - DiscreteOrderItem and BundleOrderItem.  DiscreteOrderItem represents an order item that references a single SKU. BundleOrderItem represents multiple SKUs as a single unit.  Both of these entities extend OrderItemImpl.  _Note: If you need to extend OrderItem, it is likely best to extend either DiscreteOrderItemImpl or BundleOrderItemImpl (or both) rather than extending OrderItemImpl directly._  Again, each of these is defined in the Persistence Unit configuration.  Each of these is also defined as a Spring Bean, keyed by its primary interface name.  When a JPA query is issued for OrderItemImpl, Hibernate is smart enough to query the extended tables and return the correct instances.  For example:
+```java
+//Note that the item returned may be either a DiscreteOrderItem or a BundleOrderItem
+//because Hibernate issues the proper outer joins and instantiates the appropriate objects
+//Type checking and casting will likely be required to operate on these specific types
+OrderItem item = (OrderItem)em.find(OrderItemImpl.class, id);
+```
 
 
 ### Single table inheritance ###
