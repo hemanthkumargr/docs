@@ -30,6 +30,7 @@ public class HotSauceImpl extends ProductImpl implements HotSauce {
 } 
 ```
 The only other things required for all of this to work within Broadleaf are:
+
 1. The merged Persistence Unit needs to be aware of the new class:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -38,11 +39,16 @@ The only other things required for all of this to work within Broadleaf are:
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 	<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
-        <class>com.mycompany.core.domain.HotSauceImpl</class>
+        <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
         <exclude-unlisted-classes/>
 </persistence>
 ```
-2. 
+2. Broadleaf's Entity Configuration needs to be aware of the new implementation, which can be done by modifying the application context for the entity configuration:
+```xml
+<!-- Note that this will replace Broadleaf's internal representation of "Product" with your HotSauce representation -->
+<bean id="org.broadleafcommerce.core.catalog.domain.Product" class="com.mycompany.core.catalog.domain.HotSauceImpl"/>
+```
+
 
 Hibernate automatically uses the primary key of ProductImpl as the primary key of HotSauceImpl.  It also forces a foreign key constraint on the primary key of HotSauceImpl.  When ProductImpl is queried via JPA, Hibernate automatically does the appropriate joins to retrieve the additional data (in this case the Scoville Units) and instantiates the correct object (HotSauceImpl). 
 
