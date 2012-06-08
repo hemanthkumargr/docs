@@ -60,6 +60,31 @@ You will need to declare the following Spring beans in your application context:
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
 * `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
 
+You now need to add the PayPal activity to the `blAuthorizeAndDebitWorkflow`. This is done by configuring the Spring Bean like this:
+
+```xml
+<bean id="blAuthorizeAndDebitWorkflow" class="org.broadleafcommerce.core.workflow.SequenceProcessor">
+    <property name="processContextFactory">
+        <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentProcessContextFactory">
+            <property name="paymentActionType" value="AUTHORIZEANDDEBIT"/>
+        </bean>
+    </property>
+    <property name="activities">
+        <list>
+            <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
+                <property name="paymentService" ref="blPayPalPaymentService"/>
+                <property name="userName" value="web"/>
+            </bean>
+            <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
+                <property name="paymentService" ref="blCreditCardService"/>
+                <property name="userName" value="web"/>
+            </bean>
+        </list>
+    </property>
+    <property name="defaultErrorHandler" ref="blDefaultErrorHandler"/>
+</bean>
+```
+
 ## Setting up the Presentation Layer
 
 It is up to you to choose the presentation layer approach that best fits your needs, but regardless of the approach, 
