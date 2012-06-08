@@ -1,4 +1,4 @@
-Broadleaf Commerce currently offers integration with the PayPal Express API. This allows users to add the following button to their existing eCommerce checkout workflow:
+Broadleaf Commerce currently offers integration with the PayPal Express API. This allows users to add the following button to their existing eCommerce checkout workflow: See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information.
 
 ![Checkout with PayPal](https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif)
  
@@ -48,3 +48,5 @@ You will need to declare the following Spring beans in your application context:
     </property>
 </bean>
 ```
+
+Pay attention to the returnUrl value and cancelUrl value in the blPayPalVendorOrientedPaymentService bean declaration. The returnUrl is the destination in your app you want the user to come to after he/she has completed their experience on the PayPal side. The cancelUrl is where you want the user to go if he/she cancels the payment on the PayPal side. Also review the additionalConfig property here. You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on the PayPal side.
