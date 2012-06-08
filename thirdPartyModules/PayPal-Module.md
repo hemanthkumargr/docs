@@ -153,3 +153,67 @@ In this example, we will show you how a Spring MVC Controller might be structure
         return null;
     }
 ```
+
+Now let's add a method to our controller to handle the callback from PayPal back to Broadleaf.
+
+```java
+    @RequestMapping(value="/paypal/process", method = {RequestMethod.GET})
+    public String paypalProcess(ModelMap model,
+                                @RequestParam String token,
+                                @RequestParam("PayerID") String payerID,
+                                CheckoutForm checkoutForm,
+                                HttpServletRequest request) {
+        Order order = retrieveCartOrder(request, model);
+        PaymentInfo payPalPaymentInfo = null;
+        Map<PaymentInfo, Referenced> payments = new HashMap<PaymentInfo, Referenced>();
+        for (PaymentInfo paymentInfo : order.getPaymentInfos()) {
+            if (paymentInfo.getType() == PaymentInfoType.PAYPAL) {
+                //There should only be one payment info of type paypal in the order
+                paymentInfo.getAdditionalFields().put(MessageConstants.PAYERID, payerID);
+                paymentInfo.getAdditionalFields().put(MessageConstants.TOKEN, token);
+                payments.put(paymentInfo, paymentInfo.createEmptyReferenced());
+                payPalPaymentInfo = paymentInfo;
+                break;
+            }
+        }
+        
+        order.setStatus(OrderStatus.SUBMITTED);
+        order.setSubmitDate(Calendar.getInstance().getTime());
+
+        CheckoutResponse checkoutResponse;
+        try {
+            /*
+                Grab some details about the transaction - useful if you want to
+                retrieve address information for the user
+             */
+            //PayPalDetailsRequest detailsRequest = new PayPalDetailsRequest();
+            //detailsRequest.setToken(token);
+            //detailsRequest.setMethodType(PayPalMethodType.DETAILS);
+            //PayPalDetailsResponse detailsResponse = payPalPaymentModule.getExpressCheckoutDetails(detailsRequest);
+
+            checkoutResponse = checkoutService.performCheckout(order, payments);
+
+            PaymentResponseItem responseItem = checkoutResponse.getPaymentResponse().getResponseItems().get(payPalPaymentInfo);
+            if (responseItem.getTransactionSuccess()) {
+                //Fill out a few customer values for anonymous customers
+                Customer customer = order.getCustomer();
+                if (StringUtils.isEmpty(customer.getFirstName())) {
+                    customer.setFirstName(checkoutForm.getBillingAddress().getFirstName());
+                }
+                if (StringUtils.isEmpty(customer.getLastName())) {
+                    customer.setLastName(checkoutForm.getBillingAddress().getLastName());
+                }
+                if (StringUtils.isEmpty(customer.getEmailAddress())) {
+                    customer.setEmailAddress(order.getEmailAddress());
+                }
+                customerService.saveCustomer(customer, false);
+
+                return receiptView != null ? "redirect:" + receiptView : "redirect:/orders/viewOrderConfirmation.htm?orderNumber=" + order.getOrderNumber();
+            }
+        } catch (Exception e) {
+            LOG.error("Cannot perform checkout", e);
+        }
+
+        return null;
+    }
+```
