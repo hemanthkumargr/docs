@@ -22,4 +22,6 @@ Broadleaf will replace its default implementation of search service with your sp
 ### Extending a Broadleaf Component ###
 You may also wish to extend Broadleaf functionality rather than completely reimplementing an interface.  This can be done by simply extending a concrete implementation of a service and then redefining it just as we did with the SearchService above.
 
-_**WARNING: One thing to consider is that Broadleaf uses AOP for a number of functions, including pricing. Be careful when extending Broadleaf services.**_
+_**WARNING: One thing to consider is that Broadleaf uses AOP for a number of functions, including pricing. Be careful when extending Broadleaf services, especially when calling a super method. The AOP might not be invoked in these cases.**_
+
+For example, CartService and OrderService have pricing functionality on a number of methods. This handled by an AOP interceptor.  If you extend CartService, for example, and create a new method that has custom functionality, but delegates to a super method, then the AOP will not get invoked.  The only options in this case is to override the exact superclass method (rather than creating a new method signature) or to wrap, or decorate, the CartService with a completely new service. This will ensure that the calls to the CartService are invoked via its interface and that the AOP interceptor(s) are invoked as well.
