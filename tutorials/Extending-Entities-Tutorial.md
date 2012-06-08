@@ -15,7 +15,7 @@ public class ProductImpl implements Product {
 }
 ```
 
-Notice that this implementation implements Product.  It is annotated with @Entity indicating that it is a JPA entity.  It is annotated with @Table to specify the table name.  It is also annotated with @Inheritance, specifying that it uses a joined strategy or table per subclass.  More on this later.
+Notice that this implementation implements Product.  It is annotated with @Entity indicating that it is a JPA entity.  It is annotated with @Table to specify the table name.  It is also annotated with @Inheritance, specifying that it uses a joined strategy.  More on this later.
 
 You can not replace Broadleaf's entities entirely.  And why would you since they are generally POJOs and you would have to implement the same interfaces anyway?  However, you can extend those entities with your own:
 ```java
