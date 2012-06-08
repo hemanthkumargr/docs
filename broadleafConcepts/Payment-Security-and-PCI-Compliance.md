@@ -44,11 +44,11 @@ In the example code above, the reference number is set to the credit card number
 If you choose to manage and persist all payment data yourself, including sensitive customer account information, then you'll need to explicitly save the Referenced instances during checkout. This is as simple as calling the save method of the `SecurePaymentInfoService`. Normally, this would be done when the PaymentInfo and Referenced objects are created, for example, in the CheckoutController. **When you use this approach and associate PaymentInfo instances with the order and persist the Referenced instances, then you can call the performCheckout method in CheckoutService that only requires the order parameter**. In this situation, Broadleaf Commerce is smart enough to retrieve the Referenced instances on own when it requires them.
 
 
-## Securing Account Information
+## <a id="Securing-Account-Information"></a> Securing Account Information
 
 Behind the scenes, whenever you set or get secure values from one or more of Referenced implementations, an encryption module performs encryption and decryption on the fly. You'll recall in our implementation of EmployeePaymentInfoDao, whenever we create or find an instance of EmployeePaymentInfo, we set the encryption module instance. Then, if you recall the EmployeePaymentInfoImpl class, this encryption module is used to encrypt and decrypt the employee PIN value. When creating your own payment types, it's entirely up to you what fields are encrypted. For the built-in payment types included with Broadleaf, the standard expected values are encrypted. For example, PAN (Primary Account Number) for each CreditCardPaymentInfo instance is encrypted.
 
-## Encryption
+## <a id="Encryption"></a>Encryption
 
 By default, Broadleaf Commerce employs a useless pass-through implementation for the encryption module. The DefaultEncryptionModule class simply passes through the values adding neither encryption or decryption. To add real encryption and decryption, users will need to add support for their own strategy. The first step is to create a custom implementation of EncryptionModule. The EncryptionModule interface is left purposefully simple to allow the greatest degree of flexibility in implementation. Once an implementation is prepared, then you'll need to notify Broadleaf Commerce to use your custom encryption module instead of the default one by assigning the key id `blEncryptionModule`.
 
