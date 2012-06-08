@@ -29,7 +29,7 @@ public class HotSauceImpl extends ProductImpl implements HotSauce {
     ...
 } 
 ```
-The only other things required for all of this to work within Broadleaf are:
+Hibernate automatically uses the primary key of ProductImpl as the primary key of HotSauceImpl.  It also forces a foreign key constraint on the primary key of HotSauceImpl.  When ProductImpl is queried via JPA, Hibernate automatically does the appropriate joins to retrieve the additional data (in this case the Scoville Units) and instantiates the correct object (HotSauceImpl). The only other things required for all of this to work within Broadleaf are:
 
 1. The merged Persistence Unit needs to be aware of the new class:
 ```xml
@@ -38,6 +38,7 @@ The only other things required for all of this to work within Broadleaf are:
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
+        <!-- Note that this XML will get merged with Broadleaf's internal persistence unit, and your new HotSauceImpl will be added to the managed entities -->
 	<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
         <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
         <exclude-unlisted-classes/>
@@ -49,8 +50,7 @@ The only other things required for all of this to work within Broadleaf are:
 <bean id="org.broadleafcommerce.core.catalog.domain.Product" class="com.mycompany.core.catalog.domain.HotSauceImpl"/>
 ```
 
-
-Hibernate automatically uses the primary key of ProductImpl as the primary key of HotSauceImpl.  It also forces a foreign key constraint on the primary key of HotSauceImpl.  When ProductImpl is queried via JPA, Hibernate automatically does the appropriate joins to retrieve the additional data (in this case the Scoville Units) and instantiates the correct object (HotSauceImpl). 
+### Polymorphic Relationships ###
 
 
 ### Single table inheritance ###
