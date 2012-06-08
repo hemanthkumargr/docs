@@ -172,5 +172,34 @@ public class CookingClassImpl extends ProductImpl implements CookingClass {
 ```
 Now, at runtime, the ProductImpl class will be transformed at load time, and its inheritance annotations will be changed to single table with all of the configurations provided in the persistence.xml file. All of your products will now go in the same table, and a column called "PRODUCT_TYPE" will be used to differentiate them. Remember, with this strategy, your subclasses cannot define non-nullable columns. The reason is that they share this table with other subclasses who may not use those columns.
 
+Another interesting strategy for using single table inheritance without going through the hassle of specifying a Java agent and configuring the persistence.xml with additional, complex properties is to use a hybrid approach.  Consider the same example above, but you specify a custom base class to extend.  For example:
+```java
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="PRODUCT_TYPE", length=10, type=STRING)
+public abstract class MyBaseProductImpl extends ProductImpl implements MyBaseProduct {
+    //add custom properties that are common to all (or most) products here
+    ...
+}
+
+@Entity
+@Inheritance(discriminatorValue="GIFT_BASKET")
+public class GiftBasketImpl extends MyBaseProductImpl implements GiftBaset {
+    ...
+}
+
+@Entity
+@Inheritance(discriminatorValue="T_SHIRT")
+public class TShirtImpl extends MyBaseProductImpl implements TShirt {
+    ...
+}
+
+@Entity
+@Inheritance(discriminatorValue="COOKING_CLASS")
+public class CookingClassImpl extends MyBaseProductImpl implements CookingClass {
+    ...
+}
+```
+
 ### Admin Considerations ###
 Jeff, please add some commentary to this.
