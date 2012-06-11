@@ -140,10 +140,7 @@ You also have to specify properties in your merged persistence.xml file:
         <properties>
             ...
             <property name="broadleaf.ejb.entities.override_single_table" 
-                value="com.mycompany.core.catalog.domain.HotSauceImpl,
-                       com.mycompany.core.catalog.domain.CookingClassImpl,
-                       com.mycompany.core.catalog.domain.TShirtImpl,
-                       com.mycompany.core.catalog.domain.GiftBasketImpl"/>
+                value="org.broadleafcommerce.core.catalog.domain.ProductImpl"/>
             <property name="broadleaf.ejb.ProductImpl.discriminator.name" value="PRODUCT_TYPE"/>
             <property name="broadleaf.ejb.ProductImpl.discriminator.type" value="STRING"/>
             <property name="broadleaf.ejb.ProductImpl.discriminator.length" value="10"/>
