@@ -65,6 +65,8 @@
     - [[Payment Security and PCI Compliance]]
     - [[CyberSource Payment Module]]
     - [[PayPal Module]]
+    	- [[PayPal Quick Start]]
+    	- [[PayPal Advanced Configuration]]
     - [[Braintree Module]]
     - [[Creating a Payment Module]]
 
