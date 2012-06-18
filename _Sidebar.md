@@ -66,7 +66,7 @@
     - [[CyberSource Payment Module]]
     - [[PayPal Module]]
     	- [[PayPal Quick Start]]
-    	- [[PayPal Advanced Configuration]]
+    	- [[PayPal Advance Configuration]]
     - [[Braintree Module]]
     - [[Creating a Payment Module]]
 

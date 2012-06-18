@@ -1,10 +1,10 @@
-Broadleaf Commerces offers an out-of-the-box PayPal solution that requires little configuration and is easily set up. For a more customized solution, please see [[PayPal Advanced Configuration]].
+Broadleaf Commerces offers an out-of-the-box PayPal solution that requires little configuration and is easily set up. For a more customized solution, please see [[PayPal Advance Configuration]].
 
 **You must have completed the [[PayPal Environment Setup]] before continuing**
 
 ##1) Adding PayPal Support
 
-First, you will need to add the quick-start PayPal application context (`bl-paypal-applicationContext.xml`) to your web.xml.
+First, you will need to add the quick-start PayPal application context `bl-paypal-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
 
 ```xml
@@ -31,11 +31,14 @@ Here is an example controller with the minimum amount of code needed to get PayP
 @Controller
 public class PayPalController extends BroadleafPayPalController {
 
+    //This is the URL that will initiate the checkout process with PayPal.
     @RequestMapping("/paypal/checkout")
     public ModelAndView paypalCheckout(HttpServletRequest request) throws PaymentException {
         return super.paypalCheckout(request);
     }
 
+    //This is the URL that PayPal will redirect back to on callback.
+    //This should match ${paypal.return.url} in your properties file.
     @RequestMapping("/paypal/process")
     public ModelAndView paypalProcess(HttpServletRequest request, @RequestParam String token, @RequestParam("PayerID") String payerID) throws CheckoutException, PricingException {
         return super.paypalProcess(request, token, payerID);
@@ -55,5 +58,6 @@ Your page may contain a button like this:
 </a>
 ```
 
-## Test your integration
-At this point, all the configuration should be complete and you are now ready to test your integration with PayPal. 
+## Done!
+At this point, all the configuration should be complete and you are now ready to test your integration with PayPal. Add something to your cart and proceed with PayPal checkout.
+To customize your integration with PayPal even further, see [[PayPal Advance Configuration]] 
