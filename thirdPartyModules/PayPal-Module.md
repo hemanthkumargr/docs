@@ -41,7 +41,7 @@ Here's a feature list to help you decide which approach to choose:
   </tr>
   <tr>
     <td>Capture shipping information on PayPal </td>
-    <td>[[/images/accept.png]]</td>
+    <td></td>
     <td>[[/images/accept.png]]</td>
   </tr>
   <tr>

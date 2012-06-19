@@ -26,6 +26,8 @@ You will need to declare the following Spring beans in your application context:
             <property name="signature" value="${paypal.signature}"/>
             <property name="returnUrl" value="http://localhost:8080/mycompany/paypal/process"/>
             <property name="cancelUrl" value="http://localhost:8080/mycompany/cart"/>
+        	<property name="captureShipping" value="${paypal.capture.shipping}"/>
+
             <property name="additionalConfig">
                 <map>
                     <entry key="HDRIMG" value="http://localhost:8080/mycompany/images/logo.png"/>
@@ -53,6 +55,7 @@ You will need to declare the following Spring beans in your application context:
 * `signature` - the PayPal API signature.
 * `returnUrl` - the destination in your app you want the user to come to after he/she has completed their experience on PayPal's site.
 * `cancelUrl` - the destination in your app if he/she cancels the payment on PayPal's site.
+* `captureShipping` - boolean indicating whether or not PayPal should capture shipping information. The default is set to false.
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
 * `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf.
 
@@ -88,6 +91,9 @@ You now need to add the PayPal activity to the `blAuthorizeAndDebitWorkflow`. Th
 Broadleaf provides the `PayPalCheckoutService`, an abstraction layer on top of the payment workflow that aids in creating
 the objects necessary for completing a successful checkout. The `blPayPalCheckoutService` can be overridden using a custom implementation.
 This API is called from the `BroadleafPayPalController` used in the [[PayPal Quick Start]] solution.
+
+If you have set `${paypal.capture.shipping}` to true, PayPal will capture or use the buyer's address on their profile. 
+This information can be obtained using `getExpressCheckoutDetails`. See the code examples below for more details.
 
 
 ## Manually Configuring the Presentation Layer
