@@ -48,7 +48,7 @@ The configuration shown above should be entered into your application context.
 
 The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the environments that Broadleaf Commerce is pre-configured for with PayPal information.
 
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. For each of the environment property files (development.properties, integration.properties, staging.properties, and production.properties), enter the following key/value pairs:
+Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. For each of the environment property files (local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties), enter the following key/value pairs:
 
     paypal.user=[my generated PayPal API username]
 	paypal.password=[my generated PayPal API password]
