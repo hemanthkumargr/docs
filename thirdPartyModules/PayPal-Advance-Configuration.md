@@ -43,18 +43,20 @@ You will need to declare the following Spring beans in your application context:
     </property>
 </bean>
 ```
-Note: The PayPal Quick Start solution offers a default application context with these beans already defined and can be used as a reference. Please see `bl-paypal-applicationContext.xml`
+> Note: The [[PayPal Quick Start]] solution offers a default application context with these beans already defined and can be used as a reference. Please see `bl-paypal-applicationContext.xml`
 
-* `serverUrl` - the PayPal API URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+* `serverUrl` - the PayPal API URL. This is pre-configured per environment in Broadleaf.
 * `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
 * `libVersion` - the PayPal API lib version. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
-* `password` - the PayPal API password. See [[PayPal Environment Setup]]
-* `user` - the PayPal API username. See [[PayPal Environment Setup]]
-* `signature` - the PayPal API signature. See [[PayPal Environment Setup]]
+* `password` - the PayPal API password.
+* `user` - the PayPal API username.
+* `signature` - the PayPal API signature.
 * `returnUrl` - the destination in your app you want the user to come to after he/she has completed their experience on PayPal's site.
 * `cancelUrl` - the destination in your app if he/she cancels the payment on PayPal's site.
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
-* `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+* `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf.
+
+See [[PayPal Environment Setup]] to learn how to configure these properties.
 
 You now need to add the PayPal activity to the `blAuthorizeAndDebitWorkflow`. This is done by configuring the Spring Bean like this:
 
@@ -111,7 +113,7 @@ Most Broadleaf Commerce users will choose Spring MVC and will likely implement t
 
 In this example, we will show you how a Spring MVC Controller might be structured to handle calling the PayPal Module. Begin by adding the PayPal Checkout button to your shopping cart page following the guidelines outlined here: [[Express Checkout User Interface Requirements | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECUIRequirements]] (In the example below, the PayPal button links to "/paypal/checkout").
 If your implementation does not require that much customization, consider extending the `BroadleafPayPalController`.
-Note: This example does not use the PayPalCheckoutService in order to demonstrate another way of executing the workflow. 
+> Note: This example does not use the PayPalCheckoutService in order to demonstrate another way of executing the workflow. 
 
 ```java
 
