@@ -50,10 +50,10 @@ public class PayPalController extends BroadleafPayPalController {
 ### Additional Controller Configuration
 The following properties can be set to further customize your PayPal checkout flow.
 
-    paypal.order.verify.url = set this property in order to redirect to a verification or intermediary page first before completing checkout
-    paypal.order.confirm.url = set this to the location of the confirmation page
-    paypal.order.confirm.identifier = this is the request parameter variable that you can pass to the confirmation page so it can look up your order.
-    paypal.order.confirm.useOrderNumber = this is a boolean to use order.getOrderNumber() to pass to the confirmation page, otherwise it uses order.getOrderId()
+    paypal.order.verify.url=[set this property in order to redirect to a verification or intermediary page first before completing checkout]
+    paypal.order.confirm.url=[set this to the location of the confirmation page]
+    paypal.order.confirm.identifier=[this is the request parameter that you can pass to the confirmation page so it can look up your order]
+    paypal.order.confirm.useOrderNumber=[this is a boolean to use order.getOrderNumber() to pass to the confirmation page, otherwise it uses order.getOrderId()]
 
 ##3) Add a PayPal button to your page
 
