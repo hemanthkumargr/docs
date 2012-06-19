@@ -20,33 +20,33 @@ Here's a feature list to help you decide which approach to choose:
   </tr>
   <tr>
     <td>Single payments using PayPal or another credit card payment gateway. </td>
-    <td>![yes](/images/accept.png)</td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
   <tr>
     <td>Partial payments using custom defined payment activities </td>
     <td></td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
   <tr>
     <td>Capture shipping address on PayPal </td>
-    <td>![yes](/images/accept.png)</td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
   <tr>
     <td>Saving PayPal details to Broadleaf profile </td>
     <td></td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
   <tr>
     <td>Refund Transaction</td>
     <td></td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
   <tr>
     <td>Void Transaction</td>
     <td></td>
-    <td>![yes](/images/accept.png)</td>
+    <td>[[/images/accept.png]]</td>
   </tr>
     <td></td>
     <td>[[PayPal Quick Start]]</td>
