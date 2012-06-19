@@ -28,14 +28,16 @@ You should now begin to setup your environment to work with Broadleaf Commerce P
             <value>classpath:my/path/to/property/files</value>
         </set>
     </property>
-    <property name="environments">
-        <set>
-            <value>production</value>
-            <value>staging</value>
-            <value>integration</value>
-            <value>development</value>
-        </set>
-    </property>
+        <property name="environments">
+            <set>
+                <value>production</value>
+                <value>staging</value>
+                <value>integrationQA</value>
+                <value>integrationDev</value>
+                <value>development</value>
+                <value>local</value>
+            </set>
+        </property>
     <property name="defaultEnvironment" value="development"/>
     <property name="ignoreUnresolvablePlaceholders" value="true"/>
 </bean>
@@ -48,6 +50,8 @@ Now that you have given Broadleaf Commerce the new path to search for your parti
     paypal.user=[my generated PayPal API username]
 	paypal.password=[my generated PayPal API password]
 	paypal.signature=[my generated PayPal API signature]
+	paypal.return.url=[the URL PayPal should redirect to after completing the order, for example: http://localhost:8080/mycompany/paypal/process]
+	paypal.cancel.url=[the URL PayPal should redirect to if a user abandons the order, for example: http://localhost:8080/mycompany/cart]
 
 Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
 
