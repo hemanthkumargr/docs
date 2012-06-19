@@ -24,11 +24,11 @@ You will need to declare the following Spring beans in your application context:
             <property name="password" value="${paypal.password}"/>
             <property name="user" value="${paypal.user}"/>
             <property name="signature" value="${paypal.signature}"/>
-            <property name="returnUrl" value="http://localhost:8080/broadleafdemo/checkout/paypalProcess.htm"/>
-            <property name="cancelUrl" value="http://localhost:8080/broadleafdemo/basket/viewCart.htm"/>
+            <property name="returnUrl" value="http://localhost:8080/mycompany/paypal/process"/>
+            <property name="cancelUrl" value="http://localhost:8080/mycompany/cart"/>
             <property name="additionalConfig">
                 <map>
-                    <entry key="HDRIMG" value="http://localhost:8080/broadleafdemo/images/havalettaLogo.png"/>
+                    <entry key="HDRIMG" value="http://localhost:8080/mycompany/images/logo.png"/>
                     <entry key="HDRBORDERCOLOR" value="333333"/>
                     <entry key="HDRBACKCOLOR" value="669933"/>
                     <entry key="PAYFLOWCOLOR" value="B58253"/>
@@ -43,6 +43,7 @@ You will need to declare the following Spring beans in your application context:
     </property>
 </bean>
 ```
+Note: The PayPal Quick Start solution offers a default application context with these beans already defined and can be used as a reference. Please see `bl-paypal-applicationContext.xml`
 
 * `serverUrl` - the PayPal API URL. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
 * `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
