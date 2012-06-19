@@ -43,7 +43,10 @@ You should now begin to setup your environment to work with Broadleaf Commerce P
 </bean>
 ```
 
-The configuration shown above should be entered into your application context. There are several items of note. The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the four environments that Broadleaf Commerce is pre-configured for with PayPal information.
+The configuration shown above should be entered into your application context. 
+> Important: It is important that the blConfiguration bean is defined in both the merged application context as well as your servlet application context.
+
+There are several items of note. The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the environments that Broadleaf Commerce is pre-configured for with PayPal information.
 
 Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. For each of the environment property files (development.properties, integration.properties, staging.properties, and production.properties), enter the following key/value pairs:
 
@@ -53,7 +56,7 @@ Now that you have given Broadleaf Commerce the new path to search for your parti
 	paypal.return.url=[the URL PayPal should redirect to after completing the order, for example: http://localhost:8080/mycompany/paypal/process]
 	paypal.cancel.url=[the URL PayPal should redirect to if a user abandons the order, for example: http://localhost:8080/mycompany/cart]
 
-Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
+> Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
 
 There are several properties already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. 
-PayPal payment configuration is covered in the [[PayPal Advance Configuration]] section.
+Now that you have your environment set up, let's begin setting up the [[PayPal Module]]
