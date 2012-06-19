@@ -90,17 +90,16 @@ the objects necessary for completing a successful checkout. The `blPayPalCheckou
 This API is called from the `BroadleafPayPalController` used in the [[PayPal Quick Start]] solution.
 
 ```java
+
 public interface PayPalCheckoutService {
-
+    
     public CompositePaymentResponse initiateExpressCheckout(Order order) throws PaymentException;
-
     public CheckoutResponse completeExpressCheckout(String token, String payerId, Order order) throws CheckoutException;
-
     public PayPalDetailsResponse getExpressCheckoutDetails(String token) throws PaymentException;
-
     public CompositePaymentResponse refundTransaction(String transactionId, Order order)throws PaymentException;
 
 }
+
 ``` 
 
 
