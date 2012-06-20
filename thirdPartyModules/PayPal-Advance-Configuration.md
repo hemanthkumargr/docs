@@ -26,8 +26,7 @@ You will need to declare the following Spring beans in your application context:
             <property name="signature" value="${paypal.signature}"/>
             <property name="returnUrl" value="http://localhost:8080/mycompany/paypal/process"/>
             <property name="cancelUrl" value="http://localhost:8080/mycompany/cart"/>
-        	<property name="captureShipping" value="${paypal.capture.shipping}"/>
-
+        	<property name="shippingDisplayType" value="${paypal.shipping.display}"/>
             <property name="additionalConfig">
                 <map>
                     <entry key="HDRIMG" value="http://localhost:8080/mycompany/images/logo.png"/>
@@ -55,7 +54,10 @@ You will need to declare the following Spring beans in your application context:
 * `signature` - the PayPal API signature.
 * `returnUrl` - the destination in your app you want the user to come to after he/she has completed their experience on PayPal's site.
 * `cancelUrl` - the destination in your app if he/she cancels the payment on PayPal's site.
-* `captureShipping` - boolean indicating whether or not PayPal should capture shipping information. The default is set to false.
+* `shippingDisplayType` - this can be the following values:                
+    * 0 : PayPal displays the shipping address passed in. This is taken from fulfillmentGroup.getAddress(). This is useful if you want to restrict the countries you ship to in PayPal's Merchant Console.
+    * 1 : PayPal does not display the shipping fields at all. (Default)
+    * 2 : PayPal will obtain the shipping address from the buyer's profile.
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
 * `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf.
 
