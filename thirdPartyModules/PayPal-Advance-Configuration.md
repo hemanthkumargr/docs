@@ -46,9 +46,9 @@ You will need to declare the following Spring beans in your application context:
 ```
 > Note: The [[PayPal Quick Start]] solution offers a default application context with these beans already defined and can be used as a reference. Please see `bl-paypal-applicationContext.xml`
 
-* `serverUrl` - the PayPal API URL. This is pre-configured per environment in Broadleaf.
+* `serverUrl` - the PayPal API URL.
 * `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
-* `libVersion` - the PayPal API lib version. This is pre-configured per environment in Broadleaf. See [[PayPal Environment Setup]]
+* `libVersion` - the PayPal API lib version. This is pre-configured per environment in Broadleaf.
 * `password` - the PayPal API password.
 * `user` - the PayPal API username.
 * `signature` - the PayPal API signature.
@@ -61,7 +61,7 @@ You will need to declare the following Spring beans in your application context:
 * `additionalConfig` - You have an opportunity to configure a logo image and some CSS values that affect the visual experience for the user on PayPal's site.
 * `userRedirectUrl` - the PayPal API user redirect URL. This is pre-configured per environment in Broadleaf.
 
-See [[PayPal Environment Setup]] to learn how to configure these properties.
+See [[PayPal Environment Setup]] to learn how to configure the variable properties.
 
 You now need to add the PayPal activity to the `blAuthorizeAndDebitWorkflow`. This is done by configuring the Spring Bean like this:
 
