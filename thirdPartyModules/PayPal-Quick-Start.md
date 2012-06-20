@@ -39,6 +39,7 @@ public class PayPalController extends BroadleafPayPalController {
 
     //This is the URL that PayPal will redirect back to on callback.
     //This should match ${paypal.return.url} in your properties file.
+    //For example:  ${paypal.return.url}=http://localhost:8080/mycompany/paypal/process
     @RequestMapping("/paypal/process")
     public ModelAndView paypalProcess(HttpServletRequest request, @RequestParam String token, @RequestParam("PayerID") String payerID) throws CheckoutException, PricingException {
         return super.paypalProcess(request, token, payerID);
