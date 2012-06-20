@@ -94,8 +94,9 @@ Broadleaf provides the `PayPalCheckoutService`, an abstraction layer on top of t
 the objects necessary for completing a successful checkout. The `blPayPalCheckoutService` can be overridden using a custom implementation.
 This API is called from the `BroadleafPayPalController` used in the [[PayPal Quick Start]] solution.
 
-If you have set `${paypal.capture.shipping}` to true, PayPal will capture or use the buyer's address on their profile. 
-This information can be obtained using `getExpressCheckoutDetails`. See the code examples below for more details.
+If you have set `${paypal.shipping.display}` to "2", PayPal will capture or use the buyer's address on their profile. 
+This information can then be obtained using `getExpressCheckoutDetails`. Once obtained, you can save this information to the profile or Fulfillment Group as you wish. 
+See the code examples below for more details.
 
 
 ## Manually Configuring the Presentation Layer
