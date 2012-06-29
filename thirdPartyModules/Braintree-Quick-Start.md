@@ -1,6 +1,6 @@
 Broadleaf Commerces offers an out-of-the-box Braintree solution that requires little configuration and is easily set up. 
 The quick start solution implements the [[Transparent Redirect | https://www.braintreepayments.com/tour/pci-compliance]] model offered by the Braintree API.
-For a more customized solution, please see [[Braintree Advance Configuration]].
+This implementation should be useful for those with a simple checkout flow. For a more customized solution, please see [[Braintree Advance Configuration]].
 
 **You must have completed the [[Braintree Environment Setup]] before continuing**
 
@@ -27,7 +27,8 @@ Your `patchConfigLocations` should look something like this:
 ##2) Create a Braintree Controller
 
 Next, you will need to create a basic controller that extends `BroadleafBraintreeController` to provide default `@RequestMappings` for your application.
-Here is an example controller with the minimum amount of code needed to get Braintree integrated.
+Here is an example controller with the minimum amount of code needed to get Braintree integrated. 
+This quick start solution only offers support for an Authorize and Debit transaction. See [[Braintree Advance Configuration]] for further customization.
 
 ```java
 @Controller
