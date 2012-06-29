@@ -163,3 +163,7 @@ Your page may look something like this:
 </form>
 ```
 
+## Done!
+At this point, all the configuration should be complete and you are now ready to test your integration with Braintree. Add something to your cart and proceed with checkout.
+To customize your integration with Braintree even further, see [[Braintree Advance Configuration]] 
+
