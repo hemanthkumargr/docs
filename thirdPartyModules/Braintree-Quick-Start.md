@@ -47,6 +47,7 @@ public class BraintreeController extends BroadleafBraintreeController {
 
 }
 ```
+> Note: BroadleafBraintreeController will add the attributes `trUrl` and `trData` to the model whenever you call `constructAuthorizeAndDebitBraintreeForm()`
 
 ### Additional Controller Configuration
 The following properties can be set to further customize your Braintree checkout flow.
