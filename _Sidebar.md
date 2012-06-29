@@ -68,6 +68,8 @@
     	- [[PayPal Quick Start]]
     	- [[PayPal Advance Configuration]]
     - [[Braintree Module]]
+        - [[Braintree Quick Start]]
+        - [[Braintree Advance Configuration]]
     - [[Creating a Payment Module]]
 
 - [[Additional Configuration]]
@@ -126,6 +128,7 @@
 - [[Preparing for Production]]
 - [[CyberSource Environment Setup]]
 - [[PayPal Environment Setup]]
+- [[Braintree Environment Setup]]
 - [[Environment Setup]]
     - [[IntelliJ Setup]]
     - [[Eclipse Setup]]
