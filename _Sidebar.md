@@ -107,6 +107,8 @@
     - [[Customizing Shipping Tutorial]]
     - [[Customizing Tax Tutorial]]
 
+    - [[Creating A New Workflow Tutorial]]
+
     - [[Adding Data Tutorial]]
 
 - [[Admin | Admin Tutorials]]
