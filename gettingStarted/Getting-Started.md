@@ -1,21 +1,202 @@
-## <a name="wiki-overview" />Overview
+<style>
+img {
+    height: 120px;
+}
+.half-column {
+    width: 50%;
+    float: left;
+}
+h3 span.small {
+    font-weight: normal;
+    font-size: 12px;
+    display: block;
+}
 
+</style>
 
-... this section should probably go here somewhere, and maybe in an appendix as well ...
+## <a name="wiki-overview"></a> Overview
 
-The project structure that is created for you by the Maven archetype is a multi-module maven project. If you're unfamiliar with Maven, this can be a bit daunting at first -- however, it's nothing more than a simple hierarchical project structure consisting of 5 separate projects. This breakdown supports the sharing and modularity that we believe is ideal for an enterprise scale eCommerce implementation.
+Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, you'll have your very own eCommerce site up and running in no time. We'll get your environment up and running, show you where things live, and walk you through a few cool examples of what you can do with Broadleaf.
 
-The skeleton project contains the following modules:
+## <a name="wiki-prerequisites"></a> Prerequisites
 
-1. **admin** - The admin project contains your customizations to the Broadleaf Commerce admin. Typically, this will include GWT based custom views, presenters and datasources. Modifying the admin is an advanced topic and [[separate documentation | Admin]] is available.
+- The Java 6 SDK, which you can find [on the official Java site](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u32-oth-JPR)
 
-2. **admin-war** - The admin-war project contains the non-GWT based web components for the Broadleaf Commerce admin. This includes the spring-security configuration. The project also contains the import.sql file used to load data into the application on server startup.
+## <a name="wiki-eclipse"></a> IDE Setup
 
-3. **core** - The core project contains code (typically services and domain objects) that you want to share between the admin and site projects.
+Once you have the Java SDK installed, we're ready to get your IDE up and running. Let's start by downloading Eclipse.
 
-4. **site** - The site project contains your customizations for your site. Typically, this project will contain Controllers, Filters, Servlets, and Utility classes that are used by your site but not needed by the admin.
+Download Link: [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/indigosr2)
 
-5. **site-war** - The site-war project contains JSPs, JavaScript libraries and other web specific artifacts. It serves as the launching point for the website and contains the spring-mvc and spring-security configuration files.
+Once Eclipse is done downloading, extract the archive and start it up. You'll be prompted for a workspace:
 
-6. **test** - The test project contains your project's custom unit and integration tests.
+![Initial Prompt](images/workspace-initial-prompt.png)
 
+Go ahead and accept the initial value.
+
+> Note: Don't save this as the default workspace -- we're going to be setting up a new workspace shortly.
+
+Click on **Help --> Eclipse Marketplace** and search for **Maven Integration**. Make sure you pick the plugin provided by Eclipse.org as highlighted below:
+
+![Maven Integration Plugin](images/eclipse-install-maven.png)
+
+Click **Install** followed by **Next**. After that, **Accept the License Terms** and **Finish**.
+
+Once the plugin is done installing, you will be prompted to restart Eclipse. Go ahead and do so.
+
+You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it! 
+
+Download Link: [Broadleaf Eclipse Workspace](http://some-zip)
+
+> Note: If you're not prompted for a workspace, simply go to **File --> Switch Workspace** and select the path
+
+Extract this archive to the location you want your workspace to live in, and point Eclipse to the appropriate path. This time, your workspace should look like this:
+
+![Eclipse Initial Workspace](images/eclipse-initial-workspace.png)
+
+## <a name="wiki-configuring-names"></a> Configuring Project Name
+
+The workspace project and maven artifact all refers to "com.mycompany". For your convenience, we've provided an Ant task that will perform all necessary rename and move operations to customize the project to your organization. Simply run the `change-identifier` Ant task and type in a suitable name. 
+
+> **Note: The name should be two alphabetic strings separated by a dot. For example, "com.heatclinic"**
+
+![Project Change Identifier](images/project-change-identifier.png)
+
+You will be prompted to confirm your selection. It should identify the Maven Group as the string you typed in and the Company Name as the part after the dot.
+
+![Project Change Identifier Confirm](images/project-change-identifier-confirm.png)
+
+Once that task is run, **Right click inside Package Explorer --> Refresh**.
+
+![Project Refresh](images/project-refresh.png)
+
+## <a name="wiki-starting-site"></a> Starting Up the Site
+
+Now that we have our workspace properly configured, we're able to get our demo site up and running. First, we will have to let Maven fetch the necessary dependencies and install our own project locally. To do that, **Right click on blc-project --> Run As --> Maven Install**.
+
+![Eclipse Maven Install](images/eclipse-maven-install.png)
+
+> Note: Running a Maven install is only necessary initially. To shorten your development iteration times, you can work with JRebel, which will allow you to modify files without having to restart the server. We've detailed out [[how to setup JRebel | JRebel Setup]] for you.
+
+This process will take a few minutes to execute, and will end on the following success message:
+
+```text
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] ecommerce ......................................... SUCCESS [0.346s]
+[INFO] core .............................................. SUCCESS [2.765s]
+[INFO] admin ............................................. SUCCESS [15.536s]
+[INFO] site .............................................. SUCCESS [11.230s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3:50.548s
+[INFO] Finished at: Fri Jul 06 10:52:46 CDT 2012
+[INFO] Final Memory: 27M/81M
+```
+
+At this point, we're ready to start up! Let's run the `jetty-demo` Ant task for the site.
+
+![Jetty Demo](images/jetty-demo.png)
+
+You'll see some logging messages in the Console scroll by, and eventually stop on
+
+```text
+[artifact:mvn] 2012-07-06 11:03:20.005:INFO::Started SelectChannelConnector@0.0.0.0:8080
+[artifact:mvn] [INFO] Started Jetty Server
+```
+
+That's it! The server's up! Let's check it out: [http://localhost:8080/](http://localhost:8080/)
+
+![Startup Site](images/startup-site.png)
+
+## <a name="wiki-starting-admin"></a> Starting Up the Admin
+
+Once the site has been started up, we can start up the admin as well 
+
+> Note: The site startup will conveniently populate some database tables, including the admin users tables
+
+This time, we'll hit the `jetty-demo` Ant task for the admin.
+
+![Jetty Demo Admin](images/jetty-demo-admin.png)
+
+This console will end up on
+
+```text
+[artifact:mvn] 2012-07-06 11:07:11.218:INFO::Started SelectChannelConnector@0.0.0.0:8081
+[artifact:mvn] [INFO] Started Jetty Server
+```
+
+And now we can hit the admin! [http://localhost:8081/admin](http://localhost:8081/admin)
+
+![Startup Admin](images/startup-admin.png)
+
+## <a name="wiki-next-steps"></a> Next Steps
+
+So now that you have your own Broadleaf site set up, what's next? We recommend getting familiar with the framework and starting to make your own personalizations. Here are some cool things to try out:
+
+<div class="half-column">
+    <h3> Configuration 
+        <span class="small">(What you need to do to get a real Broadleaf site running)</span>
+    </h3>
+
+    <ul>
+        <li>
+            Load Data
+            <ul>
+                <li>Learn how to use your own database server and set up a clean slate for your products.</li>
+            </ul>
+        </li>
+        <li> 
+            Customize the UI
+            <ul>
+                <li> Learn about the Broadleaf UI strategy and patterns</li>
+                <li> Customize key pieces of the Heat Clinic template and discover the Broadleaf Content Management System</li>
+            </ul>
+        </li>
+        <li> 
+            Configure Checkout
+            <ul>
+                <li> Add a shipping partner</li>
+                <li> Configure taxes</li>
+                <li> Handle payments</li>
+            </ul>
+        </li>
+        <li> 
+            Migration Notes
+            <ul>
+                <li> Ensure your security is set up properly</li>
+                <li> Configure emails</li>
+            </ul>
+        </li>
+</div>
+
+<div class="half-column">
+    <h3>Customization 
+        <span class="small">(Some fun things to try out to get your feet wet with Broadleaf)</span>
+    </h3>
+
+    <ul>
+        <li> 
+            Extend the Customer entity
+            <ul>
+                <li> Add a few properties to the Customer to keep track of Heat Clinic metrics</li>
+                <li> Modify the registration form to prompt for the new properties</li>
+            </ul>
+        </li>
+        <li> 
+            Hook into the add to cart workflow
+            <ul>
+                <li> Learn about workflows and the add to cart workflow and set up a custom activity</li>
+            </ul>
+        </li>
+        <li> 
+            Hook into the order submit workflow
+            <ul>
+                <li> Keep track of how hot your customers like their sauces</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div style="clear: both;">&nbsp;</div>
