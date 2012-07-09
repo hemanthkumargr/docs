@@ -1,4 +1,6 @@
-### [[Home]]
+<ul class="collapsibleLists">
+- [[Home]]
+</ul>
 
 ### [[Getting Started]]
 
