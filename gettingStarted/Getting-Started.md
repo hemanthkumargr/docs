@@ -180,22 +180,28 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
 
     <ul>
         <li> 
-            Extend the Customer entity
+            [[Storing additional customer properties | Adding Customer Attribute Tutorial]]
+            <ul>
+                <li> Modify the registration form to prompt for user for referral code</li>
+                <li> Store the code in a CustomerAttribute</li>
+            </ul>
+        </li>
+        <li> 
+            [[Extend the Customer entity | Extending Customer For Heat Clinic Tutorial]]
             <ul>
                 <li> Add a few properties to the Customer to keep track of Heat Clinic metrics</li>
-                <li> Modify the registration form to prompt for the new properties</li>
+            </ul>
+        </li>
+        <li> 
+            [[Hook into the order submit workflow | Order Submit Workflow For Heat Clinic Tutorial]]
+            <ul>
+                <li> Keep track of how hot your customers like their sauces</li>
             </ul>
         </li>
         <li> 
             Hook into the add to cart workflow
             <ul>
                 <li> Learn about workflows and the add to cart workflow and set up a custom activity</li>
-            </ul>
-        </li>
-        <li> 
-            Hook into the order submit workflow
-            <ul>
-                <li> Keep track of how hot your customers like their sauces</li>
             </ul>
         </li>
     </ul>

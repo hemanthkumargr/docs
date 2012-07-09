@@ -1,6 +1,5 @@
-<ul class="collapsibleLists">
-- [[Home]]
-</ul>
+<div class="a">
+### [[Home]]
 
 ### [[Getting Started]]
 
@@ -139,3 +138,4 @@
 - [[Grails Plugin]]
 - [[Changelog]]
 - [[FAQ]]
+</div>
