@@ -16,7 +16,7 @@ h3 span.small {
 
 ## <a name="wiki-overview"></a> Overview
 
-Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, you'll have your very own eCommerce site up and running in no time. We'll get your environment up and running, show you where things live, and walk you through a few cool examples of what you can do with Broadleaf.
+Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, you'll have your very own eCommerce site up and running in no time. We'll get your environment up and running, show you where things live, and walk you through a few examples of some of the cool things you can do with Broadleaf.
 
 ## <a name="wiki-prerequisites"></a> Prerequisites
 
@@ -68,6 +68,8 @@ You will be prompted to confirm your selection. It should identify the Maven Gro
 
 Once that task is run, **Right click inside Package Explorer --> Refresh**.
 
+> Note: You will only be allowed to configure the project name via this script once.
+
 ![Project Refresh](images/project-refresh.png)
 
 ## <a name="wiki-starting-site"></a> Starting Up the Site
@@ -76,7 +78,7 @@ Now that we have our workspace properly configured, we're able to get our demo s
 
 ![Eclipse Maven Install](images/eclipse-maven-install.png)
 
-> Note: Running a Maven install is only necessary initially. To shorten your development iteration times, you can work with JRebel, which will allow you to modify files without having to restart the server. We've detailed out [[how to setup JRebel | JRebel Setup]] for you.
+> Note: Running a Maven install is only necessary initially. To shorten your development iteration times, you utilize JRebel, which will allow you to modify files without having to restart the server. We've detailed out [[how to setup JRebel | JRebel Setup]] for you.
 
 This process will take a few minutes to execute, and will end on the following success message:
 
@@ -114,7 +116,7 @@ That's it! The server's up! Let's check it out: [http://localhost:8080/](http://
 
 Once the site has been started up, we can start up the admin as well 
 
-> Note: The site startup will conveniently populate some database tables, including the admin users tables
+> Note: The site startup will conveniently populate some database tables, including the admin users tables. Therefore, the site must be running before starting up the admin.
 
 This time, we'll hit the `jetty-demo` Ant task for the admin.
 
