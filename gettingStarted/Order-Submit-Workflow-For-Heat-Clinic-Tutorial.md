@@ -25,10 +25,7 @@ When Broadleaf finds the `blCheckoutWorkflow` bean definition in your applicatio
 
 ## Create a new activity
 
-We need to add a new activity to record the average heat level for a given customer. Let's create that activity
-
-file: `site/src/main/java/com/mycompany/checkout/service/workflow/RecordHeatLevelActivity.java`
-contents:
+We need to add a new activity to record the average heat level for a given customer. Let's create that activity. In the `site` project, we'll create `RecordHeatLevelActivity.java` in the `com.mycompany.checkout.service.workflow` package with the following contents:
 
 ```java
 public class RecordHeatRangeActivity extends BaseActivity {

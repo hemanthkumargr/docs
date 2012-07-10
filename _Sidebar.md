@@ -48,7 +48,7 @@
         - [[Workflow | Checkout Workflow]]
     - [[Payment]]
         - [[Workflow | Payment Workflow]]
-        - [[Payment Security and PCI Compliance]]
+        - [[Payment Security / PCI Compliance | Payment Security and PCI Compliance]]
         - [[CyberSource Payment Module]]
         - [[PayPal Module]]
             - [[PayPal Quick Start]]
