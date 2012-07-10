@@ -17,7 +17,7 @@
 - [[Broadleaf Concepts]]
     - [[Key Aspects]]
         - [[Features and Architecture]]
-        - [[Project Modules and Package Structure]]
+        - [[Project Modules / Structure | Project Modules and Package Structure]]
         - [[Merge Configuration]]
         - [[Persistence Configuration]]
             - [[Persistence Unit | Persistence Configuration#wiki-pu-config]]
