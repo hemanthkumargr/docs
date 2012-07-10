@@ -12,12 +12,19 @@ var DOCS = (function($) {
             return $(this).attr('href') == window.location.pathname; 
         });
 
+        $currentLink.css('font-weight', 'bold');
+
         // If this node has children, open it so that they're visible
-        if ($currentLink.next()[0].tagName == "UL") {
+        if ($currentLink.next()[0] != undefined && $currentLink.next()[0].tagName == "UL") {
             $currentLink.next().css('display', 'block');
         }
 
         var $currentNode = $currentLink.parent();
+        if ($currentNode.hasClass('collapsibleListClosed')) {
+            $currentNode.removeClass('collapsibleListClosed');
+            $currentNode.addClass('collapsibleListOpen');
+        }
+
         while ($currentNode.parent().hasClass('rootNode') == false) {
             var $currentNode = $currentNode.parent();
 
@@ -28,8 +35,10 @@ var DOCS = (function($) {
                 continue;
             }
 
-            $currentNode.removeClass('collapsibleListClosed');
-            $currentNode.addClass('collapsibleListOpen');
+            if ($currentNode.hasClass('collapsibleListClosed')) {
+                $currentNode.removeClass('collapsibleListClosed');
+                $currentNode.addClass('collapsibleListOpen');
+            }
         }
     })();
 

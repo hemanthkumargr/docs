@@ -466,6 +466,7 @@ nav {
 		padding: 0;
 		margin: 0;
 		margin-bottom: 10px;
+        background-color: #EAEAD1;
 	}
 	
 #right_column {
@@ -691,6 +692,22 @@ footer {
   h2, h3 { page-break-after: avoid; }
 }
 
+
+div#left_column img {
+    height: 120px;
+}
+
+.half-column {
+    width: 50%;
+    float: left;
+}
+
+h3 span.small {
+    font-weight: normal;
+    font-size: 12px;
+    display: block;
+}
+
 /* =============================================================================
    Third party styles
    ========================================================================== */
@@ -698,6 +715,7 @@ footer {
 .treeView{
     -moz-user-select:none;
     position:relative;
+    padding-left: 0;
 }
 
 .treeView li.rootNode {

@@ -1,19 +1,3 @@
-<style>
-img {
-    height: 120px;
-}
-.half-column {
-    width: 50%;
-    float: left;
-}
-h3 span.small {
-    font-weight: normal;
-    font-size: 12px;
-    display: block;
-}
-
-</style>
-
 ## <a name="wiki-overview"></a> Overview
 
 Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, you'll have your very own eCommerce site up and running in no time. We'll get your environment up and running, show you where things live, and walk you through a few examples of some of the cool things you can do with Broadleaf.
@@ -139,7 +123,7 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
 
 <div class="half-column">
     <h3> Configuration 
-        <span class="small">(What you need to do to get a real Broadleaf site running)</span>
+        <span class="small">(What you need to do to get a real site running)</span>
     </h3>
 
     <ul>
@@ -175,7 +159,7 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
 
 <div class="half-column">
     <h3>Customization 
-        <span class="small">(Some fun things to try out to get your feet wet with Broadleaf)</span>
+        <span class="small">(Some fun things to try out to get your feet wet)</span>
     </h3>
 
     <ul>
