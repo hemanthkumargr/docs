@@ -56,7 +56,7 @@ Once that task is run, **Right click inside Package Explorer --> Refresh**.
 
 ![Project Refresh](images/project-refresh.png)
 
-## <a name="wiki-starting-site"></a> Starting Up the Site
+## <a name="wiki-starting-site"></a> Running Site
 
 Now that we have our workspace properly configured, we're able to get our demo site up and running. First, we will have to let Maven fetch the necessary dependencies and install our own project locally. To do that, **Right click on blc-project --> Run As --> Maven Install**.
 
@@ -96,7 +96,7 @@ That's it! The server's up! Let's check it out: [http://localhost:8080/](http://
 
 ![Startup Site](images/startup-site.png)
 
-## <a name="wiki-starting-admin"></a> Starting Up the Admin
+## <a name="wiki-starting-admin"></a> Running Admin
 
 Once the site has been started up, we can start up the admin as well 
 
