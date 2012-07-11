@@ -696,7 +696,7 @@ footer {
    ========================================================================== */
 
 div#left_column img {
-    height: 120px;
+    max-width: 620px;
 }
 
 .half-column {
