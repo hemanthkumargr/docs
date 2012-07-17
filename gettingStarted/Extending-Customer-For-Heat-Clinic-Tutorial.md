@@ -82,7 +82,7 @@ public class HCCustomerImpl extends CustomerImpl implements HCCustomer {
 In `persistence.xml` in site/src/main/resources/META-INF, add the following line to the  `blPU` 
 
 ```xml
-<class>com.mycompany.profile.core.domain.</class>
+<class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
 ```
 
 which will make it look like this:
