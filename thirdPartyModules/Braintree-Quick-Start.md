@@ -24,6 +24,12 @@ Your `patchConfigLocations` should look something like this:
 	</context-param>
 ```
 
+You will also need to add a component scan to your applicationContext-servlet.xml:
+```xml
+	<context:component-scan base-package="com.broadleafcommerce.vendor.braintree"/>
+```
+
+
 ##2) Create a Braintree Controller
 
 Next, you will need to create a basic controller that extends `BroadleafBraintreeController` to provide default `@RequestMappings` for your application.
@@ -33,29 +39,22 @@ This quick start solution only offers support for an Authorize and Debit transac
 ```java
 @Controller
 public class BraintreeController extends BroadleafBraintreeController {
-    @Override
+
     @RequestMapping(value = "/braintree/checkout")
-    public String constructAuthorizeAndDebitBraintreeForm(Model model, HttpServletRequest request) throws PaymentException {
-        return super.constructAuthorizeAndDebitBraintreeForm(model, request);
+    public String checkout(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return super.checkout(request, response, model);
     }
 
     @Override
     @RequestMapping(value = "/braintree/process")
-    public String processBraintreeAuthorizeAndDebit(Model model, @RequestParam String id, HttpServletRequest request) throws CheckoutException, PricingException {
-        return super.processBraintreeAuthorizeAndDebit(model, id, request);
+    public String processBraintreeAuthorizeAndDebit(Model model, @RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
+        return super.processBraintreeAuthorizeAndDebit(model, id, request, response);
     }
 
 }
 ```
-> Note: BroadleafBraintreeController will add the attributes `trUrl` and `trData` to the model whenever you call `constructAuthorizeAndDebitBraintreeForm()`
+> Note: BroadleafBraintreeController will add the attributes `trUrl` and `trData` to the model whenever you call `checkout()`
 
-### Additional Controller Configuration
-The following properties can be set to further customize your Braintree checkout flow.
-
-    braintree.verify.view=[set this property in order to redirect to a verification or intermediary page first before completing checkout]
-    braintree.confirm.view=[set this to the location of the confirmation page]
-    braintree.confirm.identifier=[this is the request parameter that you can pass to the confirmation page so it can look up your order]
-    braintree.confirm.useOrderNumber=[this is a boolean to use order.getOrderNumber() to pass to the confirmation page, otherwise it uses order.getOrderId()]
 
 ##3) Construct the HTML for the dynamic Braintree form
 

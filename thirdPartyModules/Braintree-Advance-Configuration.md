@@ -12,16 +12,16 @@ You will need to declare the following Spring beans in your application context:
         <property name="paymentModule" ref="blBraintreeModule"/>
     </bean>
 
-    <bean id="blBraintreeModule" class="org.broadleafcommerce.payment.service.module.BraintreePaymentModule">
+    <bean id="blBraintreeModule" class="com.broadleafcommerce.payment.service.module.BraintreePaymentModule">
         <property name="braintreePaymentService" ref="blBraintreeVendorOrientedPaymentService"/>
         <property name="stateService" ref="blStateService"/>
         <property name="countryService" ref="blCountryService"/>
     </bean>
 
-    <bean id="blBraintreeVendorOrientedPaymentService" class="org.broadleafcommerce.vendor.braintree.service.payment.BraintreePaymentServiceImpl">
+    <bean id="blBraintreeVendorOrientedPaymentService" class="com.broadleafcommerce.vendor.braintree.service.payment.BraintreePaymentServiceImpl">
         <property name="failureReportingThreshold" value="1"/>
         <property name="gatewayRequest">
-            <bean class="org.broadleafcommerce.vendor.braintree.service.payment.BraintreeGatewayRequestImpl">
+            <bean class="com.broadleafcommerce.vendor.braintree.service.payment.BraintreeGatewayRequestImpl">
                 <property name="publicKey" value="${braintree.publicKey}"/>
                 <property name="privateKey" value="${braintree.privateKey}"/>
                 <property name="merchantId" value="${braintree.merchantId}"/>
@@ -36,7 +36,6 @@ You will need to declare the following Spring beans in your application context:
 * `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
 * `publicKey` - the Braintree public key
 * `privateKey` - the Braintree private key
-* `password` - the Braintree password
 * `merchantId` - the Braintree merchant ID
 * `redirectUrl` - the destination in your app that Braintree redirect backs to
 * `environment` - this is already pre-configured per environment

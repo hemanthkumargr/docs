@@ -7,9 +7,9 @@ Once you have established an account with Braintree, begin by including the Brai
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
-    <artifactId>broadleaf-braintree</artifactId>
-    <version>${broadleaf.thirdparty.version}</version>
+    <groupId>com.broadleafcommerce</groupId>
+    <artifactId>broadleaf-braintree-module</artifactId>
+    <version>${blc.commercial.version}</version>
     <type>jar</type>
     <scope>compile</scope>
 </dependency>
@@ -32,8 +32,8 @@ This is accomplished through environment configuration (see [[Runtime Environmen
             <set>
                 <value>production</value>
                 <value>staging</value>
-                <value>integrationQA</value>
-                <value>integrationDev</value>
+                <value>integrationqa</value>
+                <value>integrationdev</value>
                 <value>development</value>
                 <value>local</value>
             </set>
@@ -43,8 +43,7 @@ This is accomplished through environment configuration (see [[Runtime Environmen
 </bean>
 ```
 
-The configuration shown above should be entered into your application context. 
-> Note: It is important that the blConfiguration bean is defined in both the merged application context as well as your servlet application context.
+> Note: The configuration shown above should be entered into your application context. 
 
 The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the environments that Broadleaf Commerce is pre-configured for with Braintree information.
 
@@ -55,7 +54,6 @@ Now that you have given Broadleaf Commerce the new path to search for your parti
 	braintree.merchantId=[my Braintree API merchant ID]
 	braintree.redirectUrl=[the URL Braintree should redirect to after completing the order, for example: http://localhost:8080/mycompany/braintree/process]
 
-> Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
 
 There are several properties already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. 
 Now that you have your environment set up, let's begin setting up the [[Braintree Module]].
