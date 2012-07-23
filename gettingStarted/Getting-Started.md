@@ -4,7 +4,7 @@ Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, yo
 
 ## <a name="wiki-prerequisites"></a> Prerequisites
 
-- First, you'll need the Java 6 SDK, which you can find [on the official Java site](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u32-oth-JPR)
+- First, you'll need the Java 6 SDK, which you can find [on Oracle's official Java site](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u32-oth-JPR)
 
 ## <a name="wiki-eclipse"></a> IDE Setup
 
