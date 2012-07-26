@@ -41,15 +41,16 @@ You will need to enter the following key/value pairs in the appropriate location
     paypal.additional.HDRBORDERCOLOR=? (e.g. FFFFFF)
     paypal.additional.HDRBACKCOLOR=? (e.g. FFFFFF)
     paypal.additional.PAYFLOWCOLOR=? (e.g. FFFFFF)
-    
-### development.properties, production.properties etc...
-	paypal.return.url=? (e.g. http://localhost:8080/paypal/process or http://mycompany.com/paypal/process)
-	paypal.cancel.url=? (e.g. http://localhost:8080/cart or http://mycompany.com/cart)
 
 - paypal.shipping.display: this property determines if PayPal displays the shipping address fields on the PayPal pages. For digital goods, this field is required and must be set to 1.
     - 0 : PayPal displays the shipping address passed in.
     - 1 : PayPal does not display the shipping fields at all.
     - 2 : PayPal will obtain the shipping address from the buyer's profile.
+    
+### development.properties, production.properties etc...
+	paypal.return.url=? (e.g. http://localhost:8080/paypal/process or http://mycompany.com/paypal/process)
+	paypal.cancel.url=? (e.g. http://localhost:8080/cart or http://mycompany.com/cart)
+
 - paypal.return.url: the URL PayPal should redirect to after completing the order
 - paypal.cancel.url: the URL PayPal should redirect to if a user abandons the order
 
