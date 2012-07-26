@@ -1,4 +1,4 @@
-Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
+> Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
 Broadleaf Commerces offers an out-of-the-box Braintree solution that requires little configuration and is easily set up. 
 The quick start solution implements the [[Transparent Redirect | https://www.braintreepayments.com/tour/pci-compliance]] model offered by the Braintree API.
