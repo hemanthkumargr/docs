@@ -16,40 +16,19 @@ Once you have established an account with Braintree, begin by including the Brai
     <scope>compile</scope>
 </dependency>
 ```
+Make sure to include the dependency in your site pom.xml as well:
 
+```xml
+<dependency>
+    <groupId>com.broadleafcommerce</groupId>
+    <artifactId>broadleaf-braintree-module</artifactId>
+</dependency>
+```
 You should now begin to setup your environment to work with Broadleaf Commerce Braintree support. 
 The first step is to make Broadleaf Commerce aware of your Braintree account credentials. 
 This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
 
-```xml
-<bean id="blConfiguration" class="org.broadleafcommerce.common.config.RuntimeEnvironmentPropertiesConfigurer">
-    <property name="propertyLocations">
-        <set>
-            <value>classpath:config/bc/</value>
-            <value>classpath:config/bc/braintree/</value>
-            <value>classpath:my/path/to/property/files</value>
-        </set>
-    </property>
-        <property name="environments">
-            <set>
-                <value>production</value>
-                <value>staging</value>
-                <value>integrationqa</value>
-                <value>integrationdev</value>
-                <value>development</value>
-                <value>local</value>
-            </set>
-        </property>
-    <property name="defaultEnvironment" value="development"/>
-    <property name="ignoreUnresolvablePlaceholders" value="true"/>
-</bean>
-```
-
-> Note: The configuration shown above should be entered into your application context. 
-
-The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the environments that Broadleaf Commerce is pre-configured for with Braintree information.
-
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. For each of the environment property files (local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties), enter the following key/value pairs:
+Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) You will need to enter the following key/value pairs in the appropriate locations:
 
 	braintree.publicKey=[my Braintree API public key]
 	braintree.privateKey=[my Braintree API private key]
