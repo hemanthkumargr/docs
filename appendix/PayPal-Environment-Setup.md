@@ -28,7 +28,6 @@ Make sure to include the dependency in your site pom.xml as well:
 
 You should now begin to setup your environment to work with Broadleaf Commerce PayPal support. The first step is to make Broadleaf Commerce aware of your PayPal account credentials. This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
 
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. 
 Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) 
 You will need to enter the following key/value pairs in the appropriate locations:
 
