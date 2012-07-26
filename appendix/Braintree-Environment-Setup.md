@@ -40,6 +40,4 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 
 - braintree.redirectUrl: the URL Braintree should redirect to after completing the order
 
-
-There are several properties already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. 
 Now that you have your environment set up, let's begin setting up the [[Braintree Module]].
