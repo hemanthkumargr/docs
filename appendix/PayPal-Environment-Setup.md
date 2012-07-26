@@ -5,7 +5,7 @@
 - Note: Users must sign up for an actual Business Account to start accepting transactions on a production site. This can be done here: https://merchant.paypal.com/cgi-bin/marketingweb?cmd=_render-content&content_ID=merchant/express_checkout&nav=2.1.5
 - Please familiarize yourself with the PayPal Express Checkout Prerequisites before proceeding. https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted
 
-Once you have established an account with PayPal, begin by including the PayPal Module dependency to your pom.xml.
+Once you have established an account with PayPal, begin by including the PayPal Module dependency to your main pom.xml.
 
 ```xml
 <dependency>
@@ -17,46 +17,41 @@ Once you have established an account with PayPal, begin by including the PayPal 
 </dependency>
 ```
 
-You should now begin to setup your environment to work with Broadleaf Commerce PayPal support. The first step is to make Broadleaf Commerce aware of your PayPal account credentials. This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
+Make sure to include the dependency in your site pom.xml as well:
 
 ```xml
-<bean id="blConfiguration" class="org.broadleafcommerce.common.config.RuntimeEnvironmentPropertiesConfigurer">
-    <property name="propertyLocations">
-        <set>
-            <value>classpath:config/bc/</value>
-            <value>classpath:config/bc/paypal/</value>
-            <value>classpath:my/path/to/property/files</value>
-        </set>
-    </property>
-        <property name="environments">
-            <set>
-                <value>production</value>
-                <value>staging</value>
-                <value>integrationQA</value>
-                <value>integrationDev</value>
-                <value>development</value>
-                <value>local</value>
-            </set>
-        </property>
-    <property name="defaultEnvironment" value="development"/>
-    <property name="ignoreUnresolvablePlaceholders" value="true"/>
-</bean>
+<dependency>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-paypal</artifactId>
+</dependency>
 ```
 
-The configuration shown above should be entered into your application context. 
-> Note: It is important that the blConfiguration bean is defined in both the merged application context as well as your servlet application context.
+You should now begin to setup your environment to work with Broadleaf Commerce PayPal support. The first step is to make Broadleaf Commerce aware of your PayPal account credentials. This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
 
-The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second is the location the internal Broadleaf Commerce PayPal configuration. Third should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the environments that Broadleaf Commerce is pre-configured for with PayPal information.
+Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. 
+Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) 
+You will need to enter the following key/value pairs in the appropriate locations:
 
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should enter your PayPal API credentials. For each of the environment property files (local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties), enter the following key/value pairs:
+### common.properties
+    paypal.user=?
+    paypal.password=?
+    paypal.signature=?
+    paypal.version=78.0
+    paypal.shipping.display=? (e.g. 0, 1, or 2)
+    paypal.additional.HDRIMG=?
+    paypal.additional.HDRBORDERCOLOR=? (e.g. FFFFFF)
+    paypal.additional.HDRBACKCOLOR=? (e.g. FFFFFF)
+    paypal.additional.PAYFLOWCOLOR=? (e.g. FFFFFF)
+    
+### development.properties, production.properties etc...
+	paypal.return.url=? (e.g. http://localhost:8080/paypal/process or http://mycompany.com/paypal/process)
+	paypal.cancel.url=? (e.g. http://localhost:8080/cart or http://mycompany.com/cart)
 
-    paypal.user=[my generated PayPal API username]
-	paypal.password=[my generated PayPal API password]
-	paypal.signature=[my generated PayPal API signature]
-	paypal.return.url=[the URL PayPal should redirect to after completing the order, for example: http://localhost:8080/mycompany/paypal/process]
-	paypal.cancel.url=[the URL PayPal should redirect to if a user abandons the order, for example: http://localhost:8080/mycompany/cart]
+- paypal.shipping.display: this property determines if PayPal displays the shipping address fields on the PayPal pages. For digital goods, this field is required and must be set to 1.
+    - 0 : PayPal displays the shipping address passed in.
+    - 1 : PayPal does not display the shipping fields at all.
+    - 2 : PayPal will obtain the shipping address from the buyer's profile.
+- paypal.return.url: the URL PayPal should redirect to after completing the order
+- paypal.cancel.url: the URL PayPal should redirect to if a user abandons the order
 
-> Note: It is important that the same keys exist in ALL properties files. It is OK for the values to be blank as long as the keys exist in the file.
-
-There are several properties already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. 
 Now that you have your environment set up, let's begin setting up the [[PayPal Module]].
