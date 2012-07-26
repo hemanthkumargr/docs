@@ -40,6 +40,8 @@ var DOCS = (function($) {
                 $currentNode.addClass('collapsibleListOpen');
             }
         }
+
+        $('.treeView').show();
     })();
 
     /*

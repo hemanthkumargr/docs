@@ -16,6 +16,17 @@
     <link rel="stylesheet" href="{{ wiki.base_path }}css/syntax.css" type="text/css" charset="utf-8" />    
 
     <script src="{{ wiki.base_path }}js/libs/modernizr-2.5.3.min.js"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-8476611-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </head>
 
 <body>
@@ -24,14 +35,14 @@
         <div class="logo"><h1><a href="index.html">Broadleaf Commerce</a></h1></div>
         <nav>
             <ul>
-                <!-- <li><a href="training.html">Training</a></li> -->
-                <li><a href="features.html">Features</a></li>
+                <li><a href="http://www.broadleafcommerce.com/features">Features</a></li>
                 <li><a href="http://forum.broadleafcommerce.org/">Forums</a></li>
-                <li><a href="http://wiki.broadleafcommerce.org/confluence/display/BLC16/Broadleaf+Commerce+Documentation">Documentation</a></li>
-                <li><a href="technology_stack.html">Technology Stack</a></li>
-                <li><a href="get_started.html">Get Started</a></li>
+                <li><a href="http://docs.broadleafcommerce.org">Documentation</a></li>
+                <li><a href="http://www.broadleafcommerce.org/technology-stack">Technology Stack</a></li>
+                <li><a href="http://docs.broadleafcommerce.org/current/Getting-Started.html">Get Started</a></li>
+                
             </ul>
-            <div id="dev_site"><a href="index_org.html">visit the main site &raquo;</a></div>
+            <div id="dev_site"><a href="http://www.broadleafcommerce.com">visit the main site &raquo;</a></div>
         </nav>
     </div>
 </header>
@@ -44,7 +55,7 @@
         </div>
         
         <div id="right_column">
-            <ul class="treeView">
+            <ul class="treeView" style="display: none;">
                 <li class="rootNode">
                     <b>Broadleaf 2.0 Documentation</b>
                     {{ page.sidebar }}
