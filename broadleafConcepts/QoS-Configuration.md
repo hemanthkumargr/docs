@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 You should configure the QoS (Quality Of Service) monitoring for vendor services. QoS does not interfere with a call to a vendor service (such as USPS), but does provide a way for that service to report on its status. Based on how you configure QoS, you can be notified of vendor service status changes in any number of ways. By default, Broadleaf will merely log vendor service status changes to the console. If this behavior is sufficient, then no further configuration is required. However, Broadleaf also provides support for email notifications for QoS status changes.
 
 ## <a name="wiki-config" />QoS Configuration

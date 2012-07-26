@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 ## Configuration
 
 Let's take a look at the default configuration in Broadleaf Commerce for pricing:

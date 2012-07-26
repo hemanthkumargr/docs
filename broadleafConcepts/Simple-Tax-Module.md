@@ -1,4 +1,3 @@
-# Simple Tax Module
 If your tax needs are simple, you can configure the simple tax module to provide a specific tax-rate for items based on the shipping address.    You can specify a rate for specific postal-codes, cities, states, or countries.
 
 ## SimpleTaxModule Configuration

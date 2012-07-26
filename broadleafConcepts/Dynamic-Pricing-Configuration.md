@@ -1,3 +1,4 @@
+(This is a snippet -- the content for this page needs to be written)
 ```xml
 <filter>
 	<filter-name>dynamicSkuPricingFilter</filter-name>

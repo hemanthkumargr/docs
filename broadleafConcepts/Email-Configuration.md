@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 ## <a name="wiki-basic" />Basic Configuration
 
 Broadleaf has a flexible engine for sending template-driven emails to your customers. These emails may be configured to be sent out as part of a workflow step (i.e. order confirmation email at the end of the checkout workflow), or sent out as part of a Quartz scheduled job (i.e. weekly customer newsletter). The appearance of emails may be text only, or may be based on an exotic Velocity template that you create - the choice is yours. Let's start by reviewing a sample order confirmation email configuration.

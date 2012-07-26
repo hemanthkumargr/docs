@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 There are currently 9 key modules included as part of the Broadleaf Commerce framework (not including third party modules)
 
 ## broadleaf-common

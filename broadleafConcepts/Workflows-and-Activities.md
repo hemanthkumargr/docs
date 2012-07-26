@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 Broadleaf provides configurable workflows for key phases of the eCommerce process - namely, checkout, payment and pricing. These worflows are represented in xml in the Spring application context file. At the most basic level, Broadleaf provides a default configuration for checkout and payment that covers the basic steps using simple modules. Most users will want to override part, or all, of the steps defined in these default configurations to fit their own needs and business rules. We'll start out by describing the default configuration, and then advance later into customization strategies.
 
 ## Anatomy of a workflow

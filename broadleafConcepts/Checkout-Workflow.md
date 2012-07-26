@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 ## <a name="wiki-config" />Configuration
 
 Let's take a look at the default configuration in Broadleaf Commerce for Checkout:

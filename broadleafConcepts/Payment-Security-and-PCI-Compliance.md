@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 ## Managing Payment Data
 
 Some users will want to store customer account information in their own database, while other users will prefer to allow a third-party payment processor to maintain customer account information and simply maintain a "token" identifier in their own database that references the transaction on the payment processor side, should retrieval of the specifics of the transaction be required at a later date. Considerations in this area become important when you're trying to adhere to PCI requirements and restrictions. The steps required to fulfill PCI requirements in regard to customer account information storage can be numerous and many customers will choose to forego this complexity in favor of allowing another entity to protect this data. Broadleaf Commerce facilitates either approach. First, let's discuss the simpler of the two approaches - allowing a third-party payment processor to maintain customer account information.

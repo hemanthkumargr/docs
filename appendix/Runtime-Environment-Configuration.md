@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 Broadleaf also has built-in support for managing configuration values that may change based on your deployment environment (i.e. development, test, production, etc...). 
 
 In an application context file, we simply add a `blConfiguration` bean like so:

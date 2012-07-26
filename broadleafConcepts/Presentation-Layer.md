@@ -1,5 +1,3 @@
-**NEEDS JEFF REVIEW** (Edited for 1.7 by Andre)
-
 ## Spring MVC Configuration
 
 If you're using Spring MVC and want to autowire controllers (especially Broadleaf controllers), it will be necessary to add the following lines to your Spring MVC application context (ie `applicationContext-servlet.xml`)
