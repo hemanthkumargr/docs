@@ -40,6 +40,8 @@ Extract this archive to the location you want your workspace to live in, and poi
 
 ## <a name="wiki-configuring-names"></a> Configuring Project Name
 
+> Note: Some have reported issues at this step.    You can safely skip the "Configuring Project Name" step in its entirety.    We are investigating.
+
 The workspace project and maven artifact all refers to "com.mycompany". For your convenience, we've provided an Ant task that will perform all necessary rename and move operations to customize the project to your organization. Simply run the `change-identifier` Ant task and type in a suitable name. 
 
 > **Note: The name should be two alphabetic strings separated by a dot. For example, "com.heatclinic"**
