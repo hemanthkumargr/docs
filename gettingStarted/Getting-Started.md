@@ -53,21 +53,13 @@ On this screen, make sure you check the **Add project(s) to working set** box an
 
 > Note: This process may take a while. You can see the progress in the bottom right of Eclipse
 
-Once you click finish, you will import the Maven subprojects into your workspace. Next, you'll have to add two buildfiles, one for site and one for admin. Click on the **Add Buildfiles** button on the Ant pane
-
-![Add Buildfile](images/gs-add-buildfile.png)
-
-and select the two buildfiles to add:
-
-![Add Buildfile Dialog](images/gs-add-buildfile-dialog.png)
-
-Now you have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
-
-![Workspace Complete](images/gs-workspace-complete.png)
-
 The last thing to do is configure the path of your local maven installation. This is done in `DemoSite/build.properties` on the `maven.home` line.
 
 > **NOTE** Windows users *must* use forward slashes (/) for paths, not backslashes (\)
+
+That's it! Now you have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
+
+![Workspace Complete](images/gs-workspace-complete.png)
 
 ## <a name="wiki-configuring-names"></a> Configuring Project Name
 
