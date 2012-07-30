@@ -50,7 +50,15 @@ On this screen, make sure you check the **Add project(s) to working set** box an
 
 ![Import Finish](images/gs-import-finish.png)
 
-Once you click finish, you will have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
+Once you click finish, you will import the Maven subprojects into your workspace. Next, you'll have to add two buildfiles, one for site and one for admin. Click on the **Add Buildfiles** button on the Ant pane
+
+![Add Buildfile](images/gs-add-buildfile.png)
+
+and select the two buildfiles to add:
+
+![Add Buildfile Dialog](images/gs-add-buildfile-dialog.png)
+
+Now you have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
 
 ![Workspace Complete](images/gs-workspace-complete.png)
 
