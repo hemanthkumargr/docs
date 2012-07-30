@@ -5,6 +5,7 @@ Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, yo
 ## <a name="wiki-prerequisites"></a> Prerequisites
 
 - First, you'll need the Java 6 SDK, which you can find [on Oracle's official Java site](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u32-oth-JPR)
+- You will also need the latest version of Maven, which you can get [on the official Apache Maven site](http://maven.apache.org/download.html)
 
 ## <a name="wiki-eclipse"></a> IDE Setup
 
@@ -50,6 +51,8 @@ On this screen, make sure you check the **Add project(s) to working set** box an
 
 ![Import Finish](images/gs-import-finish.png)
 
+> Note: This process may take a while. You can see the progress in the bottom right of Eclipse
+
 Once you click finish, you will import the Maven subprojects into your workspace. Next, you'll have to add two buildfiles, one for site and one for admin. Click on the **Add Buildfiles** button on the Ant pane
 
 ![Add Buildfile](images/gs-add-buildfile.png)
@@ -61,6 +64,10 @@ and select the two buildfiles to add:
 Now you have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
 
 ![Workspace Complete](images/gs-workspace-complete.png)
+
+The last thing to do is configure the path of your local maven installation. This is done in `DemoSite/build.properties` on the `maven.home` line.
+
+> **NOTE** Windows users *must* use forward slashes (/) for paths, not backslashes (\)
 
 ## <a name="wiki-configuring-names"></a> Configuring Project Name
 
@@ -84,7 +91,7 @@ Once that task is run, **Right click inside Package Explorer --> Refresh**.
 
 ## <a name="wiki-starting-site"></a> Running Site
 
-Now that we have our workspace properly configured, we're able to get our demo site up and running. First, we will have to let Maven fetch the necessary dependencies and install our own project locally. To do that, **Right click on blc-project --> Run As --> Maven Install**.
+Now that we have our workspace properly configured, we're able to get our demo site up and running. First, we will have to let Maven fetch the necessary dependencies and install our own project locally. To do that, **Right click on DemoSite --> Run As --> Maven Install**.
 
 ![Eclipse Maven Install](images/gs-eclipse-maven-install.png)
 
@@ -118,7 +125,7 @@ You'll see some logging messages in the Console scroll by, and eventually stop o
 [artifact:mvn] [INFO] Started Jetty Server
 ```
 
-That's it! The server's up! Let's check it out: [http://localhost:8080/](http://localhost:8080/)
+That's it! The server's up! Let's check it out: <a href="http://localhost:8080/" target="_blank">http://localhost:8080/</a>
 
 ![Startup Site](images/gs-startup-site.png)
 
@@ -139,7 +146,7 @@ This console will end up on
 [artifact:mvn] [INFO] Started Jetty Server
 ```
 
-And now we can hit the admin! [http://localhost:8081/admin](http://localhost:8081/admin)
+And now we can hit the admin! <a href="http://localhost:8081/admin" target="_blank">http://localhost:8081/admin</a>
 
 ![Startup Admin](images/gs-startup-admin.png)
 
