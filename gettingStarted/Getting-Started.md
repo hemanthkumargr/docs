@@ -14,7 +14,7 @@ Download Link: [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downl
 
 Once Eclipse is done downloading, extract the archive and start it up. You'll be prompted for a workspace:
 
-![Initial Prompt](images/workspace-initial-prompt.png)
+![Initial Prompt](images/gs-workspace-initial-prompt.png)
 
 Go ahead and accept the initial value.
 
@@ -22,7 +22,7 @@ Go ahead and accept the initial value.
 
 Click on **Help --> Eclipse Marketplace** and search for **Maven Integration**. Make sure you pick the plugin provided by Eclipse.org as highlighted below:
 
-![Maven Integration Plugin](images/eclipse-install-maven.png)
+![Maven Integration Plugin](images/gs-eclipse-install-maven.png)
 
 Click **Install** followed by **Next**. After that, **Accept the License Terms** and **Finish**.
 
@@ -36,11 +36,27 @@ Download Link: [Broadleaf Eclipse Workspace](https://github.com/downloads/Broadl
 
 Extract this archive to the location you want your workspace to live in, and point Eclipse to the appropriate path. This time, your workspace should look like this:
 
-![Eclipse Initial Workspace](images/eclipse-initial-workspace.png)
+![Eclipse Initial Workspace](images/gs-eclipse-hc-workspace.png)
+
+We now need to import the subprojects, core, site, and admin. We do this by going to **File --> Import**, and picking **Existing Maven Projects**, like this:
+
+![Import Maven Projects](images/gs-import-maven-projects.png)
+
+Click **Browse** and pick the `DemoSite` folder as the project root, and click **Open**
+
+![Import Browse Folder](images/gs-import-browse-folder.png)
+
+On this screen, make sure you check the **Add project(s) to working set** box and pick the `My Broadleaf Site` working set. Also make sure that all four project boxes are checked
+
+![Import Finish](images/gs-import-finish.png)
+
+Once you click finish, you will have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
+
+![Workspace Complete](images/gs-workspace-complete.png)
 
 ## <a name="wiki-configuring-names"></a> Configuring Project Name
 
-> Note: Some have reported issues at this step.    You can safely skip the "Configuring Project Name" step in its entirety.    We are investigating.
+> **Note: Some have reported issues at this step. You can safely skip the "Configuring Project Name" step in its entirety. We are investigating.**
 
 The workspace project and maven artifact all refers to "com.mycompany". For your convenience, we've provided an Ant task that will perform all necessary rename and move operations to customize the project to your organization. Simply run the `change-identifier` Ant task and type in a suitable name. 
 
@@ -56,13 +72,13 @@ Once that task is run, **Right click inside Package Explorer --> Refresh**.
 
 > Note: You will only be allowed to configure the project name via this script once.
 
-![Project Refresh](images/project-refresh.png)
+![Project Refresh](images/gs-workspace-refresh.png)
 
 ## <a name="wiki-starting-site"></a> Running Site
 
 Now that we have our workspace properly configured, we're able to get our demo site up and running. First, we will have to let Maven fetch the necessary dependencies and install our own project locally. To do that, **Right click on blc-project --> Run As --> Maven Install**.
 
-![Eclipse Maven Install](images/eclipse-maven-install.png)
+![Eclipse Maven Install](images/gs-eclipse-maven-install.png)
 
 > Note: Running a Maven install is only necessary initially. To shorten your development iteration times, you utilize JRebel, which will allow you to modify files without having to restart the server. We've detailed out [[how to setup JRebel | JRebel Setup]] for you.
 
@@ -71,21 +87,21 @@ This process will take a few minutes to execute, and will end on the following s
 ```text
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] ecommerce ......................................... SUCCESS [0.346s]
-[INFO] core .............................................. SUCCESS [2.765s]
-[INFO] admin ............................................. SUCCESS [15.536s]
-[INFO] site .............................................. SUCCESS [11.230s]
+[INFO] ecommerce ......................................... SUCCESS [0.440s]
+[INFO] core .............................................. SUCCESS [2.505s]
+[INFO] admin ............................................. SUCCESS [3:37.628s]
+[INFO] site .............................................. SUCCESS [24.109s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3:50.548s
-[INFO] Finished at: Fri Jul 06 10:52:46 CDT 2012
-[INFO] Final Memory: 27M/81M
+[INFO] Total time: 4:05.052s
+[INFO] Finished at: Mon Jul 30 10:01:19 CDT 2012
+[INFO] Final Memory: 13M/81M
 ```
 
 At this point, we're ready to start up! Let's run the `jetty-demo` Ant task for the site.
 
-![Jetty Demo](images/jetty-demo.png)
+![Jetty Demo](images/gs-jetty-demo.png)
 
 You'll see some logging messages in the Console scroll by, and eventually stop on
 
@@ -96,7 +112,7 @@ You'll see some logging messages in the Console scroll by, and eventually stop o
 
 That's it! The server's up! Let's check it out: [http://localhost:8080/](http://localhost:8080/)
 
-![Startup Site](images/startup-site.png)
+![Startup Site](images/gs-startup-site.png)
 
 ## <a name="wiki-starting-admin"></a> Running Admin
 
@@ -106,7 +122,7 @@ Once the site has been started up, we can start up the admin as well
 
 This time, we'll hit the `jetty-demo` Ant task for the admin.
 
-![Jetty Demo Admin](images/jetty-demo-admin.png)
+![Jetty Demo Admin](images/gs-admin-jetty-demo.png)
 
 This console will end up on
 
@@ -117,7 +133,7 @@ This console will end up on
 
 And now we can hit the admin! [http://localhost:8081/admin](http://localhost:8081/admin)
 
-![Startup Admin](images/startup-admin.png)
+![Startup Admin](images/gs-startup-admin.png)
 
 ## <a name="wiki-next-steps"></a> Next Steps
 

@@ -697,6 +697,7 @@ footer {
 
 div#left_column img {
     max-width: 620px;
+    margin: 10px 0;
 }
 
 .half-column {
@@ -712,8 +713,8 @@ h3 span.small {
 
 blockquote { 
     margin: 10px 0 10px 0;
-    padding-left: 25px;
-    border-left: 4px solid #EAEAD1;
+    padding-left: 20px;
+    border-left: 8px solid #D8D8B0;
 }
 
 code, pre  { 
