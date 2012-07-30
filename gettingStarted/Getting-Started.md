@@ -51,11 +51,19 @@ On this screen, make sure you check the **Add project(s) to working set** box an
 
 ![Import Finish](images/gs-import-finish.png)
 
-> Note: This process may take a while. You can see the progress in the bottom right of Eclipse
+> This process may take a while. You can see the progress in the bottom right of Eclipse or open the Maven Console for more detail progress reports.
+
+Once the import is complete, you'll have to add two buildfiles, one for site and one for admin. Click on the **Add Buildfiles** button on the Ant pane
+
+![Add Buildfile](images/gs-add-buildfile.png)
+
+and select the two buildfiles to add:
+
+![Add Buildfile Dialog](images/gs-add-buildfile-dialog.png)
 
 The last thing to do is configure the path of your local maven installation. This is done in `DemoSite/build.properties` on the `maven.home` line.
 
-> **NOTE** Windows users *must* use forward slashes (/) for paths, not backslashes (\)
+> **NOTE Windows users must use forward slashes (/) for paths, not backslashes (\)**
 
 That's it! Now you have your IDE completely setup to work with Broadleaf Commerce, and your workspace should look like this
 
