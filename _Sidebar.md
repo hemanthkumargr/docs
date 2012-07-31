@@ -53,6 +53,7 @@
         - [[PayPal Module]]
             - [[PayPal Quick Start]]
             - [[PayPal Advance Configuration]]
+    	- [[Authorize.net Module]]
         - [[Braintree Module (Commercial)]]
         - [[Creating a Payment Module]]
     - [[Additional Configuration]]
