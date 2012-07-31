@@ -1,9 +1,6 @@
 var DOCS = (function($) {
 
-    /* ********** INIT ********** */
-    /* Self-executing constructor */
-    /* ************************** */
-    (function init() {
+    $(document).ready(function() {
         $('.rootNode').children(":nth-child(2)").addClass("collapsibleList");
         CollapsibleLists.apply(); 
 
@@ -42,12 +39,11 @@ var DOCS = (function($) {
         }
 
         $('.treeView').show();
-    })();
+    });
 
     /*
     $(document).on('click', 'a', (function(event) {
-        // We don't want to intercept links that are going
-        // off site
+        // We don't want to intercept links that are going off site
         if ($(this).attr('href').indexOf('http') != -1) {
             return true;
         }
@@ -61,7 +57,6 @@ var DOCS = (function($) {
         });
     }));
     */
-
 
     /*
     $(document).on('click', '.inline-links a', (function(event) {
