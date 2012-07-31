@@ -48,7 +48,7 @@ public class AuthorizeNetController extends BroadleafAuthorizeNetController {
     }
 
 }
-
+```
 ##3) Construct the HTML for the dynamic Authorize.net form
 
 Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). 
