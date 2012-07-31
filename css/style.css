@@ -9,7 +9,7 @@ audio:not([controls]) { display: none; }
 
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; background: url('/images/layout/bg.jpg') top left repeat; }
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
-body { margin: 0; font-family: Georgia, serif; font-size: 13px; line-height: 18px; color: #454545; }
+body { margin: 0; font-family: Georgia, serif; font-size: 13px; line-height: 20px; color: #454545; }
 
 ::-moz-selection { background: #93b12d; color: #fff; text-shadow: none; }
 ::selection { background: #93b12d; color: #fff; text-shadow: none; }
@@ -464,7 +464,7 @@ nav {
 		font-weight: 400;
 		font-style: italic;
 		padding: 0;
-		margin: 10px 0;
+		margin: 30px 0 10px 0;
         background-color: #EAEAD1;
 	}
 	
