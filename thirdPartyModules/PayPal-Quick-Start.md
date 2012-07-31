@@ -1,4 +1,4 @@
-Broadleaf Commerces offers an out-of-the-box PayPal solution that requires little configuration and is easily set up. For a more customized solution, please see [[PayPal Advance Configuration]].
+Broadleaf Commerce offers an out-of-the-box PayPal solution that requires little configuration and is easily set up. For a more customized solution, please see [[PayPal Advance Configuration]].
 
 **You must have completed the [[PayPal Environment Setup]] before continuing**
 
