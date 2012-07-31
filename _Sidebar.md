@@ -104,6 +104,7 @@
     - [[Preparing for Production]]
     - [[CyberSource Environment Setup]]
     - [[PayPal Environment Setup]]
+    - [[Authorize.net Environment Setup]]
     - [[Braintree Environment Setup]]
     - [[Environment Setup]]
         - [[IntelliJ Setup]]
