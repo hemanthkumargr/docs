@@ -161,22 +161,17 @@ Your page may look something like this:
                         </div>
                     </div>
 
-                    <div class="form50">
-                        <label for="expirationMonth" class="prompt"> Expiration Date </label>
-
-                        <div class="element">
-                            <select name="blc_expiration_month" id="expirationMonth" class=" " th:disabled="${!validShipping}">
-                                <option th:each="month,itr : ${expirationMonths}" th:value="${itr.count}" th:text="${month}"></option>
-                            </select>
-                            <select name="blc_expiration_year" id="expirationYear" class=" " th:disabled="${!validShipping}">
-                                <option th:each="year,itr : ${expirationYears}" th:value="${year}" th:text="${year}"></option>
-                            </select>
+                    <div class="form25" style="width: 94%;">
+                        <div style="float: left; width: 70%;">
+                            <label for="cardNumber" class="prompt">Expiration Date (MMYY)</label>
+                            <div class="element">
+                                <input type="text" name="x_exp_date" value="" id="x_exp_date" class="field30" autocomplete="off" style="width: 100%" th:disabled="${!validShipping}" />
+                            </div>
                         </div>
                     </div>
+
                     <div class="clearfix"></div>
                 </div>
-
-                <input type="hidden" value="0713" name="x_exp_date"/>
 
                 <div>
                     <input type="submit" class="medium" value="Complete Order" th:disabled="${!validShipping}" th:classappend="${validShipping}? 'red' : 'gray'"/>
