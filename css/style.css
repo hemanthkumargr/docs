@@ -14,9 +14,9 @@ body { margin: 0; font-family: Georgia, serif; font-size: 13px; line-height: 18p
 ::-moz-selection { background: #93b12d; color: #fff; text-shadow: none; }
 ::selection { background: #93b12d; color: #fff; text-shadow: none; }
 
-a { font-family: "proxima-nova",sans-serif; font-size: 14px; font-style: italic; font-weight: 400; color: #93b12d; text-decoration: none; }
-a:visited { color: #93b12d; text-decoration: none; }
-a:hover { color: #b4dc2c; }
+a { font-family: "proxima-nova",sans-serif; font-size: 14px; font-weight: 400; color: #718D12; text-decoration: none; }
+a:visited { color: #718D12; text-decoration: none; }
+a:hover { color: #596B1D; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 
