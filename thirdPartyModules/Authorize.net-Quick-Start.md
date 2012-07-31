@@ -54,6 +54,8 @@ public class AuthorizeNetController extends BroadleafAuthorizeNetController {
 Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). 
 Your page may look something like this:
 
+> Note: it is important that all the hidden fields listed in the form below be included.
+
 ```html
 <form th:action="${authorizenet_server_url}" method="post" id="billing_info">
 
