@@ -8,7 +8,6 @@ There are a few steps to extending an entity in Broadleaf:
 2. Notify the persistence unit about your new class
 3. Set this class as the default for the parent interface in the Broadleaf Entity Configuration
 
-
 ### Create the extension class
 
 Since customers are shared between the admin application and the site application, we want to create our objects in the `core` submodule so that both admin and site can share them.
