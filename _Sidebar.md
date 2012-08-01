@@ -88,6 +88,7 @@
             - [[Braintree Quick Start]]
             - [[Braintree Advance Configuration]]
 - [[Tutorials]]
+    - [[Getting Started | Getting Started Tutorials]]
     - [[Core | Core Tutorials]]
         - [[Extending Entities Tutorial]]
         - [[Extending Services Tutorial]]
