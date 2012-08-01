@@ -1,11 +1,11 @@
 Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This module allows users to complete their shopping experience using their PayPal account.
 
+![Paypal Diagram](images/payment-paypal-diagram.png)
+
 Upon clicking the PayPal button, the customer would be re-directed to PayPal's site to authenticate his or her identity. 
 Once the customer has reviewed the transaction, PayPal would re-direct the customer back to your Broadleaf Commerce site with an authorization token to complete checkout. 
 The customer would then review and confirm the order and Broadleaf would internally handle the processing of the order and the settlement with PayPal. 
 > Note: PayPal requires you to conform to certain UI requirements in order to integrate with them. Please see [[Express Checkout User Interface Requirements | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECUIRequirements]] for more information.
-
-![Paypal Diagram](images/payment-paypal-diagram.png)
 
 There are two ways to get started integrating the PayPal module into your web application. 
 Broadleaf offers a [[PayPal Quick Start]] solution that allows developers to easily add PayPal functionality with little configuration.
