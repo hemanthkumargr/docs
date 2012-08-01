@@ -2,5 +2,6 @@ Learn more about payments:
 
 - [[Workflow | Payment Workflow]]
 - [[PayPal Module]]
-- [[Braintree Module]]
+- [[Authorize.net Module]]
+- [[Braintree Module (Commercial)]]
 - [[Creating a Payment Module]]
