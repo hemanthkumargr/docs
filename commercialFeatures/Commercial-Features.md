@@ -1,1 +1,1 @@
-Broadleaf offers several commercial features including integrations with major shipping providers and third party payment gateways. To obtain more information on these commercial modules, please contact us at info@broadleafcommerce.org.
+Broadleaf offers several commercial features including integrations with major shipping providers and third party payment gateways. To obtain more information on these commercial modules, please contact us at [info@broadleafcommerce.org.](mailto:info@broadleafcommerce.org)

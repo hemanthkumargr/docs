@@ -1,10 +1,3 @@
-Learn more about pricing:
+This section describes the various aspects of pricing, including the workflow that's responsible for controlling the activities in pricing, including shipping and taxes. It also contains additional information for configuring pricing, such as how to set up dynamic pricing.
 
-- [[Workflow | Pricing Workflow]]
-- [[Shipping]]
-    - [[USPS Module]]
-    - [[Creating a Shipping Module]]
-- [[Tax]]
-    - [[CyberSource Tax Module]]
-    - [[Creating a Tax Module]]
-- [[Dynamic Pricing | Dynamic Pricing Configuration]]
+Please use the menu on the right to navigate through this documentation.

@@ -1,3 +1,3 @@
-Broadleaf Commerce offers several commercial payment modules including:
+Broadleaf Commerce offers several commercial payment modules and instructions for integrating them into your project.
 
-- [[Braintree Module]]
+Please use the menu on the right to navigate through this documentation.

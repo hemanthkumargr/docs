@@ -170,4 +170,4 @@ public class CookingClassImpl extends ProductImpl implements CookingClass {
 Now, at runtime, the ProductImpl class will be transformed at load time, and its inheritance annotations will be changed to single table with all of the configurations provided in the persistence.xml file. All of your products will now go in the same table, and a column called "PRODUCT_TYPE" will be used to differentiate them. Remember, with this strategy, your subclasses cannot define non-nullable columns. The reason is that they share this table with other subclasses who may not use those columns.
 
 ### Admin Considerations ###
-Jeff, please add some commentary to this.
+Coming Soon
