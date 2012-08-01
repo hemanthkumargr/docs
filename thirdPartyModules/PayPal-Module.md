@@ -21,23 +21,23 @@ Here's a feature list to help you decide which approach to choose:
   </tr>
   <tr>
     <td>Customizable Logo and Color Scheme on PayPal </td>
-    <td>[[/images/accept.png]]</td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Single payments using PayPal or another credit card payment gateway. </td>
-    <td>[[/images/accept.png]]</td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Partial payments using custom defined payment activities </td>
     <td></td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Capture shipping information in Broadleaf </td>
-    <td>[[/images/accept.png]]</td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Capture shipping information on PayPal </td>
@@ -47,22 +47,22 @@ Here's a feature list to help you decide which approach to choose:
   <tr>
     <td>Saving PayPal details to Broadleaf profile </td>
     <td></td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Simple Authorization and Checkout</td>
-    <td>[[/images/accept.png]]</td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>  
   <tr>
     <td>Refund Transaction</td>
     <td></td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
   <tr>
     <td>Void Transaction</td>
     <td></td>
-    <td>[[/images/accept.png]]</td>
+    <td>[[images/layout/accept.png]]</td>
   </tr>
     <td></td>
     <td>[[PayPal Quick Start]]</td>
