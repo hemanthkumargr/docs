@@ -152,10 +152,9 @@ And now we can hit the admin! <a href="http://localhost:8081/admin" target="_bla
 
 > Any issues? Please come post in the [Broadleaf forums](http://forum.broadleafcommerce.org) - We would love to help you out!
 
-> Successfully got your Broadleaf site up and running? Awesome! You should tweet about it!
-<a href="https://twitter.com/intent/tweet?button_hashtag=Broadleaf&text=My%20story%20is%20about%20what's%20happening%20today" class="twitter-hashtag-button" data-lang="en" data-related="jasoncosta">Tweet #TwitterStories</a>
+> Successfully got your Broadleaf site up and running? Awesome! You can help us by tweeting to your followers!
+<a href="https://twitter.com/intent/tweet?text=I%20just%20created%20my%20%40broadleaf%20demo%20site!%20Give%20it%20a%20try%20and%20sell%20your%20own%20stuff%20online%3A%20http%3A%2F%2Fow.ly%2FcFN4g" class="twitter-share-button" data-lang="en" data-size="large">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 
 ## <a name="wiki-next-steps"></a> Next Steps
 
