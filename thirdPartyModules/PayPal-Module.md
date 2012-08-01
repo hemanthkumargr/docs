@@ -5,6 +5,8 @@ Once the customer has reviewed the transaction, PayPal would re-direct the custo
 The customer would then review and confirm the order and Broadleaf would internally handle the processing of the order and the settlement with PayPal. 
 > Note: PayPal requires you to conform to certain UI requirements in order to integrate with them. Please see [[Express Checkout User Interface Requirements | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECUIRequirements]] for more information.
 
+![Paypal Diagram](images/payment-paypal-diagram.png)
+
 There are two ways to get started integrating the PayPal module into your web application. 
 Broadleaf offers a [[PayPal Quick Start]] solution that allows developers to easily add PayPal functionality with little configuration.
 If you have a complex payment workflow, please take a look at our [[PayPal Advance Configuration]]
