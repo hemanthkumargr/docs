@@ -2,6 +2,15 @@ Broadleaf Commerce currently offers integration with the PayPal Express API. See
 
 ![Paypal Diagram](images/payment-paypal-diagram.png)
 
+## How It Works
+1. When a customer clicks the "Pay with PayPal" button on your checkout page, a request is sent to Broadleaf to initiate the Express Checkout flow.
+2. Broadleaf will generate a request and call PayPal using the NVP API to verify that the order being sent to them is valid.
+3. If the checkout request is valid, PayPal will send over a redirect URL.
+4. Broadleaf will then relay that URL to the customer's browser.
+5. The customer will then be redirected to PayPal's site to authenticate and review the transaction. Once completed, PayPal would redirect the customer back to a URL in Broadleaf that will complete the transaction.
+6. Broadleaf would complete the order and redirect the customer's browser to an order confirmation page.
+ 
+
 Upon clicking the PayPal button, the customer would be re-directed to PayPal's site to authenticate his or her identity. 
 Once the customer has reviewed the transaction, PayPal would re-direct the customer back to your Broadleaf Commerce site with an authorization token to complete checkout. 
 The customer would then review and confirm the order and Broadleaf would internally handle the processing of the order and the settlement with PayPal. 
