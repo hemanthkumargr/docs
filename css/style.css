@@ -460,12 +460,10 @@ nav {
 
 	#left_column h2 {
 		width: 100%;
-		font-size: 21px;
+		font-size: 24px;
 		font-weight: 400;
-		font-style: italic;
-		padding: 0;
-		margin: 30px 0 10px 0;
-        background-color: #EAEAD1;
+		padding: 10px 0 10px 0;
+        border-bottom: 1px solid #CCC;
 	}
 	
 #right_column {
