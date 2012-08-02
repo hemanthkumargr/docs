@@ -428,6 +428,7 @@ nav {
 	margin: 40px 0 40px 20px;
 	float: left;
 	display: inline;
+	font: 13px Helvetica,arial,freesans,clean,sans-serif;
 }
 
 #left_column .post {
