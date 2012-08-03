@@ -34,22 +34,25 @@ In addition, you will have to make Broadleaf's default endpoints available to th
 
 This configuration is required to use Broadleaf's RESTful services and the most basic way to simply get Broadleaf's RESTful services working out of the box.
 
-Lastly, it is recommended that you configure a filter to set the customer state, if known, on each request.  Broadleaf has a default filter that handles this.  You might want to replace it with your own implementation, especially if implementing some kind of security filter. To use Broadleaf's default filter out of the box, you must configure this filter in the merged application context.  Typically, we recommend using applicationContext-security.xml, if you are using the application as it is created with the Broadleaf Maven archetype.
+Lastly, it is recommended that you configure a filter to set the customer state, if known, on each request.  Broadleaf has a default filter that handles this.  You might want to replace it with your own implementation, especially if implementing some kind of security filter. To use Broadleaf's default filter out of the box, you must configure this filter in the merged application context.  Typically, we recommend using `applicationContext-security.xml`, if you are using the application as it is created with the Broadleaf Maven archetype.
 
 ```xml
-<bean id="blRestCustomerStateFilter"
-          class="org.broadleafcommerce.profile.web.core.security.RestApiCustomerStateFilter"/>
-
-<bean id="blRequestWrapperFilter"
-	  class="org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter" />
-
-<bean id="springSecurityFilterChain" class="org.springframework.security.web.FilterChainProxy">
-    <sec:filter-chain pattern="/api/**" 
-                filters="blRequestWrapperFilter,
-                         blRestCustomerStateFilter"/>
-    ...
-</bean>
+	<!-- Set up Spring security for the RESTful API -->
+	<sec:http pattern="/api/**" create-session="stateless">
+	    <sec:http-basic />
+		<sec:custom-filter ref="blRestCustomerStateFilter" after="REMEMBER_ME_FILTER"/>
+	</sec:http>
+	
+   <!--  Used for REST api calls.   This just takes in the passed in customerId and uses it to establish the customer.
+         Additional considerations MUST be made for implementations that are allowing external access to APIs.  -->
+    <bean id="blRestCustomerStateFilter" class="org.broadleafcommerce.profile.web.core.security.RestApiCustomerStateFilter"/>
 ```
+
+> **Note: Simply providing this security configuration will not secure your REST API. No URLs are secured with this configuration.** At a minimum, you will likely want to add:
+```xml
+<sec:intercept-url pattern='/**' access='ROLE_REMOTE' />
+```
+> as well as provide some type of security other than http-basic.
 
 ## Extending Broadleaf RESTful services ##
 Extending Broadleaf Commerce is a big topic. Broadleaf's default entities can be extended. Broadleaf's DAOs and Services can also be extended.  See the section on [[Extending Product | Next-Steps#wiki-extending-product]] or [[Extending Service | Next-Steps#wiki-extending-service]] for more information on generally extending Broadleaf's domain and service objects.  After extending the domain and/or services, you may want to expose the new data and/or functionality to clients of your RESTful API.  Broadleaf provides a mechanism for this and attempts to be as flexible as possible.
