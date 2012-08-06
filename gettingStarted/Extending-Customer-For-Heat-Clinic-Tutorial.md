@@ -78,7 +78,7 @@ public class HCCustomerImpl extends CustomerImpl implements HCCustomer {
 
 ### Notify the persistence unit
 
-In `persistence.xml` in site/src/main/resources/META-INF, add the following line to the  `blPU` 
+In `site/src/main/resources/META-INF/persistence.xml`, add the following line to the `blPU` 
 
 ```xml
 <class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
@@ -91,21 +91,6 @@ which will make it look like this:
     <non-jta-data-source>jdbc/web</non-jta-data-source>
     <class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
     <exclude-unlisted-classes/>
-    <properties>
-        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-        <property name="hibernate.show_sql" value="false"/>
-        <property name="hibernate.cache.use_second_level_cache" value="true"/>
-        <property name="hibernate.cache.use_query_cache" value="true"/>
-        <property name="hibernate.hbm2ddl.import_files" value="/sql/load_admin_security.sql,
-                                                               /sql/load_admin_users.sql,
-                                                               /sql/load_code_tables.sql,
-                                                               /sql/load_table_sequences.sql,
-                                                               /sql/load_catalog_data.sql,
-                                                               /sql/load_content_structure.sql,
-                                                               /sql/load_content_data.sql"/>
-
-    </properties>
 </persistence-unit>
 ```
 
@@ -116,11 +101,6 @@ We also want to add the same line to the `blPU` in `admin/src/main/resources/MET
     <non-jta-data-source>jdbc/web</non-jta-data-source>
     <class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
     <exclude-unlisted-classes/>
-    <properties>
-        <property name="hibernate.hbm2ddl.auto" value="update"/>
-        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-        <property name="hibernate.show_sql" value="false"/>
-    </properties>
 </persistence-unit>
 ```
 
