@@ -10,8 +10,8 @@ Once you have established an account with Braintree, begin by including the Brai
 ```xml
 <dependency>
     <groupId>com.broadleafcommerce</groupId>
-    <artifactId>broadleaf-braintree-module</artifactId>
-    <version>${blc.commercial.version}</version>
+    <artifactId>broadleaf-braintree</artifactId>
+    <version>${blc.braintree.version}</version>
     <type>jar</type>
     <scope>compile</scope>
 </dependency>
@@ -21,7 +21,7 @@ Make sure to include the dependency in your site pom.xml as well:
 ```xml
 <dependency>
     <groupId>com.broadleafcommerce</groupId>
-    <artifactId>broadleaf-braintree-module</artifactId>
+    <artifactId>broadleaf-braintree</artifactId>
 </dependency>
 ```
 You should now begin to setup your environment to work with Broadleaf Commerce Braintree support. 
