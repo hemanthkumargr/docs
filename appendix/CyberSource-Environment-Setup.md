@@ -8,33 +8,12 @@
 
 Once you have established an account with CyberSource, you should begin to setup your environment to work with Broadleaf Commerce CyberSource support. The first step is to make Broadleaf Commerce aware of your CyberSource account credentials. This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
 
-```xml
-<bean id="blConfiguration" class="org.broadleafcommerce.common.config.RuntimeEnvironmentPropertiesConfigurer">
-    <property name="propertyLocations">
-        <set>
-            <value>classpath:config/bc/</value>
-            <value>classpath:my/path/to/property/files</value>
-        </set>
-    </property>
-    <property name="environments">
-        <set>
-            <value>production</value>
-            <value>staging</value>
-            <value>integration</value>
-            <value>development</value>
-        </set>
-    </property>
-    <property name="defaultEnvironment" value="development"/>
-    <property name="ignoreUnresolvablePlaceholders" value="true"/>
-</bean>
+Specifically, you will need to add, at a minimum, the following properties to your application. Likely, you will want to add them to `common-shared.properties` in the core project
+
+```text
+cybersource.merchant.id=[my CyberSource merchant id]
+cybersource.transaction.key=[my CyberSource security key for the API that I generated in the step above]
 ```
-
-The configuration shown above should be entered into your application context. There are several items of note. The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the four environments that Broadleaf Commerce is pre-configured for with CyberSource information.
-
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should add a property file that contains your CyberSource account credentials. The easiest way to achieve this is by adding a file called common.properties inside your propertyLocations path (refer to [[Runtime Environment Configuration]] for the different types of configuration files). If common.properties already exists in your environment, then simply add these new properties to it. The contents of common.properties should at least contain:
-
-    cybersource.merchant.id=[my CyberSource merchant id]
-    cybersource.transaction.key=[my CyberSource security key for the API that I generated in the step above]
 
 Additionally, you'll need to configure the Spring bean for the CyberSourceServiceManager. This bean is in charge of managing several CyberSource services for Broadleaf at the same time: the CyberSource credit card payment service and the CyberSource tax service. Add the following bean declaration to your application context:
 

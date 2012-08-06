@@ -6,35 +6,12 @@ Rather than use banded shipping estimation, some users will prefer to use the bu
 
 Once you have established an account with USPS and made yourself familiar with the API features and requirements, you should begin to setup your environment to work with Broadleaf Commerce USPS support. The first step is to make Broadleaf Commerce aware of your USPS account credentials. This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
 
-```xml
-<bean id="blConfiguration" class="org.broadleafcommerce.common.config.RuntimeEnvironmentPropertiesConfigurer">
-    <property name="propertyLocations">
-        <set>
-            <value>classpath:config/bc/</value>
-            <value>classpath:my/path/to/property/files</value>
-        </set>
-    </property>
-    <property name="environments">
-        <set>
-            <value>production</value>
-            <value>staging</value>
-            <value>integration</value>
-            <value>development</value>
-        </set>
-    </property>
-    <property name="defaultEnvironment" value="development"/>
-    <property name="ignoreUnresolvablePlaceholders" value="true"/>
-</bean>
+Specifically, you will need to add, at a minimum, the following properties to your application. Likely, you will want to add them to `common-shared.properties` in the core project
+
+```text
+usps.password=[my USPS provided password]
+usps.user.name=[my USPS provided username]
 ```
-
-The configuration shown above should be entered into your application context. There are several items of note. The propertyLocations set contains first, the path to the internal Broadleaf Commerce environment configuration. Second should be the path to your environment configuration property files - this is the key item. The environments property should be left alone, as it contains the four environments that Broadleaf Commerce is pre-configured for with USPS information.
-
-Now that you have given Broadleaf Commerce the new path to search for your particular environment configuration, you should add a property file that contains your USPS account credentials. The easiest way to achieve this is by adding a file called common.properties inside your propertyLocations path (again, refer to [[Runtime Environment Configuration]] for the different types of configuration files). The contents of common.properties should at least contain:
-
-    usps.password=[my USPS provided password]
-    usps.user.name=[my USPS provided username]
-
-You'll need to substitute in the user name and password provided to you by USPS.
 
 Additionally, you'll need to configure the Spring bean that's responsible for instantiating the USPSShippingCalculationService instance. This service is the base bean responsible for communicating with the USPS web service API. Add the following bean configuration to your application context:
 
