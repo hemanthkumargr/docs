@@ -73,6 +73,7 @@
         - [[Offers | Offers Configuration]]
         - [[CMS | CMS Configuration]]
         - [[Caching | Caching Configuration]]
+        - [[Asset Server | Asset Server Configuration]]
         - [[QoS | QoS Configuration]]
             - [[Configuration | QoS Configuration#wiki-config]]
             - [[Customization | QoS Configuration#wiki-customization]]
