@@ -10,6 +10,8 @@ Property files are merged by the RuntimeEnvironmentPropertiesConfigurer and then
 
 This powerful configuration will allow you to share various attributes amongst environments and override them where necessary.
 
+> **Note - All of these properties files should appear in the `src/main/resources/runtime-environment/` directories for their respective project. The Broadleaf `RuntimeEnvironmentPropertiesConfigurer` (set up in the next sections) is configured by default to look for properties files in the `runtime-properties` folder on the classpath.**
+
 ## Basic Configuration
 
 Most users will simply need to add a reference to the `blConfiguration` bean in their `applicationContext.xml` file (and `applicationContext-admin.xml`), like this:
