@@ -1,15 +1,48 @@
+// Bind links that can be animated to use HTML5 history if the browser supports it
+if (window.history && window.history.pushState) {
+    $(document).on('click', 'a', (function(event) {
+        if ($(this).attr('href').indexOf('http') != -1) {
+            return true;
+        } else {
+            event.preventDefault();
+            History.pushState({}, null, $(this).attr('href')); 
+        }
+    }));
+}
+
+// Forward our captured statechange to the navigate function
+$(window).bind('statechange',function(e){
+    DOCS.navigate(History.getState());
+});
+
 var DOCS = (function($) {
 
     $(document).ready(function() {
         $('.rootNode').children(":nth-child(2)").addClass("collapsibleList");
         CollapsibleLists.apply(); 
+        updateTree();
+    });
 
+    /**
+     * The function called by the fired statechange event
+     */
+    function navigate(State) {
+        $.get(State.url, function(data) {
+            var newLeftColumn = $(data).filter("div").find("#left_column");
+            $('#left_column').replaceWith(newLeftColumn);
+            window.scrollTo(0,0);
+        });
+        updateTree();
+    }
+
+    function updateTree() {
         // Identify the current node in the sidebar based on the active window
         var $currentLink = $('#right_column').find('a').filter(function() { 
             return $(this).attr('href') == window.location.pathname; 
         });
 
-        $currentLink.css('font-weight', 'bold');
+        $('#right_column').find('.active').removeClass('active');
+        $currentLink.addClass('active');
 
         // If this node has children, open it so that they're visible
         if ($currentLink.next()[0] != undefined && $currentLink.next()[0].tagName == "UL") {
@@ -39,24 +72,7 @@ var DOCS = (function($) {
         }
 
         $('.treeView').show();
-    });
-
-    /*
-    $(document).on('click', 'a', (function(event) {
-        // We don't want to intercept links that are going off site
-        if ($(this).attr('href').indexOf('http') != -1) {
-            return true;
-        }
-
-        event.preventDefault();
-
-        $link = $(this);
-        $.get($link.attr('href'), function(data) {
-            var newLeftColumn = $(data).filter("div").find("#left_column");
-            $('#left_column').replaceWith(newLeftColumn);
-        });
-    }));
-    */
+    }
 
     /*
     $(document).on('click', '.inline-links a', (function(event) {
@@ -88,7 +104,10 @@ var DOCS = (function($) {
     }));
     */
 	
-	return { }
+	return {
+        navigate: navigate,
+        updateTree: updateTree
+    }
 
 })($);
 

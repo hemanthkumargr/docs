@@ -811,3 +811,7 @@ thead {
     background-image:url('/images/layout/treeView/list-item-last-open.png');
 }
 
+.treeView .active {
+    font-weight: bold;
+}
+
