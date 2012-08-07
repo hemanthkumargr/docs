@@ -44,7 +44,7 @@ You will need to enter the following key/value pairs in the appropriate location
     - 1 : PayPal does not display the shipping fields at all.
     - 2 : PayPal will obtain the shipping address from the buyer's profile.
     
-### development.properties, production.properties etc...
+### development.properties, local.properties etc...
     paypal.user=?
     paypal.password=?
     paypal.signature=?
