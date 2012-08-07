@@ -173,18 +173,59 @@ But you want this in production:
 </properties>
 ```
 
-This can be done using Broadleaf's Runtime Environment Configuration
-
-We must also define the target database dialect that the ORM provider will use to communicate with our database. This example is utilizing the dialect for MySQL. Also, in this case, we have told the ORM provider to turn off its autodetection feature. Used in concert with the `<exclude-unlisted-classes/>` element, auto-scanning of jars for entities will be disabled. We highly suggest you keep this configuration in place, as it reduces the amount of time required to launch a Broadleaf-based application by not forcing all entities to be loaded by all entity managers. This becomes increasingly important in multi-persistence unit environments with many entities.
-
+This can be done using Broadleaf's [[Runtime Environment Configuration|Runtime Environment Configuration]]. Here's how:
 ```xml
-<properties>
-    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
-    <property name="hibernate.archive.autodetection" value="false" />
-</properties>
+...
+<property name="persistenceUnitPostProcessors">
+        	<list>
+        		<bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
+        			<property name="persistenceUnitProperties">
+        				<map>
+        					<!-- Overrides from environment properties files for blPU PersistenceUnit -->
+        					<entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
+        					<entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
+        					<entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
+        					<entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
+        					<entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
+        					<entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
+        					
+        					<!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
+        					<entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
+        					<entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
+        					<entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
+        					<entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
+        					<entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
+        					<entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
+        					
+        					<!-- Overrides from environment properties files for blSecure PersistenceUnit -->
+        					<entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
+        					<entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
+        					<entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
+        					<entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
+        					<entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
+        					<entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
+        				</map>
+        			</property>
+        		</bean>
+        	</list>
+        </property>
+...
 ```
 
-Please note - this is the minimal configuration required to notify Broadleaf of the unique attributes of your persistence environment. There are actually other factors (entities, mapping files, additional properties) that Broadleaf will merge for you at runtime.
+Spring allows you to define Persistence Unit Post Processors on the Persistence Manager.  Broadleaf provides a JPAPropertiesPersistenceUnitPostProcessor to allow you to substitute the correct properties at runtime.  The property name is simply a property name defined by the persistence provider (e.g. [[Hibernate|http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/configuration.html]] in this case), pre-pended with the persistence unit name and a period (e.g. "blPU.").  The property names are matched and associated with the correct persistence unit.  The values are replaced according to the [[Runtime Environment Configuration|Runtime Environment Configuration]].  If you wish to remove a property or ensure that it is simply not considered, set the value to "null" in the runtime properties. So, the following persistenceUnitPostProcessor property:
+
+```
+<entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
+```
+And a properly configured runtime properties file with the following entry:
+```
+blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+```
+Will result in a persistence unit property, for the blPU persistence unit only, that looks like this:
+```
+<property key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+```
+This allows you to pre-configure all of your persistence unit properties for their respective environments without the need to change them at build or deployment time.
 
 ### Persisting Additional Entities
 
@@ -192,7 +233,7 @@ At times, you may find it necessary to add your own entities (either extensions 
 
 ```xml
 <mapping-file>config/MyEntity.orm.xml</mapping-file>
-<class>org.myCompany.domain.MyEntityImpl</class>
+<class>org.mycompany.domain.MyEntityImpl</class>
 ```
 
 This will result in the entity being persisted in the `blPU` persistence unit. Next, let's take a look at persisting entities in a custom persistence unit.
@@ -207,17 +248,7 @@ This is very similar to how we configured the entity in the `blPU` - the only di
     <mapping-file>config/MyEntity.orm.xml</mapping-file>
     <class>org.myCompany.domain.MyEntityImpl</class>
     <exclude-unlisted-classes/>
-    <properties>
-        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
-        <property name="hibernate.show_sql" value="false"/>
-        <property name="hibernate.transaction.flush_before_completion" value="false"/>
-        <property name="hibernate.connection.autocommit" value="false"/>
-        <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider"/>
-        <property name="hibernate.cache.use_second_level_cache" value="true"/>
-        <property name="hibernate.cache.use_query_cache" value="true"/>
-        <property name="hibernate.generate_statistics" value="true" />
-        <property name="hibernate.archive.autodetection" value="false" />
-    </properties>
+    <!-- Properties can be set here just as above, using the MergePersistenceUnitManager -->
 </persistence-unit>
 ```
 
