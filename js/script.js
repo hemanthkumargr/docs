@@ -19,30 +19,48 @@ $(window).bind('statechange',function(e){
     DOCS.navigate(History.getState());
 });
 
-var $window = $(window);
-var $stickyEl = $('#right_column');
-var $rightColumn;
-
-var elTop = $stickyEl.offset().top;
-
-$window.scroll(function() {
-    var windowTop = $window.scrollTop();
-    $stickyEl.toggleClass('sticky', windowTop > (elTop - 10));
-    if ($rightColumn) {
-        $rightColumn.css('height', $window.height() - 180 + Math.min(150, windowTop));
-        $rightColumn.mCustomScrollbar("update");
-    }
-});
-
 var DOCS = (function($) {
 
+    var $window = $(window);
+    var $stickyEl;
+    var $rightColumn;
+    var $footerEl;
+    var elTop
+
+    function setStickyElHeight() {
+        var $leftColumn = $('#left_column');
+
+        var maxPossibleHeight = $window.height() - 190 + 
+            Math.min(150, $window.scrollTop()) + 
+            Math.min($('footer').offset().top - $window.scrollTop() - $window.height(), 0)
+
+        $stickyEl.css('height', Math.min($leftColumn.height(), maxPossibleHeight));
+    }
+
     $(document).ready(function() {
+        $stickyEl = $("#right_column_container");
         $rightColumn = $('#right_column');
-        $rightColumn.mCustomScrollbar({set_height: $(window).height() - 180});
+        $footerEl = $('footer');
+        elTop = $stickyEl.offset().top;
+
+        setStickyElHeight();
+
+        $rightColumn.mCustomScrollbar({set_height: "100%"});
 
         $('.rootNode').children(":nth-child(2)").addClass("collapsibleList");
         CollapsibleLists.apply(); 
         updateTree();
+
+        $(window).scroll(function() { 
+            var windowTop = $window.scrollTop();
+            $stickyEl.toggleClass('sticky', windowTop > elTop);
+
+            setStickyElHeight();
+
+            if ($rightColumn) {
+                $rightColumn.mCustomScrollbar("update");
+            }
+        });
     });
 
     $('body').on('click', 'li.collapsibleListClosed, li.collapsibleListOpen', function() {
@@ -56,8 +74,13 @@ var DOCS = (function($) {
         $.get(State.url, function(data) {
             var newLeftColumn = $(data).filter("div").find("#left_column");
             $('#left_column').replaceWith(newLeftColumn);
+
             window.scrollTo(0,0);
+
+            setStickyElHeight();
+            $rightColumn.mCustomScrollbar("update");
         });
+
         updateTree();
     }
 

@@ -467,20 +467,17 @@ nav {
         border-bottom: 1px solid #CCC;
 	}
 	
-#right_column_spacer {
-    margin-top: 40px;
-}
-
-#right_column {
+#right_column_container {
 	width: 320px;
-	margin: 0px 0 0px 20px;
+	margin: 40px 0 40px 20px;
 	float: left;
 	display: inline;
 }
 
-#right_column.sticky {
+#right_column_container.sticky {
     position: fixed;
-    top: 10px;
+    top: 0;
+    margin-top: 0px;
 }
 
 	#right_column h4 {
