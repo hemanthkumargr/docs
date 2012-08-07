@@ -15,7 +15,7 @@ blCMSStorage.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
 9. If you are using multiple databases in different environments:
     - Create copies of the SQL files and modify them as described in point 8, above
     - Save them to a new directory: `site/src/main/resources/sql/mssql`
-    - In the environments that use MSSQL Server that require import scripts, configure the persistence provider to handle them:
+    - In the environments that use MSSQL Server that require import scripts, configure the persistence provider to execute them:
 ```
 blPU.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
 blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
