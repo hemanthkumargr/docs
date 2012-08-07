@@ -1,59 +1,32 @@
 1. Download and install Oracle (http://www.oracle.com/technetwork/database/enterprise-edition/overview/index.html)
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see Oracle documentation if you have questions about how to administrate databases and users).
 3. Download the Oracle JDBC driver (http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
-4. The Oracle JDBC driver is commercial software and is not available for public download via Maven. Therefore, you'll either need to install the driver in your local maven repository manually, or install your own nexus server and place the driver there for you to reference from your pom.
-    - Manual Installation
-        - `mvn install:install -file -DgroupId=oracle -DartifactId=oracle -Dversion=11g eDfile=[path to jdbc driver jar file] -Dpackaging=jar -DgeneratePom=true`
-    - Nexus Server
-        1. Download and install Sonatype Nexus (http://nexus.sonatype.org/download-nexus.html)
-        2. Refer to this page for more information (http://www.sonatype.com/people/2008/11/adding-a-jar-to-a-maven-repository-with-sonatype-nexus/)
-5. Update the parent POM to include the dependency for the Oracle driver. Update the other pom files to include a runtime dependency on SQL Server. At the same time, remove the dependency from these files on HSQLDB.
-    - Root pom.xml change:
-    ```xml
-    <dependencyManagement>
-        ...
-        <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>oracle</artifactId>
-            <version>11g</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
-       ...
-    </dependencyManagement>
-    ```
-    - pom.xml changes for site-war,admin-war,and test projects
-    ```xml
-    <dependencies>
-        ...
-        <dependency>
-            <groupId>oracle</groupId>
-            <artifactId>oracle</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        ...
-    </dependencies>
-    ```
-6. Update all of the `persistenceUnit` declarations in the project to use the Oracle dialect. (see [[Database Configuration]] section for a list of file locations).
-```xml
-<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+4. Follow the instructions for your application server for creating a JNDI resource(s). Note that the driver does not go inside the war file(s). Rather it must go on the class path of the server.
+5. Update the runtime properties to use the correct dialect for the MS SQL Server. (see [[Database Configuration]]).
 ```
-7. Update the Broadleaf Datasource components.  (see [[Database Configuration]] section for a list of file locations).
-```xml
-<bean id="webDS" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-     <property name="driverClassName" value="oracle.jdbc.OracleDriver" />
-     <!-- This url assumes you are connecting locally to an Oracle Express Edition -->
-     <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:XE" />
-     <property name="username" value="[your oracle username]" />
-     <property name="password" value="[your oracle user password]" />
-     <property name="testOnBorrow" value="true"/>
-     <property name="testOnReturn" value="true"/>
-     <property name="validationQuery" value="SELECT sysdate from dual"/>
-</bean>
+blPU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blSecurePU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blCMSStorage.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
 ```
-8. Update the sql files that are imported during the demo startup for Oracle compatibility.
-    - All \*.sql files under `site-war/src/main/resources/sql` must be updated
+6. If you are only using Oracle in all environments, update the sql files that are imported during the demo startup for SQL Server compatibility.
+    - All \*.sql files under `site/src/main/resources/sql` must be updated
     - Do a search for the word `TRUE` (case sensitive) and replace with `1`
     - Do a search for the word `FALSE` (case sensitive) and replace with `0`
-9. Update the `application-security.xml` file.   Replace the word `TRUE` in the `users-by-username-query` with the number `1`.
+7. If you are using multiple databases in different environments:
+    - Create copies of the SQL files and modify them as described in point 6, above
+    - Save them to a new directory: `site/src/main/resources/sql/oracle`
+    - In the environments that use Oracle that require import scripts, configure the persistence provider to execute them:
+```
+blPU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
+  /sql/oracle/load_admin_users.sql,\
+  /sql/oracle/load_code_tables.sql,\
+  /sql/oracle/load_table_sequences.sql,\
+  /sql/oracle/load_catalog_data.sql,\
+  /sql/oracle/load_content_structure.sql,\
+  /sql/oracle/load_content_data.sql
 
+blSecurePU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blCMSStorage.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+```
+8. Update the `/WEB-INF/applicationContext-security.xml` file.   Replace the word `TRUE` in the `users-by-username-query` with the number `1`.
