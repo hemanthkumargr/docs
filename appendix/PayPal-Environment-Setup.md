@@ -32,9 +32,6 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 You will need to enter the following key/value pairs in the appropriate locations and replace the "?" with your paypal api account details:
 
 ### common.properties
-    paypal.user=?
-    paypal.password=?
-    paypal.signature=?
     paypal.version=78.0
     paypal.shipping.display=? (e.g. 0, 1, or 2)
     paypal.additional.HDRIMG=?
@@ -48,6 +45,9 @@ You will need to enter the following key/value pairs in the appropriate location
     - 2 : PayPal will obtain the shipping address from the buyer's profile.
     
 ### development.properties, production.properties etc...
+    paypal.user=?
+    paypal.password=?
+    paypal.signature=?
 	paypal.return.url=? (e.g. http://localhost:8080/paypal/process or http://mycompany.com/paypal/process)
 	paypal.cancel.url=? (e.g. http://localhost:8080/cart or http://mycompany.com/cart)
 
