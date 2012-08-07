@@ -54,16 +54,18 @@
             {{ page.content }}
         </div>
         
-        <div id="right_column">
-            <ul class="treeView" style="display: none;">
-                <li class="rootNode">
-                    <b>Broadleaf 2.0 Documentation</b>
+        <div id="right_column_spacer">
+            <div id="right_column">
+                <ul class="treeView" style="display: none;">
+                    <li class="rootNode">
+                        <b>Broadleaf 2.0 Documentation</b>
+                        {{ page.sidebar }}
+                    </li>
+                </ul>
+                <noscript>
                     {{ page.sidebar }}
-                </li>
-            </ul>
-            <noscript>
-                {{ page.sidebar }}
-            </noscript>
+                </noscript>
+            </div>
         </div>
         
     </div> <!-- width_setter -->
@@ -92,9 +94,12 @@
 </footer>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
 <script>
     //<![CDATA[
     window.jQuery || document.write('<script src="{{ wiki.base_path }}js/libs/jquery-1.7.2.min.js"><\/script>')
+    window.jQuery.ui || document.write('<script src="{{ wiki.base_path }}js/libs/jquery-ui-1.8.21.custom.min.js"><\/script>')
     //]]>
 </script>
     
