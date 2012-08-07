@@ -424,7 +424,6 @@ nav {
 	}
 
 #left_column {
-    min-height: 400px;
 	width: 620px;
 	margin: 40px 0 40px 20px;
 	float: left;
@@ -469,15 +468,20 @@ nav {
 	}
 	
 #right_column_container {
-	width: 320px;
-	margin: 40px 0 40px 20px;
+	width: 300px;
+	margin: 10px 0 40px 20px;
 	float: left;
 	display: inline;
+	background: url(/images/layout/darker.png) left top repeat;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    padding: 10px 0 10px 10px;
 }
 
 #right_column_container.sticky {
     position: fixed;
-    top: 0;
+    top: 10px;
     margin-top: 0px;
 }
 
@@ -601,7 +605,7 @@ nav {
 		
 footer {
 	width: 100%;
-	padding: 0 0 50px 0;
+	padding: 0;
 	font-family: "proxima-nova",sans-serif;
 	font-style: normal;
 	color: #454545;
@@ -610,7 +614,12 @@ footer {
 	display: block;
 }
 
-	footer #copyright {
+    footer .width_setter {
+        background: url('/images/layout/bg.jpg') top left repeat;
+    }
+
+
+	#copyright {
 		width: 100%;
 		font-size: 10px;
 		font-weight: 600;
@@ -618,6 +627,8 @@ footer {
 		letter-spacing: 3px;
 		text-align: center;
 		display: block;
+        margin-top: 30px;
+        clear: both;
 	}
 	
 	footer #sitenav_title {
@@ -762,10 +773,7 @@ thead {
     -moz-user-select:none;
     position:relative;
     padding-left: 0;
-}
-
-.treeView li.rootNode {
-    background: url('/images/layout/treeView/list-item-root.png') no-repeat top left !important;
+    margin-bottom: 0;
 }
 
 .treeView ul{
@@ -773,18 +781,23 @@ thead {
     padding:0 0 0 24px;
 }
 
-.treeView ul ul{
-    background:url('/images/layout/treeView/list-item-contents.png') repeat-y left;
-}
-
 .treeView li:last-child > ul{
     background-image:none;
+}
+
+.treeView li.rootNode {
+    list-style-type: none;
+    list-style-image: none;
+}
+
+.treeView ul.firstNode {
+    margin-left: -48px;
+    margin-top: -24px;
 }
 
 .treeView li{
     margin:0;
     padding:0;
-    background:url('/images/layout/treeView/list-item-root.png') no-repeat top left;
     list-style-position:inside;
     list-style-image:url('/images/layout/treeView/button.png');
     cursor:auto;
@@ -802,20 +815,7 @@ thead {
 }
 
 .treeView li li{
-    background-image:url('/images/layout/treeView/list-item.png');
     padding-left:24px;
-}
-
-.treeView li:last-child{
-    background-image:url('/images/layout/treeView/list-item-last.png');
-}
-
-.treeView li.collapsibleListOpen{
-    background-image:url('/images/layout/treeView/list-item-open.png');
-}
-
-.treeView li.collapsibleListOpen:last-child{
-    background-image:url('/images/layout/treeView/list-item-last-open.png');
 }
 
 .treeView .active {

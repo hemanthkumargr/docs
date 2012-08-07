@@ -5,8 +5,6 @@ if (window.history && window.history.pushState) {
 
         if (linkUrl.indexOf('http') != -1) {
             return true;
-        } else if (linkUrl.indexOf('#') != -1) {
-            return true;
         } else {
             event.preventDefault();
             History.pushState({}, null, linkUrl); 
@@ -20,51 +18,45 @@ $(window).bind('statechange',function(e){
 });
 
 var DOCS = (function($) {
-
     var $window = $(window);
     var $stickyEl;
     var $rightColumn;
-    var $footerEl;
-    var elTop
 
-    function setStickyElHeight() {
+    function updateHeights() {
         var $leftColumn = $('#left_column');
 
-        var maxPossibleHeight = $window.height() - 190 + 
-            Math.min(150, $window.scrollTop()) + 
-            Math.min($('footer').offset().top - $window.scrollTop() - $window.height(), 0)
+        $stickyEl.css('height', '');
+        $leftColumn.css('min-height', Math.min($window.height() - 10, $stickyEl.height()));
+        $stickyEl.css('height', Math.min($window.height() - 40
+             - Math.max($stickyEl.offset().top - $window.scrollTop(), 0)
+                , $stickyEl.height()));
 
-        $stickyEl.css('height', Math.min($leftColumn.height(), maxPossibleHeight));
+        if ($rightColumn) {
+            $rightColumn.mCustomScrollbar("update");
+        }
     }
 
     $(document).ready(function() {
         $stickyEl = $("#right_column_container");
         $rightColumn = $('#right_column');
-        $footerEl = $('footer');
         elTop = $stickyEl.offset().top;
-
-        setStickyElHeight();
 
         $rightColumn.mCustomScrollbar({set_height: "100%"});
 
-        $('.rootNode').children(":nth-child(2)").addClass("collapsibleList");
+        $('.rootNode').children(":nth-child(1)").addClass("collapsibleList").addClass("firstNode");
         CollapsibleLists.apply(); 
         updateTree();
+        updateHeights();
 
         $(window).scroll(function() { 
             var windowTop = $window.scrollTop();
-            $stickyEl.toggleClass('sticky', windowTop > elTop);
-
-            setStickyElHeight();
-
-            if ($rightColumn) {
-                $rightColumn.mCustomScrollbar("update");
-            }
+            $stickyEl.toggleClass('sticky', windowTop > elTop - 10);
+            updateHeights();
         });
     });
 
     $('body').on('click', 'li.collapsibleListClosed, li.collapsibleListOpen', function() {
-        $rightColumn.mCustomScrollbar("update");
+        updateHeights();
     });
 
     /**
@@ -75,20 +67,24 @@ var DOCS = (function($) {
             var newLeftColumn = $(data).filter("div").find("#left_column");
             $('#left_column').replaceWith(newLeftColumn);
 
-            window.scrollTo(0,0);
-
-            setStickyElHeight();
-            $rightColumn.mCustomScrollbar("update");
+            updateTree();
+            updateHeights();
         });
-
-        updateTree();
     }
 
+    /**
+     * Select the correct node to highlight based on the URL
+     */
     function updateTree() {
         // Identify the current node in the sidebar based on the active window
         var $currentLink = $('#right_column').find('a').filter(function() { 
             return $(this).attr('href') == window.location.pathname; 
         });
+
+        if ($rightColumn) {
+            var currentLinkOffset = $currentLink.position().top;
+            $rightColumn.mCustomScrollbar("scrollTo", currentLinkOffset);
+        }
 
         $('#right_column').find('.active').removeClass('active');
         $currentLink.addClass('active');
@@ -121,39 +117,8 @@ var DOCS = (function($) {
         }
 
         $('.treeView').show();
-        $rightColumn.mCustomScrollbar("update");
     }
 
-    /*
-    $(document).on('click', '.inline-links a', (function(event) {
-        if ($(this).parent().attr('class') != 'inline-links') {
-            return true;
-        }
-
-        event.preventDefault();
-
-        $link = $(this);
-        $ajax = $link.next();
-
-        if (!$ajax.hasClass('ajax')) {
-            $ajax = $('<div>').addClass('ajax').hide();
-            $link.after($ajax);
-        }
-
-        if ($ajax.is(':visible')) {
-            $ajax.hide();
-            return false;
-        } else {
-            if ($ajax.html().length == 0) {
-                $.get($link.attr('href'), function(data) {
-                    $ajax.html($(data).filter('.content'));
-                });
-            }
-            $ajax.show();
-        }
-    }));
-    */
-	
 	return {
         navigate: navigate,
         updateTree: updateTree
