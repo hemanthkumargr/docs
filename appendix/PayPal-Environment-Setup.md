@@ -48,8 +48,22 @@ You will need to enter the following key/value pairs in the appropriate location
     paypal.user=?
     paypal.password=?
     paypal.signature=?
-	paypal.return.url=? (e.g. http://localhost:8080/paypal/process or http://mycompany.com/paypal/process)
-	paypal.cancel.url=? (e.g. http://localhost:8080/cart or http://mycompany.com/cart)
+    paypal.api.url=https://api-3t.sandbox.paypal.com/nvp
+    paypal.user.redirect.url=https://www.sandbox.paypal.com/cgi-bin/webscr
+    paypal.return.url=? (e.g. http://localhost:8080/paypal/process)
+    paypal.cancel.url=? (e.g. http://localhost:8080/cart)
+
+- paypal.return.url: the URL PayPal should redirect to after completing the order
+- paypal.cancel.url: the URL PayPal should redirect to if a user abandons the order
+
+### production.properties
+    paypal.user=?
+    paypal.password=?
+    paypal.signature=?
+    paypal.api.url=https://api-3t.paypal.com/nvp
+    paypal.user.redirect.url=https://www.paypal.com/cgi-bin/webscr
+    paypal.return.url=? (e.g. http://mycompany.com/paypal/process)
+    paypal.cancel.url=? (e.g. http://mycompany.com/cart)
 
 - paypal.return.url: the URL PayPal should redirect to after completing the order
 - paypal.cancel.url: the URL PayPal should redirect to if a user abandons the order
