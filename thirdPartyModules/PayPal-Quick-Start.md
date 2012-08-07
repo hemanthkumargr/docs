@@ -33,7 +33,7 @@ public class PayPalController extends BroadleafPayPalController {
 
     //This is the URL that will initiate the checkout process with PayPal.
     @RequestMapping("/paypal/checkout")
-    public ModelAndView paypalCheckout(HttpServletRequest request) throws PaymentException {
+    public String paypalCheckout(HttpServletRequest request) throws PaymentException {
         return super.paypalCheckout(request);
     }
 
@@ -41,8 +41,8 @@ public class PayPalController extends BroadleafPayPalController {
     //This should match ${paypal.return.url} in your properties file.
     //For example:  ${paypal.return.url}=http://localhost:8080/mycompany/paypal/process
     @RequestMapping("/paypal/process")
-    public ModelAndView paypalProcess(HttpServletRequest request, @RequestParam String token, @RequestParam("PayerID") String payerID) throws CheckoutException, PricingException {
-        return super.paypalProcess(request, token, payerID);
+    public String paypalProcess(HttpServletRequest request, HttpServletResponse response, Model model, @RequestParam String token, @RequestParam("PayerID") String payerID) throws CheckoutException, PricingException {
+        return super.paypalProcess(request, response, model, token, payerID);
     }
 
 }
