@@ -424,6 +424,7 @@ nav {
 	}
 
 #left_column {
+    min-height: 400px;
 	width: 620px;
 	margin: 40px 0 40px 20px;
 	float: left;
