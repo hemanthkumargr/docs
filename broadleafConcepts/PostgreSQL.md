@@ -1,43 +1,10 @@
 1. Download and install PostgreSQL (http://www.postgresql.org/download/)
-2. Using `pgAdmin`, create a new user (the example below uses a username of `sa` with pwd of `demo`)
-3. Using `pgAdmin`, create a new database that is owned by your new user (the example below uses a database named `broadleaf`)
-4. Update the parent POM to include the dependency for the PostgreSQL driver. Update the other pom files to include a runtime dependency on PostgreSQL. At the same time, remove the dependency from these files on HSQLDB.
-    - Root pom.xml change:
-    ```xml
-    <dependencyManagement>
-        ...
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901.jdbc4</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
-        ...
-    </dependencyManagement>
-    ```
-    - pom.xml changes for site-war,admin-war,and test projects
-    ```xml
-    <dependencies>
-       ...
-        <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-       ...
-    </dependencies>
-    ```
-5. Update all of the persistenceUnit declarations in the project to use the PostgreSQL dialect. (see [[Database Configuration]] section for a list of file locations)
-```xml
-<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see PostgreSQL documentation if you have questions about how to administrate databases and users).
+3. Download the PostgreSQL JDBC driver (http://jdbc.postgresql.org/)
+4. Follow the instructions for your application server for creating a JNDI resource(s). Note that the driver does not go inside the war file(s). Rather it must go on the class path of the server.
+6. Update the runtime properties to use the correct dialect for PostgreSQL. (see [[Database Configuration]]).
 ```
-6. Update the Broadleaf Datasource components. (see [[Database Configuration]] section for a list of file locations)
-```xml
-<bean id="webDS" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-    <property name="driverClassName" value="org.postgresql.Driver" />
-    <property name="url" value="jdbc:postgresql://localhost:5432/broadleaf" />
-    <property name="username" value="sa" />
-    <property name="password" value="demo" />
-</bean>
+blPU.hibernate.dialect="org.hibernate.dialect.PostgreSQLDialect
+blSecurePU.hibernate.dialect="org.hibernate.dialect.PostgreSQLDialect
+blCMSStorage.hibernate.dialect="org.hibernate.dialect.PostgreSQLDialect
 ```
