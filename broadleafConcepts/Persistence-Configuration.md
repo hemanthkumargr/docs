@@ -225,6 +225,16 @@ Will result in a persistence unit property, for the blPU persistence unit only, 
 ```
 <property key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
 ```
+And an entry such as this in the persistenceUnitPostProcessor:
+```
+<entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
+```
+With a properly configured runtime properties file with the following entry:
+```
+blSecurePU.hibernate.hbm2ddl.import_files=null
+```
+Will result in the property "hibernate.hbm2ddl.import_files" being completely removed from the blSecurePU persistence unit only. Of course, the effect will be the no SQL scripts will be run when this persistence unit is created.  You can use this approach with any properties and any persistence unit.
+
 This allows you to pre-configure all of your persistence unit properties for their respective environments without the need to change them at build or deployment time.
 
 ### Persisting Additional Entities
