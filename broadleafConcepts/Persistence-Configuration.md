@@ -113,40 +113,67 @@ Here, we have created a new entity manager factory for our new persistence unit.
 
 ### Minimal
 
-Your managed entities, mapping files and datasource properties are specified inside your persistence xml file(s). Here is an example that supports the minimal persistence unit configuration for Broadleaf:
+Your managed entities, mapping files and datasource properties are specified inside your persistence.xml file(s). Here is an example that supports the minimal persistence unit configuration for Broadleaf:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
-             version="1.0">
-
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+             
     <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
-        <non-jta-data-source>jdbc/web</non-jta-data-source>
-        <exclude-unlisted-classes/>
-        <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
-            <property name="hibernate.archive.autodetection" value="false" />
-        </properties>
-    </persistence-unit>
+    	<non-jta-data-source>jdbc/web</non-jta-data-source>
+		<exclude-unlisted-classes/>
+	</persistence-unit>
+	
+	<persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>jdbc/webSecure</non-jta-data-source>
+		<exclude-unlisted-classes/>
+	</persistence-unit>
 
-    <persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
-        <non-jta-data-source>jdbc/webSecure</non-jta-data-source>
-        <exclude-unlisted-classes/>
-        <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
-            <property name="hibernate.archive.autodetection" value="false" />
-        </properties>
-    </persistence-unit>
+    <persistence-unit name="blCMSStorage" transaction-type="RESOURCE_LOCAL">
+		<non-jta-data-source>jdbc/cmsStorage</non-jta-data-source>
+		<exclude-unlisted-classes/>
+	</persistence-unit>
 </persistence>
 ```
 
-In this example, we have configured the minimal information for the 2 required persistence units: blPU and blSecurePU. Here, we define the datasource name we want to associate with the persistence unit:
+In this example, we have configured the minimal information for the required persistence units. In this case, we have told the ORM provider to exclude unlisted classes: `<exclude-unlisted-classes/>`. Auto-scanning of jars for entities will be disabled. We highly suggest you keep this configuration in place, as it reduces the amount of time required to launch a Broadleaf-based application by not forcing all entities to be loaded by all entity managers. This becomes increasingly important in multi-persistence unit environments with many entities.
+
+Since we use JPA and Hibernate, we can specify properties that control the behavior of the persistence unit.  For example, one popular property when working with JPA and Hibernate is the database dialect.  Normally, you would configure this with JPA in the persistence.xml file like this:
 
 ```xml
-<non-jta-data-source>jdbc/web</non-jta-data-source>
+<properties>
+    <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+</properties>
 ```
+
+However, Broadleaf provides a mechanism to easily control this behavior on a per-environment basis. Why do you need this?  Well the answer is that many thing can and do change between environments. But, since these are defined inside the war, you don't want to re-build for every environment. Many QA departments require the same binary war that is certified for QA to be deployed to production. This restricts being able to build with new properties for each environment.  For example, perhaps you want the following configuration in your local environment:
+```xml
+<properties>
+  <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+  <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+  <property name="hibernate.show_sql" value="true"/>
+  <property name="hibernate.cache.use_second_level_cache" value="true"/>
+  <property name="hibernate.cache.use_query_cache" value="true"/>
+  <property name="hibernate.hbm2ddl.import_files" value="/sql/import.sql"/>
+</properties>
+```
+
+But you want this in production:
+```xml
+<properties>
+  <property name="hibernate.hbm2ddl.auto" value="validate" />
+  <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+  <property name="hibernate.show_sql" value="false"/>
+  <property name="hibernate.cache.use_second_level_cache" value="true"/>
+  <property name="hibernate.cache.use_query_cache" value="true"/>
+  <!--property name="hibernate.hbm2ddl.import_files" value="/sql/import.sql"/-->
+</properties>
+```
+
+This can be done using Broadleaf's [Runtime Environment Configuration|Runtime-Environment-Configuration]
 
 We must also define the target database dialect that the ORM provider will use to communicate with our database. This example is utilizing the dialect for MySQL. Also, in this case, we have told the ORM provider to turn off its autodetection feature. Used in concert with the `<exclude-unlisted-classes/>` element, auto-scanning of jars for entities will be disabled. We highly suggest you keep this configuration in place, as it reduces the amount of time required to launch a Broadleaf-based application by not forcing all entities to be loaded by all entity managers. This becomes increasingly important in multi-persistence unit environments with many entities.
 
