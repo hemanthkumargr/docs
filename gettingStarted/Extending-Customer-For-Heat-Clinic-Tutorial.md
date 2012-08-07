@@ -117,33 +117,16 @@ I chose the path `core/src/main/resources/applicationContext-entity.xml`. Here a
     xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!-- Note that this will replace Broadleaf's internal representation 
-    of "Product" with your HotSauce representation. Also notice that it 
-    is prototype scoped. This MUST NOT be a singleton since it represents 
-    particular state. -->
+    <!-- This file will contain bean overrides for extensions of Broadleaf entities -->
+    <!-- For example, if you have a custom class that extends CustomerImpl, you would note that here -->
+    
     <bean id="org.broadleafcommerce.profile.core.domain.Customer"
         class="com.mycompany.profile.core.domain.HCCustomerImpl"
         scope="prototype"/>
 </beans>
 ```
 
-Finally, we need to register this `applicationContext-entity.xml` file with the EntityConfiguration so that it knows to scan for definitions inside the file.
-
-In our `site/src/main/webapp/WEB-INF/applicationContext.xml` file, we can add:
-
-```xml
-<bean id="blEntityConfiguration" class="org.broadleafcommerce.common.persistence.EntityConfiguration">
-    <property name="entityContexts">
-        <list>
-            <value>classpath:applicationContext-entity.xml</value>
-        </list>
-    </property>
-</bean>
-```
-
-For reference, here are the classes that were invovled in this tutorial:
-
-![Modified Classes](/images/customer-extension-tutorial-1.png)
+> Note: If you're using our bundled workspace, we already reference the applicationContext-entity file. You can see this definition in applicationContext.xml.
 
 And there we go! Whenever we create a new Customer via Broadleaf (for example: `customerService.createCustomer()`, an `HCCustomerImpl` instance will be generated instead of the typical `CustomerImpl`. This instance obviously has the extra fields that we added.
 
