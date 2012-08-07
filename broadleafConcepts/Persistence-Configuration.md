@@ -173,7 +173,7 @@ But you want this in production:
 </properties>
 ```
 
-This can be done using Broadleaf's [Runtime Environment Configuration|Runtime-Environment-Configuration]
+This can be done using Broadleaf's Runtime Environment Configuration
 
 We must also define the target database dialect that the ORM provider will use to communicate with our database. This example is utilizing the dialect for MySQL. Also, in this case, we have told the ORM provider to turn off its autodetection feature. Used in concert with the `<exclude-unlisted-classes/>` element, auto-scanning of jars for entities will be disabled. We highly suggest you keep this configuration in place, as it reduces the amount of time required to launch a Broadleaf-based application by not forcing all entities to be loaded by all entity managers. This becomes increasingly important in multi-persistence unit environments with many entities.
 
