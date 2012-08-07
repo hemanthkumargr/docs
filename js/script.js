@@ -1,11 +1,15 @@
 // Bind links that can be animated to use HTML5 history if the browser supports it
 if (window.history && window.history.pushState) {
     $(document).on('click', 'a', (function(event) {
-        if ($(this).attr('href').indexOf('http') != -1) {
+        var linkUrl = $(this).attr('href');
+
+        if (linkUrl.indexOf('http') != -1) {
+            return true;
+        } else if (linkUrl.indexOf('#') != -1) {
             return true;
         } else {
             event.preventDefault();
-            History.pushState({}, null, $(this).attr('href')); 
+            History.pushState({}, null, linkUrl); 
         }
     }));
 }
