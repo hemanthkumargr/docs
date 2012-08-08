@@ -39,9 +39,12 @@ var DOCS = (function($) {
             var newLeftColumn = $(data).filter("div").find("#left_column");
             $('#left_column').replaceWith(newLeftColumn);
 
-            window.scrollTo(0, 175);
-
             updateTree();
+
+            $('html, body').animate({
+                scrollTop: 175
+            }, 300);
+            
         });
     }
 
