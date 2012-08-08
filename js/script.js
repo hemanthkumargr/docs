@@ -19,44 +19,16 @@ $(window).bind('statechange',function(e){
 
 var DOCS = (function($) {
     var $window = $(window);
-    var $stickyEl;
     var $rightColumn;
 
-    function updateHeights() {
-        var $leftColumn = $('#left_column');
-
-        $stickyEl.css('height', '');
-        $leftColumn.css('min-height', Math.min($window.height() - 10, $stickyEl.height()));
-        $stickyEl.css('height', Math.min($window.height() - 40
-             - Math.max($stickyEl.offset().top - $window.scrollTop(), 0)
-                , $stickyEl.height()));
-
-        if ($rightColumn) {
-            $rightColumn.mCustomScrollbar("update");
-        }
-    }
-
     $(document).ready(function() {
-        $stickyEl = $("#right_column_container");
         $rightColumn = $('#right_column');
-        elTop = $stickyEl.offset().top;
 
-        $rightColumn.mCustomScrollbar({set_height: "100%"});
-
+        // Initialize the collapsible list
         $('.rootNode').children(":nth-child(1)").addClass("collapsibleList").addClass("firstNode");
         CollapsibleLists.apply(); 
         updateTree();
-        updateHeights();
 
-        $(window).scroll(function() { 
-            var windowTop = $window.scrollTop();
-            $stickyEl.toggleClass('sticky', windowTop > elTop - 10);
-            updateHeights();
-        });
-    });
-
-    $('body').on('click', 'li.collapsibleListClosed, li.collapsibleListOpen', function() {
-        updateHeights();
     });
 
     /**
@@ -67,8 +39,9 @@ var DOCS = (function($) {
             var newLeftColumn = $(data).filter("div").find("#left_column");
             $('#left_column').replaceWith(newLeftColumn);
 
+            window.scrollTo(0, 175);
+
             updateTree();
-            updateHeights();
         });
     }
 
@@ -81,12 +54,7 @@ var DOCS = (function($) {
             return $(this).attr('href') == window.location.pathname; 
         });
 
-        if ($rightColumn) {
-            var currentLinkOffset = $currentLink.position().top;
-            $rightColumn.mCustomScrollbar("scrollTo", currentLinkOffset);
-        }
-
-        $('#right_column').find('.active').removeClass('active');
+        $rightColumn.find('.active').removeClass('active');
         $currentLink.addClass('active');
 
         // If this node has children, open it so that they're visible
