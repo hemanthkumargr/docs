@@ -4,15 +4,15 @@ To properly configure Broadleaf's persistence system, we will need to follow a f
 
 ### Minimal
 
-Broadleaf provides a default application context file for configuring data sources.  By default, Broadleaf uses 3 data sources.  The first is the "webDS", or main data source containing most of the tables used by Broadleaf Commerce.  The second is the "webSecureDS" which is meant to provide a secure data source for tables that contain things like payment information in a PCI compliant situation.  The third data source, "webContentDS", is a data source to store content-managed data such as page snippets.  For simplicity, and in many real-world cases, it will be preferable to store all data in the same database or schema.  The ability to separate them is provided as a convenience in cases where architects, DBAs, or system administrators require it.  Broadleaf uses JNDI, by default, to provide data sources.  This is a very common approach for many organizations.  It allows system administrators to keep the database connection configuration separate from the code base, but allows a standard and consistent way to access database resources across multiple environments.  Here is a snippet from the default Broadleaf data source configuration found in /WEB-INF/applicationContext-datasource.xml:
+Broadleaf provides a default application context file for configuring data sources.  By default, Broadleaf uses 3 data sources.  The first is the "webDS", or main data source containing most of the tables used by Broadleaf Commerce.  The second is the "webSecureDS" which is meant to provide a secure data source for tables that contain things like payment information in a PCI compliant situation.  The third data source, "webContentDS", is a data source to store content-managed data such as page snippets.  For simplicity, and in many real-world cases, it will be preferable to store all data in the same database or schema.  The ability to separate them is provided as a convenience in cases where architects, DBAs, or system administrators require it.  Broadleaf uses JNDI, by default, to provide data sources.  This is a very common approach for many organizations.  It allows system administrators to keep the database connection configuration separate from the code base, but allows a standard and consistent way to access database resources across multiple environments.  Here is a snippet from the default Broadleaf data source configuration found in `/WEB-INF/applicationContext-datasource.xml`:
 
 ```xml
 <jee:jndi-lookup id="webDS" jndi-name="jdbc/web"/>
-<alias name="webDS" alias="webSecureDS"/>
-<alias name="webDS" alias="webStorageDS"/>
+<jee:jndi-lookup id="webSecureDS" jndi-name="jdbc/secure"/>
+<jee:jndi-lookup id="webStorageDS" jndi-name="jdbc/storage"/>
 ```
 
-Notice that there is a single bean named "webDS" that is looked up via JNDI.  The other aliases allow for the webDS data source to be referenced using different bean names.  However, they are the same bean and point to the same data source.
+> Even though you must use three distinct JNDI sources, it is ok that they point to the same database
 
 The next thing to note is the /WEB-INF/web.xml file, which should have the JNDI resource defined:
 
@@ -28,53 +28,53 @@ The last thing to note is the "blPersistenceUnitManager".  This bean is merged w
 
 ```xml
 <bean id="blPersistenceUnitManager" class="org.broadleafcommerce.common.extensibility.jpa.MergePersistenceUnitManager">
-        <property name="persistenceXmlLocations">
-            <list>
-                <value>classpath*:/META-INF/persistence.xml</value>
-            </list>
-        </property>
-        <property name="dataSources">
-            <map>
-                <entry key="jdbc/web" value-ref="webDS"/>
-                <entry key="jdbc/webSecure" value-ref="webSecureDS"/>
-                <entry key="jdbc/cmsStorage" value-ref="webStorageDS"/>
-            </map>
-        </property>
-        <property name="defaultDataSource" ref="webDS"/>
-        <property name="persistenceUnitPostProcessors">
-        	<list>
-        		<bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
-        			<property name="persistenceUnitProperties">
-        				<map>
-        					<!-- Overrides from environment properties files for blPU PersistenceUnit -->
-        					<entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
-        					<entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
-        					<entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
-        					<entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
-        					<entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
-        					
-        					<!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
-        					<entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
-        					<entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
-        					<entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
-        					<entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
-        					<entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
-        					
-        					<!-- Overrides from environment properties files for blSecure PersistenceUnit -->
-        					<entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
-        					<entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
-        					<entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
-        					<entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
-        					<entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
-        				</map>
-        			</property>
-        		</bean>
-        	</list>
-        </property>
-    </bean>
+    <property name="persistenceXmlLocations">
+        <list>
+            <value>classpath*:/META-INF/persistence.xml</value>
+        </list>
+    </property>
+    <property name="dataSources">
+        <map>
+            <entry key="jdbc/web" value-ref="webDS"/>
+            <entry key="jdbc/webSecure" value-ref="webSecureDS"/>
+            <entry key="jdbc/cmsStorage" value-ref="webStorageDS"/>
+        </map>
+    </property>
+    <property name="defaultDataSource" ref="webDS"/>
+    <property name="persistenceUnitPostProcessors">
+        <list>
+            <bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
+                <property name="persistenceUnitProperties">
+                    <map>
+                        <!-- Overrides from environment properties files for blPU PersistenceUnit -->
+                        <entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
+                        <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
+                        <entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
+                        <entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
+                        <entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
+                        <entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
+                        
+                        <!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
+                        <entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
+                        <entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
+                        <entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
+                        <entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
+                        <entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
+                        <entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
+                        
+                        <!-- Overrides from environment properties files for blSecure PersistenceUnit -->
+                        <entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
+                        <entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
+                        <entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
+                        <entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
+                        <entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
+                        <entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
+                    </map>
+                </property>
+            </bean>
+        </list>
+    </property>
+</bean>
 ```
 
 The "blPersistenceUnitManager" defines the location (and name) of the persistence.xml.  This, by default, is located at /META-INF/persistence.xml, but could be anywhere.  This could also be multiple files, which would be merged together. The data sources, in this case, reference the 3 Spring beans, described above.  We will discuss the persistence unit post processors later.
@@ -123,19 +123,19 @@ Your managed entities, mapping files and datasource properties are specified ins
              version="2.0">
              
     <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
-    	<non-jta-data-source>jdbc/web</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
-	
-	<persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
-		<non-jta-data-source>jdbc/webSecure</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
+        <non-jta-data-source>jdbc/web</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
+    
+    <persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
+        <non-jta-data-source>jdbc/webSecure</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
 
     <persistence-unit name="blCMSStorage" transaction-type="RESOURCE_LOCAL">
-		<non-jta-data-source>jdbc/cmsStorage</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
+        <non-jta-data-source>jdbc/cmsStorage</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
 </persistence>
 ```
 
@@ -177,38 +177,38 @@ This can be done using Broadleaf's [[Runtime Environment Configuration|Runtime E
 ```xml
 ...
 <property name="persistenceUnitPostProcessors">
-        	<list>
-        		<bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
-        			<property name="persistenceUnitProperties">
-        				<map>
-        					<!-- Overrides from environment properties files for blPU PersistenceUnit -->
-        					<entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
-        					<entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
-        					<entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
-        					<entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
-        					<entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
-        					
-        					<!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
-        					<entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
-        					<entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
-        					<entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
-        					<entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
-        					<entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
-        					
-        					<!-- Overrides from environment properties files for blSecure PersistenceUnit -->
-        					<entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
-        					<entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
-        					<entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
-        					<entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
-        					<entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
-        					<entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
-        				</map>
-        			</property>
-        		</bean>
-        	</list>
-        </property>
+    <list>
+        <bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
+            <property name="persistenceUnitProperties">
+                <map>
+                    <!-- Overrides from environment properties files for blPU PersistenceUnit -->
+                    <entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
+                    <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
+                    <entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
+                    <entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
+                    <entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
+                    <entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
+                    
+                    <!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
+                    <entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
+                    <entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
+                    <entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
+                    <entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
+                    <entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
+                    <entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
+                    
+                    <!-- Overrides from environment properties files for blSecure PersistenceUnit -->
+                    <entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
+                    <entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
+                    <entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
+                    <entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
+                    <entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
+                    <entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
+                </map>
+            </property>
+        </bean>
+    </list>
+</property>
 ...
 ```
 

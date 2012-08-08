@@ -4,14 +4,14 @@ Let's take a look at a typical persistence unit configuration:
 
 ```xml
 <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
- <properties>
-   <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
-   <property name="hibernate.hbm2ddl.import_files" value="my_load_files.sql"/>
-   <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
-   <property name="hibernate.show_sql" value="false"/>
-   <property name="hibernate.cache.use_second_level_cache" value="true"/>
-   <property name="hibernate.cache.use_query_cache" value="true"/>
- </properties>
+    <properties>
+        <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+        <property name="hibernate.hbm2ddl.import_files" value="my_load_files.sql"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/>
+        <property name="hibernate.show_sql" value="false"/>
+        <property name="hibernate.cache.use_second_level_cache" value="true"/>
+        <property name="hibernate.cache.use_query_cache" value="true"/>
+    </properties>
 </persistence-unit>
 ```
 
@@ -32,19 +32,19 @@ Here is a typical JPA persistence.xml file that comes from the Broadleaf Archety
              version="2.0">
              
     <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
-    	<non-jta-data-source>jdbc/web</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
-	
-	<persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
-		<non-jta-data-source>jdbc/webSecure</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
+        <non-jta-data-source>jdbc/web</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
+    
+    <persistence-unit name="blSecurePU" transaction-type="RESOURCE_LOCAL">
+        <non-jta-data-source>jdbc/webSecure</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
 
     <persistence-unit name="blCMSStorage" transaction-type="RESOURCE_LOCAL">
-		<non-jta-data-source>jdbc/cmsStorage</non-jta-data-source>
-		<exclude-unlisted-classes/>
-	</persistence-unit>
+        <non-jta-data-source>jdbc/cmsStorage</non-jta-data-source>
+        <exclude-unlisted-classes/>
+    </persistence-unit>
 </persistence>
 ```
 
@@ -60,11 +60,11 @@ For each persistence unit in the application, you'll need to modify the `hiberna
 
 In order to change the database properties per environment, here are the steps:
 
-1. Configure your JNDI data sources according to your server's documentation. For the local Jetty server, you can see the configuration in site/src/webapp/WEB-INF/jetty-env.xml, which should be ignored unless running in Jetty Server. In most cases, and using the default configuration, you should only need a single data source with a JNDI name of `jdbc/web`.
+1. Configure your JNDI data sources according to your server's documentation. For the local Jetty server, you can see the configuration in `site/src/webapp/WEB-INF/jetty-env.xml`, which should be ignored unless running in Jetty Server. In most cases, and using the default configuration, you will need three data sources, `jdbc/web`, `jdbc/secure`, and `jdbc/storage`. (You cannot combine these into one because you cannot bind multiple transaction managers to one JNDI datasource)
 
-2. Open site/src/webapp/WEB-INF/applicationContext-datasources.xml and ensure that it is configured according to your JNDI configuration. It should not need to be changed unless you are using a different JNDI name for webDS, or unless you are going to use different database schemas for webSecureDS or webStorageDS (note that typically you should not need to change this file).
+2. Open `site/src/webapp/WEB-INF/applicationContext-datasources.xml` and ensure that it is configured according to your JNDI configuration. It should not need to be changed unless you are using a different JNDI name for your datasources (Typically, you should not need to change this file).
 
-3. If you added additional JNDI properties, or did not use the default JNDI name of the webDS (`jdbc/web`), then you'll need to modify the site/src/webapp/WEB-INF/web.xml file (note that typically should not need to change this):
+3. If you added additional JNDI properties, or did not use the default JNDI name of the webDS (`jdbc/web`), then you'll need to modify the `site/src/webapp/WEB-INF/web.xml` file (note that typically should not need to change this):
 ```xml
 <resource-ref>
   <!-- Change this JNDI name and/or add additional resource-refs for new JNDI names. 
