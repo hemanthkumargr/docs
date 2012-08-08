@@ -21,6 +21,8 @@ The first thing we need to do to override a Broadleaf Workflow is to place the d
 </bean>
 ```
 
+> This is a copy of the default workflow. You can find the default workflows in the following place in the Broadleaf codebase: `core/broadleaf-framework/src/main/resources/bl-framework-applicationContext-workflow.xml`
+
 When Broadleaf finds the `blCheckoutWorkflow` bean definition in your application context, it will use it to override the default one provided by Broadleaf.
 
 ## Create a new activity
