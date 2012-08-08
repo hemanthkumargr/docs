@@ -42,7 +42,7 @@ var DOCS = (function($) {
             updateTree();
 
             $('html, body').animate({
-                scrollTop: 175
+                scrollTop: 135
             }, 300);
             
         });

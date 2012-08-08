@@ -64,7 +64,7 @@ They are a great way to get ahold of some core fundamentals before diving into m
             </ul>
         </li>
         <li> 
-            Hook into the add to cart workflow
+            [[Hook into the add to cart workflow | Add To Cart Workflow For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about workflows and the add to cart workflow and set up a custom activity</li>
             </ul>

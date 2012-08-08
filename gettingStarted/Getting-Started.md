@@ -222,7 +222,7 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
             </ul>
         </li>
         <li> 
-            Hook into the add to cart workflow
+            [[Hook into the add to cart workflow | Add To Cart Workflow For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about workflows and the add to cart workflow and set up a custom activity</li>
             </ul>
