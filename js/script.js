@@ -40,10 +40,12 @@ var DOCS = (function($) {
             $('#left_column').replaceWith(newLeftColumn);
 
             updateTree();
-
-            $('html, body').animate({
-                scrollTop: 135
-            }, 300);
+            
+            if ($window.scrollTop() > 135) {
+                $('html, body').animate({
+                    scrollTop: 135
+                }, 300);
+            }
             
         });
     }
