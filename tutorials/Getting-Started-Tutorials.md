@@ -15,7 +15,7 @@ They are a great way to get ahold of some core fundamentals before diving into m
             </ul>
         </li>
         <li> 
-            Customize the UI
+            [[Customize the UI | Customize UI For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about the Broadleaf UI strategy and patterns</li>
                 <li> Customize key pieces of the Heat Clinic template and discover the Broadleaf Content Management System</li>

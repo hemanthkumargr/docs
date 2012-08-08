@@ -702,6 +702,10 @@ footer {
 div#left_column img {
     max-width: 620px;
     margin: 10px 0;
+    border: 2px solid #494949;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
 }
 
 .half-column {

@@ -173,7 +173,7 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
             </ul>
         </li>
         <li> 
-            Customize the UI
+            [[Customize the UI | Customize UI For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about the Broadleaf UI strategy and patterns</li>
                 <li> Customize key pieces of the Heat Clinic template and discover the Broadleaf Content Management System</li>
