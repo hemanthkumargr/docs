@@ -32,6 +32,7 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 You will need to enter the following key/value pairs in the appropriate locations and replace the "?" with your paypal api account details:
 
 ### common.properties
+    paypal.version=78.0
     paypal.shipping.display=? (e.g. 0, 1, or 2)
     paypal.additional.HDRIMG=?
     paypal.additional.HDRBORDERCOLOR=? (e.g. FFFFFF)
@@ -40,13 +41,15 @@ You will need to enter the following key/value pairs in the appropriate location
 
 - paypal.shipping.display: this property determines if PayPal displays the shipping address fields on the PayPal pages. For digital goods, this field is required and must be set to 1.
     - 0 : PayPal displays the shipping address passed in.
-    - 1 : PayPal does not display the shipping fields at all. (Default)
+    - 1 : PayPal does not display the shipping fields at all.
     - 2 : PayPal will obtain the shipping address from the buyer's profile.
     
 ### development.properties, local.properties etc...
     paypal.user=?
     paypal.password=?
     paypal.signature=?
+    paypal.api.url=https://api-3t.sandbox.paypal.com/nvp
+    paypal.user.redirect.url=https://www.sandbox.paypal.com/cgi-bin/webscr
     paypal.return.url=? (e.g. http://localhost:8080/paypal/process)
     paypal.cancel.url=? (e.g. http://localhost:8080/cart)
 
@@ -57,6 +60,8 @@ You will need to enter the following key/value pairs in the appropriate location
     paypal.user=?
     paypal.password=?
     paypal.signature=?
+    paypal.api.url=https://api-3t.paypal.com/nvp
+    paypal.user.redirect.url=https://www.paypal.com/cgi-bin/webscr
     paypal.return.url=? (e.g. http://mycompany.com/paypal/process)
     paypal.cancel.url=? (e.g. http://mycompany.com/cart)
 
