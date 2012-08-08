@@ -83,6 +83,7 @@
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[1.6 to 2.0 Migration]]
+    - [[Security Migration]]
 - [[Appendix]]
     - [[Extension Quick Reference]]
     - [[Runtime Environment Configuration]]
