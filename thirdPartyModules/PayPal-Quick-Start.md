@@ -22,8 +22,6 @@ Your `patchConfigLocations` should look something like this:
 	</context-param>
 ```
 
-> IMPORTANT: the order in which you specify the application context classpaths are important. During the merge process, later files override earlier ones. So, make sure to specify "bl-paypal-applicationContext.xml" BEFORE your own applicationContext.xml which specifies the "blConfiguration" bean.
-
 ##2) Create a PayPal Controller
 
 Next, you will need to create a basic controller that extends `BroadleafPayPalController` to provide default `@RequestMappings` for your application.
