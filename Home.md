@@ -6,9 +6,7 @@ It is targeted at facilitating the development of enterprise-class, commerce-dri
 
 To accomplish this goal, we have developed the platform based on the key feature sets required by world-class online retailers and we're committed to continually expanding our feature offering. We've also taken extra steps to guarantee interoperability with today's enterprise by utilizing standards wherever possible and incorporating best-of-breed, open-source software libraries from the community.
 
-<div class="inline-links">
+## Getting Started
 
-[[Getting Started]]
-
-</div>
+To begin working with Broadleaf Commerce, you will want to follow the [[Getting Started]] documentation. Please feel free to ask for help in [our forums](http://forum.broadleafcommerce.org/) -- we monitor these regularly and love to help when we can!
 
