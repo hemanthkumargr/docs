@@ -6,7 +6,7 @@ In this tutorial, you will learn how to modify key parts of the Heat Clinic UI, 
 
 Let's begin by changing the greeting seen by logged in users for the Heat Clinic:
 
-![Initial Header Greeting](/images/customize-ui-tutorial-1.png)
+![Initial Header Greeting](images/customize-ui-tutorial-1.png)
 
 We're going to simply change the word Welcome to the word Hello.
 
@@ -48,7 +48,7 @@ These two divs are mutually exclusive. Notice that they both share the check for
 
 We can see in the non-anonymous div the line `Welcome, ...`. Let's simply change that to `Hello, ...` and take a look!
 
-![Modified Header Greeting](/images/customize-ui-tutorial-2.png)
+![Modified Header Greeting](images/customize-ui-tutorial-2.png)
 
 > Note: You will likely have to restart your server to see the change. If you'd like to prevent restarts, please take a look at our [[JRebel Setup]] guide.
 
@@ -76,7 +76,7 @@ Let's look at a piece of `site/src/main/webapp/WEB-INF/applicationContext-servle
 
 The layout to apply is determined by a longest prefix match of the requested file. Here, we'll change the `checkout/confirmation` layout - but first, let's see what a normal confirmation page looks like:
 
-![Initial Confirmation Page](/images/customize-ui-tutorial-3.png)
+![Initial Confirmation Page](images/customize-ui-tutorial-3.png)
 
 Notice how there is no navigation on the confirmation page. However,
 
@@ -94,7 +94,7 @@ to
 
 we will instead render the confirmation snippet in the normal full page layout, like so:
 
-![Modified Confirmation Page](/images/customize-ui-tutorial-4.png)
+![Modified Confirmation Page](images/customize-ui-tutorial-4.png)
 
 Easy!
 
@@ -102,16 +102,16 @@ Easy!
 
 Let's take a look at the standard /faq page on the Heat Clinic
 
-![Initial FAQ Page](/images/customize-ui-tutorial-5.png)
+![Initial FAQ Page](images/customize-ui-tutorial-5.png)
 
 The FAQ page is set up to use the Basic Template, which is defined in `load_content_structure.sql` as using the `content/default` template. Because there is no entry in the `layoutMap` for this template, we will be embedding it into the `layout/fullPageLayout` layout.
 
 Let's go into the admin in the `Content Management --> Pages` section and modify the /faq page with our own custom greeting
 
-![FAQ Admin](/images/customize-ui-tutorial-6.png)
+![FAQ Admin](images/customize-ui-tutorial-6.png)
 
 Let's change the greeting and hit save. We'll see the following:
 
-![Modified FAQ Page](/images/customize-ui-tutorial-7.png)
+![Modified FAQ Page](images/customize-ui-tutorial-7.png)
 
 You should now be familiar with the Broadleaf UI!
