@@ -17,7 +17,7 @@ blCMSStorage.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
     - Save them to a new directory: `site/src/main/resources/sql/oracle`
     - In the environments that use Oracle that require import scripts, configure the persistence provider to execute them:
 ```
-blPU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
 blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
   /sql/oracle/load_admin_users.sql,\
   /sql/oracle/load_code_tables.sql,\
@@ -26,7 +26,7 @@ blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
   /sql/oracle/load_content_structure.sql,\
   /sql/oracle/load_content_data.sql
 
-blSecurePU.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
-blCMSStorage.hibernate.dialect="org.hibernate.dialect.Oracle10gDialect
+blSecurePU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+blCMSStorage.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
 ```
 8. Update the `/WEB-INF/applicationContext-security.xml` file.   Replace the word `TRUE` in the `users-by-username-query` with the number `1`.

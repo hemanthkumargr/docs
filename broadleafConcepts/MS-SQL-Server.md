@@ -17,7 +17,7 @@ blCMSStorage.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
     - Save them to a new directory: `site/src/main/resources/sql/mssql`
     - In the environments that use MSSQL Server that require import scripts, configure the persistence provider to execute them:
 ```
-blPU.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
+blPU.hibernate.dialect=org.hibernate.dialect.SQLServer2008Dialect
 blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
   /sql/mssql/load_admin_users.sql,\
   /sql/mssql/load_code_tables.sql,\
@@ -26,8 +26,8 @@ blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
   /sql/mssql/load_content_structure.sql,\
   /sql/mssql/load_content_data.sql
 
-blSecurePU.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
-blCMSStorage.hibernate.dialect="org.hibernate.dialect.SQLServer2008Dialect
+blSecurePU.hibernate.dialect=org.hibernate.dialect.SQLServer2008Dialect
+blCMSStorage.hibernate.dialect=org.hibernate.dialect.SQLServer2008Dialect
 ```
 10. Check the JDK version you are using. 
 > **JDK 1.6.0_29 is not compatible with the SQL Server JDBC driver**
