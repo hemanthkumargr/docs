@@ -38,7 +38,7 @@ To configure banded shipping we need to create Fulfillment Options and the Price
 
 ### Fulfillment Options
 
-The Fulfillment Options for Acme Co are 'First Class', 'Priority', and 'Express'. Information about the schema and properties of Fulfillment Options can be found in `FulfillmentOptionImpl` and `BandedPriceFulfillmentOptionImpl`.  As declared in FulfillmentOptionImpl, we need to insert one record to correspond with each option in the table `BLC_FULFILLMENT_OPTION`:
+The Fulfillment Options for Acme Co are 'First Class', 'Priority', and 'Express'. Information about the schema and properties of Fulfillment Options can be found in `FulfillmentOptionImpl` and `BandedPriceFulfillmentOptionImpl`.  We need to insert one record to correspond with each option in the table `BLC_FULFILLMENT_OPTION`:
 
 ```sql
 
@@ -60,12 +60,12 @@ INSERT INTO BLC_FULFILLMENT_OPT_BANDED_PRC (FULFILLMENT_OPTION_ID) VALUES (3);
 
 ### Price Bands
 
-Price Bands contain the following information:
-- id: the unique identifier of the band
-- resultAmount: the price for the band
-- resultAmountType: how the price is to be applied to the fulfillment group ('RATE' or 'PERCENTAGE')
-- retailPriceMinimumAmount: the lowest price applicable to the band
-- fulfillmentOptionId: the unique identifier of the fulfillment option the band relates to
+Price Bands contain the following information (as seen in `FulfillmentPriceBandImpl`):
+- `id`: the unique identifier of the band
+- `resultAmount`: the price for the band
+- `resultAmountType`: how the price is to be applied to the fulfillment group ('RATE' or 'PERCENTAGE')
+- `retailPriceMinimumAmount`: the lowest price applicable to the band
+- `fulfillmentOptionId`: the unique identifier of the fulfillment option the to which the band
 
 To configure the price bands specified in the table above, run the following sql statements directly against the database:
 
