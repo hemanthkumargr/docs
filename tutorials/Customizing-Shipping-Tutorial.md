@@ -12,21 +12,23 @@ Understanding of Broadleaf orders, fulfillment groups, etc.
 
 ## Acme Co Shipping Requirements
 
-Acme Co requires three different options for order fulfillment: First Class, Priority, and Express, as well as  pricing for that option based on the total amount of the products in the fulfillment group.
+Our example company 'Acme Co' requires three different options for order fulfillment: First Class, Priority, and Express. First Class shipping is estimated to be shipped to the customer within 2-7 days, Priority in 2-5 days, and Express in 1-2 days. 
 
-The following table represents the shipping price requirements for Acme Co:
+Pricing of each fulfillment option is also contingent on the sum of the price of the products in the fulfillment group. As Broadleaf allows for shipping to multiple addresses, think of a fulfillment group as a group of items to be sent to a particular address.
 
-| Shipping Speed         | Banded Price Range | Price |   
-| :----------            | :-------           | :---- |
-| First Class (2-7 days) | $0 - $50           | $4.99 |
-| First Class (2-7 days) | $50 - $100         | $6.99 |
-| First Class (2-7 days) | $100 +             | $8.99 |
-| Priority (2-5 days)    | $0 - $50           | $5.99 |
-| Priority (2-5 days)    | $50 - $100         | $7.99 |
-| Priority (2-5 days)    | $100 +             | $9.99 |
-| Express (1-2 days)     | $0 - $50           | $7.99 |
-| Express (1-2 days)     | $50 - $100         | $10.99 |
-| Express (1-2 days)     | $100.01 +          | $12.99 |
+The following table represents the shipping option / price requirements for Acme Co:
+
+| Shipping Speed         | Fulfillment Group Retail Price Range | Shipping Fee |    
+| :----------            | :-------                             | :----------- |
+| First Class (2-7 days) | $0 - $50                             | $4.99        |
+| First Class (2-7 days) | $50 - $100                           | $6.99        |
+| First Class (2-7 days) | $100 +                               | $8.99        |
+| Priority (2-5 days)    | $0 - $50                             | $5.99        |
+| Priority (2-5 days)    | $50 - $100                           | $7.99        |
+| Priority (2-5 days)    | $100 +                               | $9.99        |
+| Express (1-2 days)     | $0 - $50                             | $7.99        |
+| Express (1-2 days)     | $50 - $100                           | $10.99       |
+| Express (1-2 days)     | $100.01 +                            | $12.99       |
 
 ## Configuring Banded Shipping
 
