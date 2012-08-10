@@ -1,19 +1,20 @@
-Content coming soon **Work In Progress**
+**Work In Progress**
 
 ##Introduction
 
-Broadleaf provides two different shipping fee calculation strategies out-of-the-box: fixed-fee and banded by price or weight. Also, Broadleaf provides the flexibility to integrate a third-party shipping module (for example, UPS).  In this tutorial, we will implement shipping calculation for Acme Co by banded price.
+Broadleaf provides two different shipping fee calculation strategies out-of-the-box: fixed-fee and banded by price or weight. Also, Broadleaf provides the flexibility to integrate a third-party shipping module (for example, UPS).  
+
+In this tutorial, we will implement a shipping calculation for Acme Co by banded price.
 
 ## Prerequisites 
 
 Understanding of Broadleaf orders, fulfillment groups, etc.
 
-## Requirements
+## Acme Co Shipping Requirements
 
-Acme Co requires three different shipping speeds (First Class, Priority, and Express) as well as a pricing for that speed based on the total amount of the fulfillment group.
+Acme Co requires three different options for order fulfillment: First Class, Priority, and Express, as well as  pricing for that option based on the total amount of the products in the fulfillment group.
 
-
-The following table represents the shipping requirements for Acme Co:
+The following table represents the shipping price requirements for Acme Co:
 
 | Shipping Speed         | Banded Price Range | Price |   
 | :----------            | :-------           | :---- |
@@ -29,7 +30,9 @@ The following table represents the shipping requirements for Acme Co:
 
 ## Configuring Banded Shipping
 
-As of Broadleaf 2.0, shipping prices are configured by inserting the data directly into the database.  To configure banded shipping we need to create Fulfillment Options and the Price Bands that will correspond to each option. 
+As of Broadleaf 2.0, fulfillment options are configured by inserting the data directly into the database. In future versions of Broadleaf, fulfillment options will be configurable via the Broadleaf Admin. 
+
+To configure banded shipping we need to create Fulfillment Options and the Price Bands that will correspond to each option. 
 
 ### Fulfillment Options
 
@@ -79,6 +82,8 @@ INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT
 ```
 
 ## SQL
+
+Below is an aggregation of all the sql commands needed to configure banded shipping by price for Acme Co.
 
 ``` sql
 INSERT INTO BLC_FULFILLMENT_OPTION (FULFILLMENT_OPTION_ID, NAME, LONG_DESCRIPTION, USE_FLAT_RATES, FULFILLMENT_TYPE) VALUES (1, 'First Class', '2 - 7 Days', 0, 'PHYSICAL');
