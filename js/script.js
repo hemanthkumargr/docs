@@ -36,6 +36,8 @@ var DOCS = (function($) {
      */
     function navigate(State) {
         $.get(State.url, function(data) {
+            _gaq.push(['_trackPageview', State.url]);
+
             var newLeftColumn = $(data).filter("div").find("#left_column");
             $('#left_column').replaceWith(newLeftColumn);
 
