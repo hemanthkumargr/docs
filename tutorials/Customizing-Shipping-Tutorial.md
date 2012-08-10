@@ -1,4 +1,8 @@
-Content coming soon
+Content coming soon **Work In Progress**
+
+##Introduction
+
+Broadleaf provides two different shipping fee calculation strategies out-of-the-box: fixed-fee and banded by price or weight. Also, Broadleaf provides the flexibility to integrate a third-party shipping module (for example, UPS).  In this tutorial, we will implement shipping calculation by banded price.
 
 | Shipping Speed         | Banded Price Range | Price |   
 | :----------            | :-------           | :---- |
