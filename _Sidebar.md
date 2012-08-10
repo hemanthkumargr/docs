@@ -85,6 +85,7 @@
     - [[1.6 to 2.0 Migration]]
         - [[Order Service | 1.6 to 2.0 Order Service Migration]]
         - [[Security | 1.6 to 2.0 Security Migration]]
+        - [[FGItem Strategy | 1.6 to 2.0 Fulfillment Group Item Strategy Migration ]]
 - [[Appendix]]
     - [[Extension Quick Reference]]
     - [[Runtime Environment Configuration]]
