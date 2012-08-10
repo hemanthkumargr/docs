@@ -27,6 +27,57 @@ The following table represents the shipping requirements for Acme Co:
 | Express (1-2 days)     | $50 - $100         | $10.99 |
 | Express (1-2 days)     | $100.01 +          | $12.99 |
 
+## Configuring Banded Shipping
+
+As of Broadleaf 2.0, shipping prices are configured by inserting the data directly into the database.  To configure banded shipping we need to create Fulfillment Options and the Price Bands that will correspond to each option. 
+
+### Fulfillment Options
+
+The Fulfillment Options for Acme Co are 'First Class', 'Priority', and 'Express'. Information about the schema and properties of Fulfillment Options can be found in `FulfillmentOptionImpl` and `BandedPriceFulfillmentOptionImpl`.  As declared in FulfillmentOptionImpl, we need to insert one record to correspond with each option in the table `BLC_FULFILLMENT_OPTION`:
+
+```sql
+
+INSERT INTO BLC_FULFILLMENT_OPTION (FULFILLMENT_OPTION_ID, NAME, LONG_DESCRIPTION, USE_FLAT_RATES, FULFILLMENT_TYPE) VALUES (1, 'First Class', '2 - 7 Days', 0, 'PHYSICAL');
+INSERT INTO BLC_FULFILLMENT_OPTION (FULFILLMENT_OPTION_ID, NAME, LONG_DESCRIPTION, USE_FLAT_RATES, FULFILLMENT_TYPE) VALUES (2, 'Priority', '2 - 5 Days', 0, 'PHYSICAL');
+INSERT INTO BLC_FULFILLMENT_OPTION (FULFILLMENT_OPTION_ID, NAME, LONG_DESCRIPTION, USE_FLAT_RATES, FULFILLMENT_TYPE) VALUES (3, 'Express', '1 - 2 Days', 0, 'PHYSICAL');
+
+```
+
+To declare a fulfillment option as a banded price fulfillment option, records must also be inserted in `BLC_FULFILLMENT_OPT_BANDED_PRC`:
+
+``` sql
+
+INSERT INTO BLC_FULFILLMENT_OPT_BANDED_PRC (FULFILLMENT_OPTION_ID) VALUES (1);
+INSERT INTO BLC_FULFILLMENT_OPT_BANDED_PRC (FULFILLMENT_OPTION_ID) VALUES (2);
+INSERT INTO BLC_FULFILLMENT_OPT_BANDED_PRC (FULFILLMENT_OPTION_ID) VALUES (3);
+
+```
+
+### Price Bands
+
+Price Bands contain the following information:
+- id: the unique identifier of the band
+- resultAmount: the price for the band
+- resultAmountType: how the price is to be applied to the fulfillment group ('RATE' or 'PERCENTAGE')
+- retailPriceMinimumAmount: the lowest price applicable to the band
+- fulfillmentOptionId: the unique identifier of the fulfillment option the band relates to
+
+To configure the price bands specified in the table above, run the following sql statements directly against the database:
+
+``` sql
+
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (1, 4.99, 'RATE', 0, 1);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (2, 6.99, 'RATE', 50.01, 1);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (3, 8.99, 'RATE', 100.01, 1);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (4, 5.99, 'RATE', 0, 2);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (5, 7.99, 'RATE', 50.01, 2);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (6, 9.99, 'RATE', 100.01, 2);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (7, 7.99, 'RATE', 0, 3);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (8, 10.99, 'RATE', 50.01, 3);
+INSERT INTO BLC_FULFILLMENT_PRICE_BAND (FULFILLMENT_PRICE_BAND_ID, RESULT_AMOUNT, RESULT_AMOUNT_TYPE, RETAIL_PRICE_MINIMUM_AMOUNT, FULFILLMENT_OPTION_ID) VALUES (9, 12.99, 'RATE', 100.01, 3);
+
+```
+
 ## SQL
 
 ``` sql
