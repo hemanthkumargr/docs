@@ -20,3 +20,21 @@ The table below details the states and their sales tax rate:
 | California | 8.75%          |
 | Texas      | 8.25%          |
 | New York   | 8.875%         |
+
+## Configuring the Simple Tax Module
+
+To customize the simple tax module, simply declare the bean within your applicationContext xml with an id of `blTaxModule`. This overrides Broadleaf's out-of-the-box configuration for tax calculation. As documented in [[Simple Tax Module]], the property we need to customize that fits our needs is the `itemStateTaxRateMap`.  Here is the complete snippet:
+
+``` xml
+
+<bean id="blTaxModule" class="org.broadleafcommerce.core.pricing.service.module.SimpleTaxModule">
+  <property name="itemStateTaxRateMap">
+    <map>
+      <entry key="CA" value=".0875" />
+      <entry key="TX" value=".0825" />
+      <entry key="NY" value=".08875" />
+    </map>
+  </property>
+</bean>
+
+```
