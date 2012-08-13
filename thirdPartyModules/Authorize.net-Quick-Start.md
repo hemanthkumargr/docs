@@ -22,7 +22,7 @@ Your `patchConfigLocations` should look something like this:
 ```
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-authorizenet-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
 
-##2) Create a Checkout Controller that extends BroadleafAuthrorizeNetController
+##2) Make your CheckoutController extends BroadleafAuthrorizeNetController
 
 Next, you will need to create a controller that extends `BroadleafAuthrorizeNetController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get Authorize.net integrated.
