@@ -23,7 +23,9 @@ The table below details the states and their sales tax rate:
 
 ## Configuring the Simple Tax Module
 
-To customize the simple tax module, simply declare the bean within your applicationContext xml with an id of `blTaxModule`. This overrides Broadleaf's out-of-the-box configuration for tax calculation. As documented in [[Simple Tax Module]], the property we need to customize that fits our needs is the `itemStateTaxRateMap`.  Here is the complete snippet:
+To customize the simple tax module, simply declare the bean within your applicationContext xml with an id of `blTaxModule`. This overrides Broadleaf's out-of-the-box configuration for tax calculation. As documented in [[Simple Tax Module]], the property we need to customize that fits our needs is the `itemStateTaxRateMap`.  For additional properties and their descriptions, see more in the Simple Tax Module documentation.  
+
+Here is the complete snippet:
 
 ``` xml
 
