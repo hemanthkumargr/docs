@@ -66,6 +66,8 @@ public class CheckoutController extends BroadleafCybersourceSilentPostController
 Finally, you will need to contruct the form that you will send via Silent Order POST. 
 Your page may look something like this:
 
+> Note: it is important that all the hidden fields listed in the form below be included.
+
 ```html
 <form th:action="${cybersourceServerUrl}" method="post" id="billing_info">
 
