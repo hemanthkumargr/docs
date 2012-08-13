@@ -4,7 +4,7 @@ Broadleaf Commerces offers an out-of-the-box CyberSource solution that requires 
 The quick start solution implements the [[Silent Order Post | http://www.cybersource.com/developers/develop/integration_methods/silent_order_post/]] model offered by CyberSource API.
 This implementation should be useful for those with a simple checkout flow. For a more customized solution, please see [[CyberSource SOP Advance Configuration]].
 
-**You must have completed the [[CyberSource SOP Environment Setup]] before continuing**
+**You must have completed the [[CyberSource Silent Post Environment Setup]] before continuing**
 
 ##1) Adding CyberSource SOP Support
 
