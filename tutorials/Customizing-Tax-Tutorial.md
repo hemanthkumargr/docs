@@ -13,10 +13,10 @@ In this tutorial we will configure the Simple Tax Module for our example company
  
 Acme Co has physical retail locations in three U.S. states: California, Texas, and New York. Each state has its own sales tax rate.
 
- The table below details the states and their sales tax rate:
+The table below details the states and their sales tax rate:
  
- | State      | Sales Tax Rate |
- | :--------- | :------------- |
- | California | 8.75%          |
- | Texas      | 8.25%          |
- | New York   | 8.875%         |
+| State      | Sales Tax Rate |
+| :--------- | :------------- |
+| California | 8.75%          |
+| Texas      | 8.25%          |
+| New York   | 8.875%         |
