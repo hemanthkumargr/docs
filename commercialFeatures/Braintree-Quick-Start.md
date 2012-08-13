@@ -42,15 +42,15 @@ This quick start solution only offers support for an Authorize and Debit transac
 
 ```java
 @Controller
-public class BraintreeController extends BroadleafBraintreeController {
+public class CheckoutController extends BroadleafBraintreeController {
 
-    @RequestMapping(value = "/braintree/checkout")
+    @RequestMapping(value = "/checkout")
     public String checkout(HttpServletRequest request, HttpServletResponse response, Model model) {
         return super.checkout(request, response, model);
     }
 
     @Override
-    @RequestMapping(value = "/braintree/process")
+    @RequestMapping(value = "/process")
     public String processBraintreeAuthorizeAndDebit(Model model, @RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
         return super.processBraintreeAuthorizeAndDebit(model, id, request, response);
     }
