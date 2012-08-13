@@ -708,6 +708,13 @@ div#left_column img {
     -moz-border-radius: 2px;
 }
 
+div#left_column img.no_border {
+    border: 0px;
+    border-radius:0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
 .half-column {
     width: 50%;
     float: left;
