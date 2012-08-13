@@ -2,7 +2,8 @@ In the following tutorials, we will walk through three of the main components of
 
 ## Prerequisites
 
-- [[Workflows]]
+- [[Workflows and Activities]]
+- [[Pricing]]
 
 ## Tutorials
 
