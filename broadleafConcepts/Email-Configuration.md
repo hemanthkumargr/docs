@@ -1,12 +1,62 @@
 ## <a name="wiki-basic" />Basic Configuration
 
-Broadleaf has a flexible engine for sending template-driven emails to your customers. These emails may be configured to be sent out as part of a workflow step (i.e. order confirmation email at the end of the checkout workflow), or sent out as part of a Quartz scheduled job (i.e. weekly customer newsletter). The appearance of emails may be text only, or may be based on an exotic Velocity template that you create - the choice is yours. Let's start by reviewing a sample order confirmation email configuration.
+Broadleaf has a flexible engine for sending template-driven emails to your customers. These emails may be configured to be sent out as part of a workflow step (i.e. order confirmation email at the end of the checkout workflow), or sent out as part of a Quartz scheduled job (i.e. weekly customer newsletter). The appearance of emails may be text only, or may be based on an exotic Thymeleaf template that you create - the choice is yours. Let's start by looking at the default definition of Thymeleaf email templates:
 
+```xml
+<bean id="blEmailTemplateResolver" class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver">
+    <property name="prefix" value="emailTemplates/" />
+    <property name="suffix" value=".html" />
+    <property name="templateMode" value="HTML5" />
+    <property name="cacheable" value="false"/>
+    <property name="characterEncoding" value="UTF-8" />
+</bean>
+
+<bean id="blEmailTemplateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
+    <property name="templateResolvers">
+        <set>
+            <ref bean="blEmailTemplateResolver" />
+        </set>
+    </property>
+    <property name="dialects">
+        <set>
+            <ref bean="thymeleafSpringStandardDialect" />
+            <ref bean="blDialect" />
+        </set>
+    </property>
+</bean>
 ```
+
+> Note: We are choosing to use Thymeleaf as the default email templating engine -- you could, of course, use any engine you like (such as JSP or Velocity).
+
+Next, let's examine a part of the default `applicationContext-email.xml` file bundled in the starter project.
+
+```xml
+<bean id="blMessageCreator" class="org.broadleafcommerce.common.email.service.message.NullMessageCreator">
+    <constructor-arg ref="blMailSender"/>
+</bean>
+```
+
+Notice that although we define a default `blMessageCreator`, it is pointing to a `NullMessageCreator`. Let's change this definition to a real implementation and set up an email bean.
+
+```xml
+<bean id="blMessageCreator" class="org.broadleafcommerce.common.email.service.message.ThymeleafMessageCreator">
+    <constructor-arg ref="blEmailTemplateEngine"/>
+    <constructor-arg ref="mailSender"/>
+</bean>
+
+<bean id="orderConfirmationEmailInfo" parent="blEmailInfo">
+    <property name="subject" value="Order confirmation"/>		
+    <property name="emailTemplate" value="order-confirmation-email"/>
+</bean>
+```
+
+Now that our tempaltes are set up properly, we need to define an actual mail server to use. The default mail server defined in Broadleaf is as follows:
+
+```xml
 <bean id="blMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-    <property name="host" value="172.16.8.1" />
-    <property name="port" value="25" />
-    <property name="protocol" value="smtp" />
+    <property name="host"><value>localhost</value></property>
+    <property name="port"><value>25</value></property>
+    <property name="protocol"><value>smtp</value></property>
     <property name="javaMailProperties">
         <props>
             <prop key="mail.smtp.starttls.enable">true</prop>
@@ -14,27 +64,13 @@ Broadleaf has a flexible engine for sending template-driven emails to your custo
         </props>
     </property>
 </bean>
-
-<bean id="baseEmailInfo" abstract="true">
-    <property name="sendEmailReliableAsync" value="true"/>
-    <property name="fromAddress" value="My Store &lt;contact@mystore.com&gt;"/>
-    <property name="sendAsyncPriority" value="8"/>
-</bean>
-
-<bean id="orderConfirmationEmailInfo" class="org.broadleafcommerce.common.email.service.info.EmailInfo" parent="baseEmailInfo" scope="prototype">
-    <property name="emailTemplate" value="com/mycompany/web/email/template/orderConfirmation.vm"/>
-    <property name="emailType" value="ORDERCONFIRMATION"/>
-    <property name="subject" value="Thank You For Your Order!"/>
-</bean>
 ```
 
-The first item we set up is the `mailSender` bean, which represents standard Spring support for Java mail and SMTP. Secondly, we create a bean instance of the Broadleaf class EmailInfo. All emails sent through the Broadleaf Commerce email system utilize an instance of EmailInfo for configuration.
+You will want to define a `blMailSender` bean in your application context that points to your own SMTP server, which will override the default Broadleaf definition.
 
-We create an abstract bean that holds pieces of information common to all emails, such as the `fromAddress` and other factors. You'll notice we also set values for `sendEmailReliableAsync` and `sendAsyncPriority`. These properties are related to utilization of JMS for asynchronous execution of email distribution. More on this topic in the [Asynchronous Distribution](#wiki-async-distribution) section further down.
+Pretty easy! We now have a `orderConfirmationEmailInfo` bean that points to the `order-confirmation-email` template. Based on the resolver definition we showed above, we can expect to find this template in `site/src/main/resources/emailTemplates/order-confirmation-email.html`.
 
-Lastly, we create the EmailInfo instance for our order confirmation email with the id `orderConfirmationEmailInfo`. Here we specify the Velocity template to use for this email, an arbitrary identifier for the emailType and the subject for the email.
-
-A list of all possible properties can be found at the [bottom of this page](#wiki-prop-ref)
+> Note: A list of all possible properties can be found at the [bottom of this page](#wiki-prop-ref)
 
 ## <a name="wiki-prep-code" />Preparing the Code to Send Emails
 
@@ -124,7 +160,7 @@ This activity utilizes the Order instance in the CheckoutContext passed into the
 
 ## <a name="wiki-prep-template" />Preparing the Template
 
-We also need a [Velocity](http://velocity.apache.org/engine/releases/velocity-1.6.2/user-guide.html) template for our order confirmation email. Velocity templates provide you a rich mechanism for creating and formatting elaborate emails with dynamic content. Let's take a look at a simple template for our order confirmation email:
+We also need a [Thymeleaf](http://thymeleaf.org) template for our order confirmation email. Thymeleaf templates provide you a rich mechanism for creating and formatting elaborate emails with dynamic content. Let's take a look at a simple template for our order confirmation email:
 
 ```html
 <html>
@@ -132,16 +168,14 @@ We also need a [Velocity](http://velocity.apache.org/engine/releases/velocity-1.
   <body background="#FFFFFF">
     <h1>Thank You For Your Order!</h1>
     <table>
-      <tr><td>Order Date:</td><td>$date.format('h:mm a',$orderDate)</td></tr>
-      <tr><td>Order Id:</td><td>$orderId</td></tr>
+      <tr><td>Order Date:</td><td th:text="${orderDate}"></td></tr>
+      <tr><td>Order Id:</td><td th:text="${orderId}"></td></tr>
     </table>
   </body>
 </html>
 ```
 
-This template (`OrderConfirmation.vm`) formats a simple HTML email with several items of dynamic content. You'll notice that we specify the orderdate and orderid variables in the template. These variables will be inserted dynamically by the Velocity engine when the template is parsed. In addition, you'll notice we employ a format call from the "date" variable to achieve properly formatted date output. The date variable is actually an instance of the Velocity DateTool and is made available to all your templates by default by Broadleaf. 
-
-A list of all available tools in your templates can be found at the [bottom of this page](#wiki-template-ref)
+This template (`order-registration-email.html`) formats a simple HTML email with several items of dynamic content. You'll notice that we specify the `orderDate` and `orderId` variables in the template. These variables will be inserted dynamically by the Thymeleaf engine when the template is parsed. 
 
 Note, if you wish to use the serverinfo variable, you should override the bean definition for "blServerInfo" and provide your own configuration. Something like the following is in order:
 
@@ -259,7 +293,7 @@ The following converts our baseEmailInfo bean into a synchronous email:
 
 ## <a name="wiki-non-template-emails" />Non-Template Emails
 
-Some users will prefer not to use a Velocity template to drive the formatting and presentation of their emails. In fact, some of your email needs may be very simplistic and creation of a Velocity template is overkill. In these cases, you'll want to simply supply the body content for your email as a simple string. Let review how we would configure this type of email:
+Some users will prefer not to use a Thymeleaf template to drive the formatting and presentation of their emails. In fact, some of your email needs may be very simplistic and creation of a Velocity template is overkill. In these cases, you'll want to simply supply the body content for your email as a simple string. Let review how we would configure this type of email:
 
 ```xml
 <bean id="orderConfirmationEmailInfo" class="org.broadleafcommerce.common.email.service.info.EmailInfo" parent="baseEmailInfo" scope="prototype">
@@ -325,25 +359,11 @@ In this example, we've created a theoretical CSV file attachment by building a p
 | Property               | Description                                                                                          | Java / XML config |
 | :--------------------- | :--------------------------------------------------------------------------------------------------- | :---------------: |
 | emailType              | Arbitrary name given to this type of email. Useful when grouping emails.                             | Both              |
-| emailTemplate          | Fully-qualified path to a Velocity template used to generate the email presentation                  | Both              |
+| emailTemplate          | Path to a Thymeleaf template used to generate the email presentation                                 | Both              |
 | subject                | The subject for the email                                                                            | Both              |
 | fromAddress            | The fromAddress for the email                                                                        | Both              |
 | messageBody            | Set messageBody for emails that are not template driven.                                             | Both              |
 | attachments            | File attachments associated with the email                                                           | Programmatic      |
 | sendEmailReliableAsync | Use JMS to execute the distribution of this email. Otherwise, emails are sent in the calling thread. | Both              |
 | sendAsyncPriority      | Assign the relative JMS priority for this email. Applies only to asynchronous email distribution.    | Both              |
-
-## <a name="wiki-template-ref" />Template Tool Reference
-
-| Variable   | Tool                                                 |
-|:-----------|:-----------------------------------------------------|
-| number     | org.apache.velocity.tools.generic.NumberTool         |
-| date       | org.apache.velocity.tools.generic.ComparisonDateTool |
-| list       | org.apache.velocity.tools.generic.ListTool           |
-| math       | org.apache.velocity.tools.generic.MathTool           |
-| iterator   | org.apache.velocity.tools.generic.IteratorTool       |
-| alternator | org.apache.velocity.tools.generic.AlternatorTool     |
-| sorter     | org.apache.velocity.tools.generic.SortTool           |
-| esc        | org.apache.velocity.tools.generic.EscapeTool         |
-| serverInfo | org.broadleafcommerce.email.service.info.ServerInfo  |
 
