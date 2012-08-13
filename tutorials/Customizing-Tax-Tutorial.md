@@ -6,24 +6,26 @@ In this tutorial we will configure the Simple Tax Module for our example company
 
 ## Prerequisites
  
-- [[Broadleaf Tax Strategy | Tax]]
+- [[Broadleaf's Tax Strategy | Tax]]
 - [[Broadleaf's Simple Tax Module | Simple Tax Module ]]
  
 ## Acme Co Tax Requirements
  
-Acme Co has physical retail locations in three U.S. states: California, Texas, and New York. Each state has its own sales tax rate.
+Acme Co has three physical retail locations in the United States: Los Angeles, California, Austin, Texas, and New York City, New York. Each state has its own sales tax rate.
 
-The table below details the states and their sales tax rate:
+The table below details the locations and their sales tax rate:
  
-| State      | Sales Tax Rate |
-| :--------- | :------------- |
-| California | 8.75%          |
-| Texas      | 8.25%          |
-| New York   | 8.875%         |
+| Location          | Sales Tax Rate |
+| :---------------- | :------------- |
+| Los Angeles, CA   | 8.75%          |
+| Austin, TX        | 8.25%          |
+| New York City, NY | 8.875%         |
 
 ## Configuring the Simple Tax Module
 
-To customize the simple tax module, simply declare the bean within your applicationContext xml with an id of `blTaxModule`. This overrides Broadleaf's out-of-the-box configuration for tax calculation. As documented in [[Simple Tax Module]], the property we need to customize that fits our needs is the `itemStateTaxRateMap`.  For additional properties and their descriptions, see more in the Simple Tax Module documentation.  
+To customize the simple tax module, simply declare the bean within your applicationContext xml with an id of `blTaxModule`. This overrides Broadleaf's out-of-the-box configuration for tax calculation. 
+
+Specifying a rate by state will suffice for our needs. Therefore, the property we need to customize in this bean is the `itemStateTaxRateMap`.  For additional properties and their descriptions, see more in the [[Simple Tax Module]] docs.  
 
 Here is the complete snippet:
 
@@ -40,3 +42,5 @@ Here is the complete snippet:
 </bean>
 
 ```
+
+The changes should take effect on the next server startup. That's it!
