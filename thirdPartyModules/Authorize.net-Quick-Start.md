@@ -2,6 +2,8 @@ Broadleaf Commerce offers an out-of-the-box Authorize.net solution that requires
 
 **You must have completed the [[Authorize.net Environment Setup]] before continuing**
 
+##1) Adding Authorize.net DPM Support
+
 First, you will need to add the quick-start Authorize.net application context `bl-authorizenet-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
 
