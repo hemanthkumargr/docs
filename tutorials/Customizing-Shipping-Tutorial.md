@@ -8,7 +8,7 @@ In this tutorial, we will implement a shipping calculation module for 'Acme Co'.
 
 ## Prerequisites 
 
-Understanding of Broadleaf orders, fulfillment groups, etc.
+- [[Shipping]]
 
 ## Acme Co Shipping Requirements
 
