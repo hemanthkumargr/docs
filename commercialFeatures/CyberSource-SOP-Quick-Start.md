@@ -27,3 +27,34 @@ Your `patchConfigLocations` should look something like this:
 	</context-param>
 ```
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-cybersource-silentpost-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
+
+##2) Make your CheckoutController extend BroadleafCybersourceSilentPostController
+
+Next, you will need to create a basic controller that extends `BroadleafCybersourceSilentPostController` to provide default `@RequestMappings` for your application.
+Here is an example controller with the minimum amount of code needed to get CyberSource SOP integrated. 
+This quick start solution only offers support for an Authorize and Debit transaction. See [[CyberSource SOP Advance Configuration]] for further customization.
+
+```java
+@Controller
+public class CheckoutController extends BroadleafCybersourceSilentPostController {
+
+    @RequestMapping(value = "/checkout")
+    public String checkout(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return super.checkout(request, response, model);
+    }
+
+    @RequestMapping(value = "/success", method = RequestMethod.POST)
+    public String processCybersourceSilentPostAuthorizeAndDebitSuccess(Model model,
+            HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
+        return super.processCybersourceSilentPostAuthorizeAndDebitSuccess(model, request, response);
+    }
+
+    @RequestMapping(value = "/decline", method = RequestMethod.POST)
+    public String processCybersourceSilentPostAuthorizeAndDebitDecline(Model model,
+            HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
+        return super.processCybersourceSilentPostAuthorizeAndDebitDecline(model, request, response);
+    }
+
+}
+```
+> Note: BroadleafCybersourceSilentPostController will add the necessary attributes for a Silent Order Post to the model whenever you call `checkout()`
