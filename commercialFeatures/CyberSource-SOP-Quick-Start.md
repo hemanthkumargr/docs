@@ -84,10 +84,6 @@ Your page may look something like this:
 
         <input type="hidden" name="billTo_country" value="US" />
 
-        <div class="form100" th:unless="${cart.fulfillmentGroups != null and #lists.size(cart.fulfillmentGroups) > 1}">
-            <input id="use_shipping_address" type="checkbox"  th:disabled="${!validShipping}" /> Use Shipping Information
-        </div>
-
         <div class="form30">
             <label for="firstName">First Name</label>
             <input type="text" name="billTo_firstName" class="field30 required clearable" th:disabled="${!validShipping}" />
