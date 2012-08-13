@@ -7,6 +7,6 @@ In the following tutorials, we will walk through three of the main components of
 
 ## Tutorials
 
-- [[Customizing Payment]]
-- [[Customizing Shipping]]
-- [[Customizing Tax]]
+- [[Customizing Payment | Customizing Checkout Customizing Payment]]
+- [[Customizing Shipping | Customizing Checkout Customizing Payment]]
+- [[Customizing Tax | Customizing Checkout Customizing Payment]]
