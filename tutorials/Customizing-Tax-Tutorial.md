@@ -6,8 +6,8 @@ In this tutorial we will configure the Simple Tax Module for our example company
 
 ## Prerequisites
  
-[[Broadleaf Tax Strategy | Tax]] 
-[[Broadleaf's Simple Tax Module | Simple Tax Module ]]
+-[[Broadleaf Tax Strategy | Tax]]
+-[[Broadleaf's Simple Tax Module | Simple Tax Module ]]
  
 ## Acme Co Tax Requirements
  
