@@ -1,7 +1,7 @@
 - [[Home]]
 - [[Getting Started]]
 - [[Broadleaf Concepts]]
-    - [[Key Aspects]]
+    - [[Key Aspects & Configuration | Key Aspects]]
         - [[Features and Architecture]]
         - [[Project Modules / Structure | Project Modules and Package Structure]]
         - [[Merge Configuration]]
