@@ -1,4 +1,27 @@
-> **This section is a work in progress and is not yet comprehensive**
+Broadleaf 2.0 comes with a new strategy for interacting with carts (an in process order). Instead of having to extend OrderService like before, you now simply define a workflow for cart operations that specifies a list of activities to be called in order.
+
+## Cart Operation Workflows
+
+### Default Workflows
+
+There are three workflows provided by default in Broadleaf:
+
+- `blAddItemWorkflow`
+- `blUpdateItemWorkflow`
+- `blRemoveItemWorkflow`
+
+These workflows and the default activities are defined in the following file:
+
+```
+/broadleaf-framework/src/main/resources/bl-framework-applicationContext-workflow.xml
+```
+
+### Modifying A Workflow
+
+Modifying a workflow is done simply by defining a bean with the same name of one of the default workflows in your application's `applicationContext.xml` file. The easiest way to describe this is via a tutorial. We have one here:
+
+- [[Add To Cart Workflow For Heat Clinic Tutorial]]
+
 
 ## Fulfillment Group Item Strategy 
 

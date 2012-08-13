@@ -7,7 +7,6 @@
 4. Follow the instructions for your application server for creating a JNDI resource(s). Note that the driver does not go inside the war file(s). Rather it must go on the class path of the server.
 
 6. Update the runtime properties to use the correct dialect for the MySQL. (see [[Database Configuration]]).
-
 ```
 blPU.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
 blSecurePU.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect

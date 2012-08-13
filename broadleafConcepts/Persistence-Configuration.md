@@ -2,8 +2,6 @@ To properly configure Broadleaf's persistence system, we will need to follow a f
 
 ## <a name="wiki-pu-config" />Persistence Unit Configuration
 
-### Minimal
-
 Broadleaf provides a default application context file for configuring data sources.  By default, Broadleaf uses 3 data sources.  The first is the "webDS", or main data source containing most of the tables used by Broadleaf Commerce.  The second is the "webSecureDS" which is meant to provide a secure data source for tables that contain things like payment information in a PCI compliant situation.  The third data source, "webContentDS", is a data source to store content-managed data such as page snippets.  For simplicity, and in many real-world cases, it will be preferable to store all data in the same database or schema.  The ability to separate them is provided as a convenience in cases where architects, DBAs, or system administrators require it.  Broadleaf uses JNDI, by default, to provide data sources.  This is a very common approach for many organizations.  It allows system administrators to keep the database connection configuration separate from the code base, but allows a standard and consistent way to access database resources across multiple environments.  Here is a snippet from the default Broadleaf data source configuration found in `/WEB-INF/applicationContext-datasource.xml`:
 
 ```xml
@@ -24,68 +22,39 @@ The next thing to note is the /WEB-INF/web.xml file, which should have the JNDI 
 </resource-ref>
 ```
 
-The last thing to note is the "blPersistenceUnitManager".  This bean is merged with other persistence unit managers of the same name from various application context resources.  This is configured in /WEB-INF/applicationContext.xml.
+Next, we need to define our datasources in `applicationContext.xml` for Broadleaf to merge in. This looks like this:
 
 ```xml
-<bean id="blPersistenceUnitManager" class="org.broadleafcommerce.common.extensibility.jpa.MergePersistenceUnitManager">
-    <property name="persistenceXmlLocations">
-        <list>
-            <value>classpath*:/META-INF/persistence.xml</value>
-        </list>
-    </property>
-    <property name="dataSources">
+<bean id="blMergedDataSources" class="org.springframework.beans.factory.config.MapFactoryBean">
+    <property name="sourceMap">
         <map>
             <entry key="jdbc/web" value-ref="webDS"/>
             <entry key="jdbc/webSecure" value-ref="webSecureDS"/>
             <entry key="jdbc/cmsStorage" value-ref="webStorageDS"/>
         </map>
     </property>
-    <property name="defaultDataSource" ref="webDS"/>
-    <property name="persistenceUnitPostProcessors">
+</bean>
+```
+
+Lastly, we have to specify the location of our `persistence.xml` files for the application. We do that like so:
+
+```xml
+<bean id="blMergedPersistenceXmlLocations" class="org.springframework.beans.factory.config.ListFactoryBean">
+    <property name="sourceList">
         <list>
-            <bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
-                <property name="persistenceUnitProperties">
-                    <map>
-                        <!-- Overrides from environment properties files for blPU PersistenceUnit -->
-                        <entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
-                        <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
-                        <entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
-                        <entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
-                        <entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
-                        <entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
-                        
-                        <!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
-                        <entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
-                        <entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
-                        <entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
-                        <entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
-                        <entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
-                        <entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
-                        
-                        <!-- Overrides from environment properties files for blSecure PersistenceUnit -->
-                        <entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
-                        <entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
-                        <entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
-                        <entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
-                        <entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
-                        <entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
-                    </map>
-                </property>
-            </bean>
+            <value>classpath*:/META-INF/persistence.xml</value>
         </list>
     </property>
 </bean>
 ```
 
-The "blPersistenceUnitManager" defines the location (and name) of the persistence.xml.  This, by default, is located at /META-INF/persistence.xml, but could be anywhere.  This could also be multiple files, which would be merged together. The data sources, in this case, reference the 3 Spring beans, described above.  We will discuss the persistence unit post processors later.
-
-**For the merge facility to properly combine your persistence unit configuration with that of Broadleaf, your bean id must match the expected bean id - blPersistenceUnitManager.**
+These properties will get merged into the `blPersistenceUnitManager` by Broadleaf. We will discuss the persistence unit post processors later.
 
 ### Additional Persistence Units
 
 It may be necessary to define additional persistence units for your application (over and above those persistence units required by Broadleaf). Additional configuration is required to account for this. Here's how to achieve this.
 
-In the "blPersistenceUnitManager" bean defined above, we list various available datasources. First, we must add a new one:
+In the `blMergedDataSources` bean defined above, we list various available datasources. First, we must add a new one:
 
 ```xml
 <entry key="jdbc/myData" value-ref="myDS"/>
@@ -97,7 +66,7 @@ Second, you would add a new datasource bean. Again, you can use any method of ac
 <jee:jndi-lookup id="myDS" jndi-name="jdbc/myDS"/>
 ```
 
-Here, we have created a new entity manager factory for our new persistence unit. Please note, all persistence units (even your additional persistence unit) are managed through the original blPersistenceUnitManager. You can use this approach to build in as many persistence units as you like.
+Here, we have created a new entity manager factory for our new persistence unit. Please note, all persistence units (even your additional persistence unit) are managed through the original `blPersistenceUnitManager`. You can use this approach to build in as many persistence units as you like.
 
 ```xml
 <bean id="entityManagerFactoryMyPU" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -111,9 +80,7 @@ Here, we have created a new entity manager factory for our new persistence unit.
 
 ## <a name="wiki-pxml-config" />Persistence XML Configuration
 
-### Minimal
-
-Your managed entities, mapping files and datasource properties are specified inside your persistence.xml file(s). Here is an example that supports the minimal persistence unit configuration for Broadleaf:
+Your managed entities, mapping files and datasource properties are specified inside your `persistence.xml` file(s). Here is an example that supports the minimal persistence unit configuration for Broadleaf:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -149,7 +116,7 @@ Since we use JPA and Hibernate, we can specify properties that control the behav
 </properties>
 ```
 
-However, Broadleaf provides a mechanism to easily control this behavior on a per-environment basis. Why do you need this?  Well the answer is that many thing can and do change between environments. But, since these are defined inside the war, you don't want to re-build for every environment. Many QA departments require the same binary war that is certified for QA to be deployed to production. This restricts being able to build with new properties for each environment.  For example, perhaps you want the following configuration in your local environment:
+However, Broadleaf provides a mechanism to easily control this behavior on a per-environment basis. Why do you need this?  Well the answer is that many things can and do change between environments. But, since these are defined inside the war, you don't want to re-build for every environment. Many QA departments require the same binary war that is certified for QA to be deployed to production. This restricts being able to build with new properties for each environment.  For example, perhaps you want the following configuration in your local environment:
 ```xml
 <properties>
   <property name="hibernate.hbm2ddl.auto" value="create-drop" />
@@ -173,69 +140,39 @@ But you want this in production:
 </properties>
 ```
 
-This can be done using Broadleaf's [[Runtime Environment Configuration|Runtime Environment Configuration]]. Here's how:
-```xml
-...
-<property name="persistenceUnitPostProcessors">
-    <list>
-        <bean class="org.broadleafcommerce.common.extensibility.jpa.JPAPropertiesPersistenceUnitPostProcessor">
-            <property name="persistenceUnitProperties">
-                <map>
-                    <!-- Overrides from environment properties files for blPU PersistenceUnit -->
-                    <entry key="blPU.hibernate.hbm2ddl.auto" value="${blPU.hibernate.hbm2ddl.auto}" />
-                    <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
-                    <entry key="blPU.hibernate.show_sql" value="${blPU.hibernate.show_sql}"/>
-                    <entry key="blPU.hibernate.cache.use_second_level_cache" value="${blPU.hibernate.cache.use_second_level_cache}"/>
-                    <entry key="blPU.hibernate.cache.use_query_cache" value="${blPU.hibernate.cache.use_query_cache}"/>
-                    <entry key="blPU.hibernate.hbm2ddl.import_files" value="${blPU.hibernate.hbm2ddl.import_files}"/>
-                    
-                    <!-- Overrides from environment properties files for blCMSStorage PersistenceUnit -->
-                    <entry key="blCMSStorage.hibernate.hbm2ddl.auto" value="${blCMSStorage.hibernate.hbm2ddl.auto}" />
-                    <entry key="blCMSStorage.hibernate.dialect" value="${blCMSStorage.hibernate.dialect}"/>
-                    <entry key="blCMSStorage.hibernate.show_sql" value="${blCMSStorage.hibernate.show_sql}"/>
-                    <entry key="blCMSStorage.hibernate.cache.use_second_level_cache" value="${blCMSStorage.hibernate.cache.use_second_level_cache}"/>
-                    <entry key="blCMSStorage.hibernate.cache.use_query_cache" value="${blCMSStorage.hibernate.cache.use_query_cache}"/>
-                    <entry key="blCMSStorage.hibernate.hbm2ddl.import_files" value="${blCMSStorage.hibernate.hbm2ddl.import_files}"/>
-                    
-                    <!-- Overrides from environment properties files for blSecure PersistenceUnit -->
-                    <entry key="blSecurePU.hibernate.hbm2ddl.auto" value="${blSecurePU.hibernate.hbm2ddl.auto}" />
-                    <entry key="blSecurePU.hibernate.dialect" value="${blSecurePU.hibernate.dialect}"/>
-                    <entry key="blSecurePU.hibernate.show_sql" value="${blSecurePU.hibernate.show_sql}"/>
-                    <entry key="blSecurePU.hibernate.cache.use_second_level_cache" value="${blSecurePU.hibernate.cache.use_second_level_cache}"/>
-                    <entry key="blSecurePU.hibernate.cache.use_query_cache" value="${blSecurePU.hibernate.cache.use_query_cache}"/>
-                    <entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
-                </map>
-            </property>
-        </bean>
-    </list>
-</property>
-...
-```
-
 Spring allows you to define Persistence Unit Post Processors on the Persistence Manager.  Broadleaf provides a JPAPropertiesPersistenceUnitPostProcessor to allow you to substitute the correct properties at runtime.  The property name is simply a property name defined by the persistence provider (e.g. [[Hibernate|http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/configuration.html]] in this case), pre-pended with the persistence unit name and a period (e.g. "blPU.").  The property names are matched and associated with the correct persistence unit.  The values are replaced according to the [[Runtime Environment Configuration|Runtime Environment Configuration]].  If you wish to remove a property or ensure that it is simply not considered, set the value to "null" in the runtime properties. So, the following persistenceUnitPostProcessor property:
 
 ```
 <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
 ```
+
 And a properly configured runtime properties file with the following entry:
+
 ```
 blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
 ```
+
 Will result in a persistence unit property, for the blPU persistence unit only, that looks like this:
+
 ```
 <property key="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
 ```
-And an entry such as this in the persistenceUnitPostProcessor:
-```
-<entry key="blSecurePU.hibernate.hbm2ddl.import_files" value="${blSecurePU.hibernate.hbm2ddl.import_files}"/>
-```
-With a properly configured runtime properties file with the following entry:
-```
-blSecurePU.hibernate.hbm2ddl.import_files=null
-```
-Will result in the property "hibernate.hbm2ddl.import_files" being completely removed from the blSecurePU persistence unit only. Of course, the effect will be the no SQL scripts will be run when this persistence unit is created.  You can use this approach with any properties and any persistence unit.
 
 This allows you to pre-configure all of your persistence unit properties for their respective environments without the need to change them at build or deployment time.
+
+Commonly used properties: 
+
+```text
+blPU.hibernate.hbm2ddl.auto
+blPU.hibernate.dialect
+blPU.hibernate.show_sql
+blPU.hibernate.cache.use_second_level_cache
+blPU.hibernate.cache.use_query_cache
+blPU.hibernate.hbm2ddl.import_files
+```
+
+> Note: These properties are the same for all three persistence units. Therefore, the initial prefix could be either `blPU`, `blCMSStorage`, or `blSecurePU`.
+
 
 ### Persisting Additional Entities
 
