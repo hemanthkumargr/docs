@@ -36,7 +36,7 @@ This API is called from the `BroadleafCybersourceSilentPostController` used in t
 
 ## Customizing the CybersourceSilentPostPaymentModule
 
-The heart of the response processing occurs in this module. The Checkout Workflow calls this module and executes the AuthorizeAndDebit method to populate the PaymentInfo and PaymentResponseItem. These methods are protected and can be extended as necessary to provide your own custom implementation.
+The heart of the response processing occurs in the `CybersourceSilentPostPaymentModule`. The Checkout Workflow calls this module and executes the AuthorizeAndDebit method to populate the PaymentInfo and PaymentResponseItem needed for checkout. These methods are protected and can be extended as necessary to provide your own custom implementation.
 
 ## Manually Configuring the Presentation Layer
 
