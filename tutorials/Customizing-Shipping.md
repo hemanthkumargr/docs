@@ -1,10 +1,6 @@
-**Work In Progress**
-
-##Introduction
-
 Broadleaf provides two different shipping fee calculation strategies out-of-the-box: fixed-fee and banded by total fulfillment group retail price or weight. Also, Broadleaf provides the flexibility to integrate a third-party shipping module (for example, UPS).  
 
-In this tutorial, we will implement a shipping calculation module for 'Acme Co'. Specifically, we will utilize the banded price fulfillment option.
+In this tutorial, we will implement a shipping calculation module for **Acme Co**. Specifically, we will utilize the banded price fulfillment option.
 
 ## Prerequisites 
 
@@ -32,7 +28,9 @@ The following table represents the shipping option / price requirements for Acme
 
 ## Configuring Banded Shipping
 
-As of Broadleaf 2.0, fulfillment options are configured by inserting the data directly into the database. In future versions of Broadleaf, fulfillment options will be configurable via the Broadleaf Admin. 
+As of Broadleaf 2.0, fulfillment options are configured by inserting the data directly into the database. This can be done by placing the following INSERT statements into one of the sql load scripts (e.g., `load_code_tables.sql`) or running these statements directly against the database. 
+
+In future versions of Broadleaf, fulfillment options will be configurable via the Broadleaf Admin. 
 
 To configure banded shipping we need to create Fulfillment Options and the Price Bands that will correspond to each option. 
 
