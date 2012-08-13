@@ -2,7 +2,7 @@ BroadleafCommerce currently offers tax services through our implementation of th
 
 **Caveat - the CyberSource tax module is only valid for the United States and Canada**
 
-**You must have completed the [[CyberSource Environment Setup]] before continuing**
+**You must have completed the [[CyberSource SOAP API Environment Setup]] before continuing**
 
 ## Configuring CyberSource Tax
 

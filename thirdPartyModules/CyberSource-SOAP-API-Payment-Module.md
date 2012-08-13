@@ -1,6 +1,6 @@
 BroadleafCommerce currently offers credit card payment services through our implementation of the CyberSource payment API. Secure communication to the vendor's remote API is negotiated internally by BroadleafCommerce according to CyberSource's specifications. Please review the following prerequisites before proceeding
 
-**You must have completed the [[CyberSource Environment Setup]] before continuing**
+**You must have completed the [[CyberSource SOAP API Environment Setup]] before continuing**
 
 ## Configuring CyberSource Payments
 

@@ -31,7 +31,7 @@ Additionally, you'll need to configure the Spring bean for the CyberSourceServic
 </bean>
 ```
 
-The merchantId, serverUrl and libVersion properties are all already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. You'll also notice that we've registered both the payment service and the tax service in the manager. If you're not using the CyberSource payment service, then you can safely omit the blCyberSourceCreditCardPaymentService reference. We'll cover the CyberSource payment configuration in the [[CyberSource Payment Module]] section.
+The merchantId, serverUrl and libVersion properties are all already configured by environment in Broadleaf, but can be overridden in your configuration if you would like. You'll also notice that we've registered both the payment service and the tax service in the manager. If you're not using the CyberSource payment service, then you can safely omit the blCyberSourceCreditCardPaymentService reference. We'll cover the CyberSource payment configuration in the [[CyberSource SOAP API Payment Module]] section.
 
 You must also declare a bean that will handle the password callback issued by the Axis webservice call to the CyberSource remote tax service.
 
