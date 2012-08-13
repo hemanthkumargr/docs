@@ -34,7 +34,7 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 ```
 
 
-##2) Create a Braintree Controller
+##2) Make your CheckoutController extend BroadleafBraintreeController
 
 Next, you will need to create a basic controller that extends `BroadleafBraintreeController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get Braintree integrated. 
