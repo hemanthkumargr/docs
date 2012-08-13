@@ -7,3 +7,8 @@
 2. CyberSource will then process an Authorize and Debit transaction against the billing and credit card information submitted and send a redirect request to the customer's browser.
 3. The customer's browser will then redirect to a Broadleaf URL based on the outcome of the transaction.
 4. Broadleaf will complete the checkout flow based on the response from CyberSource and forward to the appropriate confirmation or error page.
+
+There are two ways to get started integrating this payment gateway into your eCommerce application.
+Broadleaf offers a [[CyberSource SOP Quick Start]] solution that allows developers to easily add Braintree functionality
+with little configuration. If you have a simple eCommerce store and want an easy way to start accepting payment, this is a good place to start.
+On the other hand, if your application has a more complex payment workflow, you can customize your implementation using the [[CyberSource SOP Advance Configuration]] guide.
