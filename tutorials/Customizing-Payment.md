@@ -1,4 +1,8 @@
-In this tutorial, we will walk through adding a new payment type to support employee payroll deduction as a method of payment. We will assume that you are familiar with [[service extension|Extending Services]] and [[entity extension|Extending Entities]].
+In this tutorial, we will walk through adding a new payment type to support employee payroll deduction as a method of payment. 
+
+## Prerequisites
+- [[Service Extension | Extending Services]]
+- [[Entity Extension | Extending Entities]]
 
 ## PaymentInfo
 
