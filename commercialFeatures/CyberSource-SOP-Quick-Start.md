@@ -44,12 +44,14 @@ public class CheckoutController extends BroadleafCybersourceSilentPostController
     }
 
     @RequestMapping(value = "/success", method = RequestMethod.POST)
+    // This URL must match the Receipt Response URL defined in the CyberSource Business Center
     public String processCybersourceSilentPostAuthorizeAndDebitSuccess(Model model,
             HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
         return super.processCybersourceSilentPostAuthorizeAndDebitSuccess(model, request, response);
     }
 
     @RequestMapping(value = "/decline", method = RequestMethod.POST)
+    // This URL must match the Delcine Response URL defined in the CyberSource Business Center
     public String processCybersourceSilentPostAuthorizeAndDebitDecline(Model model,
             HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
         return super.processCybersourceSilentPostAuthorizeAndDebitDecline(model, request, response);
