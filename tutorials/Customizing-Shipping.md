@@ -1,7 +1,3 @@
-**Work In Progress**
-
-##Introduction
-
 Broadleaf provides two different shipping fee calculation strategies out-of-the-box: fixed-fee and banded by total fulfillment group retail price or weight. Also, Broadleaf provides the flexibility to integrate a third-party shipping module (for example, UPS).  
 
 In this tutorial, we will implement a shipping calculation module for 'Acme Co'. Specifically, we will utilize the banded price fulfillment option.
