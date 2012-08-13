@@ -9,4 +9,4 @@ In the following tutorials, we will walk through three of the main components of
 
 - [[Customizing Payment]]
 - [[Customizing Shipping]]
-- [[Customizing Taxes]]
+- [[Customizing Tax]]
