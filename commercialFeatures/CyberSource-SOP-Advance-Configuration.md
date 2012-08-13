@@ -34,6 +34,10 @@ Broadleaf provides the `CybersourceSilentPostCheckoutService`, an abstraction la
 the objects necessary for completing a successful checkout. The `blCybersourceSilentPostCheckoutService` can be overridden using a custom implementation.
 This API is called from the `BroadleafCybersourceSilentPostController` used in the [[CyberSource SOP Quick Start]] solution.
 
+## Customizing the CybersourceSilentPostPaymentModule
+
+The heart of the response processing occurs in this module. The Checkout Workflow calls this module and executes the AuthorizeAndDebit method to populate the PaymentInfo and PaymentResponseItem. These methods are protected and can be extended as necessary to provide your own custom implementation.
+
 ## Manually Configuring the Presentation Layer
 
 It is up to you to choose the presentation layer approach that best fits your needs, but regardless of the approach, 
@@ -46,4 +50,3 @@ This class is also a useful reference in setting up a custom payment workflow wi
 The final step is to create the dynamic HTML form that will make a Silent Post to CyberSource.
 Here is a link to the Silent Post documentation that lists all the fields that can be sent to CyberSource:
 http://apps.cybersource.com/library/documentation/sbc/SOP_UG/SOP_UG.pdf
-
