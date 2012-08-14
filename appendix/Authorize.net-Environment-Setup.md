@@ -64,12 +64,12 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 You will need to enter the following key/value pairs in the appropriate locations:
 
 ### common.properties
-    authorizenet.api.login.id=?
-    authorizenet.transaction.key=?
-    authorizenet.merchant.md5.key=?
     authorizenet.merchant.transaction.version=3.1
 
 ### local.properties, development.properties, integrationdev.properties, integrationqa.properties
+    authorizenet.api.login.id=?
+    authorizenet.transaction.key=?
+    authorizenet.merchant.md5.key=?   
     authorizenet.relay.response.url=? (e.g. http://localhost:8080/authorizenet/process)
     authorizenet.confirm.url=? (e.g. http://localhost:8080/confirmation)
     authorizenet.error.url=? (e.g. http://localhost:8080/authorizenet/error)
@@ -79,6 +79,9 @@ You will need to enter the following key/value pairs in the appropriate location
 - authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details;
     
 ### staging.properties
+    authorizenet.api.login.id=?
+    authorizenet.transaction.key=?
+    authorizenet.merchant.md5.key=?    
     authorizenet.relay.response.url=? (e.g. http://staging.mycompany.com/authorizenet/process)
     authorizenet.confirm.url=? (e.g. http://staging.mycompany.com/confirmation)
     authorizenet.error.url=? (e.g. http://staging.mycompany.com/authorizenet/error)
@@ -91,6 +94,9 @@ the merchant’s Authorize.Net Payment Gateway API Login ID and Transaction Key 
 By including the x_test_request field with a value of “TRUE” in the HTML Form POST <INPUT TYPE="HIDDEN" NAME="x_test_request" VALUE="TRUE">
 
 ### production.properties 
+    authorizenet.api.login.id=?
+    authorizenet.transaction.key=?
+    authorizenet.merchant.md5.key=?
     authorizenet.relay.response.url=? (e.g. http://mycompany.com/authorizenet/process)
     authorizenet.confirm.url=? (e.g. http://mycompany.com/confirmation)
     authorizenet.error.url=? (e.g. http://mycompany.com/authorizenet/error)
