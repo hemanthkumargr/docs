@@ -76,7 +76,7 @@ You will need to enter the following key/value pairs in the appropriate location
     authorizenet.server.url=https://test.authorize.net/gateway/transact.dll
     authorizenet.x_test_request=FALSE
 
-- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details;
+- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details; This is must be the same value you entered in your account settings.
     
 ### staging.properties
     authorizenet.api.login.id=?
@@ -88,7 +88,7 @@ You will need to enter the following key/value pairs in the appropriate location
     authorizenet.server.url=https://secure.authorize.net/gateway/transact.dll
     authorizenet.x_test_request=TRUE   
 
-- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details;
+- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details; This is must be the same value you entered in your account settings.
 - authorizenet.x_text_request: Once the integration is successfully tested in the developer test environment,
 the merchant’s Authorize.Net Payment Gateway API Login ID and Transaction Key can be plugged into the integration for testing against the live environment.
 By including the x_test_request field with a value of “TRUE” in the HTML Form POST <INPUT TYPE="HIDDEN" NAME="x_test_request" VALUE="TRUE">
@@ -103,7 +103,7 @@ By including the x_test_request field with a value of “TRUE” in the HTML For
     authorizenet.server.url=https://secure.authorize.net/gateway/transact.dll
     authorizenet.x_test_request=FALSE 
 
-- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details;
+- authorizenet.relay.response.url: must be a publicly accessible URL. See [[Testing using DPM | http://community.developer.authorize.net/t5/Integration-and-Testing/Direct-Post-in-a-development-environment-behind-a-firewall/td-p/8906]] for more details; This is must be the same value you entered in your account settings.
 - authorizenet.x_test_request: Only needed for testing in a live environment, e.g. staging
 
 
