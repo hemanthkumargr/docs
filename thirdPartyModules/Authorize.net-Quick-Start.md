@@ -52,7 +52,7 @@ public class CheckoutController extends BroadleafAuthorizeNetController {
 ```
 ##3) Create the HTML for the DPM form
 
-Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). 
+Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). The checkout() method defined above will add the necessary attributes on the Spring Model object. 
 Your page may look something like this:
 
 > Note: it is important that all the hidden fields listed in the form below be included.
