@@ -59,11 +59,10 @@ public class CheckoutController extends BroadleafCybersourceSilentPostController
 
 }
 ```
-> Note: BroadleafCybersourceSilentPostController will add the necessary attributes for a Silent Order Post to the model whenever you call `checkout()`
 
 ##3) Construct the HTML for the dynamic CyberSource SOP form
 
-Finally, you will need to contruct the form that you will send via Silent Order POST. 
+Finally, you will need to contruct the form that you will send via Silent Order POST. The checkout() method defined above will add the necessary attributes on the Spring Model object.  
 Your page may look something like this:
 
 > Note: it is important that all the hidden fields listed in the form below be included.
