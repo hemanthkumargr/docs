@@ -60,7 +60,8 @@ public class CheckoutController extends BroadleafBraintreeController {
 
 ##3) Construct the HTML for the dynamic Braintree form
 
-Finally, you will need to contruct the form that you will send via transparent redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`)   
+Finally, you will need to contruct the form that you will send via transparent redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
+  
 Here's a list of all the [[HTML fields | https://www.braintreepayments.com/docs/java/transactions/tr_fields]] that can be sent to Braintree.
 Your page may look something like this:
 
