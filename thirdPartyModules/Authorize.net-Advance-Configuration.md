@@ -14,6 +14,9 @@ You will need to declare the following Spring beans in your application context:
 
     <bean id="blAuthorizeNetModule" class="org.broadleafcommerce.payment.service.module.AuthorizeNetPaymentModule">
         <property name="authorizeNetPaymentService" ref="blAuthorizeNetVendorOrientedPaymentService"/>
+        <property name="stateService" ref="blStateService"/>
+        <property name="countryService" ref="blCountryService"/>
+        <property name="customerService" ref="blCustomerService"/>
     </bean>
 
     <bean id="blAuthorizeNetVendorOrientedPaymentService" class="org.broadleafcommerce.vendor.authorizenet.service.payment.AuthorizeNetPaymentServiceImpl">
@@ -23,6 +26,7 @@ You will need to declare the following Spring beans in your application context:
                 <property name="apiLoginId" value="${authorizenet.api.login.id}"/>
                 <property name="transactionKey" value="${authorizenet.transaction.key}"/>
                 <property name="relayResponseUrl" value="${authorizenet.relay.response.url}"/>
+                <property name="merchantMD5Key" value="${authorizenet.merchant.md5.key}"/>
             </bean>
         </property>
     </bean>
