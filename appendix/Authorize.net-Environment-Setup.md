@@ -3,6 +3,18 @@
 - Users must establish their own test account with Authorize.net in order to use the BroadleafCommerce Authorize.net payment functionality. This can be done here: https://developer.authorize.net/testaccount
 - Please familiarize yourself with the Direct Post Method of the Authorize.net API before proceeding: https://developer.authorize.net/integration/fifteenminutes/java
 
+### Configure your Authorize.net Account*
+1. Login to your Authorize.net account (https://account.authorize.net/ or https://sandbox.authorize.net/) and navigate to your Account Settings.
+![Authorize.net Console](images/payment-authorizenet-console-1.png)
+2. Create a new Transaction Key by navigating to Account > Settings > API Login ID and Transaction Key. Fill out the form to generate a new key
+![Authorize.net Console](images/payment-authorizenet-console-2.png)
+3. Create an MD5Hash (e.g. 12345) by navigating to Account > Settings > MD5Hash
+![Authorize.net Console](images/payment-authorizenet-console-3.png)
+4. Finally, configure the Relay Response URL by navigating to Account > Settings > Response/Receipt URLs. This is the public URL that Authorize.net will send the response of the transaction to.
+![Authorize.net Console](images/payment-authorizenet-console-4.png)
+
+> * Note all of these values down as you will need to enter them in your environment properties files.
+
 ### Download and Install the Authorize.net Java SDK
 The Authorize.net SDK is not available on any public maven repository, so you must download and install it manually.
 You can do that here: https://developer.authorize.net/downloads/
