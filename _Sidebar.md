@@ -66,7 +66,7 @@
             - [[Braintree Quick Start]]
             - [[Braintree Advance Configuration]]
         - [[CyberSource Silent Post Module]]
-            - [[CyberSource SOP Quickstart]]
+            - [[CyberSource SOP Quick Start]]
             - [[CyberSource SOP Advance Configuration]]
 - [[Tutorials]]
     - [[Getting Started | Getting Started Tutorials]]
