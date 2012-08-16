@@ -25,7 +25,6 @@ java.util.logging.Logger.getLogger("myClassName").log(Level.INFO,"Starting calcu
          }
         });
 }
-
 ``` 
 
 
