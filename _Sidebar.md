@@ -85,6 +85,7 @@
         - [[Creating A New Workflow Tutorial]]
         - [[Adding Data Tutorial]]
     - [[Admin | Admin Tutorials]]
+        - [[Enable GWT Logging to Server]]
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[1.6 to 2.0 Migration]]
