@@ -34,7 +34,7 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 ```
 
 
-##2) Create a Braintree Controller
+##2) Make your CheckoutController extend BroadleafBraintreeController
 
 Next, you will need to create a basic controller that extends `BroadleafBraintreeController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get Braintree integrated. 
@@ -42,27 +42,26 @@ This quick start solution only offers support for an Authorize and Debit transac
 
 ```java
 @Controller
-public class BraintreeController extends BroadleafBraintreeController {
+public class CheckoutController extends BroadleafBraintreeController {
 
-    @RequestMapping(value = "/braintree/checkout")
+    @RequestMapping(value = "/checkout")
     public String checkout(HttpServletRequest request, HttpServletResponse response, Model model) {
         return super.checkout(request, response, model);
     }
 
     @Override
-    @RequestMapping(value = "/braintree/process")
+    @RequestMapping(value = "/process")
     public String processBraintreeAuthorizeAndDebit(Model model, @RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
         return super.processBraintreeAuthorizeAndDebit(model, id, request, response);
     }
 
 }
 ```
-> Note: BroadleafBraintreeController will add the attributes `trUrl` and `trData` to the model whenever you call `checkout()`
-
 
 ##3) Construct the HTML for the dynamic Braintree form
 
-Finally, you will need to contruct the form that you will send via transparent redirect. 
+Finally, you will need to contruct the form that you will send via transparent redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
+  
 Here's a list of all the [[HTML fields | https://www.braintreepayments.com/docs/java/transactions/tr_fields]] that can be sent to Braintree.
 Your page may look something like this:
 

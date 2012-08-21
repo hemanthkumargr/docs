@@ -5,6 +5,12 @@
 - Users must establish their own sandbox accounts with Braintree in order to use the BroadleafCommerce Braintree payment functionality in a test environment. This can be done here: https://www.braintreepayments.com/get-started
 - Please familiarize yourself with the Braintree Java API before proceeding: https://www.braintreepayments.com/docs/java
 
+### Set up your Braintree Account
+1. Login to your Braintree console
+2. Generate an API key by navigating to Account > My User > API Keys
+![Braintree Console](images/payment-braintree-console-1.png)
+3. Note these values because they will be needed when you configure your environment properties
+
 Once you have established an account with Braintree, begin by including the Braintree Module dependency to your pom.xml.
 
 ```xml

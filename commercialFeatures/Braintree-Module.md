@@ -1,6 +1,6 @@
 > Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
-![Braintree Diagram](images/payment-braintree-diagram.png)
+<img src="images/payment-braintree-diagram.png" class="no_border" alt="Braintree Diagram">
 
 ## How It Works
 1. On the final checkout page, the customer fills out their credit card and billing information and hits submit. This form will POST directly to Braintree with the required information contained within hidden fields and regular form fields.

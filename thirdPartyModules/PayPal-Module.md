@@ -1,6 +1,6 @@
 Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This module allows users to complete their shopping experience using their PayPal account.
 
-![Paypal Diagram](images/payment-paypal-diagram.png)
+<img src="images/payment-paypal-diagram.png" class="no_border" alt="PayPal Diagram">
 
 ## How It Works
 1. When a customer clicks the "Pay with PayPal" button on your checkout page, a request is sent to Broadleaf to initiate the Express Checkout flow.
@@ -28,48 +28,48 @@ Here's a feature list to help you decide which approach to choose:
   </tr>
   <tr>
     <td>Customizable Logo and Color Scheme on PayPal </td>
-    <td>[[/images/layout/accept.png]]</td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Single payments using PayPal or another credit card payment gateway. </td>
-    <td>[[/images/layout/accept.png]]</td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Partial payments using custom defined payment activities </td>
     <td></td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Capture shipping information in Broadleaf </td>
-    <td>[[/images/layout/accept.png]]</td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Capture shipping information on PayPal </td>
     <td></td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Saving PayPal details to Broadleaf profile </td>
     <td></td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Simple Authorization and Checkout</td>
-    <td>[[/images/layout/accept.png]]</td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>  
   <tr>
     <td>Refund Transaction</td>
     <td></td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
   <tr>
     <td>Void Transaction</td>
     <td></td>
-    <td>[[/images/layout/accept.png]]</td>
+    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
   </tr>
     <td></td>
     <td>[[PayPal Quick Start]]</td>

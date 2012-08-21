@@ -2,6 +2,8 @@ Broadleaf Commerce offers an out-of-the-box Authorize.net solution that requires
 
 **You must have completed the [[Authorize.net Environment Setup]] before continuing**
 
+##1) Adding Authorize.net DPM Support
+
 First, you will need to add the quick-start Authorize.net application context `bl-authorizenet-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
 
@@ -22,15 +24,14 @@ Your `patchConfigLocations` should look something like this:
 ```
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-authorizenet-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
 
-##2) Create an Authorize.net Controller
+##2) Make your CheckoutController extend BroadleafAuthrorizeNetController
 
 Next, you will need to create a controller that extends `BroadleafAuthrorizeNetController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get Authorize.net integrated.
 
 ```java
 @Controller
-@RequestMapping("/authorizenet")
-public class AuthorizeNetController extends BroadleafAuthorizeNetController {
+public class CheckoutController extends BroadleafAuthorizeNetController {
 
     //This method will build the dynamic form necessary to POST directly to Authorize.net
     @RequestMapping(value = "/checkout")
@@ -51,7 +52,7 @@ public class AuthorizeNetController extends BroadleafAuthorizeNetController {
 ```
 ##3) Create the HTML for the DPM form
 
-Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). 
+Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). The checkout() method defined above will add the necessary attributes on the Spring Model object. 
 Your page may look something like this:
 
 > Note: it is important that all the hidden fields listed in the form below be included.
