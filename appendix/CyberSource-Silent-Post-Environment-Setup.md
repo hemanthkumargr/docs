@@ -84,11 +84,45 @@ If not, the Payment Response will be logged and the Checkout Workflow will be ha
 
 ### development.properties, local.properties etc...
     cybersource.silentpost.server.url=https://orderpagetest.ic3.com/hop/ProcessOrder.do
+    cybersource.silentpost.receipt.response.url=?
+    cybersource.silentpost.decline.response.url=?
+
+- cybersource.silentpost.receipt.response.url : This is the Success URL you entered in the Business Center above. 
+- cybersource.silentpost.decline.response.url : This is the Decline URL you entered in the Business Center above. 
 
 > Quick Tip: When testing, you can change the url to "https://orderpagetest.ic3.com/hop/CheckOrderData.do" 
 to see a CyberSource page to check if the passed in parameters are valid. 
 
 ### production.properties
     cybersource.silentpost.server.url=https://orderpage.ic3.com/hop/ProcessOrder.do
+    cybersource.silentpost.receipt.response.url=?
+    cybersource.silentpost.decline.response.url=?
+
+- cybersource.silentpost.receipt.response.url : This is the Success URL you entered in the Business Center above. 
+- cybersource.silentpost.decline.response.url : This is the Decline URL you entered in the Business Center above. 
     
 Now that you have your environment set up, let's begin setting up the [[CyberSource Silent Post Module]].
+
+## Integration Test
+Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test or run the `CybersourceSilentPostIntegrationTest` that is included with this module.
+
+To run the `CybersourceSilentPostIntegrationTest`, you will need to add the following property files to your classpath:
+- config/bc/override/common.properties
+- config/bc/override/development.properties
+
+You will need to put the appropriate keys into the correct file according to the instructions above.
+Once those properties are in place, you can run:
+
+```java
+mvn test
+```
+
+## Logging
+To help you debug your integration, this module includes several beneficial debug statements.
+To enable logging, add the following `log4j.properties` file to your `resources` folder.
+
+    log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+    log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+    log4j.appender.stdout.layout.ConversionPattern=[%5p] %d{HH:mm:ss} %c{1} - %m%n
+    log4j.rootLogger=WARN, stdout
+    log4j.category.com.broadleafcommerce=DEBUG
