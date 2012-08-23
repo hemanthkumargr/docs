@@ -37,14 +37,14 @@ This configuration is required to use Broadleaf's RESTful services and the most 
 Lastly, it is recommended that you configure a filter to set the customer state, if known, on each request.  Broadleaf has a default filter that handles this.  You might want to replace it with your own implementation, especially if implementing some kind of security filter. To use Broadleaf's default filter out of the box, you must configure this filter in the merged application context.  Typically, we recommend using `applicationContext-security.xml`, if you are using the application as it is created with the Broadleaf Maven archetype.
 
 ```xml
-	<!-- Set up Spring security for the RESTful API -->
-	<sec:http pattern="/api/**" create-session="stateless">
-	    <sec:http-basic />
-		<sec:custom-filter ref="blRestCustomerStateFilter" after="REMEMBER_ME_FILTER"/>
-	</sec:http>
-	
-   <!--  Used for REST api calls.   This just takes in the passed in customerId and uses it to establish the customer.
-         Additional considerations MUST be made for implementations that are allowing external access to APIs.  -->
+    <!-- Set up Spring security for the RESTful API -->
+    <sec:http pattern="/api/**" create-session="stateless">
+        <sec:http-basic />
+        <sec:custom-filter ref="blRestCustomerStateFilter" after="REMEMBER_ME_FILTER"/>
+    </sec:http>
+    
+    <!-- Used for REST api calls.   This just takes in the passed in customerId and uses it to establish the customer. -->
+    <!-- Additional considerations MUST be made for implementations that are allowing external access to APIs. -->
     <bean id="blRestCustomerStateFilter" class="org.broadleafcommerce.profile.web.core.security.RestApiCustomerStateFilter"/>
 ```
 
