@@ -104,14 +104,20 @@ to see a CyberSource page to check if the passed in parameters are valid.
 Now that you have your environment set up, let's begin setting up the [[CyberSource Silent Post Module]].
 
 ## Integration Test
-Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test or run the `CybersourceSilentPostIntegrationTest` that is included with this module.
+Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test similar to the `CybersourceSilentPostIntegrationTest` that is included with this module.
 
-To run the `CybersourceSilentPostIntegrationTest`, you will need to add the following property files to your classpath:
+To test your keys with the included `CybersourceSilentPostIntegrationTest`, you can clone the `blc-cybersource-silentpost` repo* and add the following property files to your classpath:
 - config/bc/override/common.properties
 - config/bc/override/development.properties
 
-You will need to put the appropriate keys into the correct file according to the instructions above.
-Once those properties are in place, you can run:
+You will need to put your keys into the correct file according to the instructions above.
+Once those properties are in place, you can run on `blc-cybersource-silentpost`:
+
+```java
+mvn test
+```
+
+> * Access to the blc-cybersource-silentpost repository requires a commercial license. Please contact us at info@broadleafcommerce.org for more information.
 
 ```java
 mvn test
