@@ -54,3 +54,32 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 - braintree.redirectUrl: the URL Braintree should redirect to after completing the order
 
 Now that you have your environment set up, let's begin setting up the [[Braintree Module]].
+
+## Integration Test
+Once you have acquired your merchant and API keys, it would be beneficial to write an integration test or run the `BraintreeCheckoutServiceIntegrationTest` that is included with this module.
+
+To run the `BraintreeCheckoutServiceIntegrationTest`, you will need to add the following property files to your classpath:
+- config/bc/override/common.properties
+- config/bc/override/development.properties
+
+You will need to put the appropriate keys in the correct file according to the instructions above.
+Once those properties are in place, you can run:
+
+```java
+mvn test
+```
+
+## Logging
+To help you debug your integration, this module comes built in with several beneficial debug statements.
+To enable logging, add the following `log4j.properties` file to your `resources` folder.
+
+```java
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=[%5p] %d{HH:mm:ss} %c{1} - %m%n
+
+log4j.rootLogger=WARN, stdout
+
+log4j.category.com.broadleafcommerce=DEBUG
+```
+
