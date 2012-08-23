@@ -56,14 +56,14 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 Now that you have your environment set up, let's begin setting up the [[Braintree Module]].
 
 ## Integration Test
-Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test or run the `BraintreeCheckoutServiceIntegrationTest` that is included with this module.
+Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test similar to the `BraintreeCheckoutServiceIntegrationTest` that is included with this module.
 
-To run the `BraintreeCheckoutServiceIntegrationTest`, you will need to add the following property files to your classpath:
+To test your keys with the included `BraintreeCheckoutServiceIntegrationTest`, you can clone the `blc-braintree` repo and add the following property files to your classpath:
 - config/bc/override/common.properties
 - config/bc/override/development.properties
 
-You will need to put the appropriate keys into the correct file according to the instructions above.
-Once those properties are in place, you can run:
+You will need to put your keys into the correct file according to the instructions above.
+Once those properties are in place, you can run on `blc-braintree`:
 
 ```java
 mvn test
