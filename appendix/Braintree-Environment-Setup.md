@@ -58,7 +58,7 @@ Now that you have your environment set up, let's begin setting up the [[Braintre
 ## Integration Test
 Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test similar to the `BraintreeCheckoutServiceIntegrationTest` that is included with this module.
 
-To test your keys with the included `BraintreeCheckoutServiceIntegrationTest`, you can clone the `blc-braintree` repo and add the following property files to your classpath:
+To test your keys with the included `BraintreeCheckoutServiceIntegrationTest`, you can clone the `blc-braintree` repo* and add the following property files to your classpath:
 - config/bc/override/common.properties
 - config/bc/override/development.properties
 
@@ -69,6 +69,8 @@ Once those properties are in place, you can run on `blc-braintree`:
 mvn test
 ```
 
+> * Access to the blc-braintree repository requires a commercial license. Please contact us at info@broadleafcommerce.org for more information.
+
 ## Logging
 To help you debug your integration, this module includes several beneficial debug statements.
 To enable logging, add the following `log4j.properties` file to your `resources` folder.
@@ -78,4 +80,3 @@ To enable logging, add the following `log4j.properties` file to your `resources`
     log4j.appender.stdout.layout.ConversionPattern=[%5p] %d{HH:mm:ss} %c{1} - %m%n
     log4j.rootLogger=WARN, stdout
     log4j.category.com.broadleafcommerce=DEBUG
-
