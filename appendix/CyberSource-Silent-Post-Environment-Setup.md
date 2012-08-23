@@ -119,10 +119,6 @@ mvn test
 
 > * Access to the blc-cybersource-silentpost repository requires a commercial license. Please contact us at info@broadleafcommerce.org for more information.
 
-```java
-mvn test
-```
-
 ## Logging
 To help you debug your integration, this module includes several beneficial debug statements.
 To enable logging, add the following `log4j.properties` file to your `resources` folder.
