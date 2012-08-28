@@ -9,6 +9,8 @@ Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, yo
 
 ## <a name="wiki-eclipse"></a> IDE Setup
 
+> Note: The first part of this Getting Started guide will cover using our prepackaged Eclipse workspace. If you are an advanced user and would prefer to set up the project yourself, please feel free to follow the [[Eclipse Setup]] guide.
+
 Once you have the Java SDK installed, we're ready to get your IDE up and running. Let's start by downloading Eclipse.
 
 Download Link: [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/indigosr2)
