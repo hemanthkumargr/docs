@@ -77,11 +77,11 @@ The workspace project and maven artifact all refers to "com.mycompany". For your
 
 > **Note: The name should be two alphabetic strings separated by a dot. For example, "com.heatclinic"**
 
-![Project Change Identifier](images/project-change-identifier.png)
+![Project Change Identifier](images/gs-project-change-identifier.png)
 
 You will be prompted to confirm your selection. It should identify the Maven Group as the string you typed in and the Company Name as the part after the dot.
 
-![Project Change Identifier Confirm](images/project-change-identifier-confirm.png)
+![Project Change Identifier Confirm](images/gs-project-change-identifier-confirm.png)
 
 Once that task is run, **Right click inside Package Explorer --> Refresh**.
 
