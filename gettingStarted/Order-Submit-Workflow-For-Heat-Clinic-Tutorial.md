@@ -84,8 +84,4 @@ Just add that line between the `RecordOfferUsageActivity` and the `CompleteOrder
 
 and our checkout workflow is complete. Check out the end result after checking out an order that had (1) level 6 sauce and (1) level 8 sauce:
 
-![Averaged Heat Range](/images/submit-order-workflow-tutorial-1.png)
-
-
-
-
+![Averaged Heat Range](images/submit-order-workflow-tutorial-1.png)
