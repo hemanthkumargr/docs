@@ -147,8 +147,12 @@ All we need to do is change this line:
 to 
 
 ```html
-<span th:text="${'Welcome, ' + customer.firstName + ' (' + customer.averageHeatRatingBought + ')'}"></span>  
+<span th:inline="text">
+    Welcome, [[${customer.firstName}]] ([[${customer.averageHeatRatingBought}]])
+</span>
 ```
+
+> Notice how since we are trying to output a more complex expression, we can use the `th:inline="text"` attribute to simplify our code.
 
 and we'll be in business. Yep, it's really that easy!
 
