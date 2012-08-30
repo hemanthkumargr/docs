@@ -50,7 +50,7 @@ Then, we can add the new field to `ajax/register.html`, right below the confirm 
 
 At this, point, when you click on Register, you should see your additional field:
 
-![Referral Code field](/images/referral-code-tutorial-1.png)
+![Referral Code field](images/referral-code-tutorial-1.png)
 
 All that's left is to save our referral code into our customer. We want to do this if the registration was successful. So, in `RegisterController`, we want to modify the `processRegister` method to look like this:
 
