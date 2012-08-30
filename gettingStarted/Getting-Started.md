@@ -169,9 +169,15 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
 
     <ul>
         <li>
+            [[Switching to MySQL | Switch To MySQL Tutorial]]
+            <ul>
+                <li>Learn how to use your own MySQL database server.</li>
+            </ul>
+        </li>
+        <li>
             Load Data
             <ul>
-                <li>Learn how to use your own database server and set up a clean slate for your products.</li>
+                <li>Learn how to set up a clean slate for your products.</li>
             </ul>
         </li>
         <li> 

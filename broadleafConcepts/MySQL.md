@@ -2,7 +2,7 @@
 
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see MySQL documentation if you have questions about how to administrate databases and users).
 
-3. Download the MySQL JDBC driver (http://dev.mysql.com/downloads/connector/j/)
+3. Download the MySQL JDBC driver (http://dev.mysql.com/downloads/connector/j/) and place it in the classpath for your application server
 
 4. Follow the instructions for your application server for creating a JNDI resource(s). Note that the driver does not go inside the war file(s). Rather it must go on the class path of the server.
 

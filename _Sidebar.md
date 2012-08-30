@@ -79,6 +79,7 @@
            - [[Customizing Payment Tutorial]]
            - [[Customizing Shipping Tutorial]]
            - [[Customizing Tax Tutorial]]
+        - [[Switching To MySQL | Switch To MySQL Tutorial]]
     - [[Core | Core Tutorials]]
         - [[Extending Entities Tutorial]]
         - [[Extending Services Tutorial]]
