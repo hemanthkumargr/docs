@@ -63,6 +63,7 @@ A very common step that users may want to do is switch away from the bundled HSQ
         </Arg>
     </New>
     ```
+    > Note: You must change `jetty-env.xml` in both the `site` and the `admin` projects.
 
 5. Update the runtime properties to use the correct MySQL dialect. In `core/src/main/resources/runtime-properties/common-shared.properties`, you will want to update the three persistence unit dialects to say:
 
