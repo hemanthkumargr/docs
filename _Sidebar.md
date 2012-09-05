@@ -98,6 +98,7 @@
         - [[FGItem Strategy | 1.6 to 2.0 Fulfillment Group Item Strategy Migration]]
         - [[Project Structure | 1.6 to 2.0 Project Structure Migration]]
         - [[Data Migration | 1.6 to 2.0 Data Migration]]
+    - [[1.5 to 1.6 Migration]]
 - [[Appendix]]
     - [[Extension Quick Reference]]
     - [[Runtime Environment Configuration]]
