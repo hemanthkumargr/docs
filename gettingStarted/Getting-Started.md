@@ -33,7 +33,7 @@ Once the plugin is done installing, you will be prompted to restart Eclipse. Go 
 
 You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it! 
 
-Download Link: [Broadleaf Eclipse Workspace](https://github.com/downloads/BroadleafCommerce/DemoSite/DemoSite-2.0.0-M1-6-eclipse-workspace.zip)
+Download Link: [Broadleaf Eclipse Workspace](https://github.com/downloads/BroadleafCommerce/DemoSite/DemoSite-2.0.0-RC1-1-eclipse-workspace.zip)
 
 > Note: If you're not prompted for a workspace, simply go to **File --> Switch Workspace** and select the path
 
