@@ -103,3 +103,37 @@ This is very simple as well. Simple add `&pageSize=20&page=2` to show results 21
 Once we've built our query and sent it to Solr, all that's left is to parse the results. We will first take a look at the facet results that came back from Solr. If we specified a facet on manufacturer, this would be a list of manufacturers in the given category/search along with how many results that manufacturer has. After processing that into our `SearchFacetResultDTO` object, we apply a sort to make it easier for the user to find their desired facet result. Finally, we take the product IDs that came back from Solr and look it up via our DAO to get full-fledged Product instances.
 
 The products, facets, and additional paging attributes get set in the `ProductSearchResult`, which is then returned to the controller and forwarded to the viewing layer to render.
+
+## Configuring Solr
+
+We have provided a way to easily configure different Solr servers for different environments. There are two properties that are configured via [[Runtime Environment Configuration]]
+
+```text
+solr.source=
+solr.url=
+```
+
+By default, `common.properties` only specifies the `solr.source` property to solrEmbedded. This then corresponds to the bean in `applicationContext.xml`:
+
+```xml
+<bean id="solrEmbedded" class="java.lang.String">
+    <constructor-arg value="solrhome"/>
+</bean>
+```
+
+If you wanted to use a standalone server, you could configure the two properties as follows:
+
+```text
+solr.url=http://localhost:8081/solr
+solr.source=solrServer
+```
+
+and then add the appropriate xml:
+
+```xml
+<bean id="solrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
+    <constructor-arg value="${solr.url}"/>
+</bean>
+```
+
+And now you have different Solr servers per your environments!
