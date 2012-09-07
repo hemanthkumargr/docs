@@ -12,3 +12,5 @@ blPU.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
 blSecurePU.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
 blCMSStorage.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
 ```
+
+> You may also want to check out the more detailed [[Switch To MySQL Tutorial]]

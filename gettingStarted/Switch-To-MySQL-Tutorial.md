@@ -9,7 +9,7 @@ A very common step that users may want to do is switch away from the bundled HSQ
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.6</version>
+        <version>5.1.21</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency> 
