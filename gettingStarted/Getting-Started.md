@@ -148,7 +148,7 @@ This console will end up on
 [artifact:mvn] [INFO] Started Jetty Server
 ```
 
-And now we can hit the admin! <a href="http://localhost:8081/admin" target="_blank">http://localhost:8081/admin</a>
+And now we can hit the admin! <a href="http://localhost:8081/admin" target="_blank">http://localhost:8081/admin</a>.  At the login prompt, enter the default username/password of **admin/admin** and you should see the below screen:
 
 ![Startup Admin](images/gs-startup-admin.png)
 
