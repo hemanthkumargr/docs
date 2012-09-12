@@ -28,6 +28,8 @@ The following tables define the structure of your CMS data.
 | BLC_FLD_GROUP           | Defines a field grouping which is used for ordering and display of the fields in the admin                                                   |
 | BLC_FLD_DEF             | Defines a specific content managed field (e.g. what user's enter).   Can be one of many types including RichText, Date, Number, String, etc. |
 
+![CMS Data Model](<img src="http://www.gliffy.com/pubdoc/2853777/M.png"/>)
+
 ### Storage of the actual CMS Data
 
 The following structures hold your ACTUAL instance data (e.g. actual pages, ads, etc.) that is managed by your business users.    You should bring this data over if you the data in your import.sql is appropriate and should be part of the conversion.
