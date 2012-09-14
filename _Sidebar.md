@@ -93,6 +93,7 @@
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[1.6 to 2.0 Migration]]
+        - [[SEQUENCE_GENERATOR Migration | 1.6 to 2.0 SEQUENCE_GENERATOR Migration]]
         - [[Order Service | 1.6 to 2.0 Order Service Migration]]
         - [[Security | 1.6 to 2.0 Security Migration]]
         - [[FGItem Strategy | 1.6 to 2.0 Fulfillment Group Item Strategy Migration]]
