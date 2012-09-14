@@ -85,6 +85,16 @@ Also, third party security providers also offer services including frequent site
 test your site for common vulnerabilities and risks. This is a great extra measure to help harden the security for your
 production site, and is necessary in some cases to achieve compliance with certain PCI requirements.
 
+##Encryption
+
+There are a number of excellent encryption strategies that you can employ to secure sensitive information in your web application.
+It is important to consider various factors such as encryption strength, key rotation strategy, etc.
+
+When starting up the application with the `production` environment key, you will receive a warning if you have not specified your 
+own encryption module. The default module provided by Broadleaf, `PassthroughEncryptionModule`, will not actually perform any type
+of encryption or decryption. This is ok for development, but we **highly** recommend employing a strategy that actually will do some
+type of encryption.
+
 ##Load Balancing
 
 Load balancing is the primary method used in Broadleaf Commerce implementations to scale an application and allow it
