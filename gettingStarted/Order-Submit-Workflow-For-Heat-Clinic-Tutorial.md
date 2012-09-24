@@ -1,4 +1,4 @@
-> **NOTE:** This tutorial requires you to complete the [[Extending Customer For Heat Clinic Tutorial]] first. If you would prefer to skip that tutorial, you can apply our provided patch file to get you caught up. Simply download the [patch file from here](gettingStarted/Patch-Extending-Customer-Tutorial.diff) and then in the root directory of the project, run `patch -p1 < /path/to/patch.diff`!
+> **NOTE:** This tutorial requires you to complete the [[Extending Customer For Heat Clinic Tutorial]] first. 
 
 ## Hooking into the submit order workflow
 

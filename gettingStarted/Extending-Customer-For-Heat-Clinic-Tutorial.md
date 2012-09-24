@@ -78,23 +78,13 @@ public class HCCustomerImpl extends CustomerImpl implements HCCustomer {
 
 ### Notify the persistence unit
 
-In `site/src/main/resources/META-INF/persistence.xml`, add the following line to the `blPU` 
+In `core/src/main/resources/META-INF/persistence.xml`, add the following line to the `blPU` 
 
 ```xml
 <class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
 ```
 
 which will make it look like this:
-
-```xml
-<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
-    <non-jta-data-source>jdbc/web</non-jta-data-source>
-    <class>com.mycompany.profile.core.domain.HCCustomerImpl</class>
-    <exclude-unlisted-classes/>
-</persistence-unit>
-```
-
-We also want to add the same line to the `blPU` in `admin/src/main/resources/META-INF/persistence-admin.xml`:
 
 ```xml
 <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
@@ -117,8 +107,9 @@ I chose the path `core/src/main/resources/applicationContext-entity.xml`. Here a
     xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!-- This file will contain bean overrides for extensions of Broadleaf entities -->
-    <!-- For example, if you have a custom class that extends CustomerImpl, you would note that here -->
+    <!-- This file will contain bean overrides for extensions of Broadleaf -->
+    <!-- entities For example, if you have a custom class that extends -->
+    <!-- CustomerImpl, you would note that here -->
     
     <bean id="org.broadleafcommerce.profile.core.domain.Customer"
         class="com.mycompany.profile.core.domain.HCCustomerImpl"
