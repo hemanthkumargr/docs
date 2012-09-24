@@ -7,7 +7,12 @@ if (window.history && window.history.pushState) {
             return true;
         } else {
             event.preventDefault();
-            History.pushState({}, null, linkUrl); 
+            var opts = {};
+            if (linkUrl.indexOf("#") > -1) {
+                opts = {anchor: linkUrl.substring(linkUrl.indexOf("#") + 1)};
+                linkUrl = linkUrl.substring(0, linkUrl.indexOf("#"));
+            }
+            History.pushState(opts, null, linkUrl); 
         }
     }));
 }
@@ -42,13 +47,17 @@ var DOCS = (function($) {
             $('#left_column').replaceWith(newLeftColumn);
 
             updateTree();
-            
-            if ($window.scrollTop() > 135) {
+
+            if (State.data['anchor'] != undefined) {
+                $('html, body').animate({
+                    scrollTop: $('a[name=' + State.data['anchor'] + ']').offset().top - 10
+                }, 300);
+            } else if ($window.scrollTop() > 135) {
                 $('html, body').animate({
                     scrollTop: 135
                 }, 300);
             }
-            
+
         });
     }
 
