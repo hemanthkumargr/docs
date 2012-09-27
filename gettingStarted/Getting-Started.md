@@ -116,6 +116,8 @@ This process will take a few minutes to execute, and will end on the following s
 [INFO] Final Memory: 13M/81M
 ```
 
+> **IMPORTANT NOTE:** By default, the project is set up to NOT clean the GWT-compiled admin files when you run a normal Maven clean. This is because recompiling these files takes a very long time and is not necessary every time. To fully clean the project, you can use the included `full-clean` Ant task in the admin project.
+
 At this point, we're ready to start up! Let's run the `jetty-demo` Ant task for the site.
 
 ![Jetty Demo](images/gs-jetty-demo.png)
