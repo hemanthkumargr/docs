@@ -10,3 +10,6 @@ To accomplish this goal, we have developed the platform based on the key feature
 
 To begin working with Broadleaf Commerce, you will want to follow the [[Getting Started]] documentation. Please feel free to ask for help in [our forums](http://forum.broadleafcommerce.org/) -- we monitor these regularly and love to help when we can!
 
+## Software License
+
+Broadleaf Commerce is distributed under the [Apache License 2.0](http://www.broadleafcommerce.org/license).
