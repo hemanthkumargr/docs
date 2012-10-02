@@ -76,3 +76,15 @@ public interface ErrorHandler extends BeanNameAware {
 
 Error handlers are instances of the simple `ErrorHandler` interface (show above). The error handler provides the Broadleaf user an opportunity to perform some task when an exception takes place during the execution of a workflow. This could be as simple as logging the exception, or perhaps something more complicated like releasing resources. As stated earlier, all default Broadleaf workflows use the DefaultErrorHandler class, which simply logs the exception to `System.out` and bubbles the exception.
 
+## Provided Workflows
+Below are some of the items that Broadleaf has workflow concepts for out of of the box:
+
+| Workflow Bean ID | Description | Notable functions
+| :----------------- | :-----------------------
+| blAddItemWorkflow  | Used when an item is added to the cart
+| blUpdateItemWorkflow | Used when an item is removed from the cart
+| blRemoveItemWorkflow | Used when an item is removed from the cart
+| blPricingWorkflow | Used by `blPricingService` (which is used by OrderService) to price an Order
+| blCheckoutWorkflow | Invoked by `blCheckoutService` in order to complete checkout for an Order (charge payments, decrement inventory, change status to SUBMITTED, etc)
+| blPaymentWorkflow | `CompositeActivity` within `blCheckoutWorkflow` to allow multiple payment methods
+| blAuthorizeAndDebitWorkflow | Used in the `blPaymentWorkflow`
