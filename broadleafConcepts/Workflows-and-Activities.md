@@ -80,7 +80,7 @@ Error handlers are instances of the simple `ErrorHandler` interface (show above)
 Below are some of the items that Broadleaf has workflow concepts for out of of the box:
 
 | Workflow Bean ID | Description | Notable functions
-| :----------------- | :-----------------------
+| :----------------- | :----------------------- | :-----------------------
 | blAddItemWorkflow  | Used when an item is added to the cart
 | blUpdateItemWorkflow | Used when an item is removed from the cart
 | blRemoveItemWorkflow | Used when an item is removed from the cart
