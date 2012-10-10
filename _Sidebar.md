@@ -91,6 +91,7 @@
         - [[Extending a Broadleaf Module]]
         - [[Showing Calculated Fields on Entities]]
         - [[Creating a Custom Module]]
+        - [[Invoking a Remote Service]]
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[2.0 RC1 to 2.0 GA Migration]]
