@@ -93,7 +93,9 @@
         - [[Creating a Custom Module]]
         - [[Invoking a Remote Service]]
 - [[Database Model]]
-	- Admin
+	- [[Admin]]
+		- [[Admin-Change-Sets]]
+		- [[Admin-Security]]
 	- [[Catalog]]
 		- [[Catalog-Category]]
 		- [[Catalog-Product]]
