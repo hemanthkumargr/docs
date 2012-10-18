@@ -1,11 +1,11 @@
 ##Catalog
 
 ###Detailed Diagrams
-- [[Catalog-Category]]
-- [[Catalog-Product]]
-- [[Catalog-Reviews]]
-- [[Catalog-Search]]
-- [[Catalog-Sku]]
+- [[Catalog Category]]
+- [[Catalog Product]]
+- [[Catalog Reviews]]
+- [[Catalog Search]]
+- [[Catalog Sku]]
 
 ###High Level Diagram
 

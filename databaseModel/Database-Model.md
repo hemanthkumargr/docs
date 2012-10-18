@@ -2,7 +2,7 @@
 
 ###Broadleaf Commerce 2.0.0
 
-- [[Admin | Admin-Model]]
+- [[Admin | Admin Model]]
 - [[Catalog]]
 - CMS
 - Customer

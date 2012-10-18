@@ -93,15 +93,15 @@
         - [[Creating a Custom Module]]
         - [[Invoking a Remote Service]]
 - [[Database Model]]
-	- [[Admin | Admin-Model]]
-		- [[Admin-Change-Sets]]
-		- [[Admin-Security]]
+	- [[Admin | Admin Model]]
+		- [[Admin Change Sets]]
+		- [[Admin Security]]
 	- [[Catalog]]
-		- [[Catalog-Category]]
-		- [[Catalog-Product]]
-		- [[Catalog-Reviews]]
-		- [[Catalog-Search]]
-		- [[Catalog-Sku]]
+		- [[Catalog Category]]
+		- [[Catalog Product]]
+		- [[Catalog Reviews]]
+		- [[Catalog Search]]
+		- [[Catalog Sku]]
 	- CMS
 	- Customer
 	- Offer
