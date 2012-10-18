@@ -5,9 +5,9 @@
 - [[Admin | Admin Model]]
 - [[Catalog]]
 - CMS
-- Customer
+- [[Customer]]
 - Offer
-- Order
+- [[Order]]
 - Other
 	- Checkout Config
 	- Common
