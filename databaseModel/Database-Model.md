@@ -6,7 +6,7 @@
 - [[Catalog]]
 - [[CMS]]
 - [[Customer]]
-- Offer
+- [[Offer]]
 - [[Order]]
 - Other
 	- Checkout Config
