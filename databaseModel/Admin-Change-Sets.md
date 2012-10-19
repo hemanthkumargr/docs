@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Admin Change Sets Detail](images/dataModel/AdminChangeSetsDetailedERD.png)
+[![Admin Change Sets Detail](images/dataModel/AdminChangeSetsDetailedERD.png)](images/dataModel/AdminChangeSetsDetailedERD.png)
 
 ###Tables
 

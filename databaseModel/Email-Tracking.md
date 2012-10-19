@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Email Tracking](images/dataModel/EmailTrackingDetailedERD.png)
+[![Email Tracking](images/dataModel/EmailTrackingDetailedERD.png)](images/dataModel/EmailTrackingDetailedERD.png)
 
 ###Tables
 

@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![CMS Static Asset Detail](images/dataModel/CMSStaticAssetDetailedERD.png)
+[![CMS Static Asset Detail](images/dataModel/CMSStaticAssetDetailedERD.png)](images/dataModel/CMSStaticAssetDetailedERD.png)
 
 ###Tables
 

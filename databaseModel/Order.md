@@ -6,4 +6,4 @@
 
 ###High Level Diagram
 
-![Order High Level](images/dataModel/OrderHighLevelERD.png)
+[![Order High Level](images/dataModel/OrderHighLevelERD.png)](images/dataModel/OrderHighLevelERD.png)

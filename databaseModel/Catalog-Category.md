@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Catalog Category Detail](images/dataModel/CatalogCategoryDetailedERD.png)
+[![Catalog Category Detail](images/dataModel/CatalogCategoryDetailedERD.png)](images/dataModel/CatalogCategoryDetailedERD.png)
 
 ###Tables
 

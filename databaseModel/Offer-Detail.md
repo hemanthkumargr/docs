@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Offer Detail](images/dataModel/OfferDetailedERD.png)
+[![Offer Detail](images/dataModel/OfferDetailedERD.png)](images/dataModel/OfferDetailedERD.png)
 
 ###Tables
 

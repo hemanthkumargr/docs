@@ -1,6 +1,6 @@
 ###Detailed ERD
 
-![Order Payment](images/dataModel/OrderPaymentDetailedERD.png)
+[![Order Payment](images/dataModel/OrderPaymentDetailedERD.png)](images/dataModel/OrderPaymentDetailedERD.png)
 
 ###Tables
 

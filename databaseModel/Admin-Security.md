@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Admin Security Detail](images/dataModel/AdminSecurityDetailedERD.png)
+[![Admin Security Detail](images/dataModel/AdminSecurityDetailedERD.png)](images/dataModel/AdminSecurityDetailedERD.png)
 
 ###Tables
 

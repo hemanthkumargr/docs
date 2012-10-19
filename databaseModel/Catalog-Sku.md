@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Catalog Sku Detail](images/dataModel/CatalogSkuDetailedERD.png)
+[![Catalog Sku Detail](images/dataModel/CatalogSkuDetailedERD.png)](images/dataModel/CatalogSkuDetailedERD.png)
 
 ###Tables
 

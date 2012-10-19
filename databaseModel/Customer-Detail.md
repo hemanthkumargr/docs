@@ -1,6 +1,6 @@
 ###Detailed ERD
 
-![Customer Detail](images/dataModel/CustomerDetailedERD.png)
+[![Customer Detail](images/dataModel/CustomerDetailedERD.png)](images/dataModel/CustomerDetailedERD.png)
 
 ###Tables
 

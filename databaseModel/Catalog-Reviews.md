@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Catalog Reviews Detail](images/dataModel/CatalogReviewsDetailedERD.png)
+[![Catalog Reviews Detail](images/dataModel/CatalogReviewsDetailedERD.png)](images/dataModel/CatalogReviewsDetailedERD.png)
 
 ###Tables
 

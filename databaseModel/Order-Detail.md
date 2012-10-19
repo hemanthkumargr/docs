@@ -1,6 +1,6 @@
 ###Detailed ERD
 
-![Order Detail](images/dataModel/OrderDetailedERD.png)
+[![Order Detail](images/dataModel/OrderDetailedERD.png)](images/dataModel/OrderDetailedERD.png)
 
 ###Tables
 

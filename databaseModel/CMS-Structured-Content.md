@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![CMS Structured Content Detail](images/dataModel/CMSStructuredContentDetailedERD.png)
+[![CMS Structured Content Detail](images/dataModel/CMSStructuredContentDetailedERD.png)](images/dataModel/CMSStructuredContentDetailedERD.png)
 
 ###Tables
 

@@ -6,4 +6,4 @@
 
 ###High Level Diagram
 
-![CMS High Level](images/dataModel/CMSHighLevelERD.png)
+[![CMS High Level](images/dataModel/CMSHighLevelERD.png)](images/dataModel/CMSHighLevelERD.png)

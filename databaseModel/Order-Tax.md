@@ -1,6 +1,6 @@
 ###Detailed ERD
 
-![Order Tax](images/dataModel/OrderTaxDetailedERD.png)
+[![Order Tax](images/dataModel/OrderTaxDetailedERD.png)](images/dataModel/OrderTaxDetailedERD.png)
 
 ###Tables
 

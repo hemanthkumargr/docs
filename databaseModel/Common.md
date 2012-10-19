@@ -1,6 +1,6 @@
 ###Detailed ERD
 
-![Common Detail](images/dataModel/CommonDetailedERD.png)
+[![Common Detail](images/dataModel/CommonDetailedERD.png)](images/dataModel/CommonDetailedERD.png)
 
 ###Tables
 

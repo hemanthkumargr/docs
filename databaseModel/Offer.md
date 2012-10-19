@@ -3,4 +3,4 @@
 
 ###High Level Diagram
 
-![Offer High Level](images/dataModel/OfferHighLevelERD.png)
+[![Offer High Level](images/dataModel/OfferHighLevelERD.png)](images/dataModel/OfferHighLevelERD.png)

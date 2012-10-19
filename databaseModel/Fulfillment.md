@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![Fulfillment Detail](images/dataModel/FulfillmentDetailedERD.png)
+[![Fulfillment Detail](images/dataModel/FulfillmentDetailedERD.png)](images/dataModel/FulfillmentDetailedERD.png)
 
 ###Tables
 

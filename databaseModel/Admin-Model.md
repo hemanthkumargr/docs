@@ -4,4 +4,4 @@
 
 ###High Level Diagram
 
-![Catalog High Level](images/dataModel/AdminHighLevelERD.png)
+[![Catalog High Level](images/dataModel/AdminHighLevelERD.png)](images/dataModel/AdminHighLevelERD.png)

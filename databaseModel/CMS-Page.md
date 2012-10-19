@@ -2,7 +2,7 @@
 
 ###Detailed ERD
 
-![CMS Page Detail](images/dataModel/CMSPageDetailedERD.png)
+[![CMS Page Detail](images/dataModel/CMSPageDetailedERD.png)](images/dataModel/CMSPageDetailedERD.png)
 
 ###Tables
 
