@@ -109,7 +109,8 @@
 		- [[CMS Structured Content]]
 	- [[Customer]]
 		- [[Customer Detail]]
-	- Offer
+	- [[Offer]]
+		- [[Offer Detail]]
 	- [[Order]]
 		- [[Order Detail]]
 		- [[Order Fulfillment]]
