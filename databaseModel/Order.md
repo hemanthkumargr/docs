@@ -1,10 +1,10 @@
 ##Order
 
 ###Detailed Diagrams
-- [[Order-Detail]]
-- [[Order-Fulfillment]]
-- [[Order-Payment]]
-- [[Order-Tax]]
+- [[Order Detail]]
+- [[Order Fulfillment]]
+- [[Order Payment]]
+- [[Order Tax]]
 
 ###High Level Diagram
 

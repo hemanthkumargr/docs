@@ -4,7 +4,7 @@
 
 - [[Admin | Admin Model]]
 - [[Catalog]]
-- CMS
+- [[CMS]]
 - [[Customer]]
 - Offer
 - [[Order]]

@@ -1,7 +1,7 @@
 ##Customer
 
 ###Detailed Diagram
-- [[Customer-Detail]]
+- [[Customer Detail]]
 
 ###High Level Diagram
 
