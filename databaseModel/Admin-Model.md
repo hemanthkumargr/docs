@@ -1,6 +1,6 @@
 ###Detailed Diagrams
-- [[Admin Change Sets]]
-- [[Admin Security]]
+- [[Change Sets | Admin Change Sets]]
+- [[Security | Admin Security]]
 
 ###High Level Diagram
 

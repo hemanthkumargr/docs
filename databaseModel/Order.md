@@ -1,8 +1,8 @@
 ###Detailed Diagrams
 - [[Order Detail]]
-- [[Order Fulfillment]]
-- [[Order Payment]]
-- [[Order Tax]]
+- [[Fulfillment | Order Fulfillment]]
+- [[Payment | Order Payment]]
+- [[Tax | Order Tax]]
 
 ###High Level Diagram
 

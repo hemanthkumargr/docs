@@ -1,8 +1,8 @@
 ###Detailed Diagrams
-- [[CMS Field]]
-- [[CMS Page]]
-- [[CMS Static Asset]]
-- [[CMS Structured Content]]
+- [[Field | CMS Field]]
+- [[Page | CMS Page]]
+- [[Static Asset | CMS Static Asset]]
+- [[Structured Content | CMS Structured Content]]
 
 ###High Level Diagram
 
