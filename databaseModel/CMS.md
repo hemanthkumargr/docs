@@ -1,5 +1,3 @@
-##CMS
-
 ###Detailed Diagrams
 - [[CMS Field]]
 - [[CMS Page]]

@@ -1,5 +1,3 @@
-##Customer
-
 ###Detailed Diagram
 - [[Customer Detail]]
 

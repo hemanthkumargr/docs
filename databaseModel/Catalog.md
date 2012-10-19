@@ -1,5 +1,3 @@
-##Catalog
-
 ###Detailed Diagrams
 - [[Catalog Category]]
 - [[Catalog Product]]

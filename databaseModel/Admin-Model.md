@@ -1,5 +1,3 @@
-##Admin
-
 ###Detailed Diagrams
 - [[Admin Change Sets]]
 - [[Admin Security]]
