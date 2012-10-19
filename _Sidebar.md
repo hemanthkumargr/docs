@@ -116,10 +116,10 @@
 		- [[Order Fulfillment]]
 		- [[Order Payment]]
 		- [[Order Tax]]
-	- Other
-		- Checkout Config
-		- Common
-		- Email
+	- [[Other]]
+		- [[Common]]
+		- [[Email Tracking]]
+		- [[Fulfillment]]
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[2.0 RC1 to 2.0 GA Migration]]
