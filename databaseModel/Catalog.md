@@ -1,9 +1,9 @@
 ###Detailed Diagrams
-- [[Catalog Category]]
-- [[Catalog Product]]
-- [[Catalog Reviews]]
-- [[Catalog Search]]
-- [[Catalog Sku]]
+- [[Category | Catalog Category]]
+- [[Product | Catalog Product]]
+- [[Reviews | Catalog Reviews]]
+- [[Search | Catalog Search]]
+- [[Sku | Catalog Sku]]
 
 ###High Level Diagram
 
