@@ -5,6 +5,8 @@ if (window.history && window.history.pushState) {
 
         if (linkUrl.indexOf('http') != -1) {
             return true;
+        } else if (linkUrl.indexOf('.png') != -1) {
+            return true;
         } else {
             event.preventDefault();
             var opts = {};

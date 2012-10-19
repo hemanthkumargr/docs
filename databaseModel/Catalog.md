@@ -7,4 +7,4 @@
 
 ###High Level Diagram
 
-![Catalog High Level](images/dataModel/CatalogHighLevelERD.png)
+[![Catalog High Level](images/dataModel/CatalogHighLevelERD.png)](images/dataModel/CatalogHighLevelERD.png)
