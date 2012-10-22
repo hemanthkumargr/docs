@@ -115,7 +115,7 @@
 		- [[Detail | Order Detail]]
 		- [[Fulfillment | Order Fulfillment]]
 		- [[Payment | Order Payment]]
-		- [[Tax | Order Tax]
+		- [[Tax | Order Tax]]
 	- [[Other]]
 		- [[Common]]
 		- [[Email Tracking]]
