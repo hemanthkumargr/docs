@@ -6,7 +6,7 @@
 
 ###Tables
 
-| Table               | Related Entity	   | Description                                         |
+| Table               | Related Entity    | Description                                         |
 |:--------------------|:------------------|:----------------------------------------------------|
 |BLC_FLD_DEF          | [FieldDefinition.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/field/domain/FieldDefinition.html)          | Defines a Broadleaf Field.  |
 |BLC_FLD_GROUP        | [FieldGroup.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/field/domain/FieldGroup.html)          | Represents a Field Group.  |
