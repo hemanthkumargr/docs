@@ -6,17 +6,17 @@
 
 ###Tables
 
-| Table               |  Description                                         |
-|:--------------------|:-----------------------------------------------------|
-|[BLC_REVIEW_DETAIL](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/ReviewDetailImpl.html)    | Represents a review.  |
-|[BLC_REVIEW_FEEDBACK](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/ReviewFeedbackImpl.html)  | Represents a the feedback for a review.  |
-|[BLC_RATING_DETAIL](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/RatingDetailImpl.html)    | Represents the detail of a rating.  |
-|[BLC_RATING_SUMMARY](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/RatingSummaryImpl.html)   | Represents the summary of a rating.  |
+| Table               | Related Entity    | Description                                         |
+|:--------------------|:------------------|:----------------------------------------------------|
+|BLC_REVIEW_DETAIL    | [ReviewDetail.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/ReviewDetail.html)          | Represents a review.  |
+|BLC_REVIEW_FEEDBACK  | [ReviewFeedback.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/ReviewFeedback.html)          | Represents a the feedback for a review.  |
+|BLC_RATING_DETAIL    | [RatingDetail.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/RatingDetail.html)          | Represents the detail of a rating.  |
+|BLC_RATING_SUMMARY   | [RatingSummary.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/rating/domain/RatingSummary.html)          | Represents the summary of a rating.  |
 
 
 
 ###Related Tables
 
-| Table               |  Description                                         |
-|:--------------------|:-----------------------------------------------------|
-|[BLC_CUSTOMER](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/CustomerImpl.html)         | Represents a customer in Broadleaf Commerce.  |
+| Table               | Related Entity    | Description                                         |
+|:--------------------|:------------------|:----------------------------------------------------|
+|BLC_CUSTOMER         | [Customer.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Customer.html)          | Represents a customer in Broadleaf Commerce.  |
