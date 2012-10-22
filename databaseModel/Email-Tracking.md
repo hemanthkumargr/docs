@@ -6,8 +6,8 @@
 
 ###Tables
 
-| Table               | Java Docs	   | Description                                         |
-|:--------------------|:--------------|:----------------------------------------------------|
-|BLC_EMAIL_TRACKING   | link          | Represents an Email Tracking object Broadleaf.  |
-|BLC_EMAIL_TRACKING_CLICKS | link     | Represents an Email Tracking object for clicks.  |
-|BLC_EMAIL_TRACKING_OPENS  | link     | Represents an Email Tracking object for opens.  |
+| Table               | Related Entity    | Description                                         |
+|:--------------------|:------------------|:----------------------------------------------------|
+|BLC_EMAIL_TRACKING   | [EmailTracking.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/email/domain/EmailTracking.html)          | Represents an Email Tracking object Broadleaf.  |
+|BLC_EMAIL_TRACKING_CLICKS | [EmailTrackingClicks.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/email/domain/EmailTrackingClicks.html)     | Represents an Email Tracking object for clicks.  |
+|BLC_EMAIL_TRACKING_OPENS  | [EmailTrackingOpens.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/email/domain/EmailTrackingOpens.html)     | Represents an Email Tracking object for opens.  |
