@@ -63,5 +63,7 @@ Your page may contain a button like this:
 ```
 
 ## Done!
+> Note: For troubleshooting, it is helpful to look at the `BLC_PAYMENT_RESPONSE_ITEM` table to see the response/error messages that are generated when calling the PayPal API.
+
 At this point, all the configuration should be complete and you are now ready to test your integration with PayPal. Add something to your cart and proceed with PayPal checkout.
 To customize your integration with PayPal even further, see [[PayPal Advance Configuration]] 
