@@ -23,6 +23,7 @@ Once downloaded, you can install this dependency into your local or shared maven
 ```java
 mvn install:install-file -Dfile=anet-java-sdk-1.4.6.jar -DgroupId=net.authorize -DartifactId=anet-java-sdk -Dversion=1.4.6 -Dpackaging=jar
 ```
+Alternatively, you can install it in a nexus proxy that the local development build is configured to point to.
 
 Next, include both the Authorize.net Java SDK and the Broadleaf Authorize.net Module dependency to your pom.xml.
 
