@@ -58,10 +58,7 @@ The preferred method is to run the project using the intellij native support for
 
 1. Click the down arrow just to the left of the Run and Debug icons. There will be an option to Edit Configurations. In the resulting popup, click the Add icon, then click Tomcat and Local.
 2. Click the **Configure…** button if you have not already setup a Tomcat instance with intellij. This will allow you to associate intellij with the Tomcat 7 instance on your computer.
-3. In the **VM options** field, paste in the following:
-
-***-XX:MaxPermSize=256M -Xmx512M***
-
+3. In the **VM options** field, paste in the following: ***-XX:MaxPermSize=256M -Xmx512M***
 4. Click the **Deployment** button at the top of the dialog and click the **+** button in order to specify a module to deploy. Select the ***combined:war exploded*** module.
 5. Make sure that the **Make** option is selected and the **Build Artifacts** option is not selected in the **Before Launch** section.
 
