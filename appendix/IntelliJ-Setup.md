@@ -38,9 +38,9 @@ Note, if you're like me, your intellij installation will automatically default t
 
 At this point, you have a project that may be fully built and executed. To build the project in preparation for running it:
 
-1) Click the **Maven Projects** button on the right side of the IDE interface.
-2) Expand the **ecommerce** node and then expand the **Lifecycle** node.
-3) Double click the **install** option to make Maven build the entire project (this can take several minutes to finish compilation).
+1. Click the **Maven Projects** button on the right side of the IDE interface.
+2. Expand the **ecommerce** node and then expand the **Lifecycle** node.
+3. Double click the **install** option to make Maven build the entire project (this can take several minutes to finish compilation).
 
 ![Maven Install](images/intellij-maven-install.png)
 
@@ -56,14 +56,14 @@ If you want to use the ant scripts for whatever reason, separate build.xml files
 
 The preferred method is to run the project using the intellij native support for various application containers. In this example we'll use Tomcat 7.
 
-1) Click the down arrow just to the left of the Run and Debug icons. There will be an option to Edit Configurations. In the resulting popup, click the Add icon, then click Tomcat and Local.
-2) Click the **Configure…** button if you have not already setup a Tomcat instance with intellij. This will allow you to associate intellij with the Tomcat 7 instance on your computer.
-3) In the **VM options** field, paste in the following:
+1. Click the down arrow just to the left of the Run and Debug icons. There will be an option to Edit Configurations. In the resulting popup, click the Add icon, then click Tomcat and Local.
+2. Click the **Configure…** button if you have not already setup a Tomcat instance with intellij. This will allow you to associate intellij with the Tomcat 7 instance on your computer.
+3. In the **VM options** field, paste in the following:
 
 ***-XX:MaxPermSize=256M -Xmx512M***
 
-4) Click the **Deployment** button at the top of the dialog and click the **+** button in order to specify a module to deploy. Select the ***combined:war exploded*** module.
-5) Make sure that the **Make** option is selected and the **Build Artifacts** option is not selected in the **Before Launch** section.
+4. Click the **Deployment** button at the top of the dialog and click the **+** button in order to specify a module to deploy. Select the ***combined:war exploded*** module.
+5. Make sure that the **Make** option is selected and the **Build Artifacts** option is not selected in the **Before Launch** section.
 
 When finished your dialog should look something like this - click **OK** at the bottom of the dialog.
 
