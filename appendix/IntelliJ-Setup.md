@@ -79,7 +79,7 @@ Once the demo database is started, you're ready to launch Tomcat. Make sure your
 
 ![Launch Tomcat](images/intellij-launch-tomcat.png)
 
-Intellij will proceed to lauch Tomcat with our combined site/admin application. When Tomcat has finished starting, you can access the admin at [http://localhost:8080/admin/admin.html](http://localhost:8080/admin/admin.html) and the demosite at [http://localhost:8080](http://localhost:8080). The username and password for the admin login is admin/admin.
+Intellij will proceed to launch Tomcat with our combined site/admin application. When Tomcat has finished starting, you can access the admin at [http://localhost:8080/admin/admin.html](http://localhost:8080/admin/admin.html) and the demosite at [http://localhost:8080](http://localhost:8080). The username and password for the admin login is admin/admin.
 
 ## JRebel Development Enhancement
 
