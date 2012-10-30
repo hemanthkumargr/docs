@@ -3,7 +3,7 @@ In addition to Eclipse, the Intellij IDE is a great tool for developing on top o
 ## Prerequisites
 
  - Intellij 10 or above (this guide was written against version 11.1.4)
- - Ultimate edition recommended for Tomcat and Spring support
+ - Intellij Ultimate edition recommended for Tomcat and Spring support
  - JRebel plugin for development workflow enhancement
  - JDK 1.6
  - Tomcat 7 to follow along with the native container support example
@@ -22,7 +22,7 @@ You can check out the demosite project directly through Intellij or through exte
 2. Select the **Import project from external model** in the dialog and click **Next**.
 3. Select the **Maven** option and click **Next**.
 4. Enter the correct root directory for the demo site source you downloaded from github previously in the **Root directory** field. You can leave the other options with the default values in this dialog. Click **Next**.
-5. The ***com.mycompany:ecommerce-webiste*** project should be selected by default. Leave it selected and simply click **Next**.
+5. The ***com.mycompany:ecommerce-website*** project should be selected by default. Leave it selected and simply click **Next**.
 6. Give your project a relevant name and location. Click **Finish**.
 
 At this point, you should have a project structure in intellij resembling the following (I named my project TutorialDemoSite, but yours may be different):
