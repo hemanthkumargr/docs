@@ -69,7 +69,9 @@ When finished your dialog should look something like this - click **OK** at the 
 
 ![Tomcat Config](images/intellij-tomcat-config.png)
 
-At this point we have a valid configuration for launching a combined/lightweight version of both the admin and demo site. However, the only thing we're missing is a database instance to point at. The easiest way to get a demonstration database running is to use the Hypersonic HSQL instance from the ant launch script. If you haven't already, mount the build.xml from the **site** module in the intellij ant view and execute the **start-db** task. Note - this is a very low performing option and should only be used for demonstration purposes. For a better database configuration, follow our MySQL configuration guide at: [http://docs.broadleafcommerce.org/current/MySQL.html](http://docs.broadleafcommerce.org/current/MySQL.html).
+At this point we have a valid configuration for launching a combined/lightweight version of both the admin and demo site. However, the only thing we're missing is a database instance to point at. The easiest way to get a demonstration database running is to use the Hypersonic HSQL instance from the ant launch script.
+
+If you haven't already, mount the build.xml from the **site** module in the intellij ant view and execute the **start-db** task. Note - this is a very low performing option and should only be used for demonstration purposes. For a better database configuration, follow our MySQL configuration guide at: [http://docs.broadleafcommerce.org/current/MySQL.html](http://docs.broadleafcommerce.org/current/MySQL.html).
 
 ![Start Database](images/intellij-start-db.png)
 
