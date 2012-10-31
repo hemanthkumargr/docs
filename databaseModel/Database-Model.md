@@ -1,5 +1,14 @@
-##Broadleaf Commerce 2.0.0
+##Broadleaf Commerce 2.1.0
 
+###What's new?
+- In [[Customer | Customer Detail]]
+	- New Table: BLC_CUSTOMER_PAYMENT 
+- In [[Category | Catalog Category]]
+	- New Fields: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+- In [[Product | Catalog Product]]
+	- New Fields: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+
+###Diagrams
 - [[Admin | Admin Model]]
 	- [[Change Sets | Admin Change Sets]]
 	- [[Security | Admin Security]]
