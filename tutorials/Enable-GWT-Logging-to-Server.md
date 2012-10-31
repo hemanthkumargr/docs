@@ -18,12 +18,10 @@ Now in your Admin code, you can log using the java.util.logging package like so 
 
 ```java
 try {
-java.util.logging.Logger.getLogger("myClassName").log(Level.INFO,"Starting calculation");
- …    
+    java.util.logging.Logger.getLogger("myClassName").log(Level.INFO,"Starting calculation");
+    …    
 } catch (exception ex) {  
- 	    java.util.logging.Logger.getLogger("myClassName").log(Level.SEVERE,"Error during Calculation",ex);
-         }
-        });
+    java.util.logging.Logger.getLogger("myClassName").log(Level.SEVERE,"Error during Calculation",ex);
 }
 ```
 

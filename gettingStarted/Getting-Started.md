@@ -33,7 +33,7 @@ Once the plugin is done installing, you will be prompted to restart Eclipse. Go 
 
 You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it! 
 
-Download Link: [Broadleaf Eclipse Workspace](https://github.com/downloads/BroadleafCommerce/DemoSite/DemoSite-2.0.0-RC1-1-eclipse-workspace.zip)
+Download Link: [Broadleaf Eclipse Workspace](https://github.com/downloads/BroadleafCommerce/DemoSite/DemoSite-2.0.1-GA-eclipse-workspace.zip)
 
 > Note: If you're not prompted for a workspace, simply go to **File --> Switch Workspace** and select the path
 
@@ -115,6 +115,8 @@ This process will take a few minutes to execute, and will end on the following s
 [INFO] Finished at: Mon Jul 30 10:01:19 CDT 2012
 [INFO] Final Memory: 13M/81M
 ```
+
+> **IMPORTANT NOTE:** By default, the project is set up to NOT clean the GWT-compiled admin files when you run a normal Maven clean. This is because recompiling these files takes a very long time and is not necessary every time. To fully clean the project, you can use the included `full-clean` Ant task in the admin project.
 
 At this point, we're ready to start up! Let's run the `jetty-demo` Ant task for the site.
 
