@@ -16,6 +16,7 @@
 |BLC_CUSTOMER_PHONE          | [CustomerPhone.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/CustomerPhone.html)      | Associates a customer to a phone number  |
 |BLC_CUSTOMER_ROLE           | [CustomerRole.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/CustomerRole.html)      | Associates a customer to a role  |
 |BLC_PHONE                   | [Phone.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Phone.html)      | Contains phone information, e.g. number and if it's active        |
+|BLC_CUSTOMER_PAYMENT        | [CustomerPayment.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/CustomerPayment.html)  | Contains customer payment information.    |
 |BLC_ROLE                    | [Role.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Role.html)      | Contains role information, e.g. role name  |
 |BLC_STATE                   | [State.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/State.html)      | Contains state information, e.g. abbreviation, name, and country  |
 
