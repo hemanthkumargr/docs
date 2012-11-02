@@ -800,6 +800,7 @@ thead {
     list-style-image:url('/images/layout/treeView/button.png');
     cursor:auto;
     padding-top: 4px;
+    white-space: nowrap;
 }
 
 .treeView li.collapsibleListOpen{
@@ -818,10 +819,10 @@ thead {
 
 .treeView .active {
     padding: 2px;
-    background-color: #F2EDEA;
+    background-color: #718D12;
     border: 1px solid #D8D1CD;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    font-weight: bold;
+    color: white;
 }
