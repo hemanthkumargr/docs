@@ -56,7 +56,7 @@ var DOCS = (function($) {
                 }, 300);
             } else if ($window.scrollTop() > 135) {
                 $('html, body').animate({
-                    scrollTop: 135
+                    scrollTop: 0
                 }, 300);
             }
 
