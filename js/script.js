@@ -38,6 +38,13 @@ var DOCS = (function($) {
 
     });
 
+    $('body').on('change', 'select#version-selector', function(e) {
+        var currentUrl = window.location.pathname.split('/')
+        currentUrl[1] = $(this).val();
+        currentUrl[2] = "Home.html";
+        window.location = currentUrl.join('/');
+    });
+
     /**
      * The function called by the fired statechange event
      */

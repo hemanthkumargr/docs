@@ -720,6 +720,10 @@ div#left_column img.no_border {
     float: left;
 }
 
+select#version-selector {
+    margin-bottom: 10px;
+}
+
 h3 span.small {
     font-weight: normal;
     font-size: 12px;
