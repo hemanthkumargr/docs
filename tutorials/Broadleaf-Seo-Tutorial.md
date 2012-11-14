@@ -4,13 +4,13 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ###In you project POM Declare the the BLC snapshot repository
 
 ```xml
-<repositories>
-	<repository>
-		<id>public releases</id>
-		<name>public releases</name>
-		<url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
-	</repository>
-</repositories>
+	<repositories>
+		<repository>
+			<id>public releases</id>
+			<name>public releases</name>
+			<url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
+		</repository>
+	</repositories>
 ```
 	
 ###In you project POM add the following dependency:
@@ -44,6 +44,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ```
 
 ##Web.xml changes
+
 ###Add "classpath:/bl-seo-applicationContext.xml"
  
  ```xml
@@ -59,7 +60,9 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ```
 
 ##mycompanyAdmin.gwt.xml changes
+
 ###Add the following line
+
 ```xml
 <inherits name="org.broadleafcommerce.admin.seoModule" />
 ```
@@ -111,13 +114,13 @@ return seoMetaData.getMetaDescription() != null ? seoMetaData.getMetaDescription
 ```
 
 ##HTML changes
-You will now be able to use the  ```<blc:head>``` tag by adding the following parameters. The head processors will handle the object and add the appropriate seoMeta or Twitter Data if it is available.
+You will now be able to use the  `<blc:head>` tag by adding the following parameters. The head processors will handle the object and add the appropriate seoMeta or Twitter Data if it is available.
 
 ###Samples in category.html and product.html
 
-```html <blc:head seoData="${category}" />``` and ```html <blc:head seoData="${product}" />```
+`<blc:head seoData="${category}" />` and `<blc:head seoData="${product}" />`
 
-###In ```head.html``` you now have access to the SEO values which will need to be inserted in meta-tags
+###In `head.htm` you now have access to the SEO values which will need to be inserted in meta-tags
 
 ```html
 <seo:seometadata seoMetaData="${seoMetaData}" />
