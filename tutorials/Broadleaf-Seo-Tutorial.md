@@ -13,7 +13,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 	</repositories>
 ```
 	
-###In you project `pom.xml` add the following dependency:
+###In you Project `pom.xml` add the dependency for the Broadleaf SEO module
 
 ```xml
 <dependency>
@@ -28,7 +28,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ###In your SITE `pom.xml` where you will extend either Category and/or Product
 
 ```xml
-	<dependency>
+<dependency>
 	<groupId>org.broadleafcommerce</groupId>
 	<artifactId>broadleaf-seo</artifactId>
 </dependency>
@@ -45,7 +45,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ##Changes in `web.xml`
 
-###Add `classpath:/bl-seo-applicationContext.xml` in the `<context-param>` section
+###Add `classpath:/bl-seo-applicationContext.xml` in the `<context-param />` section
 
 ```xml
 <context-param>
@@ -138,5 +138,5 @@ You will now be able to use the  `<blc:head>` tag by adding the following param
 ###To use the ImageProcessor (which will default to using the name of the image as the alt text)
 
 ```html
-<seo:img src="@{*{media['primary'].url}}" />
+<seo:img src="@{*{media['primary'].url}}" />
 ```
