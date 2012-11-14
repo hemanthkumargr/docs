@@ -34,6 +34,8 @@ Broadleaf provides the `CybersourceSilentPostCheckoutService`, an abstraction la
 the objects necessary for completing a successful checkout. The `blCybersourceSilentPostCheckoutService` can be overridden using a custom implementation.
 This API is called from the `BroadleafCybersourceSilentPostController` used in the [[CyberSource SOP Quick Start]] solution.
 
+The `CybersourceSilentPostCheckoutService` contain several methods that may be useful in performing actions such as `authorize`, `authorize and debit`, `authorize subscription`, and `authorize and debit subscription`. By default, the `BroadleafCybersourceSilentPostController` invokes the `authorize and debit` method, but can easily be overriden to call a different method for your particular use case.
+
 ## Customizing the CybersourceSilentPostPaymentModule
 
 The heart of the response processing occurs in the `CybersourceSilentPostPaymentModule`. The Checkout Workflow calls this module and executes the AuthorizeAndDebit method to populate the PaymentInfo and PaymentResponseItem needed for checkout. These methods are protected and can be extended as necessary to provide your own custom implementation.

@@ -14,7 +14,7 @@ body { margin: 0; font-family: Georgia, serif; font-size: 13px; line-height: 20p
 ::-moz-selection { background: #93b12d; color: #fff; text-shadow: none; }
 ::selection { background: #93b12d; color: #fff; text-shadow: none; }
 
-a { font-family: "proxima-nova",sans-serif; font-size: 14px; font-weight: 400; color: #718D12; text-decoration: none; }
+a { font-family: "proxima-nova",sans-serif; font-size: 13px; font-weight: 400; color: #718D12; text-decoration: none; }
 a:visited { color: #718D12; text-decoration: none; }
 a:hover { color: #596B1D; }
 a:focus { outline: thin dotted; }
@@ -720,6 +720,11 @@ div#left_column img.no_border {
     float: left;
 }
 
+select#version-selector {
+    display: none;
+    margin-bottom: 10px;
+}
+
 h3 span.small {
     font-weight: normal;
     font-size: 12px;
@@ -800,6 +805,7 @@ thead {
     list-style-image:url('/images/layout/treeView/button.png');
     cursor:auto;
     padding-top: 4px;
+    white-space: nowrap;
 }
 
 .treeView li.collapsibleListOpen{
@@ -817,11 +823,10 @@ thead {
 }
 
 .treeView .active {
-    padding: 2px;
-    background-color: #F2EDEA;
-    border: 1px solid #D8D1CD;
+    padding: 3px;
+    background-color: #718D12;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    font-weight: bold;
+    color: white;
 }
