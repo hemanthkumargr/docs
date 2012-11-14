@@ -119,7 +119,7 @@
 		- [[Common]]
 		- [[Email Tracking]]
 		- [[Fulfillment]]
-	- [[Modules]]
+	- [[Modules | Modules Model Diagrams]]
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
     - [[2.0 RC1 to 2.0 GA Migration]]
