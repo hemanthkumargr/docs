@@ -91,6 +91,8 @@
         - [[Showing Calculated Fields on Entities]]
         - [[Creating a Custom Module]]
         - [[Invoking a Remote Service]]
+    - [[Modules | Modules Tutorials]]
+    	- [[Broadleaf SEO | Broadleaf Seo Tutorial]]
 - [[Database Model]]
 	- [[Admin | Admin Model]]
 		- [[Change Sets | Admin Change Sets]]
