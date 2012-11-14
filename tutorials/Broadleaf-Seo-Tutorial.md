@@ -28,7 +28,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ###In your SITE POM where you will extend either Category and/or Product
 
 ```xml
-<dependency>
+	<dependency>
 	<groupId>org.broadleafcommerce</groupId>
 	<artifactId>broadleaf-seo</artifactId>
 </dependency>
@@ -48,26 +48,28 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ###Add "classpath:/bl-seo-applicationContext.xml"
  
  ```xml
- <context-param>
- 	<param-name>patchConfigLocation</param-name>
- 	<param-value>
- 	.
- 	classpath:/bl-seo-applicationContext.xml
- 	.
- 	.
- 	</param-value>
-</context-param>
+	<context-param>
+		<param-name>patchConfigLocation</param-name>
+ 		<param-value>
+ 		.
+ 		classpath:/bl-seo-applicationContext.xml
+ 		.
+ 		.
+ 		</param-value>
+	</context-param>
 ```
+
 
 ##mycompanyAdmin.gwt.xml changes
 
 ###Add the following line
 
 ```xml
-<inherits name="org.broadleafcommerce.admin.seoModule" />
+	<inherits name="org.broadleafcommerce.admin.seoModule" />
 ```
 
 ##Domain Changes
+
 ###Extend Category and/or Product
 Be sure you are comfortable with [[extending entities | Extending Entities Tutorial]] before continuing on.
 
@@ -77,6 +79,7 @@ Be sure you are comfortable with [[extending entities | Extending Entities Tutor
 @Table(name = "SEO_PRODUCT")
 public class MyProductImpl extends ProductImpl implements Product, SeoMetaData, TwitterData {…}
 ```
+
 
 ###Embed the SeoData
 
