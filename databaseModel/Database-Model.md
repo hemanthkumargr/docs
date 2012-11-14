@@ -1,12 +1,17 @@
 ##Broadleaf Commerce 2.1.0
 
-###What's new?
+###Model Changes
 - In [[Customer | Customer Detail]]
 	- New Table: BLC_CUSTOMER_PAYMENT 
-- In [[Category | Catalog Category]]
-	- New Fields: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
-- In [[Product | Catalog Product]]
-	- New Fields: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+	
+###Modules
+####CatalogMetaData Module
+- In [[Category | CatalogMetaData Catalog Category]]
+	- New Fields for SeoMetaData: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+	- New Fields for TwitterData: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
+- In [[Product | CatalogMetaData Catalog Product]]
+	- New Fields for SeoMetaData: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+	- New Fields for TwitterData: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
 
 ###Diagrams
 - [[Admin | Admin Model]]
@@ -36,3 +41,4 @@
 	- [[Common]]
 	- [[Email Tracking]]
 	- [[Fulfillment]]
+- [[Modules]]
