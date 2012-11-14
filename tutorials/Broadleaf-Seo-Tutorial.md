@@ -46,26 +46,25 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ##Web.xml changes
 
 ###Add "classpath:/bl-seo-applicationContext.xml"
- 
- ```xml
-	<context-param>
-		<param-name>patchConfigLocation</param-name>
- 		<param-value>
- 		.
- 		classpath:/bl-seo-applicationContext.xml
- 		.
- 		.
- 		</param-value>
-	</context-param>
+
+```xml
+<context-param>
+	<param-name>patchConfigLocation</param-name>
+	<param-value>
+	.
+	classpath:/bl-seo-applicationContext.xml
+	.
+	.
+	</param-value>
+</context-param>
 ```
 
-
-##mycompanyAdmin.gwt.xml changes
+##`mycompanyAdmin.gwt.xml` changes
 
 ###Add the following line
 
 ```xml
-	<inherits name="org.broadleafcommerce.admin.seoModule" />
+<inherits name="org.broadleafcommerce.admin.seoModule" />
 ```
 
 ##Domain Changes
