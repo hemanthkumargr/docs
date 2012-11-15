@@ -2,7 +2,10 @@
 
 ###Model Changes
 - In [[Customer | Customer Detail]]
-	- New Table: BLC_CUSTOMER_PAYMENT 
+	- New Table: BLC_CUSTOMER_PAYMENT
+- In [[Search | Catalog Search]]
+	- New Table: BLC_SEARCH_FACET_XREF 
+	- New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
 	
 ###Modules
 ####Broadleaf SEO Module
