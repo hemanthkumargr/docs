@@ -7,11 +7,11 @@
 ###Modules
 ####Broadleaf SEO Module
 - In [[Category | CatalogMetaData Catalog Category]]
-	- New Fields for `SeoMetaData`: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
-	- New Fields for `TwitterData`: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
+	- New Fields through embeddable `SeoMetaData`: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+	- New Fields through embeddable `TwitterData`: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
 - In [[Product | CatalogMetaData Catalog Product]]
-	- New Fields for `SeoMetaData`: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
-	- New Fields for `TwitterData`: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
+	- New Fields through embeddable `SeoMetaData`: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
+	- New Fields through embeddable `TwitterData`: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
 
 ###Diagrams
 - [[Admin | Admin Model]]
