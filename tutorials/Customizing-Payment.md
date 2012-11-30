@@ -13,7 +13,7 @@ First, we will need to support a new Referenced implementation if we plan on sto
 
 Please read the [[Payment Security]] section for more information on ensuring data is secure.
 
-or this example, we will assume that employee account information passes this litmus test for creating a Referenced implementation. First, we'll create a custom interface that extends Referenced and defines our additional custom fields.
+For this example, we will assume that employee account information passes this litmus test for creating a Referenced implementation. First, we'll create a custom interface that extends Referenced and defines our additional custom fields.
 
 ```java
 public interface EmployeePaymentInfo extends Referenced {
