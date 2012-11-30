@@ -47,10 +47,12 @@ public class CheckoutController extends BroadleafSagepayController {
         return super.checkout(request, response, model);
     }
 
-    @Override
-    @RequestMapping(value = "/process")
-    public String processSagepayAuthorizeAndDebit(Model model, @RequestParam String id, HttpServletRequest request, HttpServletResponse response) throws CheckoutException, PricingException {
-        return super.processSagepayAuthorizeAndDebit(model, id, request, response);
+   @RequestMapping(value ="/saveBillingInfo", method = RequestMethod.POST) 
+    public String redirectToSagepay(HttpServletRequest request, HttpServletResponse response, Model model,
+            @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
+            @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm) throws PricingException {
+        prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
+    	return super.redirectToSagepay(request, response, model, billingForm);
     }
 
 }
@@ -58,9 +60,8 @@ public class CheckoutController extends BroadleafSagepayController {
 
 ##3) Construct the HTML for the dynamic Sagepay form
 
-Finally, you will need to contruct the form that you will send via transparent redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
+Finally, you will need to contruct the form that you will send via redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
   
-Here's a list of all the [[HTML fields | https://www.sagepaypayments.com/docs/java/transactions/tr_fields]] that can be sent to Sagepay.
 Your page may look something like this:
 
 ```html
@@ -164,6 +165,8 @@ Your page may look something like this:
 	</div>	
 </form>
 ```
+##4) Construct the redirect form for Sagepay
+The above HTML is used to save your customers shipping/billing information, which must be saved before you can redirect the user to Sagepay.- Redirect form here. 
 
 ## Done!
 At this point, all the configuration should be complete and you are now ready to test your integration with Sagepay. Add something to your cart and proceed with checkout.
