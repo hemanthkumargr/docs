@@ -52,7 +52,7 @@ See [[Sagepay Environment Setup]] to learn how to configure the variable propert
 
 Broadleaf provides the `SagepayCheckoutService`, an abstraction layer on top of the payment workflow that aids in creating
 the objects necessary for completing a successful checkout. The `blSagepayCheckoutService` can be overridden using a custom implementation.
-This API is called from the `BroadleafSagepayController` used in the [[Sagepay Quick Start]] solution.
+This API is called from the `BroadleafSagepayFormController` used in the [[Sagepay Quick Start]] solution.
 
 ## Manually Configuring the Presentation Layer
 
@@ -60,7 +60,7 @@ It is up to you to choose the presentation layer approach that best fits your ne
 you will be required at some point to compile the [[PaymentInfo | https://github.com/BroadleafCommerce/BroadleafCommerce/blob/master/core/broadleaf-framework/src/main/java/org/broadleafcommerce/core/payment/domain/PaymentInfo.java]] information 
 to the order before calling performCheckout on the CheckoutService. 
 Most Broadleaf Commerce users will choose Spring MVC and will likely implement their own CheckoutController. 
-If your implementation does not require that much customization, consider extending the `BroadleafSagepayController`.
+If your implementation does not require that much customization, consider extending the `BroadleafSagepayFormController`.
 This class is also a useful reference in setting up a custom payment workflow with Sagepay.
 
 The final step is to create the dynamic HTML form that will POST to Sagepay. It is **required** to save the users shipping/billing information before being redirected to this page. This page will post to Sagepay automatically when redirected to - [sagepayRedirectForm.zip](sourceFiles/sagepayRedirectForm.zip)
