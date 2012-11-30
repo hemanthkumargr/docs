@@ -40,21 +40,30 @@ This is accomplished through environment configuration (see [[Runtime Environmen
 Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) You will need to enter the following key/value pairs in the appropriate locations:
 
 ### common.properties
-	sagepay.publicKey=?
-	sagepay.privateKey=?
-	sagepay.merchantId=?
+	sagepay.vendor=?
+        sagepay.encryptionPassword=?
+        sagepay.currency=?
+        sagepay.redirectFormPath=?
 
 ### development.properties, local.properties etc...
-	sagepay.redirectUrl=? (e.g. http://localhost:8080/sagepay/process)
-    sagepay.environment=SANDBOX
+	sagepay.purchaseUrl=? (https://test.sagepay.com/Simulator/VSPFormGateway.asp - test simulator)
+        sagepay.successUrl=?  (e.g. https://localhost:8080/checkout/confirmation)
+        sagepay.failureUrl=?
+        sagepay.vendor=?  - Your test account vendor name
+        sagepay.encryptionPassword=? Your test account encryption password
+        sagepay.currency=? - Currency Code (e.g. GBD)
 
 - sagepay.redirectUrl: the URL Sagepay should redirect to after completing the order
 
 ### production.properties
-	sagepay.redirectUrl=? (e.g. http://mycompany.com/sagepay/process)
-    sagepay.environment=PRODUCTION
+	sagepay.purchaseUrl=https://live.sagepay.com/gateway/service/vspform-register.vsp
+        sagepay.successUrl=?
+        sagepay.failureUrl=?
+        sagepay.vendor=?
+        sagepay.encryptionPassword=?
+        sagepay.currency=?
 
-- sagepay.redirectUrl: the URL Sagepay should redirect to after completing the order
+- sagepay.successUrl: the URL Sagepay should redirect to after completing the order
 
 Now that you have your environment set up, let's begin setting up the [[Sagepay Module]].
 
