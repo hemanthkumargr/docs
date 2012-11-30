@@ -9,10 +9,9 @@ Download the Thymeleaf based html [sagepayRedirectForm.zip](sourceFiles/sagepayR
 Unzip, and place this file...
 
 ### Set up your Sagepay Account
-1. Login to your Sagepay console
-2. Generate an API key by navigating to Account > My User > API Keys
-![Sagepay Console](images/payment-sagepay-console-1.png)
-3. Note these values because they will be needed when you configure your environment properties
+1. Register for a Sagepay developer account https://www.sagepay.com/user/register
+2. After registration you should receive information regarding your developer account.
+3. Note this information because it will be needed when you configure your environment properties
 
 Once you have established an account with Sagepay, begin by including the Sagepay Module dependency to your pom.xml.
 
