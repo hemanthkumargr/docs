@@ -63,5 +63,5 @@ Most Broadleaf Commerce users will choose Spring MVC and will likely implement t
 If your implementation does not require that much customization, consider extending the `BroadleafSagepayController`.
 This class is also a useful reference in setting up a custom payment workflow with Sagepay.
 
-The final step is to create the dynamic HTML form that will POST to Sagepay - using the html file here
+The final step is to create the dynamic HTML form that will POST to Sagepay. It is **required** to save the users shipping/billing information before being redirected to this page. This page will post to Sagepay automatically when redirected to - html file here
 
