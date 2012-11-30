@@ -9,38 +9,42 @@ Broadleaf allows you to customize many aspects of your Sagepay integration.
 You will need to declare the following Spring beans in your application context:
 
 ```xml
-    <!-- Override the default Broadleaf Credit Card Service with Sagepay -->
+     <!-- Override the default Broadleaf Credit Card Service with Sagepay -->
     <bean id="blCreditCardService" class="org.broadleafcommerce.core.payment.service.PaymentServiceImpl">
-        <property name="paymentModule" ref="blSagepayModule"/>
+        <property name="paymentModule" ref="blSagepayFormModule"/>
     </bean>
 
-    <bean id="blSagepayModule" class="com.broadleafcommerce.payment.service.module.SagepayPaymentModule">
-        <property name="sagepayPaymentService" ref="blSagepayVendorOrientedPaymentService"/>
+    <bean id="blSagepayFormModule" class="com.broadleafcommerce.payment.service.module.SagepayFormPaymentModule">
+        <property name="sagepayFormPaymentService" ref="blSagepayFormVendorOrientedPaymentService"/>
         <property name="stateService" ref="blStateService"/>
         <property name="countryService" ref="blCountryService"/>
+        <property name="customerService" ref="blCustomerService"/>
     </bean>
 
-    <bean id="blSagepayVendorOrientedPaymentService" class="com.broadleafcommerce.vendor.sagepay.service.payment.SagepayPaymentServiceImpl">
-        <property name="failureReportingThreshold" value="1"/>
-        <property name="gatewayRequest">
-            <bean class="com.broadleafcommerce.vendor.sagepay.service.payment.SagepayGatewayRequestImpl">
-                <property name="publicKey" value="${sagepay.publicKey}"/>
-                <property name="privateKey" value="${sagepay.privateKey}"/>
-                <property name="merchantId" value="${sagepay.merchantId}"/>
-                <property name="redirectUrl" value="${sagepay.redirectUrl}"/>
-                <property name="environment" value="${sagepay.environment}"/>
-            </bean>
-        </property>
+    <bean id="blSagepayFormGatewayRequest" class="com.broadleafcommerce.vendor.sagepay.service.payment.SagepayFormGatewayRequestImpl">
+        <property name="vendor" value="${sagepay.vendor}"/>
+        <property name="encryptionPassword" value="${sagepay.encryptionPassword}"/>
+        <property name="currency" value="${sagepay.currency}"/>
+        <property name="successUrl" value="${sagepay.successUrl}"/>
+        <property name="failureUrl" value="${sagepay.failureUrl}"/>
+        <property name="purchaseUrl" value="${sagepay.purchaseUrl}"/>
+        <property name="redirectFormPath" value="${sagepay.redirectFormPath}"/>
     </bean>
+
+    <bean id="blSagepayFormVendorOrientedPaymentService" class="com.broadleafcommerce.vendor.sagepay.service.payment.SagepayFormPaymentServiceImpl">
+        <property name="gatewayRequest" ref="blSagepayFormGatewayRequest"/>
+    </bean>
+
 ```
 > Note: The [[Sagepay Quick Start]] solution offers a default application context with these beans already defined and can be used as a reference. Please see `bl-sagepay-applicationContext.xml`
 
-* `failureReportingThreshold` - used by [[QoS | QoS Configuration]] to determine how many times the service should fail before it is considered to be "down".
-* `publicKey` - the Sagepay public key
-* `privateKey` - the Sagepay private key
-* `merchantId` - the Sagepay merchant ID
-* `redirectUrl` - the destination in your app that Sagepay redirect backs to
-* `environment` - this is already pre-configured per environment
+* `vendor` - the Sagepay vendor Id
+* `encryptionPassword` - the Sagepay encryption password provided by Sagepay
+* `currency` - the currency code
+* `successUrl` - the destination in your app that Sagepay redirect backs to if a successful transaction
+* `failureUrl` - the destination in your app that Sagepay redirect backs to if a unsuccessful transaction
+* `purchaseUrl` - the action for your form to be submitted to Sagepay
+* `redirectFormPath` - the location of your file the contains the form to be submitted to Sagepay    (i.e. /checkout/sagepayRedirectForm) 
 
 See [[Sagepay Environment Setup]] to learn how to configure the variable properties.
 
@@ -59,17 +63,5 @@ Most Broadleaf Commerce users will choose Spring MVC and will likely implement t
 If your implementation does not require that much customization, consider extending the `BroadleafSagepayController`.
 This class is also a useful reference in setting up a custom payment workflow with Sagepay.
 
-The final step is to create the dynamic HTML form that will make a transparent redirect to Sagepay.
-Here's a list of all the [[HTML fields | https://www.sagepaypayments.com/docs/java/transactions/tr_fields]] that can be sent to Sagepay.
+The final step is to create the dynamic HTML form that will POST to Sagepay - using the html file here
 
-## Supporting VOID and REFUND
-
-You will need to create a custom workflow that includes the `SagepayPaymentModule` to call the appropriate method.
-The Sagepay module supports the following transaction types: 
-
-* SagepayPaymentModule.authorize() = Not Supported
-* SagepayPaymentModule.reverseAuthorize() = SagepayMethodType.VOID
-* SagepayPaymentModule.debit() = SagepayMethodType.SUBMIT
-* SagepayPaymentModule.authorizeAndDebit() = SagepayMethodType.CONFIRM & SagepayMethodType.SUBMIT
-* SagepayPaymentModule.credit() = SagepayMethodType.REFUND
-* SagepayPaymentModule.voidPayment() = SagepayMethodType.VOID
