@@ -4,6 +4,11 @@
 
 - Users must establish their own ...
 
+### Download and install Broadleaf Sagepay Redirect Form
+You can download the Thymeleaf based [Sagepay Redirect Form](/sourceFilres/sagepayFormRedirect.zip) here.
+
+Unzip, and place this file...
+
 ### Set up your Sagepay Account
 1. Login to your Sagepay console
 2. Generate an API key by navigating to Account > My User > API Keys
