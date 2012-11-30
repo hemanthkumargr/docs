@@ -5,8 +5,7 @@
 - Users must establish their own ...
 
 ### Download and install Broadleaf Sagepay Redirect Form
-You can download the Thymeleaf based [Sagepay Redirect Form](sourceFiles/sagepayFormRedirect.zip) here.
-
+Download the Thymeleaf based html [sagepayRedirectForm.zip](sourceFiles/sagepayRedirectForm.zip).
 Unzip, and place this file...
 
 ### Set up your Sagepay Account
