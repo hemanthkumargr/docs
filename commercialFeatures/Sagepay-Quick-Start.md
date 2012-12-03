@@ -65,105 +65,75 @@ Finally, you will need to have your Billing Form (Or another button) generate th
 Your page may look something like this:
 
 ```html
-<form th:action="${trUrl}" method="post">
-    <input type="hidden" name="tr_data" th:value="${trData}" />
-    <div class="left_content">
-    	<h3>Billing Information</h3>
+<blc:form th:object="${billingInfoForm}" th:action="@{/checkout/saveBillingInfo}" method="post" id="billing_info" th:if="${validOrderInfo and validShipping}">
 
-		<div class="form30">
-			<label for="firstname">First Name</label> <input type="text" class="field30" name="transaction[billing][first_name]" />
-		</div>
-		<div class="form30">
-			<label for="lastname">Last Name</label> <input type="text" class="field30" name="transaction[billing][last_name]" />
-		</div>	
-		<div class="form50">
-			<label for="address1">Address</label> <input type="text" class="field50" name="transaction[billing][street_address]" />
-		</div>
-		<div class="form50 margin20">
-			<label for="address2">Address 2</label> <input type="text" class="field50" name="transaction[billing][extended_address]" />
-		</div>
-		<div class="form30">
-			<label for="city">City / State</label>
-			<input type="text" class="field25" name="transaction[billing][locality]" /> 
-			<select id="state" name="transaction[billing][region]" size="1" style="width: 48px;" class=" ">
-				<option value="">--</option>
-				<option value="AL">AL</option>
-				<option value="AK">AK</option>
-				<option value="AZ">AZ</option>
-				<option value="AR">AR</option>
-				<option value="CA">CA</option>
-				<option value="CO">CO</option>
-			</select>
-		</div>
-		<input type="hidden" value="US" name="transaction[billing][country_code_alpha2]"/>
-		<div class="form30 margin20">
-			<label for="postal_code">Postal Code</label> <input type="text" class="field30" name="transaction[billing][postal_code]" />
-		</div>
-	</div>
-	<div class="right_content">
-		<h3>Payment Information</h3>
-		<div id="creditCardFields">
+    <div id="billing_info_form" class="right_content_billing">
 
-			<div class="form25" style="width: 94%;">
-				<div style="float: left; width: 70%;">
-					<label for="cardNumber" class="prompt">Card Number</label>
-					<div class="element">
-						<input type="text" name="transaction[credit_card][number]" value="" id="cardNumber" class="field30" autocomplete="off" style="width: 100%" />
-					</div>
-				</div>
-				<div style="float: right; padding-right: 2%; width: 16%">
-					<label class="prompt">CSC</label>
-					<div class="element">
-						<input type="text" name="transaction[credit_card][cvv]" id="securityCode" class="field30" autocomplete="off" style="width: 100%" />
-					</div>
-				</div>
-			</div>
+        <input type="hidden" name="address.country" value="US" />
 
-			<div class="form25">
-				<label for="nameOnCard" class="prompt"> Name on the Card </label>
-				<div class="form100">
-					<input type="text" name="transaction[credit_card][cardholder_name]" value="" id="nameOnCard" class="field30" />
-				</div>
-			</div>
+        <div class="form100" th:unless="${cart.fulfillmentGroups != null and #lists.size(cart.fulfillmentGroups) > 1}">
+            <input id="use_shipping_address" type="checkbox" th:field="*{useShippingAddress}" th:disabled="${!validShipping}" /> <span th:text="#{cart.useShppingInfo}">Use Shipping Information</span>
+        </div>
 
-			<div class="form50">
-				<label for="expirationMonth" class="prompt"> Expiration Date </label>
-				<div class="element">
-					<select name="transaction[credit_card][expiration_month]" id="expirationMonth" class=" ">
-						<option value=""></option>
-						<option value="01">01 - January</option>
-						<option value="02">02 - February</option>
-						<option value="03">03 - March</option>
-						<option value="04">04 - April</option>
-						<option value="05" selected="true">05 - May</option>
-						<option value="06">06 - June</option>
-						<option value="07">07 - July</option>
-						<option value="08">08 - August</option>
-						<option value="09">09 - September</option>
-						<option value="10">10 - October</option>
-						<option value="11">11 - November</option>
-						<option value="12">12 - December</option>
-					</select> <select name="transaction[credit_card][expiration_year]" id="expirationYear" class=" ">
-						<option value=""></option>
-						<option value="2012" selected="selected">2012</option>
-						<option value="2013">2013</option>
-						<option value="2014">2014</option>
-						<option value="2015">2015</option>
-						<option value="2016">2016</option>
-						<option value="2017">2017</option>
-						<option value="2018">2018</option>
-						<option value="2019">2019</option>
-						<option value="2020">2020</option>
-						<option value="2021">2021</option>
-					</select>
-				</div>
-			</div>
-			<div class="form100">
-				<input type="submit" value="submit"/>
-			</div>
-		</div>
-	</div>	
-</form>
+        <div class="form30">
+            <label for="firstName"><span th:text="#{cart.firstName}">First Name</span></label>
+            <span class="error" th:if="${#fields.hasErrors('address.firstName')}" th:errors="*{address.firstName}"></span>
+            <input type="text" th:field="*{address.firstName}" class="field30 required clearable" th:classappend="${#fields.hasErrors('address.firstName')}? 'fieldError'" th:disabled="${!validShipping}" />
+        </div>
+
+        <div class="form30 margin20">
+            <label for="lastName"><span th:text="#{cart.lastName}">Last Name</span></label>
+            <span class="error" th:if="${#fields.hasErrors('address.lastName')}" th:errors="*{address.lastName}"></span>
+            <input type="text" th:field="*{address.lastName}" class="field30 required clearable" th:classappend="${#fields.hasErrors('address.lastName')}? 'fieldError'" th:disabled="${!validShipping}" />
+        </div>
+
+        <div class="form30 margin20">
+            <label for="phone"><span th:text="#{cart.phone}">Phone</span></label>
+            <span class="error_spacer" th:if="${#fields.hasErrors('address.firstName') or #fields.hasErrors('address.lastName')}">error</span>
+            <input type="tel" th:field="*{address.primaryPhone}" class="field30 clearable" th:disabled="${!validShipping}"/>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form50">
+            <label for="address1"><span th:text="#{cart.address}">Address</span></label>
+            <span class="error" th:if="${#fields.hasErrors('address.addressLine1')}" th:errors="*{address.addressLine1}"></span>
+            <input type="text" th:field="*{address.addressLine1}" class="field50 required clearable" th:classappend="${#fields.hasErrors('address.addressLine1')}? 'fieldError'" th:disabled="${!validShipping}" />
+        </div>
+
+        <div class="form50 margin20">
+            <label for="address2"><span th:text="#{cart.address2}">Address 2</span></label>
+            <span class="error_spacer" th:if="${#fields.hasErrors('address.addressLine1')}">error</span>
+            <input type="text" th:field="*{address.addressLine2}" class="field50 clearable" th:disabled="${!validShipping}" />
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="form30">
+            <label for="city"><span th:text="#{cart.cityState}">City / State</span></label>
+            <span class="error" th:if="${#fields.hasErrors('address.city')}" th:errors="*{address.city}"></span>
+            <br th:if="${#fields.hasErrors('address.city')} and ${#fields.hasErrors('address.state')}"/>
+            <span class="error" th:if="${#fields.hasErrors('address.state')}" th:errors="*{address.state}"></span>
+            <input type="text" th:field="*{address.city}" class="field25 required clearable" th:classappend="${#fields.hasErrors('address.city')}? 'fieldError'" th:disabled="${!validShipping}" />
+
+            <select id="state" th:field="*{address.state}" size="1" style="width: 48px;" class="required clearable" th:classappend="${#fields.hasErrors('address.state')}? 'fieldError'" th:disabled="${!validShipping}">
+                <option value="">--</option>
+                <option th:each="state : ${states}" th:value="${state.abbreviation}" th:text="${state.abbreviation}"></option>
+            </select>
+        </div>
+
+        <div class="form25 margin20">
+            <label for="postal_code"><span th:text="#{cart.postalCode}">Postal Code</span></label>
+            <span class="error" th:if="${#fields.hasErrors('address.postalCode')}" th:errors="*{address.postalCode}"></span>
+            <input type="text" th:field="*{address.postalCode}" class="field25 clearable" th:classappend="${#fields.hasErrors('address.postalCode')}? 'fieldError'" th:disabled="${!validShipping}" />
+        </div>
+
+        <div style="float:right;">
+            <input type="submit" class="medium" th:value="#{cart.completOrder}" th:disabled="${!validShipping}" th:classappend="${validShipping}? 'red' : 'gray'"/>
+        </div>
+
+    </div>
+</blc:form>
 ```
 
 ## Done!
