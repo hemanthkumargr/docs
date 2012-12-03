@@ -34,8 +34,8 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 
 ##2) Make your CheckoutController extend BroadleafSagepayController
 
-Next, you will need to create a basic controller that extends `BroadleafSagepayController` to provide default `@RequestMappings` for your application.
-Here is an example controller with the minimum amount of code needed to get Sagepay integrated. 
+Next, you will need to have your checkout controller extend `BroadleafSagepayController` to provide default `@RequestMappings` for your application instead of BroadleafCheckoutController.
+Here is an example controller with methods to get Sagepay integrated.
 This quick start solution only offers support for an Authorize and Debit transaction. See [[Sagepay Advance Configuration]] for further customization.
 
 ```java
@@ -58,9 +58,9 @@ public class CheckoutController extends BroadleafSagepayController {
 }
 ```
 
-##3) Construct the HTML for the dynamic Sagepay form
+##3) Construct the HTML to call SagePay
 
-Finally, you will need to contruct the form that you will send via redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
+Finally, you will need to have your Billing Form (Or another button) generate the Sagepay Redirect form.
   
 Your page may look something like this:
 
@@ -165,8 +165,6 @@ Your page may look something like this:
 	</div>	
 </form>
 ```
-##4) Construct the redirect form for Sagepay
-The above HTML is used to save your customers shipping/billing information, which must be saved before you can redirect the user to Sagepay.- [sagepayRedirectForm.zip](sourceFiles/sagepayRedirectForm.zip). 
 
 ## Done!
 At this point, all the configuration should be complete and you are now ready to test your integration with Sagepay. Add something to your cart and proceed with checkout.
