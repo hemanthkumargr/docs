@@ -3,10 +3,9 @@
 <img src="images/payment-sagepay-diagram.png" class="no_border" alt="Sagepay Diagram">
 
 ## How It Works
-1. On the final checkout page, the customer fills out their billing information and hits submit. 
-   This information will be saved, then a crypt will be generated with the customer and order information.
-2. Then Broadleaf will redirect the customer to a form submission page with required fields populated for Sagepay. This page will automatically redirect the customer to Sagepay to complete the billing segment.
-3. After filling out the credit card information with Sagepay, customer's browser will then redirect to a Broadleaf URL with a crypt to complete checkout.
+1. On the final checkout page, the customer fills out their shipping address and billing address and hits submit. This information will be saved and a Sagepay crypt will be generated with the customer and order information.
+2. Broadleaf will then return a form with required fields populated for Sagepay. This page will automatically redirect the customer to Sagepay to complete the Credit Card information segment.
+3. After filling out the credit card information with Sagepay and hitting complete purchase, the customer's browser will then redirect to a Broadleaf URL with a crypt to complete checkout.
 4. The customer will be redirected to either a success or failure URL. On success, Broadleaf will complete the checkout process and display a confirmation page.
 
 There are two ways to get started integrating this payment gateway into your eCommerce application.
