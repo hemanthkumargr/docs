@@ -35,8 +35,6 @@ This is accomplished through environment configuration (see [[Runtime Environmen
 Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) You will need to enter the following key/value pairs in the appropriate locations:
 
 ### common.properties
-    sagepay.vendor=?
-    sagepay.encryptionPassword=?
     sagepay.currency=? Currency Code (e.g. GBP)
 
 ### development.properties, local.properties etc...
@@ -48,13 +46,19 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 
 - sagepay.purchaseUrl: `https://test.sagepay.com/gateway/service/vspform-register.vsp` for Test Accounts or `https://test.sagepay.com/Simulator/VSPFormGateway.asp` for the simulator
 
+### staging.properties
+    sagepay.purchaseUrl=https://test.sagepay.com/gateway/service/vspform-register.vsp
+    sagepay.successUrl=?
+    sagepay.failureUrl=?
+    sagepay.vendor=?
+    sagepay.encryptionPassword=?
+
 ### production.properties
-	sagepay.purchaseUrl=https://live.sagepay.com/gateway/service/vspform-register.vsp
-        sagepay.successUrl=?
-        sagepay.failureUrl=?
-        sagepay.vendor=?
-        sagepay.encryptionPassword=?
-        sagepay.currency=?
+    sagepay.purchaseUrl=https://live.sagepay.com/gateway/service/vspform-register.vsp
+    sagepay.successUrl=?
+    sagepay.failureUrl=?
+    sagepay.vendor=?
+    sagepay.encryptionPassword=?
 
 Now that you have your environment set up, let's begin setting up the [[Sagepay Module]].
 
