@@ -2,14 +2,10 @@
 
 ## Prerequisites
 
-- Users must establish their own ...
-
-### Download and install Broadleaf Sagepay Redirect Form
-Download the Thymeleaf based html [sagepayRedirectForm.zip](sourceFiles/sagepayRedirectForm.zip).
-Unzip, and place this file...
+- Users must establish their own test accounts with SagePay
 
 ### Set up your Sagepay Account
-1. Register for a Sagepay developer account https://www.sagepay.com/user/register
+1. Register for a Sagepay developer account http://www.sagepay.com/developers/sign_up
 2. After registration you should receive information regarding your developer account.
 3. Note this information because it will be needed when you configure your environment properties
 
@@ -39,20 +35,18 @@ This is accomplished through environment configuration (see [[Runtime Environmen
 Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) You will need to enter the following key/value pairs in the appropriate locations:
 
 ### common.properties
-	sagepay.vendor=?
-        sagepay.encryptionPassword=?
-        sagepay.currency=?
-        sagepay.redirectFormPath=?
+    sagepay.vendor=?
+    sagepay.encryptionPassword=?
+    sagepay.currency=? Currency Code (e.g. GBP)
 
 ### development.properties, local.properties etc...
-	sagepay.purchaseUrl=? (https://test.sagepay.com/Simulator/VSPFormGateway.asp - test simulator)
-        sagepay.successUrl=?  (e.g. https://localhost:8080/checkout/confirmation)
-        sagepay.failureUrl=?
-        sagepay.vendor=?  - Your test account vendor name
-        sagepay.encryptionPassword=? Your test account encryption password
-        sagepay.currency=? - Currency Code (e.g. GBD)
+    sagepay.purchaseUrl=? 
+    sagepay.successUrl=?  (e.g. https://localhost:8080/checkout/confirmation)
+    sagepay.failureUrl=?
+    sagepay.vendor=?  - Your test account vendor name
+    sagepay.encryptionPassword=? Your test account encryption password
 
-- sagepay.redirectUrl: the URL Sagepay should redirect to after completing the order
+- sagepay.purchaseUrl: `https://test.sagepay.com/gateway/service/vspform-register.vsp` for Test Accounts or `https://test.sagepay.com/Simulator/VSPFormGateway.asp` for the simulator
 
 ### production.properties
 	sagepay.purchaseUrl=https://live.sagepay.com/gateway/service/vspform-register.vsp
@@ -61,8 +55,6 @@ Broadleaf allows you to create your own property files per environment (e.g. com
         sagepay.vendor=?
         sagepay.encryptionPassword=?
         sagepay.currency=?
-
-- sagepay.successUrl: the URL Sagepay should redirect to after completing the order
 
 Now that you have your environment set up, let's begin setting up the [[Sagepay Module]].
 
