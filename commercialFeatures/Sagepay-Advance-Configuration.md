@@ -28,7 +28,6 @@ You will need to declare the following Spring beans in your application context:
         <property name="successUrl" value="${sagepay.successUrl}"/>
         <property name="failureUrl" value="${sagepay.failureUrl}"/>
         <property name="purchaseUrl" value="${sagepay.purchaseUrl}"/>
-        <property name="redirectFormPath" value="${sagepay.redirectFormPath}"/>
     </bean>
 
     <bean id="blSagepayFormVendorOrientedPaymentService" class="com.broadleafcommerce.vendor.sagepay.service.payment.SagepayFormPaymentServiceImpl">
@@ -44,7 +43,6 @@ You will need to declare the following Spring beans in your application context:
 * `successUrl` - the destination in your app that Sagepay redirect backs to if a successful transaction
 * `failureUrl` - the destination in your app that Sagepay redirect backs to if a unsuccessful transaction
 * `purchaseUrl` - the action for your form to be submitted to Sagepay
-* `redirectFormPath` - the location of your file the contains the form to be submitted to Sagepay    (i.e. /checkout/sagepayRedirectForm) 
 
 See [[Sagepay Environment Setup]] to learn how to configure the variable properties.
 
@@ -62,5 +60,3 @@ to the order before calling performCheckout on the CheckoutService.
 Most Broadleaf Commerce users will choose Spring MVC and will likely implement their own CheckoutController. 
 If your implementation does not require that much customization, consider extending the `BroadleafSagepayFormController`.
 This class is also a useful reference in setting up a custom payment workflow with Sagepay.
-
-The final step is to create the dynamic HTML form that will POST to Sagepay. It is **required** to save the users shipping/billing information before being redirected to this page. This page will post to Sagepay automatically when redirected to - [sagepayRedirectForm.zip](sourceFiles/sagepayRedirectForm.zip)
