@@ -50,7 +50,7 @@ See [[Sagepay Environment Setup]] to learn how to configure the variable propert
 
 ## Customizing the SagepayCheckoutService
 
-Broadleaf provides the `SagepayCheckoutService`, an abstraction layer on top of the payment workflow that aids in creating
+Broadleaf provides the `SagepayFormCheckoutService`, an abstraction layer on top of the payment workflow that aids in creating
 the objects necessary for completing a successful checkout. The `blSagepayCheckoutService` can be overridden using a custom implementation.
 This API is called from the `BroadleafSagepayFormController` used in the [[Sagepay Quick Start]] solution.
 
