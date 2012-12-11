@@ -32,15 +32,15 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 ```
 
 
-##2) Make your CheckoutController extend BroadleafSagepayController
+##2) Make your CheckoutController extend BroadleafSagepayFormController
 
-Next, you will need to have your checkout controller extend `BroadleafSagepayController` to provide default `@RequestMappings` for your application instead of BroadleafCheckoutController.
+Next, you will need to have your checkout controller extend `BroadleafSagepayFormController` to provide default `@RequestMappings` for your application instead of BroadleafCheckoutController.
 Here is an example controller with methods to get Sagepay integrated.
 This quick start solution only offers support for an Authorize and Debit transaction. See [[Sagepay Advance Configuration]] for further customization.
 
 ```java
 @Controller
-public class CheckoutController extends BroadleafSagepayController {
+public class CheckoutController extends BroadleafSagepayFormController {
 
     @RequestMapping(value = "/checkout")
     public String checkout(HttpServletRequest request, HttpServletResponse response, Model model) {
