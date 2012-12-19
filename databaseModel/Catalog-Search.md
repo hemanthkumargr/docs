@@ -12,6 +12,7 @@
 |BLC_FIELD            | [Field.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/Field.html)          | Represents a field of a search facet.  |
 |BLC_FIELD_SEARCH_TYPES | -        | Designates if the field will be searchable.  |
 |BLC_SEARCH_FACET_RANGE | [SearchFacetRange.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/SearchFacetRange.html)        | Designates a range for a search facet.  |
+|BLC_SEARCH_FACET_XREF | [RequiredFacetImpl.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/RequiredFacetImpl.html)       | Cross references required search facets.  |
 |BLC_CAT_SEARCH_FACET_XREF   | [CategorySearchFacet.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/CategorySearchFacet.html)   | Cross references the search facet with categories. |
 |BLC_CAT_SEARCH_FACET_EXCL_XREF| [CategoryExcludedSearchFacet.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/CategoryExcludedSearchFacet.html) | Cross references the search facet with categories to be excluded. |
 |BLC_SEARCH_INTERCEPT | [SearchIntercept.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/search/domain/SearchIntercept.html)        | Represents the search redirect.  |
