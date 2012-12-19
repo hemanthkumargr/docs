@@ -1,6 +1,3 @@
-Inventory
-=========
-
 This module provides basic inventory functions to Broadleaf.  Some of the concepts provided here include:
 * Inventory across multiple Fulfillment Locations - relevant for multi-warehouse scenarios. You can track inventory
 for a Sku across many locations
@@ -112,3 +109,6 @@ In myCompanyAdmin.gwt.xml:
 
 And that's it!  Other potential modifications might be to show a specific message when you try to add an item that
 doesn't have inventory.  [Check the diff](https://github.com/broadleafcommerce/demosite/compare/develop...inventory) to see what we did on DemoSite.
+
+###Detailed ERD
+[![Inventory Detail](images/modules/InventoryDetailedERD.png)](images/modules/InventoryDetailedERD.png)
