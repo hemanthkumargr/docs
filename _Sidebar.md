@@ -76,6 +76,7 @@
         - [[Sagepay | Sagepay Module]]
             - [[Sagepay Quick Start]]
             - [[Sagepay Advance Configuration]]
+        - [[Advanced Search]]
 - [[Tutorials]]
     - [[Getting Started | Getting Started Tutorials]]
         - [[Customizing the UI | Customize UI For Heat Clinic Tutorial]]
