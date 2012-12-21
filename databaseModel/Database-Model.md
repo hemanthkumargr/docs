@@ -8,7 +8,7 @@
 	- New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
 	
 ###Modules
-####Broadleaf SEO Module
+####Broadleaf CatalogMetaData Module
 - In [[Category | CatalogMetaData Catalog Category]]
 	- New Fields through embeddable `SeoMetaData`: META_DESCRIPTION, META_KEYWORDS, META_ROBOT and TITLE_FRAGMENT 
 	- New Fields through embeddable `TwitterData`: TWITTER_SITE, TWITTER_CREATOR, TWITTER_CARD, TWITTER_URL, TWITTER_TITLE, TWITTER_DESCRIPTION and TWITTER_IMAGE
