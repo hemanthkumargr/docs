@@ -1,4 +1,4 @@
-###Detailed ERD
+|BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |###Detailed ERD
 
 [![Order Fulfillment](images/dataModel/OrderFulfillmentDetailedERD.png)](images/dataModel/OrderFulfillmentDetailedERD.png)
 
@@ -26,3 +26,4 @@
 |BLC_PERSONAL_MESSAGE  | [PersonalMessage.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/PersonalMessage.html)          | Contains personal message information (e.g. from, to, message body)  |
 |BLC_PHONE             | [Phone.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Phone.html)          | Represents a phone number in broadleaf  |
 |BLC_ORDER_ITEM        | [OrderItem.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderItem.html)          | An abstract representation of an item on an order  |
+|BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
