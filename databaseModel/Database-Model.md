@@ -13,13 +13,9 @@
 - In [[Search | Catalog Search]]
 	- New Fields in `BLC_FIELD`: TRANSLATABLE
 - In [[Fulfillment | Order Fulfillment]]
-	- New Fields in `BLC_FULFILLMENT_OPTION_FIXED`: CURRENCY_CODE	 	
-
-- In [[Customer | Customer Detail]]
-	- New Table: BLC_CUSTOMER_PAYMENT
-- In [[Search | Catalog Search]]
-	- New Table: BLC_SEARCH_FACET_XREF 
-	- New Fields in `BLC_SEARCH_FACET`: FULFILLMENT_TYPE, INVENTORY_TYPE 
+	- New Fields in `BLC_FULFILLMENT_OPTION_FIXED`: CURRENCY_CODE
+- In [[Detail | Order Detail]]
+	- New Fields in `BLC_ORDER`: LOCALE_CODE, CURRENCY_CODE	 	
 
 ###Diagrams
 - [[Admin | Admin Model]]
