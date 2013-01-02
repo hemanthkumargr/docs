@@ -12,7 +12,8 @@
 	- New Fields in `BLC_CATEGORY`: FULFILLMENT_TYPE, INVENTORY_TYPE 
 - In [[Search | Catalog Search]]
 	- New Fields in `BLC_FIELD`: TRANSLATABLE
-	 	
+- In [[Fulfillment | Order Fulfillment]]
+	- New Fields in `BLC_FULFILLMENT_OPTION_FIXED`: CURRENCY_CODE	 	
 
 - In [[Customer | Customer Detail]]
 	- New Table: BLC_CUSTOMER_PAYMENT
