@@ -10,6 +10,9 @@
 	- New Fields in `BLC_LOCALE`: CURRENCY_CODE 
 - In [[Category | Catalog Category]]
 	- New Fields in `BLC_CATEGORY`: FULFILLMENT_TYPE, INVENTORY_TYPE 
+- In [[Search | Catalog Search]]
+	- New Fields in `BLC_FIELD`: TRANSLATABLE
+	 	
 
 - In [[Customer | Customer Detail]]
 	- New Table: BLC_CUSTOMER_PAYMENT
