@@ -1,4 +1,4 @@
 ###Detailed Diagrams
-####Broadleaf SEO Module
+####Broadleaf CatalogMetaData Module
 - [[Category | CatalogMetaData Catalog Category]]
 - [[Product | CatalogMetaData Catalog Product]]
