@@ -23,7 +23,9 @@
 	- New Fields in `BLC_TAX_DETAIL`: CURRENCY_CODE
 - In [[Sku | Catalog Sku]]
 	- New Fields in `BLC_SKU`: FULFILLMENT_TYPE, INVENTORY_TYPE
-	- New Fields in `BLC_SKU_FEE`: CURRENCY_CODE	 	
+	- New Fields in `BLC_SKU_FEE`: CURRENCY_CODE
+- In [[Social]]
+	- New Table: BLC_UserConnection	 	
 	
 ###Diagrams
 - [[Admin | Admin Model]]
@@ -54,4 +56,5 @@
 	- [[Common]]
 	- [[Email Tracking]]
 	- [[Fulfillment]]
+	- [[Social]]
 - [[Modules]]
