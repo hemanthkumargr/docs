@@ -14,6 +14,7 @@
 |BLC_DATA_DRVN_ENUM_VAL      | [DataDrivenEnumerationValue.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/enumeration/domain/DataDrivenEnumerationValue.html)      | Holds value items for data-driven enumeration purpose  |
 |SEQUENCE_GENERATOR          | n/a      | Holds information for sequence generation  |
 |BLC_LOCALE                  | [Locale.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/locale/domain/Locale.html)      | Contains locale information, such as code and if it's default  |
+|BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
 
 ###Related Tables
 

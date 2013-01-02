@@ -5,8 +5,9 @@
 	- New Table: BLC_ADMIN_MODULE
 	- New Table: BLC_ADMIN_SECTION
 	- New Table: BLC_ADMIN_SECTION_PERMISSION_XREF
-
-
+- In [[Common]]
+	- New Table: BLC_CURRENCY
+	- New Fields in `BLC_LOCALE`: CURRENCY_CODE 
 
 
 - In [[Customer | Customer Detail]]
