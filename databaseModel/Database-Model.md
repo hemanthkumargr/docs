@@ -20,8 +20,11 @@
 	- New Fields in `BLC_PAYMENT_RESPONSE_ITEM`: CURRENCY_CODE
 	- New Fields in `BLC_PAYMENT_LOG`: CURRENCY_CODE
 - In [[Tax | Order Tax]]
-	- New Fields in `BLC_TAX_DETAIL`: CURRENCY_CODE	 	
-
+	- New Fields in `BLC_TAX_DETAIL`: CURRENCY_CODE
+- In [[Sku | Catalog Sku]]
+	- New Fields in `BLC_SKU`: FULFILLMENT_TYPE, INVENTORY_TYPE
+	- New Fields in `BLC_SKU_FEE`: CURRENCY_CODE	 	
+	
 ###Diagrams
 - [[Admin | Admin Model]]
 	- [[Change Sets | Admin Change Sets]]
