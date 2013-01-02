@@ -15,7 +15,10 @@
 - In [[Fulfillment | Order Fulfillment]]
 	- New Fields in `BLC_FULFILLMENT_OPTION_FIXED`: CURRENCY_CODE
 - In [[Detail | Order Detail]]
-	- New Fields in `BLC_ORDER`: LOCALE_CODE, CURRENCY_CODE	 	
+	- New Fields in `BLC_ORDER`: LOCALE_CODE, CURRENCY_CODE
+- In [[Payment | Order Payment]]
+	- New Fields in `BLC_PAYMENT_RESPONSE_ITEM`: CURRENCY_CODE
+	- New Fields in `BLC_PAYMENT_LOG`: CURRENCY_CODE	 	
 
 ###Diagrams
 - [[Admin | Admin Model]]
