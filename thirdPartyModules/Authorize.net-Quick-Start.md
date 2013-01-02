@@ -52,7 +52,7 @@ public class CheckoutController extends BroadleafAuthorizeNetController {
 ```
 ##3) Create the HTML for the DPM form
 
-Finally, you will need to construct the form that you will send via the Direct Post Method (DPM). The checkout() method defined above will add the necessary attributes on the Spring Model object. 
+You will also need to construct the form that you will send via the Direct Post Method (DPM). The checkout() method defined above will add the necessary attributes on the Spring Model object. 
 Your page may look something like this:
 
 > Note: it is important that all the hidden fields listed in the form below be included.
@@ -183,6 +183,19 @@ Your page may look something like this:
 
     </div>
 </form>
+```
+
+##4) Exclude the Authorize.net process URL from the CSRF checks
+
+Since Authorize.net sends a POST to whatever you have in ${authorizenet.relay.response.url}, we will need to exclude this URL from XSRF attack prevention built into the Broadleaf demo. In this case, we _want_ the POST to come from a different site.  Override the Broadleaf CsrfFilter to exclude the process URL in your applicationContext-security.xml:
+```xml
+<bean id="blCsrfFilter" class="org.broadleafcommerce.common.security.handler.CsrfFilter">
+    <property name="excludedRequestPatterns">
+        <list>
+            <value>${authorizenet.relay.response.url}</value>
+        </list>
+    </property>
+</bean>
 ```
 
 ## Done!
