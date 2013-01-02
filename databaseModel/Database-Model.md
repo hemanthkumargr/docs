@@ -18,7 +18,9 @@
 	- New Fields in `BLC_ORDER`: LOCALE_CODE, CURRENCY_CODE
 - In [[Payment | Order Payment]]
 	- New Fields in `BLC_PAYMENT_RESPONSE_ITEM`: CURRENCY_CODE
-	- New Fields in `BLC_PAYMENT_LOG`: CURRENCY_CODE	 	
+	- New Fields in `BLC_PAYMENT_LOG`: CURRENCY_CODE
+- In [[Tax | Order Tax]]
+	- New Fields in `BLC_TAX_DETAIL`: CURRENCY_CODE	 	
 
 ###Diagrams
 - [[Admin | Admin Model]]

@@ -18,3 +18,4 @@
 |BLC_FULFILLMENT_GROUP_FEE  | [FulfillmentGroupFee.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/FulfillmentGroupFee.html)          | Contains fee information for a fulfillment group  |
 |BLC_FULFILLMENT_GROUP_ITEM | [FulfillmentGroupItem](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/FulfillmentGroupItem.html)          | Contains information for items in a fulfillment group  |
 |BLC_FULFILLMENT_GROUP      | [FulfillmentGroup](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/FulfillmentGroup.html)          | Holds fulfillment information about an order  |
+|BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
