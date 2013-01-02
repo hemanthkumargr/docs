@@ -1,7 +1,7 @@
 ##Broadleaf Commerce 2.2.0
 
 ###2.1 to 2.2 Model Changes
-- In [[[Admin | Admin Model]]
+- In [[Admin | Admin Model]]
 	- New Table: BLC_ADMIN_MODULE
 	- New Table: BLC_ADMIN_SECTION
 	- New Table: BLC_ADMIN_SECTION_PERMISSION_XREF
