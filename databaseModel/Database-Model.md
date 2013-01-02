@@ -8,13 +8,14 @@
 - In [[Common]]
 	- New Table: BLC_CURRENCY
 	- New Fields in `BLC_LOCALE`: CURRENCY_CODE 
-
+- In [[Category | Catalog Category]]
+	- New Fields in `BLC_CATEGORY`: FULFILLMENT_TYPE, INVENTORY_TYPE 
 
 - In [[Customer | Customer Detail]]
 	- New Table: BLC_CUSTOMER_PAYMENT
 - In [[Search | Catalog Search]]
 	- New Table: BLC_SEARCH_FACET_XREF 
-	- New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
+	- New Fields in `BLC_SEARCH_FACET`: FULFILLMENT_TYPE, INVENTORY_TYPE 
 
 ###Diagrams
 - [[Admin | Admin Model]]
