@@ -1,3 +1,16 @@
 _site/
 .svn
-
+build.properties
+target/
+.classpath
+.project
+.settings
+*.swp
+test-output
+.idea
+*.iml
+.metadata
+*.ipr
+bin/
+.svn
+pom.xml
