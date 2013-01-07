@@ -77,6 +77,7 @@
             - [[Sagepay Quick Start]]
             - [[Sagepay Advance Configuration]]
         - [[Advanced Search]]
+        - [[Pricelist]]
 - [[Tutorials]]
     - [[Getting Started | Getting Started Tutorials]]
         - [[Customizing the UI | Customize UI For Heat Clinic Tutorial]]
