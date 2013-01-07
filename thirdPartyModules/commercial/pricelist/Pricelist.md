@@ -70,25 +70,23 @@ Follow the steps below to add the PriceList module to your project.
 
 ##Domain Changes
 
-###Extend Customer, Offer, 
+###Extend Customer, Offer, Order, ProductOptionValue,SearchFacetRange,SkuBundleItem and Sku.
 Be sure you are comfortable with [[extending entities | Extending Entities Tutorial]] before continuing on.
 
 ```java
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "SEO_PRODUCT")
-public class MyCustomerImpl extends CustomerImpl implements  {…}
+@Table(name = "BLC_PRICE_ADJUSTMENT")
+public class MyProductOptionValueImpl extends ProductOptionValueImpl implements PriceListProductOptionValue {…}
 ```
 
 
-###Embed the SeoData objects that you want to add
+###Embed the PriceAdjustment objects that you want to add
 
 ```java
 @Embedded
-protected SeoMetaDataImpl seoMetaData = new SeoMetaDataImpl();
+protected PriceListProductOptionValueImpl embeddablePriceList = new PriceListProductOptionValueImpl();
 
-@Embedded
-protected TwitterData embeddableTwitterData = new TwitterDataImpl();
 ```
 
 ###Implement Delegate Methods 
@@ -97,9 +95,9 @@ Your IDE should have the functionality to implement delegate methods (Generate c
 We will need to take a few addiational steps to make sure that our embeddable object is always present. Due to how hibernate handles empty embeddables if no data is inserted into the database the embeddable object will remain null. To address this issue we will need to implement a lazy initialization of the embeddable objects. 
 
 ```java
-protected void initializeSeoMetaData(){
-	if(seoMetaData == null){
-		seoMetaData = new SeoMetaDataImpl();
+protected void initializePriceListProductOptionValue(){
+	if(embeddablePriceList == null){
+		embeddablePriceList = new PriceListProductOptionValueImpl();
 	}
 }
 ```
@@ -109,16 +107,11 @@ Include the initialization method in all delegate methods.
 ```java
 @Override
 @Nullable
-public String getMetaKeywords() {
-	initializeSeoMetaData();
-	return seoMetaData.getMetaKeywords();
+public String getAttributeValue() {
+	initializePriceListProductOptionValue();
+	return embeddablePriceList.getAttributeValue();
 }
 ```
 
-###Returning default values
-When applicable, we recommend defaulting to category/product values for when none are available in the data fields added in the Broadleaf SEO module. You can do so by replacing your `return` statement. Here is an example using product description.
 
-```java
-return seoMetaData.getMetaDescription() != null ? seoMetaData.getMetaDescription() : super.getLongDescription();	
-```
 
