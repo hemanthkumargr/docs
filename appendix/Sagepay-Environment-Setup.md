@@ -36,6 +36,7 @@ Broadleaf allows you to create your own property files per environment (e.g. com
 
 ### common.properties
     sagepay.currency=? Currency Code (e.g. GBP)
+    sagepay.cartDescription=? (e.g. My Company's Cart)
 
 ### development.properties, local.properties etc...
     sagepay.purchaseUrl=? 
