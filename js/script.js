@@ -112,7 +112,7 @@ var DOCS = (function($) {
         $('.treeView').show();
     }
 
-	return {
+    return {
         navigate: navigate,
         updateTree: updateTree
     }

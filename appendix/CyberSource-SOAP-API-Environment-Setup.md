@@ -19,15 +19,15 @@ Additionally, you'll need to configure the Spring bean for the CyberSourceServic
 
 ```xml
 <bean id="blCyberSourceServiceManager" class="org.broadleafcommerce.vendor.cybersource.service.CyberSourceServiceManagerImpl">
-	<property name="merchantId" value="${cybersource.merchant.id}"/>
-	<property name="serverUrl" value="${cybersource.server.url}"/>
-	<property name="libVersion" value="${cybersource.lib.version}"/>
-	<property name="registeredServices">
-		<list>
-			<ref bean="blCyberSourceCreditCardPaymentService"/>
-			<ref bean="blCyberSourceTaxService"/>
-		</list>
-	</property>
+    <property name="merchantId" value="${cybersource.merchant.id}"/>
+    <property name="serverUrl" value="${cybersource.server.url}"/>
+    <property name="libVersion" value="${cybersource.lib.version}"/>
+    <property name="registeredServices">
+        <list>
+            <ref bean="blCyberSourceCreditCardPaymentService"/>
+            <ref bean="blCyberSourceTaxService"/>
+        </list>
+    </property>
 </bean>
 ```
 
@@ -37,7 +37,7 @@ You must also declare a bean that will handle the password callback issued by th
 
 ```xml
 <bean id="cyberSourcePasswordCallback" class="org.broadleafcommerce.vendor.cybersource.service.CyberSourcePasswordCallback">
-	<property name="transactionKey" value="${cybersource.transaction.key}"/>
+    <property name="transactionKey" value="${cybersource.transaction.key}"/>
 </bean>
 ```
 

@@ -10,8 +10,8 @@ First, you need to declare the the CyberSource payment service. Add the followin
 
 ```xml
 <bean id="blCyberSourceCreditCardPaymentService" class="org.broadleafcommerce.vendor.cybersource.service.payment.CyberSourceCreditCardPaymentServiceImpl">
-	<property name="failureReportingThreshold" value="10"/>
-	<property name="idGenerationService" ref="blIdGenerationService"/>
+    <property name="failureReportingThreshold" value="10"/>
+    <property name="idGenerationService" ref="blIdGenerationService"/>
 </bean>
 ```
 

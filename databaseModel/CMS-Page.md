@@ -6,7 +6,7 @@
 
 ###Tables
 
-| Table               | Java Docs	   | Description                                         |
+| Table               | Java Docs      | Description                                         |
 |:--------------------|:--------------|:----------------------------------------------------|
 |BLC_PAGE             | [Page.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/page/domain/Page.html)          | Represents a static html Page in Broadleaf.  |
 |BLC_PAGE_TEMPLATE    | [PageTemplate.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/page/domain/PageTemplate.html)          | Represents a Page template.  |
@@ -19,7 +19,7 @@
 
 ###Related Tables
 
-| Table               | Java Docs	   | Description                                         |
+| Table               | Java Docs      | Description                                         |
 |:--------------------|:--------------|:----------------------------------------------------|
 |BLC_ADMIN_USER       | [AdminUser.java](http://javadoc.broadleafcommerce.org/current/open-admin-platform/org/broadleafcommerce/openadmin/server/security/domain/AdminUser.html)          | Represents an admin user.  |
 |BLC_SANDBOX          | [SandBox.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/sandbox/domain/SandBox.html)          | Represents a sandbox.  |

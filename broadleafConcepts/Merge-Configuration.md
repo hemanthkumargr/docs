@@ -36,7 +36,7 @@ For example, if you were to specify a bean with id `blOrderService`, Broadleaf w
             <ref bean="blDialect" />
         </set>
     </property>
-</bean>	
+</bean> 
 ```
 
 If you were to want to add your own custom dialect, you could simply place the following bean definition in your applicationContext file:
@@ -48,7 +48,7 @@ If you were to want to add your own custom dialect, you could simply place the f
             <ref bean="myCustomDialect" />
         </set>
     </property>
-</bean>	
+</bean> 
 ```
 
 We have identified this bean property as a property to be merged, not overriden, and as such, the bean that would be produced for Spring would be:
@@ -62,5 +62,5 @@ We have identified this bean property as a property to be merged, not overriden,
             <ref bean="myCustomDialect" />
         </set>
     </property>
-</bean>	
+</bean> 
 ```
