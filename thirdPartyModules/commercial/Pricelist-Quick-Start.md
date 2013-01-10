@@ -1,4 +1,4 @@
-Follow the steps below to add the PriceList module to your project.
+Follow the steps below to add the PriceList module to your project.  You can checkout the DemoSite-Pricelist project from github that has all theses modifications.
 
 ##Changes in `pom.xml` files 
 ###In you project POM Declare the the BLC snapshot repository
@@ -124,3 +124,25 @@ INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSIO
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (27,83);
      
  ```
+ 
+ 
+###Database Inserts for pricing
+Now you can insert the pricing data. Checkout he DemoSite-Pricelist project as an example. 
+ 
+```sql
+--create sample priceslist
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('GBP', 'GB Pound', false);
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('MXN', 'Mexican Peso', false);
+INSERT INTO BLC_CURRENCY(CURRENCY_CODE, FRIENDLY_NAME, DEFAULT_FLAG) VALUES('EUR', 'EURO Dollar', false);
+INSERT INTO BLC_PRICE_LIST (PRICE_LIST_ID,CURRENCY_CODE,FRIENDLY_NAME,PRICE_KEY) VALUES (2,'EUR','EUR Dollar','EUR');
+INSERT INTO BLC_PRICE_LIST (PRICE_LIST_ID,CURRENCY_CODE,FRIENDLY_NAME,PRICE_KEY) VALUES (3,'GBP','GB Pound','GBP');
+INSERT INTO BLC_PRICE_LIST (PRICE_LIST_ID,CURRENCY_CODE,FRIENDLY_NAME,PRICE_KEY) VALUES (4,'MXN','Mexican Peso','MXN');
+
+--create sample pricing for few products
+INSERT INTO BLC_PRICE_DATA(PRICE_DATA_ID,RETAIL_PRICE,SALE_PRICE) values(2001,21.98,21.98);
+INSERT INTO BLC_SKU_PRICE_DATA(PRICE_DATA_ID,SKU_ID,MAP_KEY) VALUES (2001,1,'EUR');
+INSERT INTO BLC_PRICE_DATA(PRICE_DATA_ID,RETAIL_PRICE,SALE_PRICE) values(2002,21.98,21.98);
+INSERT INTO BLC_SKU_PRICE_DATA(PRICE_DATA_ID,SKU_ID,MAP_KEY) VALUES (2002,2,'EUR');
+
+```
+

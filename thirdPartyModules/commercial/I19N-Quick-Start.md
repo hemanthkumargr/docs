@@ -1,4 +1,4 @@
-Follow the steps below to add the I19n module to your project.
+Follow the steps below to add the I18n module to your project. Checkout the sample project DemoSite-I18n that contains all the configuration.
 
 ##Changes in `pom.xml` files 
 ###In you project POM Declare the the BLC snapshot repository
@@ -79,6 +79,27 @@ empty embeddables if no data is inserted into the database the embeddable object
 will remain null. To address this issue we will need to implement a lazy 
 initialization of the embeddable objects. The configuration of the jpa transorm 
 is in bl-I18n-applicationContext.xml
+
+###Database Inserts for translations
+Now you can insert the translations. Checkout he DemoSite-Pricelist project as an example.  The following adds translations for categories.
+
+```sql
+-- Custom store navigation in Spanish
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1001,'Inicio','Inicio');
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1002,'Salsas Picantes','Salsas');
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1003,'Mercanc&iacute;a','Mercanc&iacute;a');
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1004,'Descuento','Descuento');
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1005,'Iniciando con Salsas?','Nuevo a la Salsa?');
+INSERT INTO BLC_CATEGORY_TR (TRANSLATION_ID,DESCRIPTION,NAME) VALUES (1006,'FAQ','FAQ');
+-- Custom store SKU cross reference with translations
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2001, 1001, 'es');
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2002, 1002, 'es');
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2003, 1003, 'es');
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2004, 1004, 'es');
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2005, 1005, 'es');
+INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2006, 1006, 'es');
+```sql
+ 
 
 
 
