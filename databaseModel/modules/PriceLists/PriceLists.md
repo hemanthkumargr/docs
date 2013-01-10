@@ -16,7 +16,7 @@
 
 ###Related Tables
 
-| Table                | Related Entity	   | Description                                         |
+| Table                | Related Entity    | Description                                         |
 |:---------------------|:--------------|:----------------------------------------------------|
 |BLC_SKU_BUNDLE           | [SkuBundle.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/catalog/domain/SkuBundle.html)           | Contains address information, e.g. city, state, and postal code  |
 |BLC_SKU          | [Sku.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/catalog/domain/Sku.html)          |  A SKU is a specific item that can be sold including any specific attributes of the item such as color or size.    |

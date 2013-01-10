@@ -4,24 +4,24 @@ Follow the steps below to add the PriceList module to your project.
 ###In you project POM Declare the the BLC snapshot repository
 
 ```xml
-	<repositories>
-		<repository>
-			<id>public releases</id>
-			<name>public releases</name>
-			<url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>public releases</id>
+            <name>public releases</name>
+            <url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 ```
-	
+    
 ###In you Project `pom.xml` add the dependency for the Broadleaf PriceList module
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-pricelist</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<type>jar</type>
-	<scope>compile</scope>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-pricelist</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <type>jar</type>
+    <scope>compile</scope>
 </dependency>
 ```
 
@@ -29,8 +29,8 @@ Follow the steps below to add the PriceList module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-pricelist</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-pricelist</artifactId>
 </dependency>
 ```
 
@@ -38,8 +38,8 @@ Follow the steps below to add the PriceList module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-pricelist</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-pricelist</artifactId>
 </dependency>
 ```
 
@@ -49,14 +49,14 @@ Follow the steps below to add the PriceList module to your project.
 
 ```xml
 <context-param>
-	<param-name>patchConfigLocation</param-name>
-	<param-value>
-	.
-	classpath:/bl-pricelist-admin-applicationContext.xml
-	classpath:/bl-pricelist-applicationContext.xml
-	.
-	.
-	</param-value>
+    <param-name>patchConfigLocation</param-name>
+    <param-value>
+    .
+    classpath:/bl-pricelist-admin-applicationContext.xml
+    classpath:/bl-pricelist-applicationContext.xml
+    .
+    .
+    </param-value>
 </context-param>
 ```
 ##Changes in `applicationContext-filter.xml` and `applicationContext-filter-combined.xml` 
@@ -106,9 +106,9 @@ We will need to take a few addiational steps to make sure that our embeddable ob
 
 ```java
 protected void initializePriceListProductOptionValue(){
-	if(embeddablePriceList == null){
-		embeddablePriceList = new PriceListProductOptionValueImpl();
-	}
+    if(embeddablePriceList == null){
+        embeddablePriceList = new PriceListProductOptionValueImpl();
+    }
 }
 ```
 
@@ -118,8 +118,8 @@ Include the initialization method in all delegate methods.
 @Override
 @Nullable
 public String getAttributeValue() {
-	initializePriceListProductOptionValue();
-	return embeddablePriceList.getAttributeValue();
+    initializePriceListProductOptionValue();
+    return embeddablePriceList.getAttributeValue();
 }
 ```
 
@@ -152,5 +152,5 @@ INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSIO
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (27,81);
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (27,82);
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (27,83);
- 	 
+     
  ```

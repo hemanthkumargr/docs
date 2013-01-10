@@ -4,24 +4,24 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 ###In you project POM Declare the the BLC snapshot repository
 
 ```xml
-	<repositories>
-		<repository>
-			<id>public releases</id>
-			<name>public releases</name>
-			<url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>public releases</id>
+            <name>public releases</name>
+            <url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 ```
-	
+    
 ###In you Project `pom.xml` add the dependency for the Broadleaf SEO module
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-seo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<type>jar</type>
-	<scope>compile</scope>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-seo</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <type>jar</type>
+    <scope>compile</scope>
 </dependency>
 ```
 
@@ -29,8 +29,8 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-seo</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-seo</artifactId>
 </dependency>
 ```
 
@@ -38,8 +38,8 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-seo</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-seo</artifactId>
 </dependency>
 ```
 
@@ -49,13 +49,13 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ```xml
 <context-param>
-	<param-name>patchConfigLocation</param-name>
-	<param-value>
-	.
-	classpath:/bl-seo-applicationContext.xml
-	.
-	.
-	</param-value>
+    <param-name>patchConfigLocation</param-name>
+    <param-value>
+    .
+    classpath:/bl-seo-applicationContext.xml
+    .
+    .
+    </param-value>
 </context-param>
 ```
 
@@ -97,9 +97,9 @@ We will need to take a few addiational steps to make sure that our embeddable ob
 
 ```java
 protected void initializeSeoMetaData(){
-	if(seoMetaData == null){
-		seoMetaData = new SeoMetaDataImpl();
-	}
+    if(seoMetaData == null){
+        seoMetaData = new SeoMetaDataImpl();
+    }
 }
 ```
 
@@ -109,8 +109,8 @@ Include the initialization method in all delegate methods.
 @Override
 @Nullable
 public String getMetaKeywords() {
-	initializeSeoMetaData();
-	return seoMetaData.getMetaKeywords();
+    initializeSeoMetaData();
+    return seoMetaData.getMetaKeywords();
 }
 ```
 
@@ -118,7 +118,7 @@ public String getMetaKeywords() {
 When applicable, we recommend defaulting to category/product values for when none are available in the data fields added in the Broadleaf SEO module. You can do so by replacing your `return` statement. Here is an example using product description.
 
 ```java
-return seoMetaData.getMetaDescription() != null ? seoMetaData.getMetaDescription() : super.getLongDescription();	
+return seoMetaData.getMetaDescription() != null ? seoMetaData.getMetaDescription() : super.getLongDescription();    
 ```
 
 ##HTML changes

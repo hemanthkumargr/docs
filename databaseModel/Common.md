@@ -18,6 +18,6 @@
 
 ###Related Tables
 
-| Table                | Related Entity	   | Description                                                    |
+| Table                | Related Entity    | Description                                                    |
 |:---------------------|:--------------|:---------------------------------------------------------------|
 |BLC_SANDBOX           | [SandBox.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/sandbox/domain/SandBox.html)          | Contains sandbox instance data  |

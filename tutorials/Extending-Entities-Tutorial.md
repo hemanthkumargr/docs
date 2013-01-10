@@ -39,7 +39,7 @@ Hibernate automatically uses the primary key of ProductImpl as the primary key o
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
         <!-- Note that this XML will get merged with Broadleaf's internal persistence unit, and your new HotSauceImpl will be added to the managed entities -->
-	<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
         <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
         <exclude-unlisted-classes/>
 </persistence>
@@ -131,7 +131,7 @@ You also have to specify properties in your merged persistence.xml file:
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
         <!-- Note that this XML will get merged with Broadleaf's internal persistence unit, and your new HotSauceImpl will be added to the managed entities -->
-	<persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
         <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
         <class>com.mycompany.core.catalog.domain.CookingClassImpl</class>
         <class>com.mycompany.core.catalog.domain.TShirtImpl</class>

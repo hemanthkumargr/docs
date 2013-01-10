@@ -10,9 +10,9 @@ First, you need to declare the CyberSource tax service. Add the following Spring
 
 ```xml
 <bean id="blCyberSourceTaxService" class="org.broadleafcommerce.vendor.cybersource.service.tax.CyberSourceTaxServiceImpl">
-	<property name="failureReportingThreshold" value="10"/>
-	<property name="idGenerationService" ref="blIdGenerationService"/>
-	<property name="isCacheEnabled" value="true"/>
+    <property name="failureReportingThreshold" value="10"/>
+    <property name="idGenerationService" ref="blIdGenerationService"/>
+    <property name="isCacheEnabled" value="true"/>
 </bean>
 ```
 
@@ -28,14 +28,14 @@ Finally, you have to override the default BroadleafCommerce tax module (SimpleTa
 <bean id="blTaxModule" class="org.broadleafcommerce.pricing.service.module.CyberSourceTaxModule">
         <property name="serviceManager" ref="blCyberSourceServiceManager"/>
         <property name="nexus">
-	        <list>
+            <list>
                 <value>TX</value>
-		    </list>
-	    </property>
+            </list>
+        </property>
         <property name="orderAcceptanceCity" value="Dallas"/>
         <property name="orderAcceptanceCountry" value="US"/>
-	<property name="orderAcceptancePostalCode" value="75240"/>
-	<property name="orderAcceptanceState" value="TX"/>
+    <property name="orderAcceptancePostalCode" value="75240"/>
+    <property name="orderAcceptanceState" value="TX"/>
 </bean>
 ```
 

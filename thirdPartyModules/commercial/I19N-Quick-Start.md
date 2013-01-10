@@ -4,24 +4,24 @@ Follow the steps below to add the I19n module to your project.
 ###In you project POM Declare the the BLC snapshot repository
 
 ```xml
-	<repositories>
-		<repository>
-			<id>public releases</id>
-			<name>public releases</name>
-			<url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
-		</repository>
-	</repositories>
+    <repositories>
+        <repository>
+            <id>public releases</id>
+            <name>public releases</name>
+            <url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 ```
-	
+    
 ###In you Project `pom.xml` add the dependency for the Broadleaf I18n module
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-I18n</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<type>jar</type>
-	<scope>compile</scope>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-I18n</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <type>jar</type>
+    <scope>compile</scope>
 </dependency>
 ```
 
@@ -29,8 +29,8 @@ Follow the steps below to add the I19n module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-I18n</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-I18n</artifactId>
 </dependency>
 ```
 
@@ -38,8 +38,8 @@ Follow the steps below to add the I19n module to your project.
 
 ```xml
 <dependency>
-	<groupId>org.broadleafcommerce</groupId>
-	<artifactId>broadleaf-I18n</artifactId>
+    <groupId>org.broadleafcommerce</groupId>
+    <artifactId>broadleaf-I18n</artifactId>
 </dependency>
 ```
 
@@ -49,14 +49,14 @@ Follow the steps below to add the I19n module to your project.
 
 ```
 <context-param>
-	<param-name>patchConfigLocation</param-name>
-	<param-value>
-	.
-	classpath:/bl-I18n-admin-applicationContext.xml
-	classpath:/bl-I18n-applicationContext.xml
-	.
-	.
-	</param-value>
+    <param-name>patchConfigLocation</param-name>
+    <param-value>
+    .
+    classpath:/bl-I18n-admin-applicationContext.xml
+    classpath:/bl-I18n-applicationContext.xml
+    .
+    .
+    </param-value>
 </context-param>
 ```
 
@@ -97,9 +97,9 @@ We will need to take a few addiational steps to make sure that our embeddable ob
 
 ```java
 protected void initializeTranslations(){
-	if(i18nExtension == null){
-		i18nExtension = new I18NProductOptionValueImpl();
-	}
+    if(i18nExtension == null){
+        i18nExtension = new I18NProductOptionValueImpl();
+    }
 }
 ```
 
@@ -109,8 +109,8 @@ Include the initialization method in all delegate methods.
 @Override
 @Nullable
 public String getAttributeValue() {
-	initializeTranslations();
-	return i18nExtension.getAttributeValue();
+    initializeTranslations();
+    return i18nExtension.getAttributeValue();
 }
 ```
 

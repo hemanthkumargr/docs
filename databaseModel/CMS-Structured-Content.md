@@ -6,7 +6,7 @@
 
 ###Tables
 
-| Table               | Java Docs	   | Description                                         |
+| Table               | Java Docs      | Description                                         |
 |:--------------------|:--------------|:----------------------------------------------------|
 |BLC_SC               | [StructuredContent.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/structure/domain/StructuredContent.html)          | Represents a Broadleaf Structured Content object.  |
 |BLC_SC_TYPE          | [StructuredContentType.java](http://javadoc.broadleafcommerce.org/current/contentmanagement-module/org/broadleafcommerce/cms/structure/domain/StructuredContentType.html)          | Designates a Structured Content type.  |
@@ -20,7 +20,7 @@
 
 ###Related Tables
 
-| Table               | Java Docs	   | Description                                         |
+| Table               | Java Docs      | Description                                         |
 |:--------------------|:--------------|:----------------------------------------------------|
 |BLC_ADMIN_USER       | [AdminUser.java](http://javadoc.broadleafcommerce.org/current/open-admin-platform/org/broadleafcommerce/openadmin/server/security/domain/AdminUser.html)          | Represents an admin user.  |
 |BLC_SANDBOX          | [SandBox.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/sandbox/domain/SandBox.html)          | Represents a sandbox.  |

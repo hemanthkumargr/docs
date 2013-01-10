@@ -26,7 +26,7 @@
 
 ###Related Tables
 
-| Table                | Related Entity	   | Description                                         |
+| Table                | Related Entity    | Description                                         |
 |:---------------------|:--------------|:----------------------------------------------------|
 |BLC_ADDRESS           | [Address.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Address.html)           | Contains address information, e.g. city, state, and postal code  |
 |BLC_CATEGORY          | [Category.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/catalog/domain/Category.html)          | Represents a category  |
