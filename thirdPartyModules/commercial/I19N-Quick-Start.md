@@ -72,7 +72,13 @@ Follow the steps below to add the I19n module to your project.
 ##Domain Changes
 
 ###Please Note:  Category, ProductOption, ProductOptionValue, Sku, FulfillmentOption and SearchFacet domain class will be modified during runtime.
-The domain classes will be transformed to embed the additional fields and methods using jpa transformer.  The appropriate delegate methods will also be included in the transformed classes for embeddable object. Due to how hibernate handles empty embeddables if no data is inserted into the database the embeddable object will remain null. To address this issue we will need to implement a lazy initialization of the embeddable objects. The configuration of the jpa transorm is in bl-I18n-applicationContext.xml
+The domain classes will be transformed to embed the additional fields and methods 
+using jpa transformer.  The appropriate delegate methods will also be included 
+in the transformed classes for embeddable object. Due to how hibernate handles 
+empty embeddables if no data is inserted into the database the embeddable object 
+will remain null. To address this issue we will need to implement a lazy 
+initialization of the embeddable objects. The configuration of the jpa transorm 
+is in bl-I18n-applicationContext.xml
 
 
 
