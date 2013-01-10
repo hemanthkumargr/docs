@@ -13,7 +13,7 @@
 
 ###Related Tables
 
-| Table                     | Related Entity	    | Description                                         |
+| Table                     | Related Entity        | Description                                         |
 |:--------------------------|:--------------|:----------------------------------------------------|
 |BLC_FULFILLMENT_GROUP_FEE  | [FulfillmentGroupFee.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/FulfillmentGroupFee.html)          | Contains fee information for a fulfillment group  |
 |BLC_FULFILLMENT_GROUP_ITEM | [FulfillmentGroupItem](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/FulfillmentGroupItem.html)          | Contains information for items in a fulfillment group  |

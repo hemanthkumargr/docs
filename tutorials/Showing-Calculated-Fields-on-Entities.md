@@ -79,9 +79,9 @@ And finally, the `MyCompanyOrderListDatasourceFactory` is where we can specify t
 
 ```java
 public class MyCompanyOrderListDataSourceFactory implements DataSourceFactory {
-	
+    
     public static ListGridDataSource dataSource = null;
-	
+    
     public void createDataSource(String name, OperationTypes operationTypes, Object[] additionalItems, AsyncCallback<DataSource> cb) {
         if (dataSource == null) {
             operationTypes = new OperationTypes(OperationType.ENTITY, OperationType.ENTITY, OperationType.ENTITY, OperationType.ENTITY, OperationType.ENTITY);

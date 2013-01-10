@@ -44,7 +44,7 @@ Modifications to CMS data are controlled within a user sandbox. The user must "p
 You can find examples of structured content usage in `layout/home.html`.   The following code shows the main banner ad.
 
 ```html
-<blc:content contentType="Homepage Banner Ad" />	   
+<blc:content contentType="Homepage Banner Ad" />       
 <div id="banners">
     <a th:href="@{${contentItem['targetUrl']}}">
         <img th:src="@{${contentItem['imageUrl']}}" />

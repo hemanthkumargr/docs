@@ -37,18 +37,18 @@ This is accomplished through environment configuration (see [[Runtime Environmen
 Broadleaf allows you to create your own property files per environment (e.g. common.properties, local.properties, development.properties, integrationdev.properties, integrationqa.properties, staging.properties, and production.properties) You will need to enter the following key/value pairs in the appropriate locations:
 
 ### common.properties
-	braintree.publicKey=?
-	braintree.privateKey=?
-	braintree.merchantId=?
+    braintree.publicKey=?
+    braintree.privateKey=?
+    braintree.merchantId=?
 
 ### development.properties, local.properties etc...
-	braintree.redirectUrl=? (e.g. http://localhost:8080/braintree/process)
+    braintree.redirectUrl=? (e.g. http://localhost:8080/braintree/process)
     braintree.environment=SANDBOX
 
 - braintree.redirectUrl: the URL Braintree should redirect to after completing the order
 
 ### production.properties
-	braintree.redirectUrl=? (e.g. http://mycompany.com/braintree/process)
+    braintree.redirectUrl=? (e.g. http://mycompany.com/braintree/process)
     braintree.environment=PRODUCTION
 
 - braintree.redirectUrl: the URL Braintree should redirect to after completing the order

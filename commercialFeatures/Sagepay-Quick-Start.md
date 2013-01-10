@@ -10,9 +10,9 @@ First, you will need to add the quick-start Sagepay application context `bl-sage
 Your `patchConfigLocations` should look something like this:
 
 ```xml
-	<context-param>
-		<param-name>patchConfigLocation</param-name>
-		<param-value>
+    <context-param>
+        <param-name>patchConfigLocation</param-name>
+        <param-value>
           classpath:/bl-open-admin-contentClient-applicationContext.xml
           classpath:/bl-cms-contentClient-applicationContext.xml
           classpath:/bl-sagepay-applicationContext.xml
@@ -22,13 +22,13 @@ Your `patchConfigLocations` should look something like this:
           /WEB-INF/applicationContext-security.xml
           /WEB-INF/applicationContext.xml
         </param-value>
-	</context-param>
+    </context-param>
 ```
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-sagepay-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
 
 You will also need to add a component scan to your applicationContext-servlet.xml:
 ```xml
-	<context:component-scan base-package="com.broadleafcommerce.vendor.sagepay"/>
+    <context:component-scan base-package="com.broadleafcommerce.vendor.sagepay"/>
 ```
 
 
@@ -52,7 +52,7 @@ public class CheckoutController extends BroadleafSagepayFormController {
             @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
             @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm) throws PricingException {
         prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
-    	return super.redirectToSagepay(request, response, model, billingForm);
+        return super.redirectToSagepay(request, response, model, billingForm);
     }
 
 }

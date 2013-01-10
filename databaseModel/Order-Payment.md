@@ -18,7 +18,7 @@
 
 ###Related Tables
 
-| Table       | Related Entity	 | Description                                         |
+| Table       | Related Entity   | Description                                         |
 |:------------|:-----------------|:----------------------------------------------------|
 |BLC_ADDRESS  | [Address.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Address.html)          | Contains address information, e.g. city, state, and postal code  |
 |BLC_CUSTOMER | [Customer.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Customer.html)          | Represents a customer in Broadleaf  |

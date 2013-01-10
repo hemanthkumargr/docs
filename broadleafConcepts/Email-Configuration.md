@@ -45,7 +45,7 @@ Notice that although we define a default `blMessageCreator`, it is pointing to a
 </bean>
 
 <bean id="orderConfirmationEmailInfo" parent="blEmailInfo">
-    <property name="subject" value="Order confirmation"/>		
+    <property name="subject" value="Order confirmation"/>       
     <property name="emailTemplate" value="order-confirmation-email"/>
 </bean>
 ```

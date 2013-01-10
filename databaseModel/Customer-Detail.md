@@ -21,6 +21,6 @@
 
 ###Related Tables
 
-| Table               | Related Entity	  | Description                                                    |
+| Table               | Related Entity    | Description                                                    |
 |:--------------------|:--------------|:---------------------------------------------------------------|
 |BLC_LOCALE           | [Locale.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/locale/domain/Locale.html)          | Contains locale information, such as code and if it's default  |

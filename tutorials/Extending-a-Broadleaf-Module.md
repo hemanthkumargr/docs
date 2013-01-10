@@ -20,11 +20,11 @@ After this is subclass, create a new file in the admin project under `src/main/r
 <!DOCTYPE module PUBLIC "-//Google Inc.//DTD Google Web Toolkit 2.0.1//EN"
 "http://google-web-toolkit.googlecode.com/svn/tags/2.4.0/distro-source/core/src/gwt-module.dtd">
 <module>
-	<inherits name="com.google.gwt.user.User" />
-	<inherits name="org.broadleafcommerce.admin.customerCareModule" />
-	
-	<entry-point class="com.mycompany.admin.MyCustomerCareModule" />
-	<source path="client" />
+    <inherits name="com.google.gwt.user.User" />
+    <inherits name="org.broadleafcommerce.admin.customerCareModule" />
+    
+    <entry-point class="com.mycompany.admin.MyCustomerCareModule" />
+    <source path="client" />
 </module>
 ```
 

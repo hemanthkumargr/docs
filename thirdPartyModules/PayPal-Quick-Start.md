@@ -8,9 +8,9 @@ First, you will need to add the quick-start PayPal application context `bl-paypa
 Your `patchConfigLocations` should look something like this:
 
 ```xml
-	<context-param>
-		<param-name>patchConfigLocation</param-name>
-		<param-value>
+    <context-param>
+        <param-name>patchConfigLocation</param-name>
+        <param-value>
             classpath:/bl-open-admin-contentClient-applicationContext.xml
             classpath:/bl-cms-contentClient-applicationContext.xml
             classpath:/bl-paypal-applicationContext.xml
@@ -20,7 +20,7 @@ Your `patchConfigLocations` should look something like this:
             /WEB-INF/applicationContext-security.xml
             /WEB-INF/applicationContext.xml
         </param-value>
-	</context-param>
+    </context-param>
 ```
 
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-paypal-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.

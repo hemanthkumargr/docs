@@ -112,7 +112,7 @@ As you are building your own application, you may find the need to create your o
       <set>
         <bean class="com.mycompany.web.processor.MyProcessor" />
       </set>
-    </property>  	
+    </property>     
 </bean> 
 
 <bean id="blWebTemplateEngine" class="org.thymeleaf.spring3.SpringTemplateEngine">
@@ -145,7 +145,7 @@ Typically, during development, you will want to use the template resolver that i
     <property name="templateMode" value="HTML5" />
     <property name="cacheable" value="false"/>
     <property name="characterEncoding" value="UTF-8" />
-</bean>	
+</bean> 
 ```
 
 When you move to production, you will want to override this bean definition by redeclaring the `blWebTemplateResolver` and `blEmailTemplateResolver` beans in your applicationContext file and turn caching on.

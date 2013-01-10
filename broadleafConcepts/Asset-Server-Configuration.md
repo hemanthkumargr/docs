@@ -67,7 +67,7 @@ There are set parameters required for each of the different filter effects provi
 
 | Filter Key      | Filter Param       | Definition                                                                                                          | Default        |
 | :---------------| :------------------| :-------------------------------------------------------------------------------------------------------------------| :--------------|
-| alterhsb	      | hue-amount	       | The Float amount multiplier used to adjust the Hue component of the colorspace                                      |                |
+| alterhsb        | hue-amount         | The Float amount multiplier used to adjust the Hue component of the colorspace                                      |                |
 |                 | saturation-amount  | The Float amount multiplier used to adjust the Saturation component of the colorspace                               |                |
 |                 | brightness-amount  | The Float amount multiplier used to adjust the Brightness component of the colorspace                               |                |
 | alterrgb        | red-amount         | The positive or negative Integer amount to add to the Red component of the colorspace                               |                |
@@ -86,7 +86,7 @@ There are set parameters required for each of the different filter effects provi
 |                 | maintain-aspect-ratio | true or false value specifying whether or not the original aspect ratio of the image is kept during the resize   | false          |
 |                 | reduce-only        | true or false value specifying whether or not the resize should be allowed if the original image is smaller than the specified width and height amounts - this is useful for creating image thumbnails for a list of images of varying sizes | false       | 
 | rotate          |  rotate-amount     | The Double value in degrees by which the image should be rotated                                                    |                |
-| unsharpmask     | radius-amount	   | An Integer amount from 1 to 16 used to define the scope of the effect - try a value of 7 to start                   |                | 
+| unsharpmask     | radius-amount      | An Integer amount from 1 to 16 used to define the scope of the effect - try a value of 7 to start                   |                | 
 |                 | value-amount       | A positive Float value that describes the intensity of the effect - try a value of 3 to start                       |                |
  
 ##Named Operations

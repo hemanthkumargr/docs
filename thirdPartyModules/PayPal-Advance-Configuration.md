@@ -26,7 +26,7 @@ You will need to declare the following Spring beans in your application context:
             <property name="signature" value="${paypal.signature}"/>
             <property name="returnUrl" value="http://localhost:8080/mycompany/paypal/process"/>
             <property name="cancelUrl" value="http://localhost:8080/mycompany/cart"/>
-        	<property name="shippingDisplayType" value="${paypal.shipping.display}"/>
+            <property name="shippingDisplayType" value="${paypal.shipping.display}"/>
             <property name="additionalConfig">
                 <map>
                     <entry key="HDRIMG" value="http://localhost:8080/mycompany/images/logo.png"/>
