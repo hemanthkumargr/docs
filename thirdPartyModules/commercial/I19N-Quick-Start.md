@@ -71,48 +71,9 @@ Follow the steps below to add the I19n module to your project.
 
 ##Domain Changes
 
-###Extend Category, ProductOption, ProductOptionValue, Sku, FulfillmentOption and SearchFacet.
-Be sure you are comfortable with [[extending entities | Extending Entities Tutorial]] before continuing on.
+###Please Note:  Category, ProductOption, ProductOptionValue, Sku, FulfillmentOption and SearchFacet domain class will be modified during runtime.
+The domain classes will be transformed to embed the additional fields and methods using jpa transformer.  The appropriate delegate methods will also be included in the transformed classes for embeddable object. Due to how hibernate handles empty embeddables if no data is inserted into the database the embeddable object will remain null. To address this issue we will need to implement a lazy initialization of the embeddable objects. The configuration of the jpa transorm is in bl-I18n-applicationContext.xml
 
-```java
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "BLC_PRODUCT_OPTION_VAL_TR")
-public class MyProductOptionValueImpl extends ProductOptionValueImpl implements I18NProductOptionValue {…}
-```
-
-
-###Embed the ProductOptionValueTranslation object that you want to add
-
-```java
-@Embedded
-protected I18NProductOptionValueImpl i18nExtension = new I18NProductOptionValueImpl();
-
-```
-
-###Implement Delegate Methods 
-Your IDE should have the functionality to implement delegate methods (Generate code > Delegate Methods). 
-
-We will need to take a few addiational steps to make sure that our embeddable object is always present. Due to how hibernate handles empty embeddables if no data is inserted into the database the embeddable object will remain null. To address this issue we will need to implement a lazy initialization of the embeddable objects. 
-
-```java
-protected void initializeTranslations(){
-    if(i18nExtension == null){
-        i18nExtension = new I18NProductOptionValueImpl();
-    }
-}
-```
-
-Include the initialization method in all delegate methods.
-
-```java
-@Override
-@Nullable
-public String getAttributeValue() {
-    initializeTranslations();
-    return i18nExtension.getAttributeValue();
-}
-```
 
 
 
