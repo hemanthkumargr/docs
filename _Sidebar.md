@@ -140,6 +140,7 @@
         - [[I18n]]  
 - [[Contributing to Broadleaf]]
 - [[Migration Notes]]
+    - [[2.0 to 2.2 Migration]]
     - [[2.0 RC1 to 2.0 GA Migration]]
     - [[1.6 to 2.0 Migration]]
         - [[SEQUENCE_GENERATOR | 1.6 to 2.0 SEQUENCE_GENERATOR Migration]]
