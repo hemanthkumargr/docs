@@ -57,6 +57,7 @@
         - [[CMS | CMS International Content]]
 - [[Modules]]
     - [[General Module Overview]]
+    - [[Compatibility]]
     - [[Community Modules]]
         - [[PayPal]]
             - [[PayPal Quick Start]]
