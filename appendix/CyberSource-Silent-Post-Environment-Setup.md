@@ -6,6 +6,8 @@ Note, this is only a test account - you will need to contact a CyberSource sales
 BroadleafCommerce takes care of all the heavy lifting here, but it doesn't hurt to have the documentation that describes the process of how everything works should you need to reference them in the future.
 -  You should have HOP/SOP (Hosted Order Page/Silent Order Post) functionality enabled in your CyberSource Business Center. If you do not see the Hosted Order Page Settings and Security links under the Tools & Settings tab, you will need to contact a CyberSource representative to get that feature enabled.
 
+##Versions : 2.1.0-RC1, 2.1.0-GA
+
 ## Initial Setup
 Start by logging into your CyberSource Business Center (https://ebctest.cybersource.com/ebctest/login/Login.do).
 > Note: make sure you are logging into the appropriate version of the Business Center (Live vs. Test) when modifying your settings

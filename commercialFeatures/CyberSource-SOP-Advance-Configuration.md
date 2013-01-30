@@ -1,5 +1,7 @@
 > Note: Broadleaf Commerce currently offers integration with CyberSource using the Silent Order Post method through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
+##Versions : 2.1.0-RC1, 2.1.0-GA
+
 Broadleaf allows you to customize many aspects of your CyberSource SOP integration.
 
 **You must have completed the [[CyberSource Silent Post Environment Setup]] before continuing**
