@@ -1,5 +1,7 @@
 > Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
+## Versions : 2.0.0-GA
+
 ## Prerequisites
 
 - Users must establish their own sandbox accounts with Braintree in order to use the BroadleafCommerce Braintree payment functionality in a test environment. This can be done here: https://www.braintreepayments.com/get-started
