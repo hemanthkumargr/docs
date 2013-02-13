@@ -721,7 +721,6 @@ div#left_column img.no_border {
 }
 
 select#version-selector {
-    display: none;
     margin-bottom: 10px;
 }
 

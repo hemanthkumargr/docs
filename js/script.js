@@ -35,7 +35,7 @@ var DOCS = (function($) {
         $('.rootNode').children(":nth-child(1)").addClass("collapsibleList").addClass("firstNode");
         CollapsibleLists.apply(); 
         updateTree();
-
+        updateVersionSelector();
     });
 
     $('body').on('change', 'select#version-selector', function(e) {
@@ -44,6 +44,18 @@ var DOCS = (function($) {
         currentUrl[2] = "Home.html";
         window.location = currentUrl.join('/');
     });
+
+    /*
+     * Update the version selector to match what the user is viewing
+     */
+    function updateVersionSelector() {
+        var currentUrl = window.location.pathname.split('/');
+        //the second element is the version being viewed
+        var version = currentUrl[1];
+        if (version != 'current') {
+            $('select#version-selector').val(version);
+        }
+    }
 
     /**
      * The function called by the fired statechange event
@@ -114,7 +126,8 @@ var DOCS = (function($) {
 
     return {
         navigate: navigate,
-        updateTree: updateTree
+        updateTree: updateTree,
+        updateVersionSelector: updateVersionSelector
     }
 
 })($);
