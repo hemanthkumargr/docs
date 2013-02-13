@@ -1,6 +1,6 @@
 > Note: Broadleaf Commerce currently offers integration with CyberSource using the Silent Order Post method through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
-##Versions : 2.1.0-RC1, 2.1.0-GA
+##Versions : 2.2.0-GA
 
 Broadleaf Commerces offers an out-of-the-box CyberSource solution that requires little configuration and is easily set up. 
 The quick start solution implements the [[Silent Order Post | http://www.cybersource.com/developers/develop/integration_methods/silent_order_post/]] model offered by CyberSource API.
@@ -70,7 +70,7 @@ Your page may look something like this:
 > Note: it is important that all the hidden fields listed in the form below be included.
 
 ```html
-<form th:action="${cybersourceServerUrl}" method="post" id="billing_info">
+<blc:form th:action="${cybersourceServerUrl}" method="post" id="billing_info">
 
     <input type="hidden" name="amount" th:value="${amount}" />
     <input type="hidden" name="orderPage_transactionType" th:value="${orderPage_transactionType}" />
@@ -80,6 +80,8 @@ Your page may look something like this:
     <input type="hidden" name="orderPage_signaturePublic" th:value="${orderPage_signaturePublic}" />
     <input type="hidden" name="orderPage_version" th:value="${orderPage_version}" />
     <input type="hidden" name="orderPage_serialNumber" th:value="${orderPage_serialNumber}" />
+    <input type="hidden" name="orderPage_declineResponseURL" th:value="${orderPage_declineResponseURL}" />
+    <input type="hidden" name="orderPage_receiptResponseURL" th:value="${orderPage_receiptResponseURL}" />
 
     <div class="left_content">
 
@@ -202,8 +204,10 @@ Your page may look something like this:
         </dl>
 
     </div>
-</form>
+</blc:form>
 ```
+
+-- tip: if you change the useRelativeUrls property to true, you can set the urls to something like /checkout/decline in the common.properties file and it will work in all environments based upon the hostname the user requested.
 
 ## Done!
 At this point, all the configuration should be complete and you are now ready to test your integration with CyberSource. Add something to your cart and proceed with checkout.

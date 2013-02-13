@@ -6,7 +6,7 @@ Note, this is only a test account - you will need to contact a CyberSource sales
 BroadleafCommerce takes care of all the heavy lifting here, but it doesn't hurt to have the documentation that describes the process of how everything works should you need to reference them in the future.
 -  You should have HOP/SOP (Hosted Order Page/Silent Order Post) functionality enabled in your CyberSource Business Center. If you do not see the Hosted Order Page Settings and Security links under the Tools & Settings tab, you will need to contact a CyberSource representative to get that feature enabled.
 
-##Versions : 2.1.0-RC1, 2.1.0-GA
+##Versions : 2.2.0-GA
 
 ## Initial Setup
 Start by logging into your CyberSource Business Center (https://ebctest.cybersource.com/ebctest/login/Login.do).
@@ -57,6 +57,9 @@ You will need to enter the following key/value pairs (obtained from HOP.jsp) in 
     cybersource.silentpost.merchantId=?
     cybersource.silentpost.validCardTypes=001,002,003,004
     cybersource.silentpost.validDecisionCodes=ACCEPT,REVIEW,PARTIAL
+    cybersource.silentpost.libVersion=7
+    cybersource.silentpost.validAccountTypes=C,S,X
+    cybersource.silentpost.response.url.useRelativeUrls=false
     
 - cybersource.silentpost.validCardTypes : a comma separated list of accepted credit cards that were configured in your Business Center.
 The codes are mapped in the class `CybersourceCreditCardTypeEnum` and can also be found below:
@@ -86,22 +89,22 @@ If not, the Payment Response will be logged and the Checkout Workflow will be ha
 
 ### development.properties, local.properties etc...
     cybersource.silentpost.server.url=https://orderpagetest.ic3.com/hop/ProcessOrder.do
-    cybersource.silentpost.receipt.response.url=?
-    cybersource.silentpost.decline.response.url=?
-
-- cybersource.silentpost.receipt.response.url : This is the Success URL you entered in the Business Center above. 
-- cybersource.silentpost.decline.response.url : This is the Decline URL you entered in the Business Center above. 
+    cybersource.silentpost.checkout.receipt.response.url=?
+    cybersource.silentpost.checkout.decline.response.url=?
+    
+- cybersource.silentpost.checkout.receipt.response.url : This is the Success URL you entered in the Business Center above. 
+- cybersource.silentpost.checkout.decline.response.url : This is the Decline URL you entered in the Business Center above. 
 
 > Quick Tip: When testing, you can change the url to "https://orderpagetest.ic3.com/hop/CheckOrderData.do" 
 to see a CyberSource page to check if the passed in parameters are valid. 
 
 ### production.properties
     cybersource.silentpost.server.url=https://orderpage.ic3.com/hop/ProcessOrder.do
-    cybersource.silentpost.receipt.response.url=?
-    cybersource.silentpost.decline.response.url=?
-
-- cybersource.silentpost.receipt.response.url : This is the Success URL you entered in the Business Center above. 
-- cybersource.silentpost.decline.response.url : This is the Decline URL you entered in the Business Center above. 
+    cybersource.silentpost.checkout.receipt.response.url=?
+    cybersource.silentpost.checkout.decline.response.url=?
+    
+- cybersource.silentpost.checkout.receipt.response.url : This is the Success URL you entered in the Business Center above. 
+- cybersource.silentpost.checkout.decline.response.url : This is the Decline URL you entered in the Business Center above. 
     
 Now that you have your environment set up, let's begin setting up the [[CyberSource Silent Post Module]].
 

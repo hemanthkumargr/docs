@@ -1,6 +1,6 @@
 > Note: Broadleaf Commerce currently offers integration with CyberSource using the Silent Order Post method through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
-##Versions : 2.1.0-RC1, 2.1.0-GA
+##Versions : 2.2.0-GA
 
 Broadleaf allows you to customize many aspects of your CyberSource SOP integration.
 
@@ -54,3 +54,23 @@ This class is also a useful reference in setting up a custom payment workflow wi
 The final step is to create the dynamic HTML form that will make a Silent Post to CyberSource.
 Here is a link to the Silent Post documentation that lists all the fields that can be sent to CyberSource:
 http://apps.cybersource.com/library/documentation/sbc/SOP_UG/SOP_UG.pdf
+
+
+## Managing Customer Payments and Recurring Subscriptions
+You can add the following fields to your SOP form to use recurring subscriptions:
+1. add the following hidden fields:
+```xml
+<input type="hidden" name="recurringSubscriptionInfo_amount" th:value="${recurringSubscriptionInfo_amount}" />
+<input type="hidden" name="recurringSubscriptionInfo_numberOfPayments" th:value="${recurringSubscriptionInfo_numberOfPayments}" />
+<input type="hidden" name="recurringSubscriptionInfo_frequency" th:value="${recurringSubscriptionInfo_frequency}" />
+<input type="hidden" name="recurringSubscriptionInfo_automaticRenew" th:value="${recurringSubscriptionInfo_automaticRenew}" />
+<input type="hidden" name="recurringSubscriptionInfo_startDate" th:value="${recurringSubscriptionInfo_startDate}" />
+<input type="hidden" name="recurringSubscriptionInfo_signaturePublic" th:value="${recurringSubscriptionInfo_signaturePublic}" />
+```
+
+2. Add the following field for users to specify:
+```xml
+Account Name: <input type="text" name="subscription_title"  />
+```
+
+

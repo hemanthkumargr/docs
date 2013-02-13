@@ -31,6 +31,7 @@ In addition, you will have to make Broadleaf's default endpoints available to th
 ```xml
 <context:component-scan base-package="org.broadleafcommerce.core.web.api"/>
 ```
+> This component scan needs to be in one of the application contexts referenced in the `patchConfigLocations` parameter in your web.xml. You will run into problems if you instead put this scan into your applicationContext-servlet.xml.
 
 This configuration is required to use Broadleaf's RESTful services and the most basic way to simply get Broadleaf's RESTful services working out of the box.
 
