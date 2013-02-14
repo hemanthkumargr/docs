@@ -35,7 +35,8 @@ Once you have established an account with Sagepay, begin by including the Sagepa
     <type>jar</type>
     <optional>true</optional>
 </dependency>
- ```   
+```
+
 Make sure to include the dependency in your site pom.xml as well.
 
 ```xml
@@ -52,6 +53,7 @@ Make sure to include the dependency in your site pom.xml as well.
      <artifactId>sagepay-util-nodep</artifactId>
 </dependency>
 ```
+
 You should now begin to setup your environment to work with Broadleaf Commerce Sagepay support. 
 The first step is to make Broadleaf Commerce aware of your Sagepay account credentials. 
 This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
