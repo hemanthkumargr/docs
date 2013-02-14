@@ -54,7 +54,6 @@ public class CheckoutController extends BroadleafSagepayFormController {
         prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
         return super.redirectToSagepay(request, response, model, billingForm);
     }
-
 }
 ```
 
@@ -70,10 +69,6 @@ Your page may look something like this:
     <div id="billing_info_form" class="right_content_billing">
 
         <input type="hidden" name="address.country" value="US" />
-
-        <div class="form100" th:unless="${cart.fulfillmentGroups != null and #lists.size(cart.fulfillmentGroups) > 1}">
-            <input id="use_shipping_address" type="checkbox" th:field="*{useShippingAddress}" th:disabled="${!validShipping}" /> <span th:text="#{cart.useShppingInfo}">Use Shipping Information</span>
-        </div>
 
         <div class="form30">
             <label for="firstName"><span th:text="#{cart.firstName}">First Name</span></label>
@@ -134,6 +129,7 @@ Your page may look something like this:
 
     </div>
 </blc:form>
+
 ```
 
 ## Done!
