@@ -13,7 +13,7 @@ To include this in your project, simply follow the steps below (up-to-date diff 
 1. Add the required dependency management to the parent pom
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-admin-search</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <type>jar</type>
@@ -24,7 +24,7 @@ To include this in your project, simply follow the steps below (up-to-date diff 
 2. Add the required dependency to the admin pom
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-admin-search</artifactId>
 </dependency>
 ```

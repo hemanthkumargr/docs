@@ -17,7 +17,7 @@ Follow the steps below to add the Advanced Offer module to your project.  You ca
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-advanced-offer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <type>jar</type>
@@ -29,7 +29,7 @@ Follow the steps below to add the Advanced Offer module to your project.  You ca
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-advanced-offer</artifactId>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Follow the steps below to add the Advanced Offer module to your project.  You ca
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-advanced-offer</artifactId>
 </dependency>
 ```
@@ -67,7 +67,7 @@ Follow the steps below to add the Advanced Offer module to your project.  You ca
 ###Add the following line
 
 ```xml
-<inherits name="org.broadleafcommerce.admin.advancedOfferModule" />
+<inherits name="com.broadleafcommerce.admin.advancedOfferModule" />
 ```
 
 ##Domain Changes

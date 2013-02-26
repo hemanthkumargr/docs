@@ -17,7 +17,7 @@ Follow the steps below to add the PriceList module to your project.  You can che
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-pricelist</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <type>jar</type>
@@ -29,7 +29,7 @@ Follow the steps below to add the PriceList module to your project.  You can che
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-pricelist</artifactId>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Follow the steps below to add the PriceList module to your project.  You can che
 
 ```xml
 <dependency>
-    <groupId>org.broadleafcommerce</groupId>
+    <groupId>com.broadleafcommerce</groupId>
     <artifactId>broadleaf-pricelist</artifactId>
 </dependency>
 ```
@@ -61,13 +61,15 @@ Follow the steps below to add the PriceList module to your project.  You can che
 ```
 ##Changes in `applicationContext-filter.xml` and `applicationContext-filter-combined.xml` 
 
-###Add `priceListDynamicSkuPricingFilter` in the   `<sec:filter-chain pattern= />` section
+###Add `blRulesPriceListRequestFilter and blPriceListDynamicSkuPricingFilter` in the   `<sec:filter-chain pattern= />` section
 We need to allow the filter so that the prices can be switched on a domain method call.
 
 ```
    <sec:filter-chain pattern="/**" filters=""
                blURLHandlerFilter,
-               priceListDynamicSkuPricingFilter"/>
+               blRulesPriceListRequestFilter,
+               blPriceListDynamicSkuPricingFilter,
+               blCartStateFilter"/>
 ```
 
 
@@ -76,7 +78,7 @@ We need to allow the filter so that the prices can be switched on a domain metho
 ###Add the following line
 
 ```xml
-<inherits name="org.broadleafcommerce.admin.priceListModule" />
+<inherits name="com.broadleafcommerce.admin.priceListModule" />
 ```
 
 ##Domain Changes

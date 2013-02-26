@@ -82,6 +82,7 @@
         - [[Advanced Search]]
         - [[Pricelist | Pricelist Quick Start]]
         - [[Advanced Offer | AdvancedOffer Quick Start]]
+        - [[Account Credit | Account Credit Quick Start]]
 - [[Tutorials]]
     - [[Getting Started | Getting Started Tutorials]]
         - [[Customizing the UI | Customize UI For Heat Clinic Tutorial]]
