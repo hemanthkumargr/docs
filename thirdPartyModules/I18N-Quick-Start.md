@@ -6,8 +6,8 @@ Follow the steps below to add the I18n module to your project. Checkout the samp
 ```xml
     <repositories>
         <repository>
-            <id>public releases</id>
-            <name>public releases</name>
+            <id>public snapshots</id>
+            <name>public snapshots</name>
             <url>http://www.broadleafcommerce.org/nexus/content/repositories/snapshots/</url>
         </repository>
     </repositories>
@@ -18,7 +18,7 @@ Follow the steps below to add the I18n module to your project. Checkout the samp
 ```xml
 <dependency>
     <groupId>org.broadleafcommerce</groupId>
-    <artifactId>broadleaf-I18n</artifactId>
+    <artifactId>broadleaf-i18n</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <type>jar</type>
     <scope>compile</scope>
@@ -30,7 +30,7 @@ Follow the steps below to add the I18n module to your project. Checkout the samp
 ```xml
 <dependency>
     <groupId>org.broadleafcommerce</groupId>
-    <artifactId>broadleaf-I18n</artifactId>
+    <artifactId>broadleaf-i18n</artifactId>
 </dependency>
 ```
 
@@ -39,20 +39,20 @@ Follow the steps below to add the I18n module to your project. Checkout the samp
 ```xml
 <dependency>
     <groupId>org.broadleafcommerce</groupId>
-    <artifactId>broadleaf-I18n</artifactId>
+    <artifactId>broadleaf-i18n</artifactId>
 </dependency>
 ```
 
 ##Changes in `web.xml`
 
-###Add `classpath:/bl-I18n-applicationContext.xml` in the `<context-param />` section
+###Add `classpath:/bl-i18n-applicationContext.xml` in the `<context-param />` section
 
 ```
 <context-param>
     <param-name>patchConfigLocation</param-name>
     <param-value>
     .
-    classpath:/bl-I18n-applicationContext.xml
+    classpath:/bl-i18n-applicationContext.xml
     .
     .
     </param-value>
