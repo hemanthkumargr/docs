@@ -98,7 +98,19 @@ INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2
 INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2005, 1005, 'es');
 INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2006, 1006, 'es');
 ```
- 
+
+##Java Agent Configuration
+
+You will also need to configure your app container to utilize a java agent at startup to facilitate the class transformation
+for the module. Spring provides an instrumentation jar for this purpose. The most convenient approach to getting this
+library is to download it from maven central. This url provides easy access to different version of the spring instrument jar:
+
+http://mvnrepository.com/artifact/org.springframework/spring-instrument
+
+Once you have the jar, you need to place it in a convenient spot on your server's filesystem. Then, add a VM argument to
+your app container's startup so that it can launch with the necessary java agent support. Something like this:
+
+-javaagent:/path/to/your/spring-instrument-3.1.3.RELEASE.jar
 
 
 
