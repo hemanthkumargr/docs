@@ -45,21 +45,20 @@ Follow the steps below to add the I18n module to your project. Checkout the samp
 
 ##Changes in `web.xml`
 
-###Add `classpath:/bl-I18n-applicationContext.xml` and  `classpath:/bl-I18n-admin-applicationContext.xml`in the `<context-param />` section
+###Add `classpath:/bl-I18n-applicationContext.xml` in the `<context-param />` section
 
 ```
 <context-param>
     <param-name>patchConfigLocation</param-name>
     <param-value>
     .
-    classpath:/bl-I18n-admin-applicationContext.xml
     classpath:/bl-I18n-applicationContext.xml
     .
     .
     </param-value>
 </context-param>
 ```
-
+You will need to make this change to the web.xml files for your admin application and for your main site.
 
 ##Changes in `mycompanyAdmin.gwt.xml`
 
@@ -98,7 +97,7 @@ INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2
 INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2004, 1004, 'es');
 INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2005, 1005, 'es');
 INSERT INTO BLC_CATEGORY_TRXREF (CATEGORY_ID, TRANSLATION_ID, MAP_KEY) VALUES (2006, 1006, 'es');
-```sql
+```
  
 
 
