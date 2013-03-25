@@ -47,3 +47,24 @@ INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSIO
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (21,8);
 INSERT INTO BLC_ADMIN_SECTION_PERMISSION_XREF (ADMIN_SECTION_ID, ADMIN_PERMISSION_ID) VALUES (21,9);
 ```
+5. If you based your implementation on the heatclinic demo, then you should already have the file messages-admin.properties.
+You will need to add the following lines to account for the new admin sections:
+```
+BLCMerchandising.SearchFacet=Search Facet
+BLCMerchandising.SearchRedirect=Search Redirect
+```
+
+Also, make sure support for messages-admin is included in your app. Check for the following in your app context xml
+and add if it's not there. Note - this generally appears in the file /WEB-INF/applicationContext-admin.xml.
+```xml
+<bean id="resourceBundleExtensionPoint" class="org.broadleafcommerce.common.util.ResourceBundleExtensionPoint" />
+<bean id="messageSource"
+      class="org.broadleafcommerce.common.util.BLResourceBundleMessageSource">
+    <constructor-arg>
+        <list>
+            <value>messages-admin</value>
+        </list>
+    </constructor-arg>
+    <constructor-arg ref="resourceBundleExtensionPoint" />
+</bean>
+```
