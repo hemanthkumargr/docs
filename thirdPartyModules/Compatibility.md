@@ -314,30 +314,29 @@
     <td>1.6.0-GA</td>
   </tr>
   <tr>
-    <td>2.0.0-GA</td>
-    <td>2.0.0-GA</td>
-  </tr>
-  <tr>
-    <td>2.0.1-GA</td>
-    <td>2.0.1-GA</td>
-  </tr>
-  <tr>
+    <td>2.0.0-GA through 2.0.6-GA</td>
     <td>2.0.2-GA</td>
-    <td>2.0.1-GA</td>
   </tr>
   <tr>
-    <td>2.0.3-GA</td>
-    <td>2.0.1-GA</td>
-  </tr>
-  <tr>
-    <td>2.0.4-GA</td>
-    <td>2.0.1-GA</td>
-  </tr>
-  </tr>
-  <tr>
+    <td>2.0.7-GA</td>
     <td>2.1.0-GA</td>
-    <td>2.0.1-GA</td>
-  </tr>  
+  </tr>
+  <tr>
+    <td>2.1.0-GA through 2.1.1-GA</td>
+    <td>2.0.2-GA</td>
+  </tr>
+  <tr>
+    <td>2.1.2-GA</td>
+    <td>2.1.0-GA</td>
+  </tr>
+  <tr>
+    <td>2.2.0-GA</td>
+    <td>2.2.0-GA</td>
+  </tr>
+  <tr>
+    <td>2.2.1-SNAPSHOT</td>
+    <td>2.3.0-SNAPSHOT</td>
+  </tr>
 </table>
 
 ### broadleaf-sagepay-form ###
