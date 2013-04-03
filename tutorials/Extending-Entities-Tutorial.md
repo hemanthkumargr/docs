@@ -9,7 +9,7 @@ package org.broadleafcommerce.core.catalog.domain;
 ...
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-@Table("BLC_PRODUCT")
+@Table(name = "BLC_PRODUCT")
 public class ProductImpl implements Product {
     ...
 }
@@ -21,7 +21,7 @@ You can not replace Broadleaf's entities entirely.  And why would you since they
 ```java
 ...
 @Entity
-@Table("HOT_SAUCE")
+@Table(name = "HOT_SAUCE")
 public class HotSauceImpl extends ProductImpl implements HotSauce {
     @Column(name="SCOVILLE_UNITS")
     private Integer scovilleUnits; //Measure of heat!
@@ -74,19 +74,19 @@ The OrderItemType is an enumeration whose getType() method returns the name of t
 To take this discussion a little bit further, let's discuss polymorphic catalog extensions.  Broadleaf has a single representation of Product - ProductImpl.  Above, we discussed how you could extend ProductImpl to create a custom HotSauce product.  But what if you have multiple product types (e.g. Hot Sauce, T-Shirts, Gift Baskets, and Cooking Classes), which are different enough that they require their own entities?  The answer is that they can each have their own entities:
 ```java
 @Entity
-@Table("GIFT_BASKET")
+@Table(name = "GIFT_BASKET")
 public class GiftBasketImpl extends ProductImpl implements GiftBaset {
     ...
 }
 
 @Entity
-@Table("T_SHIRT")
+@Table(name = "T_SHIRT")
 public class TShirtImpl extends ProductImpl implements TShirt {
     ...
 }
 
 @Entity
-@Table("COOKING_CLASS")
+@Table(name = "COOKING_CLASS")
 public class CookingClassImpl extends ProductImpl implements CookingClass {
     ...
 }
