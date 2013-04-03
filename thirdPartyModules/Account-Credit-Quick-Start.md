@@ -4,10 +4,10 @@ the database.
 
 Screenshots of the admin capabilities:
 
-[![Account Management](images/modules/AccountCreditCustomerScreen.png)](images/modules/AccountCreditCustomerScreen.png)
-[![Debit Funds](images/modules/AccountCreditDebitFunds.png)](images/modules/AccountCreditDebitFunds.png)
-[![Add Funds](images/modules/AccountCreditAddFunds.png)](images/modules/AccountCreditAddFunds.png)
-[![User Account](images/modules/AccountCreditSite.png)](images/modules/AccountCreditSite.png)
+[![Account Management](images/dataModel/modules/AccountCreditCustomerScreen.png)](images/dataModel/modules/AccountCreditCustomerScreen.png)
+[![Debit Funds](images/dataModel/modules/AccountCreditDebitFunds.png)](images/dataModel/modules/AccountCreditDebitFunds.png)
+[![Add Funds](images/dataModel/modules/AccountCreditAddFunds.png)](images/dataModel/modules/AccountCreditAddFunds.png)
+[![User Account](images/dataModel/modules/AccountCreditSite.png)](images/dataModel/modules/AccountCreditSite.png)
 
 To include this in your project, simply follow the steps below (up-to-date diff from DemoSite)[https://github.com/BroadleafCommerce/DemoSite-AccountCredit/compare/upstream-develop...develop]
 
