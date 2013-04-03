@@ -42,6 +42,7 @@ Hibernate automatically uses the primary key of ProductImpl as the primary key o
     <persistence-unit name="blPU" transaction-type="RESOURCE_LOCAL">
         <class>com.mycompany.core.catalog.domain.HotSauceImpl</class>
         <exclude-unlisted-classes/>
+    </persistence-unit>
 </persistence>
 ```
 2. Broadleaf's Entity Configuration needs to be aware of the new implementation, which can be done by modifying the application context for the entity configuration:
@@ -50,6 +51,8 @@ Hibernate automatically uses the primary key of ProductImpl as the primary key o
 particular state. -->
 <bean id="org.broadleafcommerce.core.catalog.domain.Product" class="com.mycompany.core.catalog.domain.HotSauceImpl" scope="prototye"/>
 ```
+
+> Note: The entity configuration step (overriding the Product bean with your own implementation) is only really necessary for objects that need to be instantiated programmatically using the framework (like Customer or Order or Fulfillment Group). Broadleaf itself does not use the Product bean to create a specific type of Product; instead, you can specify the specific type that you want to create when you add a new Product in the admin. This configuration will also be irrelevant when you have a sibling hierarchy, like when you have multiple extensions of Customer. In this scenario, you will need your own custom logic (and perhaps overrides for things like `CustomerService`) for determining which instance should be programmatically created.
 
 ### Polymorphic Relationships ###
 In some cases, you may want more than one representation of a particular interface.  Broadleaf provides an example of this out of the box.  OrderItem (representing a line item in an order) is an entity in Broadleaf.  However, there are really two useful extensions of OrderItem - DiscreteOrderItem and BundleOrderItem.  DiscreteOrderItem represents an order item that references a single SKU. BundleOrderItem represents multiple SKUs as a single unit.  Both of these entities extend OrderItemImpl.  _Note: If you need to extend OrderItem, it is likely best to extend either DiscreteOrderItemImpl or BundleOrderItemImpl (or both) rather than extending OrderItemImpl directly._  Again, each of these is defined in the Persistence Unit configuration.  Each of these is also defined as a Spring Bean, keyed by its primary interface name.  When a JPA query is issued for OrderItemImpl, Hibernate is smart enough to query the extended tables and return the correct instances.  For example:
