@@ -14,20 +14,46 @@ Once you have established an account with Sagepay, begin by including the Sagepa
 ```xml
 <dependency>
     <groupId>com.broadleafcommerce</groupId>
-    <artifactId>broadleaf-sagepay</artifactId>
+    <artifactId>broadleaf-sagepay-form</artifactId>
     <version>${blc.sagepay.version}</version>
     <type>jar</type>
     <scope>compile</scope>
 </dependency>
+<dependency>
+    <groupId>com.sagepay</groupId>
+    <artifactId>sagepay-api</artifactId>
+    <version>1.1.0</version>
+    <scope>compile</scope>
+    <type>jar</type>
+    <optional>true</optional>
+</dependency>
+<dependency>
+    <groupId>com.sagepay</groupId>
+    <artifactId>sagepay-util-nodep</artifactId>
+    <version>1.1.0</version>
+    <scope>compile</scope>
+    <type>jar</type>
+    <optional>true</optional>
+</dependency>
 ```
-Make sure to include the dependency in your site pom.xml as well:
+
+Make sure to include the dependency in your site pom.xml as well.
 
 ```xml
 <dependency>
     <groupId>com.broadleafcommerce</groupId>
-    <artifactId>broadleaf-sagepay</artifactId>
+    <artifactId>broadleaf-sagepay-form</artifactId>
+</dependency>
+<dependency>
+     <groupId>com.sagepay</groupId>
+     <artifactId>sagepay-api</artifactId>
+</dependency>
+<dependency>
+     <groupId>com.sagepay</groupId>
+     <artifactId>sagepay-util-nodep</artifactId>
 </dependency>
 ```
+
 You should now begin to setup your environment to work with Broadleaf Commerce Sagepay support. 
 The first step is to make Broadleaf Commerce aware of your Sagepay account credentials. 
 This is accomplished through environment configuration (see [[Runtime Environment Configuration]]).
@@ -62,22 +88,6 @@ Broadleaf allows you to create your own property files per environment (e.g. com
     sagepay.encryptionPassword=?
 
 Now that you have your environment set up, let's begin setting up the [[Sagepay Module]].
-
-## Integration Test
-Once you have acquired your merchant and API keys, it would be beneficial to write your own integration test similar to the `SagepayCheckoutServiceIntegrationTest` that is included with this module.
-
-To test your keys with the included `SagepayCheckoutServiceIntegrationTest`, you can clone the `blc-sagepay` repo* and add the following property files to your classpath:
-- config/bc/override/common.properties
-- config/bc/override/development.properties
-
-You will need to put your keys into the correct file according to the instructions above.
-Once those properties are in place, you can run on `blc-sagepay`:
-
-```java
-mvn test
-```
-
-> * Access to the blc-sagepay repository requires a commercial license. Please contact us at info@broadleafcommerce.org for more information.
 
 ## Logging
 To help you debug your integration, this module includes several beneficial debug statements.
