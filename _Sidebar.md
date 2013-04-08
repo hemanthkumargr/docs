@@ -56,6 +56,7 @@
         - [[QoS | QoS Configuration]]
     - [[Admin]]
         - [[Exporters | Admin Exporters]]
+        - [[Custom Persistence Handlers]]
     - [[Presentation Layer]]
     - [[REST]]
         - [[Endpoints | REST Endpoints]]
