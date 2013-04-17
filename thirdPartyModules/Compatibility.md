@@ -337,6 +337,10 @@
     <td>2.2.1-SNAPSHOT</td>
     <td>2.3.0-SNAPSHOT</td>
   </tr>
+  <tr>
+    <td>2.3.0-SNAPSHOT</td>
+    <td>2.4.0-SNAPSHOT</td>
+  </tr>
 </table>
 
 ### broadleaf-sagepay-form ###
