@@ -1,3 +1,23 @@
+## Request/Response Formats
+All of the endpoints below have the ability to produce and consume both **XML** and **JSON**. To ensure that you are receiving JSON in a response, ensure that this request HTTP header is set:
+
+```
+Accept: application/json
+```
+
+To tell the endpoint that you are sending it JSON (like in a PUT or POST), use this HTTP header:
+
+```
+Content-Type: application/json
+```
+
+And of course, to ensure that all requests/responses are in JSON, use both of those headers combined:
+
+```
+Accept: applciation/json
+Content-Type: application/json
+```
+
 ## Functionality ##
 The following provides a list of current RESTful endpoints provided with Broadleaf Commerce:
 ### Catalog ###
