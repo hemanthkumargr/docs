@@ -7,8 +7,17 @@ Property files are merged by the RuntimeEnvironmentPropertiesConfigurer and then
 - `development-shared.properties` in the core project
 - `common.properties` from the specific application (either site or admin)
 - `development.properties` from the specific application (either site or admin)
+- Properties defined in the file specified by runtime JVM argument "property-shared-override"
+- Properties defined in the file specified by runtime JVM argument "property-override"
 
 This powerful configuration will allow you to share various attributes amongst environments and override them where necessary.
+
+Furthermore, if you have local developer properties or other properties that you do not wish to commit to version control, you can specify file paths via the `property-shared-override` and `property-override` JVM runtime arguments.
+
+```text
+-Dproperty-share-override=/Users/SomeUser/SomeProject/secret.properties
+```
+
 
 > **Note - All of these properties files should appear in the `src/main/resources/runtime-environment/` directories for their respective project. The Broadleaf `RuntimeEnvironmentPropertiesConfigurer` (set up in the next sections) is configured by default to look for properties files in the `runtime-properties` folder on the classpath.**
 
@@ -22,7 +31,6 @@ Most users will simply need to add a reference to the `blConfiguration` bean in 
 
 This will set up the appropriate merging of properties between your different applications / environments as well as defaults provided by Broadleaf. The default environments provided by Broadleaf are:
 
-- local
 - development
 - integrationdev
 - integrationqa
