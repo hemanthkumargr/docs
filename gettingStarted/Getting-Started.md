@@ -38,7 +38,7 @@ You'll once again be asked for a workspace. This time, we're going to pick a dif
 
 Download Link: [Broadleaf Eclipse Workspace](http://www.broadleafcommerce.org/workspace-download)
 
-Broadleaf 3.0 workspace download link: [Broadleaf 3.0 workspace](http://downloads.broadleafcommerce.org/DemoSite-3.0.0-BETA2-eclipse-workspace.zip)
+Broadleaf 3.0 workspace download link: [Broadleaf 3.0 workspace](http://www.broadleafcommerce.org/workspace-download?workspaceVersion=DemoSite-3.0.0-BETA2-eclipse-workspace.zip&docsVersion=dev)
 
 > Note: If you're not prompted for a workspace, simply go to **File --> Switch Workspace** and select the path
 
