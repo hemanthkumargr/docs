@@ -10,7 +10,7 @@
 ### Set up your Braintree Account
 1. Login to your Braintree console
 2. Generate an API key by navigating to Account > My User > API Keys
-![Braintree Console](images/payment-braintree-console-1.png)
+![Braintree Console](payment-braintree-console-1.png)
 3. Note these values because they will be needed when you configure your environment properties
 
 Once you have established an account with Braintree, begin by including the Braintree Module dependency to your pom.xml.

@@ -1,0 +1,3 @@
+- [[Customizing Payment]]
+- [[Customizing Shipping]]
+- [[Customizing Tax]]
