@@ -1,3 +1,5 @@
+# Broadleaf SEO Tutorial
+
 Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ##Changes in `pom.xml` files 
