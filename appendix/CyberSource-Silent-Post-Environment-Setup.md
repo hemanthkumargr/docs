@@ -13,14 +13,14 @@ Start by logging into your CyberSource Business Center (https://ebctest.cybersou
 > Note: make sure you are logging into the appropriate version of the Business Center (Live vs. Test) when modifying your settings
 
 1. Navigate to Tools & Settings > Hosted Order Page > Security
-![CyberSource Business Center](images/payment-cybersource-business-center-1.png)
+![CyberSource Business Center](payment-cybersource-business-center-1.png)
 2. Generate a JSP Security Script (It should prompt you to download the file HOP.jsp)
 3. Open the file HOP.jsp and note the following values (We will use these later): merchantId, sharedSecret, and serialNumber
 4. Next, Navigate to Tools & Settings > Hosted Order Page > Settings
 5. On the Hosted Order Page Settings, select which Credit Cards you would like to accept.
-![CyberSource Business Center](images/payment-cybersource-business-center-2.png)
+![CyberSource Business Center](payment-cybersource-business-center-2.png)
 6. Near the end of this page, configure the Receipt Page and the Decline Page. Make sure to check the "This URL is my custom receipt/decline page." checkbox. CyberSource redirects the customer to these pages after evaluating the transaction (e.g. http://localhost:8080/cybersource/success or http://localhost:8080/cybersource/decline)
-![CyberSource Business Center](images/payment-cybersource-business-center-3.png)
+![CyberSource Business Center](payment-cybersource-business-center-3.png)
 7. Finalize your changes and click Update
 
 Once you have established an account with CyberSource and configured your settings in the Business Center, 
