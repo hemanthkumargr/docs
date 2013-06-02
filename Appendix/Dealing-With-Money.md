@@ -1,3 +1,5 @@
+# Dealing With Money
+
 The Java `Double` (or `Float`) classes are not suitable for representing money in an accurate way. One of the simplest ways to describe this problem is with a short code snippet:
 
 ```java

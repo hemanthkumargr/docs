@@ -1,3 +1,5 @@
+# CMS Configuration
+
 The Broadleaf Content Management system was designed to support the needs of typical enterprise eCommerce implementations.
 
 - **Static Page Management** - Provides users to create a static managed page.

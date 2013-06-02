@@ -1,3 +1,5 @@
+# CyberSource SOAP API Payment Module
+
 BroadleafCommerce currently offers credit card payment services through our implementation of the CyberSource SOAP payment API. Secure communication to the vendor's remote API is negotiated internally by BroadleafCommerce according to CyberSource's specifications. Please review the following prerequisites before proceeding
 
 > Note: This integration method requires a high level of PCI compliance because it is necessary for credit card information to be passed through your servers which are then relayed to CyberSource via the SOAP API. If you are looking to avoid most PCI concerns, consider looking into the [[CyberSource Silent Post Module]]

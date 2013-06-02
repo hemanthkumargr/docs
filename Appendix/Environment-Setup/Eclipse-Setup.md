@@ -1,3 +1,5 @@
+# Eclipse Setup
+
 If you would prefer to not use our starter workspace (maybe you have some settings you already like in your Eclipse installation), that's ok! We can get you to the same spot that the starter project gets you with a little bit of work. We will show you how to get your workspace set up to utilize working sets, which will prevent duplicates in common windows.
 
 ## Prerequisites

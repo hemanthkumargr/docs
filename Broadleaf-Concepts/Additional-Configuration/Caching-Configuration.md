@@ -1,3 +1,5 @@
+# Caching Configuration
+
 Configuring cache settings follows the same pattern as other configuration in Broadleaf.
 
 You will want to define a bean in your `applicationContext.xml` file that specifies additional config locations for Broadleaf to merge. This bean will look similar to this:

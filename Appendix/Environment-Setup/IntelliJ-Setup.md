@@ -1,3 +1,5 @@
+# IntelliJ Setup
+
 In addition to Eclipse, the Intellij IDE is a great tool for developing on top of Broadleaf Commerce (half of our team uses it to develop the Broadleaf platform itself). This guide will take you through the steps to setup the Broadleaf Commerce demo site in Intellij so that you can modify, build and run it.
 
 ## Prerequisites

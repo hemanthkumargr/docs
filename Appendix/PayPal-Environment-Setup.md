@@ -1,3 +1,5 @@
+# PayPal Environment Setup
+
 ## Prerequisites
 
 - Users must establish their own sandbox accounts with PayPal in order to use the BroadleafCommerce PayPal payment functionality in a test environment. This can be done here: https://developer.paypal.com/devscr?cmd=_signup-run

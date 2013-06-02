@@ -1,3 +1,5 @@
+# REST Endpoints
+
 ## Request/Response Formats
 All of the endpoints below have the ability to produce and consume both **XML** and **JSON**. To ensure that you are receiving JSON in a response, ensure that this request HTTP header is set:
 

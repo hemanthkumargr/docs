@@ -1,3 +1,5 @@
+# Extending Entities Tutorial
+
 ### [[The Basics | extending-entities]] ###
 Broadleaf Commerce provides a rich eCommerce domain right out of the box.  This domain includes, among other things, customer, catalog objects such as product and SKU, order, order item, fulfillment group, fulfillment group item, etc.  But more often than not, Broadleaf will not have all of the fields or data elements that you require for your particular domain.  Broadleaf's entities are implemented using JPA and Hibernate which allows for extensibility and even polymorphic relationships.  Since Broadleaf is an extensible, object oriented framework, you can extend Broadleaf's entity model with your own.
 

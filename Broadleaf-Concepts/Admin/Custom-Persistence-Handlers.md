@@ -1,3 +1,5 @@
+# Custom Persistence Handlers
+
 Custom Persistence Handlers provide a hook to override the normal persistence behavior of the admin application. This is useful when an alternate pathway for working with persisted data is desirable. For example, if you want to work directly with a service API rather than go through the standard admin persistence pipeline. In such a case, you can use Spring to inject an instance of your service into your custom persistence handler and utilize that service to work with your entity. The implementation is responsible for converting domain object into the return type required by the admin. Helper classes are passed in to assist with conversion operations.
 
 Let's take a look at the `CustomPersistenceHandler` interface:

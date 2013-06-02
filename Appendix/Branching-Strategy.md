@@ -1,3 +1,5 @@
+# Branching Strategy
+
 Broadleaf follows a paradigm that is very similar to the [popular nvie model](http://nvie.com/posts/a-successful-git-branching-model/) for managing our code in GitHub.
 
 The `master` branch will always represent the latest GA release. We never check code directly into the master branch -- code changes in master are always the result of a merge from somewhere else.

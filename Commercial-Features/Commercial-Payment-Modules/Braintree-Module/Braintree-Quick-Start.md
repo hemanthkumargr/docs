@@ -1,3 +1,5 @@
+# Braintree Quick Start
+
 > Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
 ## Versions : 2.0.0-GA

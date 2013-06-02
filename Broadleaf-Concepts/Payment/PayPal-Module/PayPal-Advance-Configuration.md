@@ -1,3 +1,5 @@
+# PayPal Advance Configuration
+
 Broadleaf allows you to customize many aspects of your PayPal integration.
 
 **You must have completed the [[PayPal Environment Setup]] before continuing**

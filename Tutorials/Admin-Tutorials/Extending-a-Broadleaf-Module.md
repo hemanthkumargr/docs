@@ -1,3 +1,5 @@
+# Extending a Broadleaf Module
+
 For the purpose of this exercise, we'll be extending the Customer Care module that is in charge of display Customers and Orders in the admin.  With this, you will be able to customize anything and everything about the display, or add a custom subtab to display other entities in the Customer Care module (besides just
 
 The first step is to actually subclass the CustomerCareModule class with our own class, like so:

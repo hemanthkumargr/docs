@@ -1,3 +1,5 @@
+# Runtime Environment Configuration
+
 Broadleaf also has built-in support for managing configuration values that may change based on your deployment environment (i.e. development, test, production, etc...). This configuration has changed slightly for 2.0, which this documentation reflects.
 
 Property files are merged by the RuntimeEnvironmentPropertiesConfigurer and then forwarded onto Spring for use in your application. The priority hierarchy for this merge is as follows, with latter properties overriding earlier ones. Note that we are using `development` as the environment for these examples -- it would obviously change if the current environment was different.

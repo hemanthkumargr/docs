@@ -1,3 +1,5 @@
+# Authorize.net Environment Setup
+
 ## Prerequisites
 
 - Users must establish their own test account with Authorize.net in order to use the BroadleafCommerce Authorize.net payment functionality. This can be done here: https://developer.authorize.net/testaccount

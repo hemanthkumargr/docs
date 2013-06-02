@@ -1,3 +1,5 @@
+# Extending Customer For Heat Clinic Tutorial
+
 In this tutorial, we're going to cover how to extend the actual `CustomerImpl` object so that we can keep track of a couple of new attributes directly on the object. We're going to create some variables to keep track of the average heat level of sauces that a customer buys so that we can display some special text for our hottest sauce eaters.
 
 ## Extending CustomerImpl

@@ -1,3 +1,5 @@
+# Project Modules and Package Structure
+
 There are currently 9 key modules included as part of the Broadleaf Commerce framework (not including third party modules)
 
 ## broadleaf-common

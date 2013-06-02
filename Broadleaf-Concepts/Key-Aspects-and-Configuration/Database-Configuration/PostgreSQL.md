@@ -1,3 +1,5 @@
+# PostgreSQL
+
 1. Download and install PostgreSQL (http://www.postgresql.org/download/)
 
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see PostgreSQL documentation if you have questions about how to administrate databases and users).

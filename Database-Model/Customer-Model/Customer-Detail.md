@@ -1,3 +1,5 @@
+# Customer Detail
+
 ###Detailed ERD
 
 [![Customer Detail](dataModel/CustomerDetailedERD.png)](_img/dataModel/CustomerDetailedERD.png)

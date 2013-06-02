@@ -1,3 +1,5 @@
+# Add To Cart Workflow For Heat Clinic Tutorial
+
 As a developer, you may be presented with interesting requirements in your implementation of Broadleaf Commerce. For example, a restriction preventing adding a hot sauce with heat range 1 into a cart that already has a hot sauce with heat range 5 might be desirable. Let's hook into the Add to Cart Workflow to enforce this!
 
 > You may notice that this tutorial is very similar to the other tutorial on [[modifying the order submit workflow | Order Submit Workflow For Heat Clinic Tutorial]]

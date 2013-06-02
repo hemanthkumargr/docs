@@ -1,3 +1,5 @@
+# Custom Pricing Activities
+
 Sometimes it is desirable to add in a custom pricing activity. For example, you may have a scenario where a particular type of order will incur a surcharge, and you would like to support the application of this surcharge in the pricing workflow. Let's take some time to look at this scenario more in-depth and develop an example. Of course, there are many reasons why someone would want to add a custom pricing activity, and this example should give you the tools and information necessary to develop a solution to any pricing problem.
 
 First, we need to create a place to hold our custom surcharge. The most likely place to persist this value would be to a new field on a customized extension of the Order entity (see the [[Entity Extension Guide|Extending Entities]]). Here's an example extension of the Broadleaf Commerce Order:

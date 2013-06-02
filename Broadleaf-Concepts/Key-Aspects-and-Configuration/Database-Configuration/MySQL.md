@@ -1,3 +1,5 @@
+# MySQL
+
 1. Download and install MySQL Database (http://dev.mysql.com/downloads/mysql/)
 
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see MySQL documentation if you have questions about how to administrate databases and users).
