@@ -1,3 +1,5 @@
+# Customizing Payment
+
 In this tutorial, we will walk through adding a new payment type to support employee payroll deduction as a method of payment. 
 
 ## Prerequisites

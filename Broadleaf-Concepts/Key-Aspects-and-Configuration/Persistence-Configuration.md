@@ -1,3 +1,5 @@
+# Persistence Configuration
+
 To properly configure Broadleaf's persistence system, we will need to follow a few steps. Outlined below are descriptions of how to set up the persisntence unit beans, datasources, and also the necessary persistence XML configurations. Lastly, we will cover utilizing Ehcache to improve performance.
 
 ## <a name="wiki-pu-config" />Persistence Unit Configuration

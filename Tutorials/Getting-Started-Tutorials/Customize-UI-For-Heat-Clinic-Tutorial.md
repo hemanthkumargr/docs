@@ -1,3 +1,5 @@
+# Customize UI For Heat Clinic Tutorial
+
 In this tutorial, you will learn how to modify key parts of the Heat Clinic UI, including individual pages, templates, and content managed by the Broadleaf CMS. If you'd like to learn more about the UI in Broadleaf, please review the [[presentation layer documentation | Presentation Layer]] section.
 
 > We will assume that you have already completed the [[Getting Started]] section and have successfully gotten both the website and admin servers up and running. You will also want to become familiar with the [Thymeleaf templating engine](http://www.thymeleaf.org/) as that is the default used by Broadleaf and the Heat Clinic demo.

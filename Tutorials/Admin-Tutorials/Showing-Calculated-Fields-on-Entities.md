@@ -1,3 +1,5 @@
+# Showing Calculated Fields on Entities
+
 This tutorial assumes that you have already completed the [[Extending a Broadleaf Module | Extending a Broadleaf Module]] tutorial. That tutorial is a prerequisite for completing this tutorial.
 
 One example of this would be adding a method on Order to bring back a list of the fees on all of the FulfillmentGroups. 

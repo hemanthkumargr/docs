@@ -1,3 +1,5 @@
+# Asset Server Configuration
+
 Broadleaf Commerce features a configurable and flexible asset server that provides fine-grain control over image assets. The asset server provides support for a number of file formats and provides a variety of configurable image effect filter operations that allow customization of visual appearance of served images. The server is also designed for high-performance operation and takes advantage of image caching to avoid repeating the same image operations across multiple requests.
 
 ###Supported Formats

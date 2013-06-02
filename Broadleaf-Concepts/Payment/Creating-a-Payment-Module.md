@@ -1,3 +1,5 @@
+# Creating a Payment Module
+
 ## Anatomy of a Payment Module
 
 Payment modules are used by Broadleaf Commerce to interface with an external entity responsible for the actual acquisition of funds from your customers for purchases made on your Broadleaf Commerce enabled site. Payment can take multiple forms based on the business requirements for your e-commerce site. Some examples of forms of payment are credit card, paypal, electronic debit, gift card, etc... If you encounter a situation where there is no existing Broadleaf Commerce payment module for your payment provider, you may find it necessary to develop your own custom payment module. Let's review the PaymentModule interface from Broadleaf Commerce.

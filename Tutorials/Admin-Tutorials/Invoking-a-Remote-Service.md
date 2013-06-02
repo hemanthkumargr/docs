@@ -1,3 +1,5 @@
+# Invoking a Remote Service
+
 In some instances, you might need to write your own avenues for communicating with the server from the GWT client-side.  Some use cases for this would be adding a button that invokes a function on the server, or creating a highly-customized form (that does not depend on an entity) to go through a complex workflow on the server.  In this example, we will be writing a service that does both
 
 ## Create your Server-side Service Contract

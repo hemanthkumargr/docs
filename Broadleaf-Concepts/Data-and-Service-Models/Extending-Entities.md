@@ -1,3 +1,5 @@
+# Extending Entities
+
 Sometimes, the entities provided by Broadleaf Commerce will not be enough to fulfill your needs. For example, for specific business reasons, you may be required to represent an order id in a specific way that is incompatible with the internal order id representation used by Broadleaf Commerce. In this case, it would be desirable to add an additional field to the order that can hold a custom order id that you have generated to fulfill your requirement. To achieve this end, we must employ entity extension.
 
 Let's start by showing an implementation example of our custom entity.

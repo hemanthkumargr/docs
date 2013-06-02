@@ -1,3 +1,5 @@
+# Creating a Shipping Module
+
 ## Anatomy of a Shipping Module
 
 Shipping modules are utilized by Broadleaf Commerce to interface with an external provider (or some custom algorithm) for shipping cost calculation. The cost of shipping can be based on a number of factors including weight, size, quantity and dollar total. Some examples of different methods of shipping calculation include: banded shipping, USPS, UPS, FedEx, etc... If you encounter a situation where there is no existing Broadleaf Commerce shipping module for your desired shipping calculation method, you may find it necessary to develop your own custom shipping module. Let's review the ShippingModule interface from Broadleaf Commerce.

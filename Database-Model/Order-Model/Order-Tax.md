@@ -1,3 +1,5 @@
+# Order Tax
+
 ###Detailed ERD
 
 [![Order Tax](dataModel/OrderTaxDetailedERD.png)](_img/dataModel/OrderTaxDetailedERD.png)

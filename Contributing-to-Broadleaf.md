@@ -1,3 +1,5 @@
+# Contributing to Broadleaf
+
 Want to contribute to Broadleaf? Awesome! 
 
 > Note: This section describes how to contribute code back to Broadleaf Commerce. Modifying Broadleaf Commerce code is not generally part of implementing a Broadleaf Commerce site - instead, you build on top of Broadleaf, extending where necessary. Please check out the [[Getting Started]] page for more info.

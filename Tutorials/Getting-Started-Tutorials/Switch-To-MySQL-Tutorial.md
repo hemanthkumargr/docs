@@ -1,3 +1,5 @@
+# Switch To MySQL Tutorial
+
 A very common step that users may want to do is switch away from the bundled HSQL database to a more mature database such as MySQL. We have a general guide on [[using MySQL | MySQL]], but this tutorial will be more explicit specifically regarding Heat Clinic.
 
 1. Download and install MySQL Database (http://dev.mysql.com/downloads/mysql/)

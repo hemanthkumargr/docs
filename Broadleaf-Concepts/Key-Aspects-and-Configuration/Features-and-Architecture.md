@@ -1,3 +1,5 @@
+# Features and Architecture
+
 > Broadleaf Commerce is a fully open source eCommerce framework that has been designed from the ground up for scalability and customizability.
 
 ## <a name="wiki-features" />Features 

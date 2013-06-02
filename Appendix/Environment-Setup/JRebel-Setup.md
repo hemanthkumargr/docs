@@ -1,3 +1,5 @@
+# JRebel Setup
+
 [JRebel](http://zeroturnaround.com/software/jrebel/) is a Java Virtual Machine plugin that enables instant reloading of changes made to a Java class file as well as some property files and static files. We use it heavily in our develop of Broadleaf as it prevents the need for having to restart your server every time you make a change to a file.
 
 > **The latest confirmed working version of JRebel and Broadleaf is 4.5.4**

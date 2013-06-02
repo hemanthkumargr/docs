@@ -1,3 +1,5 @@
+# Main Entities
+
 ## <a name="wiki-product"></a> Product
 This is the entity that the catalog revolves around and is used for browsing and searching. Product does not have any pricing information associated with it directly, but is available to the Product from its one-to-one relationship with a Sku (its "default Sku"). This one-to-one relationship is a required relationship and Products cannot exist in the system without a link to a Sku.
 

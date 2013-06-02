@@ -1,3 +1,5 @@
+# Extending Services
+
 Certain occasions will arise when it will become necessary for you to alter the default behavior of a Broadleaf Commerce service. You may need to add in an additional step to a call, or completely change how the service goes about honoring its interface contract. For these occasions, you need to be familiar with the strategy for extending a Broadleaf Commerce service. There are two ways to extend the base functionality of a service, depending on your needs.  You may find that a majority of the time you will want to keep the base functionality, this is accomplished by extending the service implementation. If you do not intend to make use of the base functionality, or find yourself overloading every method, it makes more sense to implement the service interface directly.
 
 ## Extend An Existing Service Implementation

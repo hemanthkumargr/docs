@@ -1,3 +1,5 @@
+# Extending Services Tutorial
+
 ### Overriding a Broadleaf Component ###
 Broadleaf Commerce has a unique Spring Application Context merge capability that merges your application context with Broadleaf's default context.  This allows you to override bean definitions or add completely new ones.  Overriding a bean definition is as simple as implementing a Broadleaf interface (e.g. a service interface like SearchService): 
 ```java

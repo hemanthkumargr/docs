@@ -1,3 +1,5 @@
+# Cart Operations
+
 Broadleaf 2.0 comes with a new strategy for interacting with carts (an in process order). Instead of having to extend OrderService like before, you now simply define a workflow for cart operations that specifies a list of activities to be called in order.
 
 ## Cart Operation Workflows

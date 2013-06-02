@@ -1,3 +1,5 @@
+# Payment Workflow
+
 > Note - Please familiarize yourself with [[Workflows and Activities]] before proceeding.
 
 ## Overview

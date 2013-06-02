@@ -1,3 +1,5 @@
+# MS SQL Server
+
 1. Download and install SQL Server (http://www.microsoft.com/sqlserver/en/us/editions/express.aspx)
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see SQL Server documentation if you have questions about how to administrate databases and users).
 3. Download the SQL Server JDBC driver (http://msdn.microsoft.com/en-us/sqlserver/aa937724)

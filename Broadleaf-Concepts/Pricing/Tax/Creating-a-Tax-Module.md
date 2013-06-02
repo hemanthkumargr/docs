@@ -1,3 +1,5 @@
+# Creating a Tax Module
+
 ## Anatomy of a Tax Module
 
 Tax modules are utilized by Broadleaf Commerce to interface with an external provider (or some custom algorithm) for tax calculation. The cost of tax can be based on a number of factors including region and dollar total. If you encounter a situation where there is no existing Broadleaf Commerce tax module for your desired tax calculation method, you may find it necessary to develop your own custom tax module. Let's review the TaxModule interface from Broadleaf Commerce.

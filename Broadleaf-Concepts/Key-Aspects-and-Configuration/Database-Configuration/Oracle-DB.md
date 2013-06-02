@@ -1,3 +1,5 @@
+# Oracle DB
+
 1. Download and install Oracle (http://www.oracle.com/technetwork/database/enterprise-edition/overview/index.html)
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see Oracle documentation if you have questions about how to administrate databases and users).
 3. Download the Oracle JDBC driver (http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)

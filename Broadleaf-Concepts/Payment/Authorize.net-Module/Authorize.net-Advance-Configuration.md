@@ -1,3 +1,5 @@
+# Authorize.net Advance Configuration
+
 Broadleaf allows you to customize many aspects of your Authorize.net DPM integration.
 
 **You must have completed the [[Authorize.net Environment Setup]] before continuing**

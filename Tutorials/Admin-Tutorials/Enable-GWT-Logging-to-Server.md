@@ -1,3 +1,5 @@
+# Enable GWT Logging to Server
+
 ###
 When debugging the Admin, it is sometimes desireble to see the gwt logging output on the server logs.  By default, the Admin/GWT logs only show up when Admin is started with hosted mode. 
 

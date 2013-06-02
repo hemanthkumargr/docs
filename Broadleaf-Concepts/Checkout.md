@@ -1,3 +1,5 @@
+# Checkout
+
 The checkout process in Broadleaf is controlled by a workflow, which is extensible like all other Broadleaf workflows. This workflow is responsible for some basic verification, triggering payment, and completing the order. Let's dive in.
 
 ## <a name="wiki-config" />Configuration

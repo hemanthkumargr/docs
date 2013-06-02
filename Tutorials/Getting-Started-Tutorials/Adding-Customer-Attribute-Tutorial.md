@@ -1,3 +1,5 @@
+# Adding Customer Attribute Tutorial
+
 In this tutorial, we will walk through the two different ways you can keep track of personalized attributes for your customers. We will demonstrate the easy way of simply storing the attributes in the `customerAttributes` object and the slightly more customized (but still easy) way of extending the Broadleaf `CustomerImpl` class. Also, please note that while we're going through extending a Customer in this tutorial, the same patterns apply for all Broadleaf provided objects.
 
 # Using the provided CustomerAttributes object

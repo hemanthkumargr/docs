@@ -1,3 +1,5 @@
+# USPS Module
+
 Rather than use banded shipping estimation, some users will prefer to use the built-in support for USPS shipping calculation. Broadleaf Commerce utilizes an object-based representation of the USPS XML API for shipping rate calculation processed through a custom communication infrastructure. We have made every effort to faithfully represent the USPS XML API and feature set in our model. Before proceeding, please review the following prerequisites:
 
 - Users must establish their own account with USPS in order to use the Broadleaf Commerce USPS functionality (register at https://www.usps.com/business/webtools.htm)

@@ -1,3 +1,5 @@
+# Catalog and Search
+
 Broadleaf provides a very powerful catalog complete with category browsing and product searching. The awesome [Solr project](http://lucene.apache.org/Solr/) backs our product index and facilitates browsing/searching along with faceted filtering, pagination, and sorting. This section contains an overview of the relevant parts of catalog browsing and searching.
 
 We'll begin with a general overview of how everything fits together and then dive into a few more advanced configuration options.

@@ -1,3 +1,5 @@
+# Dynamic Pricing Configuration
+
 Dynamic Pricing enables you to control pricing for SKUs based on external criteria specifc to a given request instead of simply reading from the BLC\_SKU table. For example, you may have location based pricing determined by a user's currently selected store.
 
 This pricing model is based on ThreadLocal attributes that are set up in a filter in the request and then utilized later.

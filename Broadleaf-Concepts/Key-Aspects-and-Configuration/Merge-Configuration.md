@@ -1,3 +1,5 @@
+# Merge Configuration
+
 Merge configuration is handled through your web.xml file. The merge facility in Broadleaf primarily operates by intelligently mixing one or more Spring application context files. The final merged version of the application context is then passed to Spring for processing. 
 
 For BroadleafCommerce to know what files to merge with its internal application context information, you must specify a list in your `web.xml` file for your web module (WAR). Let's take a look at an example.
