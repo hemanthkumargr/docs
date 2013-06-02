@@ -31,7 +31,7 @@ Click **Install** followed by **Next**. After that, **Accept the License Terms**
 
 Once the plugin is done installing, you will be prompted to restart Eclipse. Go ahead and do so.
 
-You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it! 
+You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it!
 
 Download Link: [Broadleaf Eclipse Workspace](http://www.broadleafcommerce.org/workspace-download)
 
@@ -75,7 +75,7 @@ That's it! Now you have your IDE completely setup to work with Broadleaf Commerc
 
 > **Note: Some have reported issues at this step. You can safely skip the "Configuring Project Name" step in its entirety. We are investigating.**
 
-The workspace project and maven artifact all refers to "com.mycompany". For your convenience, we've provided an Ant task that will perform all necessary rename and move operations to customize the project to your organization. Simply run the `change-identifier` Ant task and type in a suitable name. 
+The workspace project and maven artifact all refers to "com.mycompany". For your convenience, we've provided an Ant task that will perform all necessary rename and move operations to customize the project to your organization. Simply run the `change-identifier` Ant task and type in a suitable name.
 
 > **Note: The name should be two alphabetic strings separated by a dot. For example, "com.heatclinic"**
 
@@ -103,7 +103,7 @@ This process will take a few minutes to execute, and will end on the following s
 
 ```text
 [INFO] Reactor Summary:
-[INFO] 
+[INFO]
 [INFO] ecommerce ......................................... SUCCESS [0.440s]
 [INFO] core .............................................. SUCCESS [2.505s]
 [INFO] admin ............................................. SUCCESS [3:37.628s]
@@ -135,7 +135,7 @@ That's it! The server's up! Let's check it out: <a href="http://localhost:8080/"
 
 ## <a name="wiki-starting-admin"></a> Running Admin
 
-Once the site has been started up, we can start up the admin as well 
+Once the site has been started up, we can start up the admin as well
 
 > Note: The site startup will conveniently populate some database tables, including the admin users tables. Therefore, the site must be running before starting up the admin.
 
@@ -157,16 +157,12 @@ And now we can hit the admin! <a href="https://localhost:8444/admin" target="_bl
 
 > Any issues? Please come post in the [Broadleaf forums](http://forum.broadleafcommerce.org) - We would love to help you out!
 
-> Successfully got your Broadleaf site up and running? Awesome! You can help us by tweeting to your followers!
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ow.ly/cFN4g" data-text="I just created my @broadleaf demo site! Give it a try and sell your own stuff online:">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 ## <a name="wiki-next-steps"></a> Next Steps
 
 So now that you have your own Broadleaf site set up, what's next? We recommend getting familiar with the framework and starting to make your own personalizations. Here are some cool things to try out:
 
 <div class="half-column">
-    <h3> Configuration 
+    <h3> Configuration
         <span class="small">(What you need to do to get a real site running)</span>
     </h3>
 
@@ -183,14 +179,14 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
                 <li>Learn how to set up a clean slate for your products.</li>
             </ul>
         </li>
-        <li> 
+        <li>
             [[Customize the UI | Customize UI For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about the Broadleaf UI strategy and patterns</li>
                 <li> Customize key pieces of the Heat Clinic template and discover the Broadleaf Content Management System</li>
             </ul>
         </li>
-        <li> 
+        <li>
             Configure Checkout
             <ul>
                 <li> Add a shipping partner</li>
@@ -198,7 +194,7 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
                 <li> Handle payments</li>
             </ul>
         </li>
-        <li> 
+        <li>
             [[Production Considerations]]
             <ul>
                 <li> Ensure your security is set up properly</li>
@@ -208,31 +204,31 @@ So now that you have your own Broadleaf site set up, what's next? We recommend g
 </div>
 
 <div class="half-column">
-    <h3>Customization 
+    <h3>Customization
         <span class="small">(Some fun things to try out to get your feet wet)</span>
     </h3>
 
     <ul>
-        <li> 
+        <li>
             [[Storing additional customer properties | Adding Customer Attribute Tutorial]]
             <ul>
                 <li> Modify the registration form to prompt for user for referral code</li>
                 <li> Store the code in a CustomerAttribute</li>
             </ul>
         </li>
-        <li> 
+        <li>
             [[Extend the Customer entity | Extending Customer For Heat Clinic Tutorial]]
             <ul>
                 <li> Add a few properties to the Customer to keep track of Heat Clinic metrics</li>
             </ul>
         </li>
-        <li> 
+        <li>
             [[Hook into the order submit workflow | Order Submit Workflow For Heat Clinic Tutorial]]
             <ul>
                 <li> Keep track of how hot your customers like their sauces</li>
             </ul>
         </li>
-        <li> 
+        <li>
             [[Hook into the add to cart workflow | Add To Cart Workflow For Heat Clinic Tutorial]]
             <ul>
                 <li> Learn about workflows and the add to cart workflow and set up a custom activity</li>
