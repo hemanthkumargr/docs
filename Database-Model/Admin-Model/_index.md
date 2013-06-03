@@ -1,3 +1,5 @@
+# Admin Model
+
 ###Detailed Diagrams
 - [[Change Sets | Admin Change Sets]]
 - [[Security | Admin Security]]

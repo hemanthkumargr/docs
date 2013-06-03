@@ -1,3 +1,5 @@
+# Braintree Module
+
 > Note: Broadleaf Commerce currently offers integration with Braintree through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
 <img src="images/payment-braintree-diagram.png" class="no_border" alt="Braintree Diagram">

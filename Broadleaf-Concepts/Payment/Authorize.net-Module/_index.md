@@ -1,3 +1,5 @@
+# Authorize.net Module
+
 Broadleaf Commerce currently offers integration with Authorize.net. This module uses the DPM integration method outlined [[here | http://developer.authorize.net/api/dpm/]]
 
 <img src="images/payment-authorizenet-diagram.png" class="no_border" alt="Authorize.net Diagram">
