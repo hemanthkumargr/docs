@@ -1,3 +1,5 @@
+# Database Configuration
+
 Broadleaf Commerce initially is configured to run with the Hypersonic (HSQL) database.  HSQL gives us a lightweight database that is especially good for green field development.  Broadleaf leverages a Hibernate feature to create and populate the database when you start the web application. This is achieved by setting properties that are part of the [[Persistence Configuration]].
 
 Let's take a look at a typical persistence unit configuration:

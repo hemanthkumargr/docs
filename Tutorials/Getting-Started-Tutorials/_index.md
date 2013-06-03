@@ -1,3 +1,5 @@
+# Getting Started Tutorials
+
 The "Next Steps" in the [[Getting Started]] section are all basic tutorials that work with the Heat Clinic demo application provided as part of Broadleaf Commerce.
 
 They are a great way to get ahold of some core fundamentals before diving into more complex tutorials. We've mirrored them here:

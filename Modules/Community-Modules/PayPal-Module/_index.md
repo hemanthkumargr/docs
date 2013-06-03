@@ -1,3 +1,5 @@
+# Paypal Module
+
 Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This module allows users to complete their shopping experience using their PayPal account.
 
 <img src="images/payment-paypal-diagram.png" class="no_border" alt="PayPal Diagram">

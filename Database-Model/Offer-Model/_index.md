@@ -1,3 +1,5 @@
+# Offer Model
+
 ###Detailed Diagrams
 - [[Offer Detail]]
 

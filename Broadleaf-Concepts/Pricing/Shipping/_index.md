@@ -1,3 +1,5 @@
+# Shipping
+
 Broadleaf Commerce can be configured for shipping calculation in a number of ways. You can use banded shipping, one of our included third party shipping modules (such as USPS), or by using a custom shipping module.
 
 ## Banded Shipping

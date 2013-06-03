@@ -1,3 +1,5 @@
+# Data and Service Models
+
 ## <a name="wiki-entities" />Main Entities
 
 The Broadleaf domain provides a lot of functionality out of the box. We've identified key entities and described their functionality.
