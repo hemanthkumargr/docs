@@ -1,3 +1,5 @@
+# Database Model
+
 ##Broadleaf Commerce 2.2.0
 
 ###2.1 to 2.2 Model Changes
@@ -26,6 +28,7 @@
     - New Fields in `BLC_SKU_FEE`: CURRENCY_CODE
 - In [[Social]]
     - New Table: BLC_UserConnection     
+
 
 ###2.0 to 2.1 Model Changes
 - In [[Customer | Customer Detail]]

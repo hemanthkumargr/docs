@@ -1,3 +1,5 @@
+# Catalog Model
+
 ###Detailed Diagrams
 - [[Category | Catalog Category]]
 - [[Product | Catalog Product]]
