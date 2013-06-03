@@ -1,3 +1,5 @@
+# Customer Model
+
 ###Detailed Diagram
 - [[Customer Detail]]
 

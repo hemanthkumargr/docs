@@ -1,3 +1,5 @@
+# 1.6 to 2.0 Migration
+
 The transition from 1.6 to 2.0 consists of several different migration steps. We have added a lot of features and refactored key components in Broadleaf to support future development, and unfortunately, that means migrating to 2.0 requires some effort. Where possible, we have maintained legacy support to ease the transitional period.
 
 > **This section is a work in progress and is not yet comprehensive**
