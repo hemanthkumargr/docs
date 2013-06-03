@@ -1,0 +1,2 @@
+- [[Catalog Metadata Category | CatalogMetaData Catalog Category]]
+- [[Catalog Metadata Product | CatalogMetaData Catalog Product]]
