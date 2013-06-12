@@ -4,6 +4,7 @@ In some instances, you might need to write your own avenues for communicating wi
 
 ## Create your Server-side Service Contract
 This first class is the contract that the server-side code will use.  Notice that this extends from GWT's RemoteService class.  So in MyCustomService.java:
+
 ```java
 
 import com.google.gwt.user.client.rpc.RemoteService;
@@ -14,12 +15,14 @@ public interface MyCustomService extends RemoteService {
     public Boolean doSomethingWithProductId(Long productId) throws ApplicationSecurityException;
 }
 ```
+
 > The `@Secured` annotation will also secure this service to logged in users. You could technically secure services for different types of users by using the other AdminUserRoles but that is beyond the scope of this document.
 
 ## Create your Client-side Service Contract
 Now you need to write the client-side interface that you will use in your GWT code.  The first parameter(s) of this method should be the same parameters as the server-side method, with the addition of an `AsyncCallback`.  So if the remote service had 2 parameters, this async service would have 3: the 2 parameters of the remote service and the callback.  Note that this client-side method returns void (which will always be the case), but the `AsyncCallback` parameter is generically typed to `Integer`.  The **generic type of the callback has to correspond to the return type of the server-side method** (could be `Void`).
 
 In our case, the server-side code has a single parameter (a `Long`), so MyCustomServiceAsync.java looks like:
+
 ```java
 public interface MyCustomServiceAsync {
     public void doSomethingWithProductId(Long productId, AsyncCallback<Boolean> callback);
@@ -27,6 +30,7 @@ public interface MyCustomServiceAsync {
 ```
 
 Now we need to associate the AsyncService (that your client-side GWT code will use) with the remote service contract.  To do this, we recommend creating a generic `AppServices` class that will hold all of your custom services in this fashion.  So, in AppServices.java:
+
 ```java
 public class AppServices {
 
@@ -40,7 +44,9 @@ public static final MyCustomServiceAsync GENERAL = GWT.create(MyCustomService.cl
 ```
 
 ## Reference your newly-created endpoint in your presenter
+
 Now that all of our client-side code is created, let's go and use this in a presenter.  I will assume for the sake of this article that there is already a `ToolStripButton` somewhere on the view that will be used to control this service. We'll register our button handler in the `bind()` method of our subclass of `OneToOneProductSkuPresenter`:
+
 ```java
 public void bind() {
     super.bind();
@@ -70,6 +76,7 @@ public void bind() {
 
 ## Adding your Server-side Implementation
 Now that we have the client-side written, we need to write our server-side implementation.  As stated earlier, our implementation will implement the `MyCustomService`, and should also be marked as a Spring bean.  Since we are now in Server-Side Land&trade; we can do dependency injection just like any other service:
+
 ```java
 @Service("myCustomService")
 public class MyCustomRemoteService implements MyCustomService {
@@ -87,6 +94,7 @@ public class MyCustomRemoteService implements MyCustomService {
 ```
 
 Now we need to hook up the GWT endpoint to our Spring bean.  In applicationContext-servlet.xml, you should redeclare the bean that BLC has while adding your own endpoint:
+
 ```xml
     <bean id="adminUrlMapping" class="org.broadleafcommerce.openadmin.security.CompatibleGWTSecuredHandler">
         <property name="mappings">
@@ -112,6 +120,7 @@ Now we need to hook up the GWT endpoint to our Spring bean.  In applicationConte
 By default, GWT will deal just fine with simple parameters back and forth (Long, Boolean, String, etc).  In some scenarios, you might want to send over (and return back) a complex Java object that you create yourself (using a DTO pattern).  The only thing you have to do to enable this functionality is to ensure that your custom object implements both the `Serializable` (from `java.io`) as well as `IsSerializable` (from `com.google.gwt`). The `IsSerializable` interface is just a marker interface that GWT uses during its compilation step to ensure that your custom Java class is compiled down to Javascript.  With this, you can now use your complex Java object in any method or return value dealing with server-side communication.
 
 An example of this would be our entire `Entity` and `Property` paradigms that we use to pull back entities (which just uses a remote service just like we described in this document).
+
 ```java
 import com.google.gwt.user.client.rpc.IsSerializable;
 

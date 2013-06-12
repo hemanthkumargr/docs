@@ -1,15 +1,15 @@
 # Database Model
 
-##Broadleaf Commerce 2.1.0
+## Broadleaf Commerce 2.1.0
 
-###2.0 to 2.1 Model Changes
+### 2.0 to 2.1 Model Changes
 - In [[Customer | Customer Detail]]
     - New Table: BLC_CUSTOMER_PAYMENT
 - In [[Search | Catalog Search]]
     - New Table: BLC_SEARCH_FACET_XREF 
     - New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
 
-###Diagrams
+### Diagrams
 - [[Admin | Admin Model]]
     - [[Change Sets | Admin Change Sets]]
     - [[Security | Admin Security]]

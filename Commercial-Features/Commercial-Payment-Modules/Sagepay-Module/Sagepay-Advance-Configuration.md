@@ -57,7 +57,7 @@ This API is called from the `BroadleafSagepayFormController` used in the [[Sagep
 ## Manually Configuring the Presentation Layer
 
 It is up to you to choose the presentation layer approach that best fits your needs, but regardless of the approach, 
-you will be required at some point to compile the [[PaymentInfo | https://github.com/BroadleafCommerce/BroadleafCommerce/blob/master/core/broadleaf-framework/src/main/java/org/broadleafcommerce/core/payment/domain/PaymentInfo.java]] information 
+you will be required at some point to compile the [PaymentInfo](https://github.com/BroadleafCommerce/BroadleafCommerce/blob/master/core/broadleaf-framework/src/main/java/org/broadleafcommerce/core/payment/domain/PaymentInfo.java) information
 to the order before calling performCheckout on the CheckoutService. 
 Most Broadleaf Commerce users will choose Spring MVC and will likely implement their own CheckoutController. 
 If your implementation does not require that much customization, consider extending the `BroadleafSagepayFormController`.

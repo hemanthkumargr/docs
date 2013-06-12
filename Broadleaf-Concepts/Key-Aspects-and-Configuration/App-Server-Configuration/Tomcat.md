@@ -1,6 +1,7 @@
 # Tomcat
 
 This is extremely similar to the current configuration in Jetty. In site/pom.xml you will see the following plugin defined for Jetty:
+
 ```xml
 <plugin>
     <groupId>org.mortbay.jetty</groupId>
@@ -20,7 +21,9 @@ This is extremely similar to the current configuration in Jetty. In site/pom.xml
     </configuration>
 </plugin>
 ```
+
 You can either replace this plugin or just add an additional plugin below:
+
 ```xml
 <plugin>
     <groupId>org.apache.tomcat.maven</groupId>
@@ -34,7 +37,9 @@ You can either replace this plugin or just add an additional plugin below:
     </configuration>
 </plugin>
 ```
+
 You can then optionally modify build.xml to add a new ant task for this:
+
 ```xml
 <target name="tomcat-demo" depends="start-db">
     <delete dir="war/WEB-INF/lib"/>

@@ -7,6 +7,7 @@ A very common step that users may want to do is switch away from the bundled HSQ
 2. Create a new database and a user capable of accessing this database with privileges for creating tables included (see MySQL documentation if you have questions about how to administrate databases and users).
 
 3. Update your pom.xml files to reference MySQL connectors. In the root `pom.xml`, you want to place the following in the `<dependencyManagement>` section:
+
     ```xml
     <dependency>
         <groupId>mysql</groupId>

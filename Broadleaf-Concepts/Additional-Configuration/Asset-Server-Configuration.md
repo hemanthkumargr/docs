@@ -2,11 +2,11 @@
 
 Broadleaf Commerce features a configurable and flexible asset server that provides fine-grain control over image assets. The asset server provides support for a number of file formats and provides a variety of configurable image effect filter operations that allow customization of visual appearance of served images. The server is also designed for high-performance operation and takes advantage of image caching to avoid repeating the same image operations across multiple requests.
 
-###Supported Formats
+### Supported Formats
 
 While the asset server is capable of serving any binary file, image files are the only type that the asset server supports with filtering. The supported formats are: GIF, JPG, PNG, BMP and WBMP. The request caching feature is available for all files, image or not.
 
-###Filter Operations Supported Out-Of-The-Box
+### Filter Operations Supported Out-Of-The-Box
 
 The following filter operations are supported directly by Broadleaf Commerce:
 
@@ -19,11 +19,11 @@ The following filter operations are supported directly by Broadleaf Commerce:
 7. Rotate - Rotate the image around a center axis any degree amount
 8. Unsharp Mask - Add a high-quality sharpening effect to an image
 
-###Working With An Asset
+### Working With An Asset
 
 Assets are generally introduced into the system via the asset tab (part of the CMS module) in the Broadleaf Commerce admin tool. Once uploaded, assets are available for reference from anywhere in your Broadleaf Commerce implementation. This means you can refer to uploaded assets for your product and category media, in CMS managed structured content and pages, as well as direct url references from other locations - like a JSP page. The only important part is how the URL that references your image asset is structured, since information in this url is used by the asset server to retrieve (and in the case of images - manipulate) your uploaded files.
 
-###URL Structure
+### URL Structure
 
 By default, Broadleaf Commerce is configured to look for any url that contains an internal prefix (i.e. /cmsstatic/) somewhere in the request. Usage of this keyword is interpreted by the system as a request for a static asset, and is therefore routed to the asset server. Note, the "cmsstatic" value can be changed to another keyword if desired by editing the runtime environment value for the key "asset.server.url.prefix.internal". Please refer to the Runtime Environment Configuration documentation for more information.
 
@@ -37,7 +37,7 @@ http://localhost:8080/broadleafdemo/cmsstatic/test.jpg
 
 **It is important to note that the internal prefix does not have to appear directly after your web context name.** In fact, it can be buried any level below the context name. This makes referencing assets easy, as you never have to worry about relative urls in your site or how deeply nested your current page is when you want to access the asset.
 
-###Specifying Filter Effects
+### Specifying Filter Effects
 
 So far, we know how to reference an asset with a URL and receive back a version of the image that is identical to what was originally uploaded. But what if we want to tweak the image in some way - perhaps crop or rotate the image? This is achieved by specifying additional filter operations on the asset request URL. Filter request operations take the following form:
 
@@ -91,11 +91,11 @@ There are set parameters required for each of the different filter effects provi
 | unsharpmask     | radius-amount      | An Integer amount from 1 to 16 used to define the scope of the effect - try a value of 7 to start                   |                | 
 |                 | value-amount       | A positive Float value that describes the intensity of the effect - try a value of 3 to start                       |                |
  
-##Named Operations
+## Named Operations
 
 To achieve complex effects (or even simple effects, for that matter), using the approach described above can lead to some very complex and long URLs. Because of this, we have provided a feature that allows you to bundle up a list of filter operations under a single name, which you can use instead in your asset request URL. Before you can refer to the named operation in your URL, you first must configure it in your Spring application context.
 
-###Configuring Named Operations
+### Configuring Named Operations
 
 Named Operations are managed out-of-the-box in Broadleaf Commerce by the blStaticMapNamedOperationComponent bean. This bean is configured with a map of names to another map of filter operation parameters. Take a look at the default named operations defined in Broadleaf Commerce for use by the admin:
 
@@ -132,7 +132,7 @@ Here, in the config for blStaticMapNamedOperationComponent, we have defined two 
 http://localhost:8080/broadleafdemo/cmsstatic/test.jpg?largeAdminThumbnail
 ```
 
-##Adding Your Own Named Operation
+## Adding Your Own Named Operation
 
 blStaticMapNamedOperationComponent is managed as part of the Broadleaf Commerce merge process. This means that you can safely specify your own named operation for this bean without having to worry about repeating the definitions for the already defined internal Broadleaf Commerce named operations. In your own application context, you would merely define this bean and declare your own named operations. Here's an example named operation that uses the cropping example from earlier:
 
@@ -187,9 +187,9 @@ Finally, you can mix named operations and explicit filter operations directly in
 http://localhost:8080/broadleafdemo/cmsstatic/test.jpg?myCropAndBlur&gaussianblur-num-passes-amount=5
 ```
 
-##Advanced Usage
+## Advanced Usage
 
-###Adding Your Own Named Operation Component
+### Adding Your Own Named Operation Component
 
 Broadleaf Commerce offers blStaticMapNamedOperationComponent which is an instance of StaticMapNamedOperationComponent. As discussed, this class provides named operations through a static map defined in the Spring application context. However, it is possible to provide a different implementation that manages named operations. In fact, several named operations components may be specified, each contributing named operation values, if desired. This can be useful if you would like to manage named operations outside of Spring, for example, using an administrative interface backed by a database. The only requirement for a named operation component is that is implement the NamedOperationComponent interface.
 
@@ -208,7 +208,7 @@ All named operation components are registered with the named operation manager. 
 
 In this sample, myNamedOperationComponent is a reference to a bean that you have declared for your own NamedOperationComponent instance. Note, blNamedOperationManager is not included in the Broadleaf Commerce merge process, so if you want to continue to use the blStaticMapNamedOperationComponent in addition to your own component, then you must declare along with your component.
 
-###Adding Your Own Image Filter
+### Adding Your Own Image Filter
 
 Additional filters may be custom coded and added to the image server. Filters have the following requirements:
 
