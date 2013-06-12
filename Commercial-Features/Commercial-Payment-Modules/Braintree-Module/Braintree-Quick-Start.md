@@ -10,7 +10,7 @@ This implementation should be useful for those with a simple checkout flow. For 
 
 **You must have completed the [[Braintree Environment Setup]] before continuing**
 
-##1) Adding Braintree Support
+## 1) Adding Braintree Support
 
 First, you will need to add the quick-start Braintree application context `bl-braintree-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
@@ -38,7 +38,7 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 ```
 
 
-##2) Make your CheckoutController extend BroadleafBraintreeController
+## 2) Make your CheckoutController extend BroadleafBraintreeController
 
 Next, you will need to create a basic controller that extends `BroadleafBraintreeController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get Braintree integrated. 
@@ -62,7 +62,7 @@ public class CheckoutController extends BroadleafBraintreeController {
 }
 ```
 
-##3) Construct the HTML for the dynamic Braintree form
+## 3) Construct the HTML for the dynamic Braintree form
 
 Finally, you will need to contruct the form that you will send via transparent redirect. The checkout() method defined above will add the necessary attributes on the Spring Model object (i.e. `trUrl` and `trData`) 
   

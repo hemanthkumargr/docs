@@ -56,6 +56,7 @@ public class MyDynamicSkuPricingServiceImpl implements DynamicSkuPricingService 
 ```
 
 Lastly, we need to instruct the application to use our filter.
+
 ```xml
 <filter>
     <filter-name>dynamicSkuPricingFilter</filter-name>

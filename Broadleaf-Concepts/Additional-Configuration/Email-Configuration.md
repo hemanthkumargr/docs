@@ -1,6 +1,6 @@
 # Email Configuration
 
-## <a name="wiki-basic" />Basic Configuration
+## <a name="wiki-basic"></a>Basic Configuration
 
 Broadleaf has a flexible engine for sending template-driven emails to your customers. These emails may be configured to be sent out as part of a workflow step (i.e. order confirmation email at the end of the checkout workflow), or sent out as part of a Quartz scheduled job (i.e. weekly customer newsletter). The appearance of emails may be text only, or may be based on an exotic Thymeleaf template that you create - the choice is yours. Let's start by looking at the default definition of Thymeleaf email templates:
 
@@ -74,13 +74,13 @@ Pretty easy! We now have a `orderConfirmationEmailInfo` bean that points to the 
 
 > Note: A list of all possible properties can be found at the [bottom of this page](#wiki-prop-ref)
 
-## <a name="wiki-prep-code" />Preparing the Code to Send Emails
+## <a name="wiki-prep-code"></a>Preparing the Code to Send Emails
 
 You'll likely want to establish your own service class that's responsible for sending out emails. Let's take a look at an example interface for a service capable of sending our order confirmation email:
 
 ```java
 public interface MyEmailWebService {
-    void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException;
+void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException;
 }
 ```
 
@@ -90,26 +90,26 @@ and an implementation:
 @Service("myEmailService")
 public class MyEmailServiceImpl implements ApplicationContextAware, MyEmailWebService {
 
-    @Resource(name="blEmailService")
-    protected EmailService emailService;
+@Resource(name="blEmailService")
+protected EmailService emailService;
 
-    protected ApplicationContext applicationContext;
+protected ApplicationContext applicationContext;
 
-    public void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException {
-        HashMap<String, Object> props = new HashMap<String, Object>();
-        props.put("orderDate", orderDate);
-        props.put("orderId", orderId);
-        emailService.sendTemplateEmail(emailAddress, getOrderConfirmationEmailInfo(), props);
-    }
+public void sendOrderConfirmation(Date orderDate, String orderId, String emailAddress) throws IOException {
+    HashMap<String, Object> props = new HashMap<String, Object>();
+    props.put("orderDate", orderDate);
+    props.put("orderId", orderId);
+    emailService.sendTemplateEmail(emailAddress, getOrderConfirmationEmailInfo(), props);
+}
 
-    // Method based injection because we need to reference prototype scoped beans in a singleton bean
-    protected EmailInfo getOrderConfirmationEmailInfo() {
-        return (EmailInfo) applicationContext.getBean("orderConfirmationEmailInfo");
-    }
+// Method based injection because we need to reference prototype scoped beans in a singleton bean
+protected EmailInfo getOrderConfirmationEmailInfo() {
+    return (EmailInfo) applicationContext.getBean("orderConfirmationEmailInfo");
+}
 
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
-    }
+public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    this.applicationContext = applicationContext;
+}
 }
 ```
 
@@ -121,18 +121,18 @@ Now that you have a service to initiate the sending of your email, you'll want t
 
 ```
 <bean id="blCheckoutWorkflow" class="org.broadleafcommerce.core.workflow.SequenceProcessor">
-    <property name="processContextFactory">
-        <bean class="org.broadleafcommerce.core.checkout.service.workflow.CheckoutProcessContextFactory"/>
-    </property>
-    <property name="activities">
-        <list>
-            <bean class="org.broadleafcommerce.core.offer.service.workflow.VerifyCustomerMaxOfferUsesActivity"/>
-            <bean class="org.broadleafcommerce.core.checkout.service.workflow.PaymentServiceActivity"/>
-            <bean class="org.broadleafcommerce.core.offer.service.workflow.RecordOfferUsageActivity"/>
-            <bean class="com.mycompany.checkout.service.workflow.MyCompleteOrderActivity"/>
-        </list>
-    </property>
-    <property name="defaultErrorHandler" ref="blDefaultErrorHandler"/>
+<property name="processContextFactory">
+    <bean class="org.broadleafcommerce.core.checkout.service.workflow.CheckoutProcessContextFactory"/>
+</property>
+<property name="activities">
+    <list>
+        <bean class="org.broadleafcommerce.core.offer.service.workflow.VerifyCustomerMaxOfferUsesActivity"/>
+        <bean class="org.broadleafcommerce.core.checkout.service.workflow.PaymentServiceActivity"/>
+        <bean class="org.broadleafcommerce.core.offer.service.workflow.RecordOfferUsageActivity"/>
+        <bean class="com.mycompany.checkout.service.workflow.MyCompleteOrderActivity"/>
+    </list>
+</property>
+<property name="defaultErrorHandler" ref="blDefaultErrorHandler"/>
 </bean>
 ```
 
@@ -145,22 +145,22 @@ We'll also need to implement our new custom activity:
 ```java
 public class MyCompleteOrderActivity extends CompleteOrderActivity {
 
-    @Resource(name="myEmailService")
-    MyEmailService myEmailService;
+@Resource(name="myEmailService")
+MyEmailService myEmailService;
 
-    @Override
-    public ProcessContext execute(ProcessContext context) throws Exception {
-        CheckoutSeed seed = ((CheckoutContext) context).getSeedData();
-        Order order = seed.getOrder();
-        myEmailService.sendOrderConfirmation(order.getSubmitDate(), order.getId().toString(), order.getCustomer().getEmailAddress());
-        return super.execute(context);
-    }
+@Override
+public ProcessContext execute(ProcessContext context) throws Exception {
+    CheckoutSeed seed = ((CheckoutContext) context).getSeedData();
+    Order order = seed.getOrder();
+    myEmailService.sendOrderConfirmation(order.getSubmitDate(), order.getId().toString(), order.getCustomer().getEmailAddress());
+    return super.execute(context);
+}
 }
 ```
 
 This activity utilizes the Order instance in the CheckoutContext passed into the execute method to harvest the necessary information to send the email through injected MyEmailService instance. Once this goal is achieved, the call is passed off to the superclass for normal handling.
 
-## <a name="wiki-prep-template" />Preparing the Template
+## <a name="wiki-prep-template"></a>Preparing the Template
 
 We also need a [Thymeleaf](http://thymeleaf.org) template for our order confirmation email. Thymeleaf templates provide you a rich mechanism for creating and formatting elaborate emails with dynamic content. Let's take a look at a simple template for our order confirmation email:
 
@@ -188,7 +188,7 @@ Note, if you wish to use the serverinfo variable, you should override the bean d
 </bean>
 ```
 
-## <a name="wiki-async-distribution" />Asynchronous Distribution
+## <a name="wiki-async-distribution"></a>Asynchronous Distribution
 
 Many users will wish to employ asynchronous sending for Broadleaf Commerce emails. Asynchronous emails have the following advantages:
 
@@ -272,7 +272,7 @@ Broadleaf Commerce achieves asynchronous sending via a JMS (Java Message Service
 
 Most of the items exhibited here are boilerplate configuration for [Spring and JMS/ActiveMQ](http://activemq.apache.org/spring-support.html). We configure the connection factory, queue and listener container much like any other Spring JMS configuration. The key configuration items from a Broadleaf Commerce perspective are the `emailServiceProducer`, `emailServiceMessageListener` and `blEmailService` beans. These beans are primarily responsible for posting messages to and reading messages from a queue. The configuration for the emailServiceProducer beans requires a `org.springframework.jms.core.JmsTemplate` and a `javax.jms.Destination` (provided by the JndiObjectFactoryBean) instance. The emailServiceMessageListener bean has no direct requirements and should be set to `org.broadleafcommerce.common.email.service.jms.EmailServiceMDP`, unless additional behavior is required at the moment of delivery, which would require an override or new version of EmailServiceMDP. Finally, for asynchronous configuration, the key bean id must be overridden with an instance of EmailServiceImpl providing our EmailServiceProducer instance to the emailServiceProducer property.
 
-## <a name="wiki-sync-distribution" /> Synchronous Distribution
+## <a name="wiki-sync-distribution"></a> Synchronous Distribution
 
 Some users will not require asynchronous email sending. If time spent sending an email is not important to your process and if guaranteed delivery is not a requirement, then synchronous email is the right choice for you. Synchronous sending does not require the presence or configuration for a JMS message broker. Instead, only a simple alteration to our earlier configuration is required. Recall our configuration for baseEmailInfo:
 
@@ -293,7 +293,7 @@ The following converts our baseEmailInfo bean into a synchronous email:
 </bean>
 ```
 
-## <a name="wiki-non-template-emails" />Non-Template Emails
+## <a name="wiki-non-template-emails"></a>Non-Template Emails
 
 Some users will prefer not to use a Thymeleaf template to drive the formatting and presentation of their emails. In fact, some of your email needs may be very simplistic and creation of a Velocity template is overkill. In these cases, you'll want to simply supply the body content for your email as a simple string. Let review how we would configure this type of email:
 
@@ -330,7 +330,7 @@ public void sendOrderConfirmation(Date orderDate, String orderId, String emailAd
 
 Here, we simply call the `setMessageBody` method on the EmailInfo instance before passing it to the sendBasicEmail method. The API for sendBasic email requires an EmailInfo, EmailTarget and HashMap instance. We pass in our modified EmailInfo instance to satisfy the first requirement. The EmailTarget requirement is fulfilled by passing in an instance of EmailTargetImpl which can be instantiated simply by calling the constructor with the destination email address as an argument (EmailTarget also provides CC and BCC fields). Note, there is an overloaded version of the sendTemplateEmail method that takes an EmailTarget instance as well. Finally, since we're not using a template, there is no need to add custom properties, so we can safely pass in a null value for the HashMap instance.
 
-## <a name="wiki-file-attachments" />Adding File Attachments
+## <a name="wiki-file-attachments"></a>Adding File Attachments
 
 You may also create emails with Broadleaf Commerce that contain file attachments. Let's revisit our basic email example from above and add a few attachments:
 
@@ -356,7 +356,7 @@ public void sendOrderConfirmation(Date orderDate, String orderId, String emailAd
 
 In this example, we've created a theoretical CSV file attachment by building a properly formatted String instance and then creating an Attachment instance using the bytes from that String and the proper MIME type. One could also retrieve the bytes from a local file, or any other source you can convert to a byte array.
 
-## <a name="wiki-prop-ref" />Email Property Reference
+## <a name="wiki-prop-ref"></a>Email Property Reference
 
 | Property               | Description                                                                                          | Java / XML config |
 | :--------------------- | :--------------------------------------------------------------------------------------------------- | :---------------: |

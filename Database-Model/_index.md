@@ -1,6 +1,6 @@
 # Database Model
 
-##Broadleaf Commerce 2.0.0
+## Broadleaf Commerce 2.0.0
 
 - [[Admin | Admin Model]]
     - [[Change Sets | Admin Change Sets]]

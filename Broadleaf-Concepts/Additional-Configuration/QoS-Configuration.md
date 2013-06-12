@@ -2,7 +2,7 @@
 
 You should configure the QoS (Quality Of Service) monitoring for vendor services. QoS does not interfere with a call to a vendor service (such as USPS), but does provide a way for that service to report on its status. Based on how you configure QoS, you can be notified of vendor service status changes in any number of ways. By default, Broadleaf will merely log vendor service status changes to the console. If this behavior is sufficient, then no further configuration is required. However, Broadleaf also provides support for email notifications for QoS status changes.
 
-## <a name="wiki-config" />QoS Configuration
+## <a name="wiki-config"></a>QoS Configuration
 
 Let's take a look at some configuration:
 
@@ -54,7 +54,7 @@ We can also specify specific status handlers for particular services. For exampl
 
 In this example, entries have been added for each of the services to the serviceHandlers property of the blServiceMonitor bean. Note, if an explicit handler is not defined, the defaultHandler will be used.
 
-## <a name="wiki-customization" />QoS Customization
+## <a name="wiki-customization"></a>QoS Customization
 
 You may find that the default QoS handlers provided by Broadleaf (logging and email) do not cover your needs. In the case of a vendor service failure, you may want to execute additional activities (i.e. attempt to restart a remote service or cleanup resources). In these cases, you'll need to implement a custom QoS handler. All QoS handlers implement the simple StatusHandler interface from Broadleaf:
 
