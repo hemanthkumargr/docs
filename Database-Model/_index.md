@@ -4,10 +4,10 @@
 
 ### 2.0 to 2.1 Model Changes
 - In [[Customer | Customer Detail]]
-    - New Table: BLC_CUSTOMER_PAYMENT
+    - New Table: BLC\_CUSTOMER\_PAYMENT
 - In [[Search | Catalog Search]]
-    - New Table: BLC_SEARCH_FACET_XREF 
-    - New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
+    - New Table: BLC\_SEARCH\_FACET\_XREF
+    - New Fields in `BLC\_SEARCH\_FACET`: REQUIRES\_ALL\_DEPENDENT
 
 ### Diagrams
 - [[Admin | Admin Model]]

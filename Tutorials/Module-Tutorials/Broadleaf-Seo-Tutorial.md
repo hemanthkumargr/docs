@@ -2,8 +2,9 @@
 
 Follow the steps below to add the Broadleaf-SEO module to your project.
 
-##Changes in `pom.xml` files 
-###In you project POM Declare the the BLC snapshot repository
+## Changes in `pom.xml` files
+
+### In you project POM Declare the the BLC snapshot repository
 
 ```xml
     <repositories>
@@ -15,7 +16,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
     </repositories>
 ```
     
-###In you Project `pom.xml` add the dependency for the Broadleaf SEO module
+### In you Project `pom.xml` add the dependency for the Broadleaf SEO module
 
 ```xml
 <dependency>
@@ -27,7 +28,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 </dependency>
 ```
 
-###In your SITE `pom.xml` where you will extend either Category and/or Product
+### In your SITE `pom.xml` where you will extend either Category and/or Product
 
 ```xml
 <dependency>
@@ -36,7 +37,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 </dependency>
 ```
 
-###In your ADMIN `pom.xml`
+### In your ADMIN `pom.xml`
 
 ```xml
 <dependency>
@@ -47,7 +48,7 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 
 ##Changes in `web.xml`
 
-###Add `classpath:/bl-seo-applicationContext.xml` in the `<context-param />` section
+### Add `classpath:/bl-seo-applicationContext.xml` in the `<context-param />` section
 
 ```xml
 <context-param>
@@ -61,17 +62,17 @@ Follow the steps below to add the Broadleaf-SEO module to your project.
 </context-param>
 ```
 
-##Changes in `mycompanyAdmin.gwt.xml`
+## Changes in `mycompanyAdmin.gwt.xml`
 
-###Add the following line
+### Add the following line
 
 ```xml
 <inherits name="org.broadleafcommerce.admin.seoModule" />
 ```
 
-##Domain Changes
+## Domain Changes
 
-###Extend Category and/or Product
+### Extend Category and/or Product
 Be sure you are comfortable with [[extending entities | Extending Entities Tutorial]] before continuing on.
 
 ```java
@@ -82,7 +83,7 @@ public class MyProductImpl extends ProductImpl implements Product, SeoMetaData, 
 ```
 
 
-###Embed the SeoData objects that you want to add
+### Embed the SeoData objects that you want to add
 
 ```java
 @Embedded
@@ -92,7 +93,7 @@ protected SeoMetaDataImpl seoMetaData = new SeoMetaDataImpl();
 protected TwitterData embeddableTwitterData = new TwitterDataImpl();
 ```
 
-###Implement Delegate Methods 
+### Implement Delegate Methods
 Your IDE should have the functionality to implement delegate methods (Generate code > Delegate Methods). 
 
 We will need to take a few addiational steps to make sure that our embeddable object is always present. Due to how hibernate handles empty embeddables if no data is inserted into the database the embeddable object will remain null. To address this issue we will need to implement a lazy initialization of the embeddable objects. 
@@ -116,17 +117,17 @@ public String getMetaKeywords() {
 }
 ```
 
-###Returning default values
+### Returning default values
 When applicable, we recommend defaulting to category/product values for when none are available in the data fields added in the Broadleaf SEO module. You can do so by replacing your `return` statement. Here is an example using product description.
 
 ```java
 return seoMetaData.getMetaDescription() != null ? seoMetaData.getMetaDescription() : super.getLongDescription();    
 ```
 
-##HTML changes
+## HTML changes
 You will now be able to use the  `<blc:head>` tag by adding the following parameters. The head processors will handle the object and add the appropriate seoMeta or Twitter Data if it is available.
 
-###Samples in category.html and product.html
+### Samples in category.html and product.html
 
 `<blc:head seoData="${category}" />` and `<blc:head seoData="${product}" />`
 
@@ -137,7 +138,7 @@ You will now be able to use the  `<blc:head>` tag by adding the following param
 <seo:twitterdata twitterData="${twitterData}" />
 ```
 
-###To use the ImageProcessor (which will default to using the name of the image as the alt text)
+### To use the ImageProcessor (which will default to using the name of the image as the alt text)
 
 ```html
 <seo:img src="@{*{media['primary'].url}}" />
