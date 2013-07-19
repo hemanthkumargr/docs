@@ -1,6 +1,8 @@
+# Sagepay Module
+
 > Note: Broadleaf Commerce currently offers integration with Sagepay through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
-<img src="images/payment-sagepay-diagram.png" class="no_border" alt="Sagepay Diagram">
+![Sagepay Diagram](payment-sagepay-diagram.png)
 
 ## How It Works
 1. On the final checkout page, the customer fills out their shipping address and billing address and hits submit. This information will be saved and a Sagepay crypt will be generated with the customer and order information.
@@ -13,4 +15,3 @@ There are two ways to get started integrating this payment gateway into your eCo
 Broadleaf offers a [[Sagepay Quick Start]] solution that allows developers to easily add Sagepay functionality
 with little configuration. If you have a simple eCommerce store and want an easy way to start accepting payment, this is a good place to start.
 On the other hand, if your application has a more complex payment workflow, you can customize your implementation using the [[Sagepay Advance Configuration]] guide.
-`

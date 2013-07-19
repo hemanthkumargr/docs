@@ -6,7 +6,7 @@ Broadleaf Commerces offers an out-of-the-box Sagepay solution that requires litt
 
 **You must have completed the [[Sagepay Environment Setup]] before continuing**
 
-##1) Adding Sagepay Support
+## 1) Adding Sagepay Support
 
 First, you will need to add the quick-start Sagepay application context `bl-sagepay-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
@@ -34,7 +34,7 @@ You will also need to add a component scan to your applicationContext-servlet.xm
 ```
 
 
-##2) Make your CheckoutController extend BroadleafSagepayFormController
+## 2) Make your CheckoutController extend BroadleafSagepayFormController
 
 Next, you will need to have your checkout controller extend `BroadleafSagepayFormController` to provide default `@RequestMappings` for your application instead of BroadleafCheckoutController.
 Here is an example controller with methods to get Sagepay integrated.
@@ -59,7 +59,7 @@ public class CheckoutController extends BroadleafSagepayFormController {
 }
 ```
 
-##3) Construct the HTML to call SagePay
+## 3) Construct the HTML to call SagePay
 
 Finally, you will need to have your Billing Form (Or another button) generate the Sagepay Redirect form.
   

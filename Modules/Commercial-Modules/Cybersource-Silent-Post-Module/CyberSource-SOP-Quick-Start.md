@@ -1,12 +1,14 @@
 > Note: Broadleaf Commerce currently offers integration with CyberSource using the Silent Order Post method through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
+## Versions : 2.1.0-RC1, 2.1.0-GA
+
 Broadleaf Commerces offers an out-of-the-box CyberSource solution that requires little configuration and is easily set up. 
-The quick start solution implements the [[Silent Order Post | http://www.cybersource.com/developers/develop/integration_methods/silent_order_post/]] model offered by CyberSource API.
+The quick start solution implements the [Silent Order Post](http://www.cybersource.com/developers/develop/integration_methods/silent_order_post/) model offered by CyberSource API.
 This implementation should be useful for those with a simple checkout flow and those who are wanting to perform an `authorize and debit` in a single transaction. For a more customized solution, please see [[CyberSource SOP Advance Configuration]].
 
 **You must have completed the [[CyberSource Silent Post Environment Setup]] before continuing**
 
-##1) Adding CyberSource SOP Support
+## 1) Adding CyberSource SOP Support
 
 First, you will need to add the quick-start CyberSource Silent Post application context `bl-cybersource-silentpost-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
@@ -28,7 +30,7 @@ Your `patchConfigLocations` should look something like this:
 ```
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-cybersource-silentpost-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
 
-##2) Make your CheckoutController extend BroadleafCybersourceSilentPostController
+## 2) Make your CheckoutController extend BroadleafCybersourceSilentPostController
 
 Next, you will need to create a basic controller that extends `BroadleafCybersourceSilentPostController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get CyberSource SOP integrated. 
@@ -60,7 +62,7 @@ public class CheckoutController extends BroadleafCybersourceSilentPostController
 }
 ```
 
-##3) Construct the HTML for the dynamic CyberSource SOP form
+## 3) Construct the HTML for the dynamic CyberSource SOP form
 
 Finally, you will need to contruct the form that you will send via Silent Order POST. The checkout() method defined above will add the necessary attributes on the Spring Model object.  
 Your page may look something like this:

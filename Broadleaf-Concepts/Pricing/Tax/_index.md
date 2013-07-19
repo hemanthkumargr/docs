@@ -1,4 +1,6 @@
-Broadleaf Commerce can be configured for tax calculation in a number of ways. You can use the simple tax calculator, one of our included third party tax modules (such as CyberSource), or by using a creating a custom tax module.   
+# Tax
+
+Broadleaf Commerce can be configured for tax calculation in a number of ways. You can use the simple tax calculator, one of our included third party tax modules (such as CyberSource), or by using a creating a custom tax module.
 
 ## Simple Tax Module
 

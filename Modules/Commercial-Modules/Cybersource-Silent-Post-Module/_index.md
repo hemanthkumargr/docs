@@ -1,6 +1,8 @@
+# CyberSource Silent Post Module
+
 > Note: Broadleaf Commerce currently offers integration with CyberSource using the Silent Order Post method through a commercial integration module. To obtain this third party integration or if you have any questions about this module, please contact us at info@broadleafcommerce.org
 
-<img src="images/payment-cybersource-silentpost-diagram.png" class="no_border" alt="Braintree Diagram">
+![CyberSource Diagram](payment-cybersource-silentpost-diagram.png)
 
 ## How It Works
 1. On the final checkout page, the customer fills out their credit card and billing information and hits submit. This form will POST directly to CyberSource with the required information contained within hidden fields and regular form fields.

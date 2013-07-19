@@ -4,7 +4,7 @@ Broadleaf Commerce offers an out-of-the-box PayPal solution that requires little
 
 **You must have completed the [[PayPal Environment Setup]] before continuing**
 
-##1) Adding PayPal Support
+## 1) Adding PayPal Support
 
 First, you will need to add the quick-start PayPal application context `bl-paypal-applicationContext.xml` to your web.xml.
 Your `patchConfigLocations` should look something like this:
@@ -27,7 +27,7 @@ Your `patchConfigLocations` should look something like this:
 
 > IMPORTANT: The order in which the application contexts are specified matters to the merge process. Make sure the "bl-paypal-applicationContext.xml" is specified BEFORE your applicationContext.xml that defines your "blConfiguration" bean. If you have customized your Runtime Environment Properties or Checkout Workflow, make sure to add this file in the appropriate order so that Broadleaf will pick up the the correct bean.
 
-##2) Create a PayPal Controller
+## 2) Create a PayPal Controller
 
 Next, you will need to create a basic controller that extends `BroadleafPayPalController` to provide default `@RequestMappings` for your application.
 Here is an example controller with the minimum amount of code needed to get PayPal integrated.
@@ -53,7 +53,7 @@ public class PayPalController extends BroadleafPayPalController {
 }
 ```
 
-##3) Add a PayPal button to your page
+## 3) Add a PayPal button to your page
 
 Finally, create a link in your checkout flow that points to the controller("/paypal/checkout") you just created above.
 Your page may contain a button like this:

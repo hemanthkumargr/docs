@@ -1,7 +1,6 @@
 # Enable GWT Logging to Server
 
-###
-When debugging the Admin, it is sometimes desireble to see the gwt logging output on the server logs.  By default, the Admin/GWT logs only show up when Admin is started with hosted mode. 
+When debugging the Admin, it is sometimes desireble to see the gwt logging output on the server logs.  By default, the Admin/GWT logs only show up when Admin is started with hosted mode.
 
 To enable server loggging, the gwt module .gwt.xml file must be modified so that remote logging is turned on.
 For example , add the following lines to your mycompanyAdmin.gwt.xml file: 

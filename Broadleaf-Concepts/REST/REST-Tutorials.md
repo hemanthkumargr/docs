@@ -33,6 +33,7 @@ In addition, you will have to make Broadleaf's default endpoints available to th
 ```xml
 <context:component-scan base-package="org.broadleafcommerce.core.web.api"/>
 ```
+
 > This component scan needs to be in one of the application contexts referenced in the `patchConfigLocations` parameter in your web.xml. You will run into problems if you instead put this scan into your applicationContext-servlet.xml.
 
 This configuration is required to use Broadleaf's RESTful services and the most basic way to simply get Broadleaf's RESTful services working out of the box.
@@ -52,9 +53,11 @@ Lastly, it is recommended that you configure a filter to set the customer state,
 ```
 
 > **Note: Simply providing this security configuration will not secure your REST API. No URLs are secured with this configuration.** At a minimum, you will likely want to add:
-```xml
-<sec:intercept-url pattern='/**' access='ROLE_REMOTE' />
-```
+
+    ```xml
+    <sec:intercept-url pattern='/**' access='ROLE_REMOTE' />
+    ```
+
 > as well as provide some type of security other than http-basic.
 
 ## Extending Broadleaf RESTful services ##
@@ -128,6 +131,7 @@ In order to create a net new RESTful service, you simply need to implement an en
 2. Ensure that that the Spring-managed endpoint contains the necessary @Scope, @Path, @Produces, @Consumes annotations.
 
 Here is an example:
+
 ```java
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
@@ -161,6 +165,7 @@ public class MyNewEndpoint {
     }
 }
 ```
+
 That is all that is required.  If this bean is registered with the Spring application context, either using a component scan or defining it directly in the merge application context XML file, and the web.xml file is modified as described above, then the new endpoint will be exposed as a RESTful service.
 
 Here is the resource class that defines the object being returned:

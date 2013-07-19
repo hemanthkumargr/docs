@@ -1,3 +1,5 @@
+# Database Configuration
+
 Broadleaf Commerce initially is configured to run with the Hypersonic (HSQL) database.  HSQL gives us a lightweight database that is especially good for green field development.  Broadleaf leverages a Hibernate feature to create and populate the database when you start the web application. This is achieved by setting properties that are part of the [[Persistence Configuration]].
 
 Let's take a look at a typical persistence unit configuration:
@@ -65,77 +67,84 @@ In order to change the database properties per environment, here are the steps:
 2. Open `site/src/webapp/WEB-INF/applicationContext-datasources.xml` and ensure that it is configured according to your JNDI configuration. It should not need to be changed unless you are using a different JNDI name for your datasources (Typically, you should not need to change this file).
 
 3. If you added additional JNDI properties, or did not use the default JNDI name of the webDS (`jdbc/web`), then you'll need to modify the `site/src/webapp/WEB-INF/web.xml` file (note that typically should not need to change this):
-```xml
-<resource-ref>
-  <!-- Change this JNDI name and/or add additional resource-refs for new JNDI names. 
-    Typically you should not need to change this. -->
-  <res-ref-name>jdbc/web</res-ref-name>
-  <res-type>javax.sql.DataSource</res-type>
-  <res-auth>Container</res-auth>
-</resource-ref>
-```
+
+    ```xml
+    <resource-ref>
+      <!-- Change this JNDI name and/or add additional resource-refs for
+           new JNDI names. Typically you should not need to change this. -->
+      <res-ref-name>jdbc/web</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+    </resource-ref>
+    ```
 
 4. Change the properties files for each environment to reflect the correct JPA settings for that environment. These files can be located in each of the projects (i.e. core, site, admin) under src/main/resources/runtime-properties.  Here is the file core/src/main/resources/runtime-properties/common-shared.properties:
-```
-# Settings for the default persistence unit
-blPU.hibernate.hbm2ddl.auto=validate
-blPU.hibernate.dialect=org.hibernate.dialect.HSQLDialect
-blPU.hibernate.show_sql=false
-blPU.hibernate.cache.use_second_level_cache=true
-blPU.hibernate.cache.use_query_cache=true
-blPU.hibernate.hbm2ddl.import_files=null
 
-# Settings for the CMS storage persistence unit
-blCMSStorage.hibernate.hbm2ddl.auto=validate
-blCMSStorage.hibernate.dialect=org.hibernate.dialect.HSQLDialect
-blCMSStorage.hibernate.show_sql=false
-blCMSStorage.hibernate.cache.use_second_level_cache=true
-blCMSStorage.hibernate.cache.use_query_cache=true
-blCMSStorage.hibernate.hbm2ddl.import_files=null
+    ```
+    # Settings for the default persistence unit
+    blPU.hibernate.hbm2ddl.auto=validate
+    blPU.hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    blPU.hibernate.show_sql=false
+    blPU.hibernate.cache.use_second_level_cache=true
+    blPU.hibernate.cache.use_query_cache=true
+    blPU.hibernate.hbm2ddl.import_files=null
 
-# Settings for the secure persistence unit
-blSecurePU.hibernate.hbm2ddl.auto=validate
-blSecurePU.hibernate.dialect=org.hibernate.dialect.HSQLDialect
-blSecurePU.hibernate.show_sql=false
-blSecurePU.hibernate.cache.use_second_level_cache=false
-blSecurePU.hibernate.cache.use_query_cache=false
-blSecurePU.hibernate.hbm2ddl.import_files=null
-```
+    # Settings for the CMS storage persistence unit
+    blCMSStorage.hibernate.hbm2ddl.auto=validate
+    blCMSStorage.hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    blCMSStorage.hibernate.show_sql=false
+    blCMSStorage.hibernate.cache.use_second_level_cache=true
+    blCMSStorage.hibernate.cache.use_query_cache=true
+    blCMSStorage.hibernate.hbm2ddl.import_files=null
+
+    # Settings for the secure persistence unit
+    blSecurePU.hibernate.hbm2ddl.auto=validate
+    blSecurePU.hibernate.dialect=org.hibernate.dialect.HSQLDialect
+    blSecurePU.hibernate.show_sql=false
+    blSecurePU.hibernate.cache.use_second_level_cache=false
+    blSecurePU.hibernate.cache.use_query_cache=false
+    blSecurePU.hibernate.hbm2ddl.import_files=null
+    ```
 
 5. Make appropriate changes to the environment properties in each web application (e.g. site/src/main/resources/runtime-properties/*.properties)
 
-These properties will, at runtime, replace and/or add the correct keys and values to the Persistence Unit who's name is pre-pended to the property name. Each of the application specific properties will take precedence over the shared properties, which in turn take precedence over Broadleaf's default properties. In order to have a slightly different configuration for QA, add this to the site/main/resources/runtime-properties/integrationqa.properties:
-```
-blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-blCMSStorage.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-blSecurePU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-```
-This will cause the dialect to change to an Oracle 10g Dialect for all 3 persistence units in the "integrationqa" environment.
+    These properties will, at runtime, replace and/or add the correct keys and values to the Persistence Unit who's name is pre-pended to the property name. Each of the application specific properties will take precedence over the shared properties, which in turn take precedence over Broadleaf's default properties. In order to have a slightly different configuration for QA, add this to the site/main/resources/runtime-properties/integrationqa.properties:
 
-Another interesting use of this may be that you want to run different database scripts in different environments because of syntax or type of data.  Consider the file site/main/resources/runtime-properties/development.properties:
-```
-blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
-  /sql/load_admin_users.sql,\
-  /sql/load_code_tables.sql,\
-  /sql/load_table_sequences.sql,\
-  /sql/load_catalog_data.sql,\
-  /sql/load_content_structure.sql,\
-  /sql/load_content_data.sql
-```
-This file is not overriding the dialect, so it will use the HSQLDB dialect.  But it does specify a comma-delimited list of SQL scripts that it should run when after the tables are created.  Perhaps QA will use Oracle, and still needs to load some basic data. Since the syntax between Oracle and HSQLDB is slightly different, the QA configuration might look like this:
-```
-blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
-  /sql/oracle/load_admin_users.sql,\
-  /sql/oracle/load_code_tables.sql,\
-  /sql/oracle/load_table_sequences.sql,\
-  /sql/oracle/load_catalog_data.sql,\
-  /sql/oracle/load_content_structure.sql,\
-  /sql/oracle/load_content_data.sql
+    ```
+    blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    blCMSStorage.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    blSecurePU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    ```
 
-blCMSStorage.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-blSecurePU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
-```
+    This will cause the dialect to change to an Oracle 10g Dialect for all 3 persistence units in the "integrationqa" environment.
+
+    Another interesting use of this may be that you want to run different database scripts in different environments because of syntax or type of data.  Consider the file site/main/resources/runtime-properties/development.properties:
+
+    ```
+    blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
+      /sql/load_admin_users.sql,\
+      /sql/load_code_tables.sql,\
+      /sql/load_table_sequences.sql,\
+      /sql/load_catalog_data.sql,\
+      /sql/load_content_structure.sql,\
+      /sql/load_content_data.sql
+    ```
+
+    This file is not overriding the dialect, so it will use the HSQLDB dialect.  But it does specify a comma-delimited list of SQL scripts that it should run when after the tables are created.  Perhaps QA will use Oracle, and still needs to load some basic data. Since the syntax between Oracle and HSQLDB is slightly different, the QA configuration might look like this:
+
+    ```
+    blPU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    blPU.hibernate.hbm2ddl.import_files=/sql/load_admin_security.sql,\
+      /sql/oracle/load_admin_users.sql,\
+      /sql/oracle/load_code_tables.sql,\
+      /sql/oracle/load_table_sequences.sql,\
+      /sql/oracle/load_catalog_data.sql,\
+      /sql/oracle/load_content_structure.sql,\
+      /sql/oracle/load_content_data.sql
+
+    blCMSStorage.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    blSecurePU.hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+    ```
 
 As you can see, you can configure and override any JPA property on a per-environment basis. Of course this can all be very powerful as it lets you pre-configure the JNDI name of the data source(s) and the various JPA runtime properties such as dialect, SQL logging, DDL, second level cache, and import scripts so that the application does not need to change from environment to environment.
 

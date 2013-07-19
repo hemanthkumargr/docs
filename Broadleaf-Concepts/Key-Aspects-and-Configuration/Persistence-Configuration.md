@@ -2,7 +2,7 @@
 
 To properly configure Broadleaf's persistence system, we will need to follow a few steps. Outlined below are descriptions of how to set up the persisntence unit beans, datasources, and also the necessary persistence XML configurations. Lastly, we will cover utilizing Ehcache to improve performance.
 
-## <a name="wiki-pu-config" />Persistence Unit Configuration
+## <a name="wiki-pu-config"></a> Persistence Unit Configuration
 
 Broadleaf provides a default application context file for configuring data sources.  By default, Broadleaf uses 3 data sources.  The first is the "webDS", or main data source containing most of the tables used by Broadleaf Commerce.  The second is the "webSecureDS" which is meant to provide a secure data source for tables that contain things like payment information in a PCI compliant situation.  The third data source, "webContentDS", is a data source to store content-managed data such as page snippets.  For simplicity, and in many real-world cases, it will be preferable to store all data in the same database or schema.  The ability to separate them is provided as a convenience in cases where architects, DBAs, or system administrators require it.  Broadleaf uses JNDI, by default, to provide data sources.  This is a very common approach for many organizations.  It allows system administrators to keep the database connection configuration separate from the code base, but allows a standard and consistent way to access database resources across multiple environments.  Here is a snippet from the default Broadleaf data source configuration found in `/WEB-INF/applicationContext-datasource.xml`:
 
@@ -80,7 +80,7 @@ Here, we have created a new entity manager factory for our new persistence unit.
 </bean>
 ```
 
-## <a name="wiki-pxml-config" />Persistence XML Configuration
+## <a name="wiki-pxml-config"></a> Persistence XML Configuration
 
 Your managed entities, mapping files and datasource properties are specified inside your `persistence.xml` file(s). Here is an example that supports the minimal persistence unit configuration for Broadleaf:
 
@@ -119,6 +119,7 @@ Since we use JPA and Hibernate, we can specify properties that control the behav
 ```
 
 However, Broadleaf provides a mechanism to easily control this behavior on a per-environment basis. Why do you need this?  Well the answer is that many things can and do change between environments. But, since these are defined inside the war, you don't want to re-build for every environment. Many QA departments require the same binary war that is certified for QA to be deployed to production. This restricts being able to build with new properties for each environment.  For example, perhaps you want the following configuration in your local environment:
+
 ```xml
 <properties>
   <property name="hibernate.hbm2ddl.auto" value="create-drop" />
@@ -131,6 +132,7 @@ However, Broadleaf provides a mechanism to easily control this behavior on a per
 ```
 
 But you want this in production:
+
 ```xml
 <properties>
   <property name="hibernate.hbm2ddl.auto" value="validate" />
@@ -142,7 +144,7 @@ But you want this in production:
 </properties>
 ```
 
-Spring allows you to define Persistence Unit Post Processors on the Persistence Manager.  Broadleaf provides a JPAPropertiesPersistenceUnitPostProcessor to allow you to substitute the correct properties at runtime.  The property name is simply a property name defined by the persistence provider (e.g. [[Hibernate|http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/configuration.html]] in this case), pre-pended with the persistence unit name and a period (e.g. "blPU.").  The property names are matched and associated with the correct persistence unit.  The values are replaced according to the [[Runtime Environment Configuration|Runtime Environment Configuration]].  If you wish to remove a property or ensure that it is simply not considered, set the value to "null" in the runtime properties. So, the following persistenceUnitPostProcessor property:
+Spring allows you to define Persistence Unit Post Processors on the Persistence Manager.  Broadleaf provides a JPAPropertiesPersistenceUnitPostProcessor to allow you to substitute the correct properties at runtime.  The property name is simply a property name defined by the persistence provider (e.g. [Hibernate](http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/configuration.html) in this case), pre-pended with the persistence unit name and a period (e.g. "blPU.").  The property names are matched and associated with the correct persistence unit.  The values are replaced according to the [[Runtime Environment Configuration|Runtime Environment Configuration]].  If you wish to remove a property or ensure that it is simply not considered, set the value to "null" in the runtime properties. So, the following persistenceUnitPostProcessor property:
 
 ```
 <entry key="blPU.hibernate.dialect" value="${blPU.hibernate.dialect}"/>
@@ -201,7 +203,7 @@ This is very similar to how we configured the entity in the `blPU` - the only di
 </persistence-unit>
 ```
 
-## <a name="wiki-ehcache-config" />Ehcache Configuration
+## <a name="wiki-ehcache-config"></a> Ehcache Configuration
 
 Broadleaf internally uses Ehcache as its cache provider implementation. You have an opportunity to add to the configuration of this cache provider in the persistence XML file we've been working in.
 

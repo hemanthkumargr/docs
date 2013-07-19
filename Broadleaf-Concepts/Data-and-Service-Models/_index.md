@@ -1,4 +1,6 @@
-## <a name="wiki-entities" />Main Entities
+# Data and Service Models
+
+## <a name="wiki-entities"></a> Main Entities
 
 The Broadleaf domain provides a lot of functionality out of the box. We've identified key entities and described their functionality.
 
@@ -8,7 +10,7 @@ The Broadleaf domain provides a lot of functionality out of the box. We've ident
 
 Also learn about [[Extending Entities]]
 
-## <a name="wiki-services" />Main Services
+## <a name="wiki-services"></a> Main Services
 
 Many services exist to allow you to interact with Broadleaf and perform tasks. Here are some key ones:
 

@@ -1,3 +1,5 @@
+# Shipping
+
 Broadleaf Commerce can be configured for shipping calculation in a number of ways. You can use banded shipping, one of our included third party shipping modules (such as USPS), or by using a custom shipping module.
 
 ## Banded Shipping
@@ -51,14 +53,14 @@ Configuring banded shipping involves establishing the maps in your application c
 
 In this example, we're overriding the default banded shipping config from Broadleaf Commerce by defining a new BandedShippingModule bean with the appropriate id `blShippingModule`. We've taken away several of the shipping types and added an arbitrary new type for overnight shipping. Also, we've removed the alaska and hawaii shipping subtypes, effectively removing regional specificity for shipping charges. Now let's review some sample data that we can use to back our new banded shipping configuration.
 
-| ID | BAND_RESULT_PCT | BAND_RESULT_QTY | BAND_UNIT_QTY | FEE_BAND | FEE_SUB_TYPE | FEE_TYPE  |
-| :- | :-------------- | :-------------- | :------------ | :------- | :----------- | :-------- |
-| 1  | 10              | 0               | 50.00         | 1        | ALL          | SHIPPING  |
-| 2  | 9               | 0               | 999999        | 1        | ALL          | SHIPPING  |
-| 3  | 0               | 10.50           | 50.00         | 2        | ALL          | EXPEDITED |
-| 4  | 0               | 25.00           | 999999        | 2        | ALL          | EXPEDITED |
-| 5  | 0               | 25.00           | 50.00         | 3        | ALL          | OVERNIGHT |
-| 6  | 0               | 50.00           | 999999        | 3        | ALL          | OVERNIGHT |
+| ID  | BAND\_RESULT\_PCT | BAND\_RESULT\_QTY | BAND\_UNIT\_QTY | FEE\_BAND | FEE\_SUB\_TYPE | FEE\_TYPE |
+| :-- | :--------------   | :--------------   | :------------   | :-------  | :-----------   | :-------- |
+| 1   | 10                | 0                 | 50.00           | 1         | ALL            | SHIPPING  |
+| 2   | 9                 | 0                 | 999999          | 1         | ALL            | SHIPPING  |
+| 3   | 0                 | 10.50             | 50.00           | 2         | ALL            | EXPEDITED |
+| 4   | 0                 | 25.00             | 999999          | 2         | ALL            | EXPEDITED |
+| 5   | 0                 | 25.00             | 50.00           | 3         | ALL            | OVERNIGHT |
+| 6   | 0                 | 50.00             | 999999          | 3         | ALL            | OVERNIGHT |
 
 - BAND_RESULT_PCT - represents the percentage of the retail total of all items in a fulfillment group for this band.
 - BAND_RESULT_QTY - represents the flat rate amount for this band.

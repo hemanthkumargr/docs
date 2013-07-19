@@ -20,9 +20,12 @@ Accept: applciation/json
 Content-Type: application/json
 ```
 
-## Functionality ##
+## Functionality
+
 The following provides a list of current RESTful endpoints provided with Broadleaf Commerce:
-### Catalog ###
+
+### Catalog
+
 <table>
   <tr>
     <th>URI</th><td>Description</td><th>Method</th><th>Query Parameters</th>
@@ -176,8 +179,11 @@ The following provides a list of current RESTful endpoints provided with Broadle
     <td>None</td>
   </tr>
 </table>
-### Order ###
-**NOTE: The customer ID must be passed on each request. It can be passed on a query parameter or a request header. But it must be keyed as "customerId"**
+
+### Order
+
+>NOTE: The customer ID must be passed on each request. It can be passed on a query parameter or a request header. But it must be keyed as "customerId"**
+
 <table>
   <tr>
     <th>URI</th><td>Description</td><th>Method</th><th>Query Parameters</th>
@@ -304,7 +310,9 @@ The following provides a list of current RESTful endpoints provided with Broadle
     </td>
   </tr>
 </table>
-### Checkout ###
+
+### Checkout
+
 <table>
   <tr>
     <th>URI</th><td>Description</td><th>Method</th><th>Query Parameters</th>

@@ -13,6 +13,7 @@ To configure your site to use `SimpleTaxModule`, include the following bean defi
 
 ## Example:
 In the following  example, the `SimpleTaxModule` is configured to charge 8.5% for addresses with postal-code 75033 and 75034.   For other addresses in the state of Texas, the module is configured to charge 8.25% sales tax.
+
 ```xml
 <bean id="blTaxModule" class="org.broadleafcommerce.core.pricing.service.module.SimpleTaxModule">
   <property name="itemPostalCodeTaxRateMap">
