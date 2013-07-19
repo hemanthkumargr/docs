@@ -16,7 +16,7 @@ Content-Type: application/json
 And of course, to ensure that all requests/responses are in JSON, use both of those headers combined:
 
 ```
-Accept: applciation/json
+Accept: application/json
 Content-Type: application/json
 ```
 
@@ -37,15 +37,30 @@ The following provides a list of current RESTful endpoints provided with Broadle
     <td>None</td>
   </tr>
   <tr>
-    <td>/catalog/products</td>
-    <td>Returns a representation of a paginated list of products</td>
+    <td>/catalog/search/products</td>
+    <td>Returns a representation of a paginated list of products along with any search facets that may be used to filter the search.</td>
     <td>GET</td>
     <td>
        <ul>
-       <li>name</li>
-       <li>limit (default 20)</li>
-       <li>offset (default 0)</li>
+       <li>q - a query parameter such as product name or keyword(s)</li>
+       <li>page - the page to return in a paginated situation (default=1)</li>
+       <li>pageSize - the number of records to return per page (default=15)</li>
        </ul>
+       Additionally, you may pass in search facets (which are returned in the result of an initial query). Facets may be something like: price=range[0.00000:15.00000]&price=range[15.00000:30.00000]. This will add two values to a facet, allowing for a range in price from $0-$30.
+    </td>
+  </tr>
+  <tr>
+    <td>/catalog/search/category/{categoryId}/products</td>
+    <td>Returns a representation of a paginated list of products within a category, along with any search facets that may be used to filter the search.</td>
+    <td>GET</td>
+    <td>
+       <ul>
+       <li>categoryId - the category that you wish to search</li>
+       <li>q - a query parameter such as product name or keyword(s)</li>
+       <li>page - the page to return in a paginated situation (default=1)</li>
+       <li>pageSize - the number of records to return per page (default=15)</li>
+       </ul>
+       Additionally, you may pass in search facets (which are returned in the result of an initial query). Facets may be something like: price=range[0.00000:15.00000]&price=range[15.00000:30.00000]. This will add two values to a facet, allowing for a range in price from $0-$30.
     </td>
   </tr>
   <tr>
@@ -99,18 +114,6 @@ The following provides a list of current RESTful endpoints provided with Broadle
       <li>productOffset (default 0)</li>
       <li>subcategoryOffset (default 0)</li>
       <li>subcategoryDepth (default 1)</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td>/catalog/category/{id}/proucts</td>
-    <td>Returns a list of products for a particular category</td>
-    <td>GET</td>
-    <td>
-      <ul>
-        <li>limit (default 20)</li>
-        <li>offset (default 0)</li>
-        <li>activeOnly (default true)</li>
       </ul>
     </td>
   </tr>

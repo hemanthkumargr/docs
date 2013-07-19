@@ -1,6 +1,51 @@
 # Database Model
 
-##Broadleaf Commerce 2.2.0
+### 2.3 to 3.0 Model Changes
+- In [[Customer | Customer Detail]]
+    - New Fields in `BLC_ADDRESS`: ADDRESS_LINE3
+    - New Fields in `BLC_CUSTOMER`: TAX_EXEMPTION_CODE
+- In [[Admin | Admin Model]]
+    - New Fields in `BLC_ADMIN_SECTION': CEILING_ENTITY, DISPLAY_ORDER
+    - New Fields in `BLC_SITE': ARCHIVED, DEACTIVATED
+    - New Table: `BLC_CATALOG`
+    - New Table: `BLC_SITE_CATALOG`
+- In [[Common]]
+    - New Fields in `BLC_LOCALE`: IS_TRANSLATABLE
+    - New Table: `BLC_TRANSLATION`
+    - New Table: `BLC_MODULE_CONFIGURATION`
+- In [[Category | Catalog Category]]
+    - New Fields in `BLC_CATEGORY`: TAX_CODE
+- In [[Product | Catalog Product]]
+    - New Fields in `BLC_PRODUCT`: TAX_CODE
+    - New Fields in `BLC_PRODUCT_OPTION`: ERROR_CODE, ERROR_MESSAGE, VALIDATION_TYPE, USE_IN_SKU_GENERATION, VALIDATION_STRING
+- In [[Sku | Catalog Sku]]
+    - New Fields in `BLC_SKU`: TAX_CODE, CURRENCY_CODE
+- In [[Fulfillment | Order Fulfillment]]
+    - New Fields in `BLC_FULFILLMENT_OPTION`: TAX_CODE, TAXABLE
+- In [[Tax | Order Tax]]
+    - New Fields in `BLC_TAX_DETAIL`: TAX_COUNTRY, JURISDICTION_NAME, TAX_REGION, TAX_NAME, MODULE_CONFIG_ID
+- In [[Offer | Offer Detail]]
+    - New Fields in `BLC_OFFER`: AUTOMATICALLY_ADDED
+- In [[Static Asset | CMS Static Asset]]
+    - New Fields in `BLC_STATIC_ASSET`: ALT_TEXT, STORAGE_TYPE, TITLE
+
+### 2.2 to 2.3 Model Changes
+- In [[Customer | Customer Detail]]
+    - New Fields in `BLC_ADDRESS`: PHONE_FAX_ID, PHONE_PRIMARY_ID, PHONE_SECONDARY_ID
+    - New Fields in `BLC_CUSTOMER_PAYMENT`: IS_DEFAULT
+- In [[Fulfillment | Order Fulfillment]]
+    - New Fields in `BLC_FULFILLMENT_GROUP`: FULFILLMENT_GROUP_SEQUNCE
+    - New Fields in `BLC_FULFILLMENT_GROUP_ITEM`: PRORATED_ORDER_ADJ, TAXABLE_PRORATED_ORDER_ADJ, TOTAL_ITEM_AMOUNT, TOTAL_ITEM_TAXABLE_AMOUNT
+- In [[Offer | Offer Detail]]
+    - New Fields in `BLC_OFFER`: MARKETING_MESSASGE
+- In [[Order | Order]]
+    - New Table: BLC_ITEM_OFFER_QUALIFIER
+    - New Table: BLC_ORDER_ITEM_DTL_ADJ
+    - New Table: BLC_ORDER_ITEM_PRICE_DTL
+    - New Table: BLC_ORDER_PAYMENT_DETAILS
+    - New Fields in `BLC_ORDER_ITEM`: DISCOUNTS_ALLOWED, RETAIL_PRICE_OVERRIDE, SALE_PRICE_OVERRIDE, TOTAL_TAX
+    - New Fields in `BLC_ORDER_PAYMENT`: CUSTOMER_PAYMENT_ID
+    - New Fields in `BLC_PAYMENT_RESPONSE_ITEM`: TRANSACTION_AMOUNT
 
 ### 2.1 to 2.2 Model Changes
 - In [[Admin | Admin Model]]
@@ -16,7 +61,7 @@
     - New Fields in `BLC_FIELD`: TRANSLATABLE
 - In [[Fulfillment | Order Fulfillment]]
     - New Fields in `BLC_FULFILLMENT_OPTION_FIXED`: CURRENCY_CODE
-- In [[Detail | Order Detail]]
+- In [[Order | Order Detail]]
     - New Fields in `BLC_ORDER`: LOCALE_CODE, CURRENCY_CODE
 - In [[Payment | Order Payment]]
     - New Fields in `BLC_PAYMENT_RESPONSE_ITEM`: CURRENCY_CODE
@@ -28,7 +73,6 @@
     - New Fields in `BLC_SKU_FEE`: CURRENCY_CODE
 - In [[Social]]
     - New Table: BLC_UserConnection     
-
 
 ### 2.0 to 2.1 Model Changes
 - In [[Customer | Customer Detail]]

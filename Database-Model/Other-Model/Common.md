@@ -17,6 +17,9 @@
 |SEQUENCE_GENERATOR          | n/a      | Holds information for sequence generation  |
 |BLC_LOCALE                  | [Locale.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/locale/domain/Locale.html)      | Contains locale information, such as code and if it's default  |
 |BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
+|BLC_TRANSLATION             | [Translation.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/i18n/domain/Translation.html)      | Contains currency information, such as code and if it's default  |
+|BLC_MODULE_CONFIGURATION    | [ModuleConfiguration.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/config/domain/ModuleConfiguration.html)      | Contains currency information, such as code and if it's default  |
+
 
 ###Related Tables
 

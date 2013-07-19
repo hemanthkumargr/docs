@@ -4,9 +4,6 @@
 
 Thanks for wanting to try out Broadleaf Commerce! By following this tutorial, you'll have your very own eCommerce site up and running in no time. We'll get your environment up and running, show you where things live, and walk you through a few examples of some of the cool things you can do with Broadleaf.
 
-## Important Note
-In Broadleaf 3.0, we have currently done extensive rework on our admin panel moving completely away from GWT in favor of converting it to a normal Spring MVC application. In addition, numerous bug fixes and feature additions have been added. We are planning on releasing Broadleaf 3.0.0-GA late-June 2013, and highly recommend new projects reference Broadleaf version 3.0.0-BETA2. To get an updated reference to the workspace download, see the [getting started docs page for 3.0](http://docs.broadleafcommerce.org/dev/Getting-Started.html).
-
 ## <a name="wiki-prerequisites"></a> Prerequisites
 
 - First, you'll need the Java 6 SDK, which you can find [on Oracle's official Java site](http://www.oracle.com/technetwork/java/javasebusiness/downloads/java-archive-downloads-javase6-419409.html#jdk-6u32-oth-JPR)
@@ -38,9 +35,7 @@ Once the plugin is done installing, you will be prompted to restart Eclipse. Go 
 
 You'll once again be asked for a workspace. This time, we're going to pick a different one. To make getting started with Broadleaf as easy as possible, we've already set up a workspace with some reasonable defaults and tweaks to help you out. Let's download it!
 
-Download Link: [Broadleaf Eclipse Workspace](http://www.broadleafcommerce.org/workspace-download)
-
-Broadleaf 3.0 workspace download link: [Broadleaf 3.0 workspace](http://www.broadleafcommerce.org/workspace-download?workspaceVersion=DemoSite-3.0.0-BETA2-eclipse-workspace.zip&docsVersion=dev)
+Broadleaf 3.0 workspace Download Link: [Broadleaf Eclipse Workspace](http://www.broadleafcommerce.org/workspace-download?workspaceVersion=DemoSite-3.0.0-GA-eclipse-workspace.zip&docsVersion=current)
 
 > Note: If you're not prompted for a workspace, simply go to **File --> Switch Workspace** and select the path
 

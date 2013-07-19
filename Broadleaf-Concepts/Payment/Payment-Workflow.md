@@ -64,14 +64,14 @@ Looking a little more in-depth at the authorize and debit workflow, we see that 
 
 Next, each PaymentActivity in the activities list is passed a PaymentService instance and a user name. Out-of-the-box, Broadleaf has configured three generic payment services: Gift Card, Bank Account and Credit Card. Each of these services is tied to a module (see [[Creating a Payment Module]]). In the case of the default Broadleaf implementation, each of these modules is configured to be an instance of DefaultModule, which is merely a placeholder type and will not initiate real transactions. To enable real payment transactions, Broadleaf users must override the definition of one or more of these modules to interact with a real payment system, which we'll cover blow. The username property is for logging purposes and identifies the agent (in this case, "web") who executed the payment transaction.
 
-| Class                              | Requirement       | Values                                                       |
-| :--------------------------------- | :---------------- | :----------------------------------------------------------- |
-| SimplePaymentProcessContextFactory | None              | N/A                                                          |
-| CompositeActivity                  | workflow          | Instance of SequenceProcessor                                |
-| PaymentProcessContextFactory       | paymentActionType | AUTHORIZE,DEBIT,AUTHORIZEANDDEBIT,CREDIT,VOIDPAYMENT,BALANCE |
-| PaymentActivity                    | paymentService    | Instance of PaymentService                                   |
-|                                    | userName          | Arbitrary String value                                       |
-| defaultErrorHandler                | None              | N/A                                                          |
+| Class                              | Requirement       | Values                                                            |
+| :--------------------------------- | :---------------- | :---------------------------------------------------------------- |
+| SimplePaymentProcessContextFactory | None              | N/A                                                               |
+| CompositeActivity                  | workflow          | Instance of SequenceProcessor                                     |
+| PaymentProcessContextFactory       | paymentActionType | AUTHORIZE, DEBIT, AUTHORIZEANDDEBIT, CREDIT, VOIDPAYMENT, BALANCE |
+| PaymentActivity                    | paymentService    | Instance of PaymentService                                        |
+|                                    | userName          | Arbitrary String value                                            |
+| defaultErrorHandler                | None              | N/A                                                               |
 
 In most all cases, the default payment configuration for Broadleaf Commerce will not be sufficient. Users must therefore override the default configuration to fit their needs. In the simplest case, users may only need to override one or more of the payment modules defined by Broadleaf Commerce. For example, if your site will only accept credit cards for payment and you plan on only performing a single authorize/debit call to your end credit card processor, then overriding the credit card module will be enough. This is because Gift Card and Bank Account will continue to be registered with the Default Module, which as you remember, is merely a placeholder and will not engage transactions. As a result, with this simple tweak in your application configuration, you will acquire real credit card transaction processing. 
 

@@ -22,6 +22,9 @@
 |BLC_ORDER_ITEM_ADD_ATTR     | n/a      | Contains arbitrary data about a discrete order item  |
 |BLC_ORDER_ITEM_ADJUSTMENT   | [OrderItemAdjustment.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/offer/domain/OrderItemAdjustment.html)      | Contains offer information and amount applied to an order item  |
 |BLC_ORDER_ITEM_ATTRIBUTE    | [OrderItemAttribute.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderItemAttribute.html)      | Contains arbitrary data about an order item  |
+|BLC_ITEM_OFFER_QUALIFIER    | [OrderItemQualifier.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderItemQualifier.html)      | Contains data about order item qualifies  |
+|BLC_ORDER_ITEM_PRICE_DTL    | [OrderItemPriceDetailImpl.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderItemPriceDetailImpl.html)      | Contains order item price detail information  |
+|BLC_ORDER_ITEM_DTL_ADJ      | [OrderItemPriceDetailAdjustmentImpl.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderItemPriceDetailAdjustmentImpl.html)      | Contains order item price detail adjustment information  |
 |BLC_PERSONAL_MESSAGE        | [PersonalMessage.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/PersonalMessage.html)      | Contains personal message information (e.g. from, to, message body)   |
 |BLC_ORDER_MULTISHIP_OPTION  | [OrderMultishipOption.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/OrderMultishipOption.html)      | Represents a given set of options for an OrderItem in an Order in the multiship context  |
 |BLC_ORDER_OFFER_CODE_XREF   | n/a      | Cross-reference from orders to offers  |

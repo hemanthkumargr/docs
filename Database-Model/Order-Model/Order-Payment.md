@@ -13,6 +13,7 @@
 |BLC_GIFT_CARD_PAYMENT         | [GiftCardPaymentInfo.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/payment/domain/GiftCardPaymentInfo.html)      | Contains data about a gift card used for payment  |
 |BLC_CREDIT_CARD_PAYMENT       | [CreditCardPaymentInfo.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/payment/domain/CreditCardPaymentInfo.html)      | Contains information about a credit card used for payment  |
 |BLC_ORDER_PAYMENT             | [PaymentInfo.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/payment/domain/PaymentInfo.html)      | Contains payment information for an order  |
+|BLC_ORDER_PAYMENT_DETAILS     | [PaymentInfoDetail.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/payment/domain/PaymentInfoDetail.html)      | Contains detailed payment information for an order  |
 |BLC_PAYINFO_ADDITIONAL_FIELDS | n/a      | Contains arbitrary payment data  |
 |BLC_PAYMENT_ADDITIONAL_FIELDS | n/a      | Contains arbitrary payment data for the payment response  |
 |BLC_PAYMENT_LOG               | [PaymentLog.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/payment/domain/PaymentLog.html)      | Contains summary information for a payment instance  |
@@ -26,4 +27,6 @@
 |BLC_CUSTOMER | [Customer.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Customer.html)          | Represents a customer in Broadleaf  |
 |BLC_ORDER    | [Order.java](http://javadoc.broadleafcommerce.org/current/framework/org/broadleafcommerce/core/order/domain/Order.html)          | Represents an order in Broadleaf  |
 |BLC_PHONE    | [Phone.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/Phone.html)          | Represents a phone in Broadleaf  |
-|BLC_CURRENCY                | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
+|BLC_CURRENCY | [BroadleafCurrency.java](http://javadoc.broadleafcommerce.org/current/common/org/broadleafcommerce/common/currency/domain/BroadleafCurrency.html)      | Contains currency information, such as code and if it's default  |
+|BLC_CUSTOMER_PAYMENT | [CustomerPayment.java](http://javadoc.broadleafcommerce.org/current/profile/org/broadleafcommerce/profile/core/domain/CustomerPayment.html)  | Contains customer payment information.    |
+
