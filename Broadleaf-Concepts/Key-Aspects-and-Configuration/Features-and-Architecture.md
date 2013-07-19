@@ -2,7 +2,7 @@
 
 > Broadleaf Commerce is a fully open source eCommerce framework that has been designed from the ground up for scalability and customizability.
 
-## <a name="wiki-features" />Features 
+## <a name="wiki-features"></a>Features
 
 ### Catalog
 Broadleaf provides flexible product and category organization. A core feature of the framework is the ability to extend the product catalog to match the specific needs of your business. The administration platform provides a rich UI that can be used to manage categories and products.
@@ -21,7 +21,7 @@ Broadleaf Commerce provides a Content Management System with the following key f
 - UI for managing static pages, structured content, and images and other assets
 - Targeting capability for structured content (e.g. show ad to customer's meeting a defined set of criteria)
 
-## <a name="wiki-frameworks" />Architecture
+## <a name="wiki-frameworks"></a>Architecture
 
 ### Spring Framework
 Spring is the enterprise Java platform at Broadleaf's core and provides numerous features, including dependency injection and transaction control.

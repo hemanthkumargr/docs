@@ -2,7 +2,7 @@
 
 Broadleaf Commerce currently offers integration with the PayPal Express API. See [[Getting Started With Express Checkout | https://cms.paypal.com/us/cgi-bin/?cmd=_render-content&content_ID=developer/e_howto_api_ECGettingStarted]] for more information. This module allows users to complete their shopping experience using their PayPal account.
 
-<img src="images/payment-paypal-diagram.png" class="no_border" alt="PayPal Diagram">
+![PayPal Diagram](payment-paypal-diagram.png)
 
 ## How It Works
 1. When a customer clicks the "Pay with PayPal" button on your checkout page, a request is sent to Broadleaf to initiate the Express Checkout flow.
@@ -22,59 +22,15 @@ Here's a feature list to help you decide which approach to choose:
 (This list does not contain all the capabilities of the module)
 
 ### Feature List
-<table>
-  <tr>
-    <th>Feature</th>
-    <th>Quick Start</th>
-    <th>Advance Configuration</th>
-  </tr>
-  <tr>
-    <td>Customizable Logo and Color Scheme on PayPal </td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Single payments using PayPal or another credit card payment gateway. </td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Partial payments using custom defined payment activities </td>
-    <td></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Capture shipping information in Broadleaf </td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Capture shipping information on PayPal </td>
-    <td></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Saving PayPal details to Broadleaf profile </td>
-    <td></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Simple Authorization and Checkout</td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>  
-  <tr>
-    <td>Refund Transaction</td>
-    <td></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-  <tr>
-    <td>Void Transaction</td>
-    <td></td>
-    <td><img src="images/layout/accept.png" class="no_border" alt="yes"></td>
-  </tr>
-    <td></td>
-    <td>[[PayPal Quick Start]]</td>
-    <td>[[PayPal Advance Configuration]]</td>
-  </tr>  
-</table>
+| Feature                                                                    | Quick Start | Advanced |
+| :------------------------------------------------------------------------- | :---------: | :------: |
+| Customizable Logo and Color Scheme on PayPal                               | ✓           | ✓        |
+| Single payments using PayPal or another credit card payment gateway. </td> | ✓           | ✓        |
+| Partial payments using custom defined payment activities                   |             | ✓        |
+| Capture shipping information in Broadleaf                                  | ✓           | ✓        |
+| Capture shipping information on PayPal                                     |             | ✓        |
+| Saving PayPal details to Broadleaf profile                                 |             | ✓        |
+| Simple Authorization and Checkout                                          | ✓           | ✓        |
+| Refund Transaction                                                         |             | ✓        |
+| Void Transaction                                                           |             | ✓        |
+
