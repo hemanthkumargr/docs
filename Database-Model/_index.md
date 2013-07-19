@@ -2,7 +2,7 @@
 
 ##Broadleaf Commerce 2.2.0
 
-###2.1 to 2.2 Model Changes
+### 2.1 to 2.2 Model Changes
 - In [[Admin | Admin Model]]
     - New Table: BLC_ADMIN_MODULE
     - New Table: BLC_ADMIN_SECTION
@@ -30,14 +30,14 @@
     - New Table: BLC_UserConnection     
 
 
-###2.0 to 2.1 Model Changes
+### 2.0 to 2.1 Model Changes
 - In [[Customer | Customer Detail]]
-    - New Table: BLC_CUSTOMER_PAYMENT
+    - New Table: BLC\_CUSTOMER\_PAYMENT
 - In [[Search | Catalog Search]]
-    - New Table: BLC_SEARCH_FACET_XREF 
-    - New Fields in `BLC_SEARCH_FACET`: REQUIRES_ALL_DEPENDENT 
+    - New Table: BLC\_SEARCH\_FACET\_XREF
+    - New Fields in `BLC\_SEARCH\_FACET`: REQUIRES\_ALL\_DEPENDENT
 
-###Diagrams
+### Diagrams
 - [[Admin | Admin Model]]
     - [[Change Sets | Admin Change Sets]]
     - [[Modules | Admin Modules]]
