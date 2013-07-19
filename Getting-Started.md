@@ -159,10 +159,6 @@ And now we can hit the admin! <a href="https://localhost:8444/admin" target="_bl
 
 > Any issues? Please come post in the [Broadleaf forums](http://forum.broadleafcommerce.org) - We would love to help you out!
 
-> Successfully got your Broadleaf site up and running? Awesome! You can help us by tweeting to your followers!
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ow.ly/cFN4g" data-text="I just created my @broadleaf demo site! Give it a try and sell your own stuff online:">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 ## <a name="wiki-next-steps"></a> Next Steps
 
 So now that you have your own Broadleaf site set up, what's next? We recommend getting familiar with the framework and starting to make your own personalizations. Here are some cool things to try out:
