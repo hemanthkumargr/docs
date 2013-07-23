@@ -10,3 +10,13 @@ Data Driven Enumerations can be used in a couple of different scenarios.
 
 2.  Data Driven Enumerations can be used to create dropdown menus throughout Broadleaf.
 
+The `@AdminPresentationDataDrivenEnumerations` annotation can be used 
+
+```java
+@Column(name = "TAX_CODE")
+    @AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode", order = 1001,
+            group = ProductImpl.Presentation.Group.Name.Financial, fieldType = SupportedFieldType.DATA_DRIVEN_ENUMERATION)
+    @AdminPresentationDataDrivenEnumeration(optionCanEditValues = false, optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
+    protected String taxCode;
+
+
