@@ -16,12 +16,9 @@ To specify the values that will be used in a dropdown menu in the admin console 
 
 ```java
 @Column(name = "TAX_CODE")
-@AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode", order = 1001,
-        group = ProductImpl.Presentation.Group.Name.Financial, fieldType = SupportedFieldType.DATA_DRIVEN_ENUMERATION)
-@AdminPresentationDataDrivenEnumeration(optionCanEditValues = false, optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
+@AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode")
+@AdminPresentationDataDrivenEnumeration(optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
 protected String taxCode;
 ```
-The `@AdminPresentation` annotation has `fieldType = SupportedFieldType.DATA_DRIVEN_ENUMERATION`, which specifies that the property `taxCode` will be assigned a Data Driven Enumeration in the admin console.  The admin console will display a dropdown menu containing a set of Data Driven Enumerations representing various tax codes.
-
-The `@AdminPresentationDataDrivenEnumeration` annotation is used to narrow down the available set of enumerations(tax codes).  The annotation is marked `optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) }` to refine the query that is used to specify which Data Driven Enumerations(tax codes) will be available in the dropdown menu.  The annotation is also marked `optionCanEditValues = false` to indicate that the user of the admin console will not be able to edit the dropdown menu.
+The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the property `taxCode` will be assigned a Data Driven Enumeration in the admin console.  The admin console will display a dropdown menu containing a set of Data Driven Enumerations representing various tax codes.  The annotation is marked `optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) }` to refine the query that is used to specify which Data Driven Enumerations(tax codes) will be available in the dropdown menu.
 
