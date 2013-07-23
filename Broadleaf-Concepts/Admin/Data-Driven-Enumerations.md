@@ -14,11 +14,37 @@ Data Driven Enumerations can be used in a few different scenarios.
   
 To specify the values that will be used in a dropdown menu in the admin console the `@AdminPresentation` annotation is used with the `@AdminPresentationDataDrivenEnumerations` annotation.  Below is an example:
 
+>Note:  `@AdminPresentation` is used to style and place the field.  `@AdminPresentationDataDrivenEnumeration` is used to specify that the field will be assigned a value from a specific subset of Data Driven Enumeration values.  
+
 ```java
 @Column(name = "TAX_CODE")
 @AdminPresentation(friendlyName = "SkuImpl_Sku_TaxCode")
 @AdminPresentationDataDrivenEnumeration(optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) })
 protected String taxCode;
 ```
-The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the property `taxCode` will be assigned a Data Driven Enumeration in the admin console.  The admin console will display a dropdown menu containing a set of Data Driven Enumerations representing various tax codes.  The annotation is marked `optionFilterParams = { @OptionFilterParam(param = "type.key", value = "TAX_CODE", paramType = OptionFilterParamType.STRING) }` to refine the query that is used to specify which Data Driven Enumerations(tax codes) will be available in the dropdown menu.
+
+The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the field `taxCode` will be assigned a value from the set of Data Driven Enumerations which have `type.key = "TAX_CODE"`.  The admin console will display a dropdown menu containing this set of values.
+
++ `optionFilterParams` - Additional parameters to refine the query that is used to specify which values will be visible in the dropdown menu.
++ `param = "type.key"` - The field name in the target entity class that should be used to refine the query.  In this case `type` is from `DataDrivenEnumerationValue` and `key` is from `DataDrivenEnumeration`.
++ `value` - The field value that should match for any items returned from the query.
++ `paramType` - This is the type for the value stored in this OptionFilterParam annotation.
+ 
+Here is a more complex example:
+
+```java
+@Column(name = "NAME")
+@AdminPresentation(friendlyName = "CategoryImpl_Category_Name")
+@AdminPresentationDataDrivenEnumeration(optionListEntity = CategoryImpl.class, optionDisplayFieldName = "name", 
+        optionDisplayFieldName = "name", optionCanEditValues = true)
+protected String name;
+```
+
+
++ `optionListEntity` - 
++ `optionDisplayFieldName = numeration`.
++ `optionDisplayFieldName` -
++ `optionCanEditValues` - 
+
+
 
