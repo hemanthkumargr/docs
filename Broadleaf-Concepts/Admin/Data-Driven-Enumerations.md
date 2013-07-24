@@ -8,9 +8,9 @@ Data Driven Enumerations can be used in a few different scenarios.
 
 1.  Data Driven Enumerations can be used as regular Java enumerations.
 
-2.  Data Driven Enumerations can be used to create dropdown menus in Broadleaf.
+2.  Data Driven Enumerations can be used to create drop-down menus in Broadleaf.
 
-3.  Data Driven Enumerations can used to create dropdown menus in the admin console.
+3.  Data Driven Enumerations can used to create drop-down menus in the admin console.
   
 To specify the values that will be used in a dropdown menu in the admin console the `@AdminPresentation` annotation is used with the `@AdminPresentationDataDrivenEnumerations` annotation.  Below is an example:
 
@@ -23,28 +23,28 @@ To specify the values that will be used in a dropdown menu in the admin console 
 protected String taxCode;
 ```
 
-The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the field `taxCode` will be assigned a value from the set of Data Driven Enumerations which have `type.key = "TAX_CODE"`.  The admin console will display a dropdown menu containing this set of values.
+The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the field `taxCode` will be assigned a value from the set of `DataDrivenEnumerationValueImpl` objects which have `type.key = "TAX_CODE"`.  The admin console will display a drop-down menu containing this set of values.
 
-+ `optionFilterParams` - Additional parameters to refine the query that is used to specify which values will be visible in the dropdown menu.
-+ `param = "type.key"` - The field name in the target entity class that should be used to refine the query.  In this case `type` is from `DataDrivenEnumerationValue` and `key` is from `DataDrivenEnumeration`.
-+ `value` - The field value that should match for any items returned from the query.
-+ `paramType` - This is the type for the value stored in this OptionFilterParam annotation.
++ `optionFilterParams` - Additional parameters to refine the query that is used to specify which values will be visible in the drop-down menu.
++ `param = "type.key"` - The field name in the target entity class that should be used to refine the query.  In this case `type` is from the `DataDrivenEnumerationValueImpl` object and `key` is from `DataDrivenEnumerationImpl` object.
++ `value = "TAX_CODE"` - The field value that should match for any items returned from the query.
++ `paramType = OptionFilterParamType.STRING` - This is the type for the value stored in this OptionFilterParam annotation.
  
 Here is a more complex example:
 
 ```java
 @Column(name = "NAME")
 @AdminPresentation(friendlyName = "CategoryImpl_Category_Name")
-@AdminPresentationDataDrivenEnumeration(optionListEntity = CategoryImpl.class, optionDisplayFieldName = "name", 
+@AdminPresentationDataDrivenEnumeration(optionListEntity = CategoryImpl.class, optionValueFieldName = "name", 
         optionDisplayFieldName = "name", optionCanEditValues = true)
 protected String name;
 ```
+The `@AdminPresentationDataDrivenEnumeration` annotation specifies that the field `name` will be assigned a value from the set of all `CategoryImpl` objects(no `optionFilterParams` were used to refine the query).
 
-
-+ `optionListEntity` - 
-+ `optionDisplayFieldName = numeration`.
-+ `optionDisplayFieldName` -
-+ `optionCanEditValues` - 
++ `optionListEntity` - Specify the target entity that should be queried for the list of options that will be presented to the user in a drop-down list.
++ `optionValueFieldName = "name"` - Specify the field in the target entity that contains the value that will be persisted into this annotated field.
++ `optionDisplayFieldName = "name"` - Specify the field in the target entity that contains the display value that will be shown to the user in the drop-down field.
++ `optionCanEditValues = true` - Whether or not the user can edit (or enter new values) in the drop-down menu.
 
 
 
